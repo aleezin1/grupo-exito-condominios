@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serviços</title>
+  <style>
+    :root {
+      --texto: #1c2b26;
+      --fundo: #fbfaf7;
+      --borda: #d9d6cc;
+      --destaque: #1f6b4f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+      color: var(--texto);
+      background: var(--fundo);
+    }
+
+    header, main, footer {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a { color: var(--destaque); }
+    a:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+
+    h1 { font-size: 2rem; margin: 0 0 .5rem; }
+    h2 { font-size: 1.3rem; margin: 0 0 .5rem; }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .servico {
+      border-top: 3px solid var(--destaque);
+      padding-top: 1rem;
+    }
+
+    .servico img { width: 72px; height: 72px; display: block; margin-bottom: .75rem; }
+
+    .tabela-wrapper { overflow-x: auto; margin-top: 1rem; }
+
+    table { border-collapse: collapse; width: 100%; min-width: 36rem; }
+    caption { text-align: left; font-weight: bold; font-size: 1.2rem; padding-bottom: .75rem; }
+    th, td { border: 1px solid var(--borda); padding: .6rem .75rem; text-align: left; vertical-align: top; }
+    thead th { background: #eef3ef; }
+
+    .chamada { margin-top: 2.5rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="servico-1.html">Gestão financeira</a></li>
+        <li><a href="servico-2.html">Planejamento de investimentos</a></li>
+        <li><a href="servico-3.html">Consultoria tributária</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Nossos serviços</h1>
+    <p>Três formas de organizar o seu dinheiro. Veja o que cada uma entrega e escolha a que resolve o seu problema agora.</p>
+    <section class="servicos" aria-label="Resumo dos serviços">
+
+        <article class="servico">
+        <img src="C:\Users\joaov\OneDrive\Imagens\WhatsApp Image 2026-09-24 at 12.52.03.jpeg" alt="Ícone representando gesgão financeira" style="width: 1000; height: auto;">
+        <h2>Gestão financeira</h2>
+        <p>Acompanhamos suas contas mês a mês: entradas, saídas e dívidas. Você recebe um orçamento pronto e um relatório mensal mostrando para onde o dinheiro está indo.</p>
+        <a href="servico-1.html">Ver gestão financeira</a>
+      </article>
+
+      <article class="servico">
+        <img src="C:\Users\joaov\OneDrive\Imagens\Acer\WhatsApp Image 2026-09-24 at 12.52.03.jpeg" alt="Ícone representando planejamento de investimentos" style="width: 1000; height: auto;">>
+        <h2>Planejamento de investimentos</h2>
+        <p>Montamos uma carteira de investimentos alinhada ao seu perfil de risco e aos seus objetivos, como comprar um imóvel ou construir uma reserva de longo prazo.</p>
+        <a href="servico-2.html">Ver planejamento de investimentos</a>
+      </article>
+
+      <article class="servico">
+        <img src="C:\Users\joaov\OneDrive\Imagens\WhatsApp Image 2026-09-24 at 12.52.04.jpeg" alt="Ícone representando consultoria tributária" style="width: 1000; height: auto;">>
+        <h2>Consultoria tributária</h2>
+        <p>Analisamos seus impostos e sua declaração de Imposto de Renda para reduzir a carga tributária dentro da lei e evitar multas por erros ou atrasos.</p>
+        <a href="servico-3.html">Ver consultoria tributária</a>
+      </article>
+
+    </section>
+
+    <section class="tabela-wrapper" aria-label="Comparação dos serviços">
+      <table>
+        <caption>Comparação dos serviços</caption>
+        <thead>
+          <tr>
+            <th scope="col">Serviço</th>
+            <th scope="col">Para quem</th>
+            <th scope="col">O que você recebe</th>
+            <th scope="col">Duração</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="servico-1.html">Gestão financeira</a></th>
+            <td>Quem gasta mais do que planeja ou tem dívidas</td>
+            <td>Orçamento e relatório mensal</td>
+            <td>Contínuo, mensal</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="servico-2.html">Planejamento de investimentos</a></th>
+            <td>Quem já sobra dinheiro e quer fazê-lo render</td>
+            <td>Carteira personalizada por objetivo</td>
+            <td>3 encontros, com revisão anual</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="servico-3.html">Consultoria tributária</a></th>
+            <td>Autônomos, MEIs e quem tem várias fontes de renda</td>
+            <td>Análise fiscal e declaração revisada</td>
+            <td>Pontual, uma vez por ano</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <p class="chamada">Não sabe qual serviço escolher? <a href="contato.html">Fale com a gente</a>.</p>
+  </main>
+
+  <footer>
+    <p><a href="contato.html">Contato</a></p>
+  </footer>
+
+</body>
+</html>

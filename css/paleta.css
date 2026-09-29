@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Paleta oficial — Grupo Êxito Condomínios (projeto acadêmico)
+   --------------------------------------------------------------------------
+   Arquivo único de identidade visual. Importe antes do CSS da sua página:
+
+     Na raiz (index.html):   <link rel="stylesheet" href="css/paleta.css">
+     Dentro de /pages:       <link rel="stylesheet" href="../css/paleta.css">
+
+   Use sempre as variáveis, nunca o hex direto:
+     color: var(--cor-texto);
+     background: var(--cor-navy-profundo);
+     border: 1px solid var(--cor-borda);
+
+   Precisa de transparência? Use a versão "-rgb":
+     background: rgb(var(--cor-ciano-eletrico-rgb) / 0.15);
+
+   Este arquivo só declara variáveis: importá-lo não muda nada na página
+   até que elas sejam usadas.
+   ========================================================================== */
+
+:root {
+    /* ---- Marca: azul-marinho (cor principal) ---------------------------- */
+    --cor-navy-profundo-rgb: 6 21 45;        /* #06152d  header, rodapé, botões principais */
+    --cor-navy-superficie-rgb: 10 30 59;     /* #0a1e3b  cards sobre fundo escuro */
+    --cor-navy-claro-rgb: 14 56 103;         /* #0e3867  hover e variações */
+
+    /* ---- Marca: ciano / teal (cor de destaque) -------------------------- */
+    --cor-ciano-eletrico-rgb: 0 188 212;     /* #00bcd4  ícones, links ativos, detalhes */
+    --cor-teal-rgb: 0 104 118;               /* #006876  títulos de seção, links em fundo claro */
+    --cor-teal-vibrante-rgb: 24 168 182;     /* #18a8b6  gradientes e ilustrações */
+    --cor-ciano-suave-rgb: 214 247 255;      /* #d6f7ff  fundo de etiquetas e badges */
+
+    /* ---- Neutros ------------------------------------------------------- */
+    --cor-fundo-rgb: 248 250 253;            /* #f8fafd  fundo da página */
+    --cor-superficie-rgb: 255 255 255;       /* #ffffff  cards, formulários */
+    --cor-superficie-variante-rgb: 241 245 249; /* #f1f5f9  blocos secundários, inputs */
+    --cor-borda-rgb: 226 232 240;            /* #e2e8f0  bordas e divisórias */
+
+    /* ---- Texto --------------------------------------------------------- */
+    --cor-texto-rgb: 6 21 45;                /* #06152d  títulos e texto forte */
+    --cor-texto-corpo-rgb: 71 85 105;        /* #475569  parágrafos */
+    --cor-texto-secundario-rgb: 82 96 113;   /* #526071  legendas, textos de apoio */
+    --cor-texto-suave-rgb: 148 163 184;      /* #94a3b8  placeholders, metadados */
+    --cor-texto-invertido-rgb: 255 255 255;  /* #ffffff  texto sobre fundo navy */
+
+    /* ---- Status -------------------------------------------------------- */
+    --cor-sucesso-rgb: 16 185 129;           /* #10b981  confirmação, WhatsApp */
+    --cor-alerta-rgb: 245 158 11;            /* #f59e0b  avisos */
+    --cor-erro-rgb: 239 68 68;               /* #ef4444  erros de formulário */
+
+    /* ---- Cores prontas (use estas no dia a dia) ------------------------- */
+    --cor-navy-profundo: rgb(var(--cor-navy-profundo-rgb));
+    --cor-navy-superficie: rgb(var(--cor-navy-superficie-rgb));
+    --cor-navy-claro: rgb(var(--cor-navy-claro-rgb));
+    --cor-ciano-eletrico: rgb(var(--cor-ciano-eletrico-rgb));
+    --cor-teal: rgb(var(--cor-teal-rgb));
+    --cor-teal-vibrante: rgb(var(--cor-teal-vibrante-rgb));
+    --cor-ciano-suave: rgb(var(--cor-ciano-suave-rgb));
+    --cor-fundo: rgb(var(--cor-fundo-rgb));
+    --cor-superficie: rgb(var(--cor-superficie-rgb));
+    --cor-superficie-variante: rgb(var(--cor-superficie-variante-rgb));
+    --cor-borda: rgb(var(--cor-borda-rgb));
+    --cor-texto: rgb(var(--cor-texto-rgb));
+    --cor-texto-corpo: rgb(var(--cor-texto-corpo-rgb));
+    --cor-texto-secundario: rgb(var(--cor-texto-secundario-rgb));
+    --cor-texto-suave: rgb(var(--cor-texto-suave-rgb));
+    --cor-texto-invertido: rgb(var(--cor-texto-invertido-rgb));
+    --cor-sucesso: rgb(var(--cor-sucesso-rgb));
+    --cor-alerta: rgb(var(--cor-alerta-rgb));
+    --cor-erro: rgb(var(--cor-erro-rgb));
+
+    /* ---- Gradiente da marca (usado no destaque do título da home) ------- */
+    --gradiente-marca: linear-gradient(90deg, var(--cor-navy-profundo), var(--cor-teal), var(--cor-ciano-eletrico));
+
+    /* ---- Tipografia ---------------------------------------------------- */
+    /* Google Fonts: Plus Jakarta Sans (300–800) e Space Grotesk (500–700) */
+    --fonte-texto: "Plus Jakarta Sans", system-ui, sans-serif;  /* títulos e parágrafos */
+    --fonte-tecnica: "Space Grotesk", system-ui, sans-serif;    /* etiquetas, números, badges */
+
+    /* ---- Formas e sombras ---------------------------------------------- */
+    --raio-pequeno: 0.375rem;   /* 6px   inputs */
+    --raio-medio: 0.75rem;      /* 12px  botões */
+    --raio-grande: 1rem;        /* 16px  cards pequenos */
+    --raio-card: 1.5rem;        /* 24px  cards grandes */
+    --raio-pilula: 9999px;      /* etiquetas arredondadas */
+
+    --sombra-card: 0 16px 36px rgb(var(--cor-navy-profundo-rgb) / 0.08);
+    --sombra-botao: 0 10px 24px rgb(var(--cor-navy-profundo-rgb) / 0.18);
+}

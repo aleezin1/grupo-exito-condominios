@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--importa fontes do "Google fonts"-->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
+    <!--importa fontes do "Google fonts"-->
+    <title>Gestão Operacional</title>
+
+    <style>
+        body {
+            background-color: white;
+            font-family: "Manrope", sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #1c587f;
+            font-size: 50px;
+        }
+
+        h2 {
+            color: #1c587f;
+        }
+
+        article {
+            margin: auto;
+            max-width: 767px;
+            padding: 20px;
+
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        img {
+            border-radius: 16px;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        table {
+            border: 0.1px solid #cccccc;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #cccccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #1c587f;
+            color: white;
+        }
+
+        .link1 {
+            display: inline-block;
+            background-color: rgb(118, 165, 42);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in;
+        }
+
+        .link2 {
+            display: inline-block;
+            background-color: rgb(248, 3, 3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in;
+        }
+
+        .link1:hover {
+            background-color: rgb(99, 0, 0);
+        }
+        
+        .link2:hover {
+            background-color: rgb(28, 99, 0);
+        }
+
+        .conteiner-flex {
+            display: flex;
+            gap: 10px;
+        }
+
+        .conteiner-link-flex {
+            justify-content: center;
+            display: flex;
+            gap: 50px;
+        }
+
+        strong {
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <article>
+            <h1> Gestão Operacional </h1>
+            <strong class="intro"> Cuidamos da equipe, manutenção e dos fornecedores do dia a dia do condomínio.
+            </strong>
+            <img src="img/img1.png"
+                alt="Gestor orientando a equipe">
+
+            <section> <!--Lista não ordenada "Benefícios"-->
+                <strong> -- BENEFÍCIOS DA GESTÃO OPERACIONAL </strong>
+                <h2> A rotina do condomínio funcionando com métodos </h2>
+                <p>Uma operação eficiente depende de acompanhamento, planejamento e organização.
+                    Nossa gestão operacional acompanha as necessidades do condomínio e transforma demandas do dia a dia
+                    em processos mais previsíveis. O trabalho envolve:</p>
+                <ul>
+                    <li> Gestão de porteiros e zeladores </li>
+                    <li> Agendamento de manutenções preventivas </li>
+                    <li> Contratação e fiscalização de fornecedores </li>
+                    <li> Plantão para emergências 24h </li>
+                </ul>
+            </section>
+
+            <section> <!--Lista ordenada "Como funciona"-->
+                <strong> -- COMO FUNCIONA </strong>
+                <h2> Operação organizada começa pelo diagnóstico </h2>
+                <p> O acompanhamento operacional acontece de maneira estruturada, permitindo identificar necessidades,
+                    planejar ações e acompanhar sua execução. </p>
+                <ol>
+                    <li> Vistoria inicial das instalações </li>
+                    <li> Plano de manutenção preventiva </li>
+                    <li> Gestão da equipe operacional </li>
+                    <li> Acompanhamento contínuo </li>
+                </ol>
+            </section>
+
+            <section> <!-- O que fazemos -->
+                <strong> -- O QUE FAZEMOS </strong>
+                <h2> Gestão operacional na prática </h2>
+                <p>As principais frentes de atuação para manter as rotinas do condomínio organizadas e acompanhadas.</p>
+            </section>
+
+            <div class="conteiner-flex">
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Gestão de porteiros e zeladores </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Acompanhamento das equipes responsáveis pela rotina operacional do condomínio.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Manutenção preventiva </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Agendamento e acompanhamento das manutenções preventivas das instalações e
+                                    equipamentos. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <div class="conteiner-flex">
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Fornecedores </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Contratação, acompanhamento e fiscalização dos prestadores de serviços. </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Emergências </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Plantão para situações emergenciais que demandam atenção ao longo da operação.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <section> <!--Tabela "O que está incluso"-->
+                <strong> -- ESCOPO </strong>
+                <h2>O que está incluso</h2>
+                <p>Uma visão objetiva das principais frentes contempladas na gestão operacional.</p>
+                <ul>
+                    <li> Seleção e gestão de porteiros e zeladores </li>
+                    <li> Plano preventivo de equipamentos </li>
+                    <li> Acompanhamento das áreas comuns </li>
+                    <li> Contratação de prestadores </li>
+                    <li> Fiscalização de fornecedores </li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> FRENTE </th>
+                            <th> DESCRIÇÃO </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Equipe </td>
+                            <td> Seleção e gestão de porteiros e zeladores</td>
+                        </tr>
+                        <tr>
+                            <td> Manutenção </td>
+                            <td> Plano preventivo de equipamentos e áreas comuns</td>
+                        </tr>
+                        <tr>
+                            <td> Fornecedores </td>
+                            <td> Contratação e fiscalização de prestadores</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!--Links internos "serviços" e "contato"-->
+            <div class="conteiner-link-flex">
+                <section>
+                        <a class="link1" href="contato.html"> Solicitar orçamento </a>
+                </section>
+                <section>
+                        <a class="link2" href="servicos.html"> Voltar para serviços </a>
+                </section>
+            </div>
+
+        </article>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+/* ---------- Variáveis: mude as cores aqui e a página inteira muda ---------- */
+:root {
+  --cor-principal: #0f4c4a;   /* verde-petróleo: títulos, links, botão */
+  --cor-destaque: #b5651d;    /* cobre: hover dos links */
+  --cor-texto: #1f2a2a;
+  --cor-fundo: #f3f5f4;
+  --cor-borda: #c9d3d1;
+}
+
+a{ text-decoration: none;}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box; /* padding não aumenta a largura dos elementos */
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+main {
+  max-width: 900px;     /* limita a largura em telas grandes */
+  margin: 0 auto;       /* centraliza */
+  padding: 2rem 1rem;
+}
+
+h1, h2 {
+  color: var(--cor-principal);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--cor-principal);
+}
+
+a:hover {
+  color: var(--cor-destaque);
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- 1. Fale conosco ---------- */
+.fale-conosco h1 {
+  text-transform: uppercase; /* o HTML fica normal, o CSS deixa em maiúsculas */
+  letter-spacing: 0.05em;
+}
+
+.fale-conosco p {
+  max-width: 65ch;  /* linhas de texto confortáveis de ler */
+}
+
+/* ---------- 2. Canais de contato ---------- */
+.canais {
+  display: flex;      /* coloca os blocos lado a lado */
+  flex-wrap: wrap;    /* no celular, os blocos descem para a linha de baixo */
+  gap: 2rem;          /* espaço entre eles */
+  margin-bottom: 1rem;
+}
+
+.canal {
+  flex: 1 1 220px;    /* pode crescer, pode encolher, tamanho ideal 220px */
+  border-top: 3px solid var(--cor-principal);
+  padding-top: 0.75rem;
+}
+
+.canal h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.canal p {
+  margin: 0 0 0.5rem;
+}
+
+.horario {
+  margin: 0 0 2.5rem;
+  font-style: italic;
+}
+
+/* ---------- 3. Formulário ---------- */
+.formulario {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.formulario h2 {
+  margin-top: 0;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;       /* label em cima do campo */
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font: inherit;        /* usa a mesma fonte do resto da página */
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 3px solid var(--cor-destaque); /* mostra onde o teclado está */
+  outline-offset: 1px;
+}
+
+button {
+  padding: 0.7rem 2rem;
+  font: inherit;
+  font-weight: bold;
+  color: #fff;
+  background: var(--cor-principal);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b3937;
+}
+
+/* ---------- 4. Redes sociais ---------- */
+.redes h2 {
+  font-size: 1.15rem;
+}
+
+.redes ul {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;     /* tira as bolinhas da lista */
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notícias</title>
+  <style>
+    .noticias { background:#e8effd; font-family:Arial, Helvetica, sans-serif; color:#333; padding:60px 20px 80px; min-height:100vh; }
+    .noticias * { box-sizing:border-box; }
+    .noticias .container { max-width:1250px; margin:0 auto; }
+    .noticias input[name="v"] { position:absolute; opacity:0; pointer-events:none; }
+    .noticias h1 { font-size:56px; color:#7a8296; margin:0 0 12px; }
+    .noticias .intro { font-size:20px; color:#7a8296; margin:0 0 40px; }
+    .noticias .capa { background:linear-gradient(135deg,#b9c8ee,#d6e0f7); overflow:hidden; }
+    .noticias .capa img { display:block; width:100%; height:100%; object-fit:cover; }
+    .noticias .categoria { display:inline-block; background:#000; color:#fff; font-size:14px; padding:6px 12px; border-radius:6px; }
+    .noticias .data { font-size:14px; color:#7a8296; margin-left:10px; }
+    .noticias label.leia-mais, .noticias label.voltar { cursor:pointer; }
+    .noticias .leia-mais { display:inline-block; margin-top:auto; color:#000; font-weight:bold; padding-top:14px; }
+    .noticias .leia-mais::before { content:"+ "; }
+    .noticias .leia-mais:hover { text-decoration:underline; }
+    .noticias .destaque { display:grid; grid-template-columns:1.2fr 1fr; background:#fff; margin-bottom:30px; }
+    .noticias .destaque .capa { min-height:340px; }
+    .noticias .destaque .texto { padding:36px; display:flex; flex-direction:column; }
+    .noticias .destaque h2 { font-size:34px; margin:18px 0 14px; color:#222; }
+    .noticias .destaque p { font-size:18px; line-height:1.6; margin:0; }
+    .noticias .lista { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; }
+    .noticias .card { background:#fff; display:flex; flex-direction:column; }
+    .noticias .card .capa { height:180px; }
+    .noticias .card .texto { padding:22px; display:flex; flex-direction:column; flex:1; }
+    .noticias .card h3 { font-size:20px; margin:16px 0 10px; color:#222; }
+    .noticias .card p { font-size:16px; line-height:1.5; margin:0; }
+    .noticias .rodape { margin-top:40px; text-align:center; }
+    .noticias .rodape span { color:#7a8296; font-size:17px; border-bottom:2px solid #7a8296; padding-bottom:2px; }
+    /* Matéria aberta */
+    .noticias .materia-view { display:none; max-width:900px; margin:0 auto; }
+    .noticias .voltar { display:inline-block; margin-bottom:24px; color:#7a8296; font-size:17px; border-bottom:2px solid #7a8296; padding-bottom:2px; }
+    .noticias .voltar:hover { color:#000; border-color:#000; }
+    .noticias .materia { background:#fff; }
+    .noticias .materia .capa { height:340px; }
+    .noticias .materia .texto { padding:36px; }
+    .noticias .materia h1 { font-size:38px; color:#222; margin:18px 0 22px; line-height:1.2; }
+    .noticias .materia p { font-size:18px; line-height:1.7; margin:0 0 18px; }
+    /* Troca de tela (sem JavaScript) */
+    .noticias input[name="v"]:not(#v0):checked ~ .lista-view { display:none; }
+    .noticias #v1:checked ~ .m1 { display:block; }
+    .noticias #v2:checked ~ .m2 { display:block; }
+    .noticias #v3:checked ~ .m3 { display:block; }
+    .noticias #v4:checked ~ .m4 { display:block; }
+    .noticias #v5:checked ~ .m5 { display:block; }
+    .noticias #v6:checked ~ .m6 { display:block; }
+
+    @media (max-width:800px) {
+      .noticias h1 { font-size:40px; }
+      .noticias .destaque { grid-template-columns:1fr; }
+      .noticias .destaque .capa { min-height:220px; }
+      .noticias .destaque h2 { font-size:26px; }
+      .noticias .materia h1 { font-size:28px; }
+      .noticias .materia .capa { height:220px; }
+      .noticias .materia .texto { padding:24px; }
+    }
+  </style>
+</head>
+<body>
+<main class="noticias">
+  <div class="container">
+<input type="radio" name="v" id="v0" checked>
+<input type="radio" name="v" id="v1">
+<input type="radio" name="v" id="v2">
+<input type="radio" name="v" id="v3">
+<input type="radio" name="v" id="v4">
+<input type="radio" name="v" id="v5">
+<input type="radio" name="v" id="v6">
+
+    <div class="lista-view">
+      <h1>Notícias</h1>
+      <p class="intro">Fique por dentro das novidades do mundo condominial.</p>
+      <article class="destaque">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzlkYjRlYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NkZGFmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnIGZpbGw9IiMxYzIzNDAiPjxyZWN0IHg9IjkwIiB5PSIxNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMjQwIi8+PHJlY3QgeD0iMjUwIiB5PSIyMTAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTgwIi8+PC9nPgo8ZyBmaWxsPSIjY2RkYWY3Ij48cmVjdCB4PSIxMTAiIHk9IjE3NSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgeD0iMTUwIiB5PSIxNzUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPjxyZWN0IHg9IjE5MCIgeT0iMTc1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz4KPHJlY3QgeD0iMTEwIiB5PSIyMjUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPjxyZWN0IHg9IjE1MCIgeT0iMjI1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz48cmVjdCB4PSIxOTAiIHk9IjIyNSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+CjxyZWN0IHg9IjExMCIgeT0iMjc1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz48cmVjdCB4PSIxNTAiIHk9IjI3NSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgeD0iMTkwIiB5PSIyNzUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPgo8cmVjdCB4PSIyNzAiIHk9IjIzNSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIi8+PHJlY3QgeD0iMzEwIiB5PSIyMzUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIvPjxyZWN0IHg9IjI3MCIgeT0iMjg1IiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiLz48cmVjdCB4PSIzMTAiIHk9IjI4NSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIi8+PC9nPgo8cmVjdCB4PSI2MCIgeT0iMzkwIiB3aWR0aD0iNjgwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzFjMjM0MCIvPgo8ZyB0cmFuc2Zvcm09InJvdGF0ZSg2IDU0MCAyMjApIj48cmVjdCB4PSI0MTAiIHk9IjYwIiB3aWR0aD0iMjcwIiBoZWlnaHQ9IjMzMCIgcng9IjEyIiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjQ0MCIgeT0iMTAwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE2IiByeD0iOCIgZmlsbD0iIzFjMjM0MCIvPgo8cmVjdCB4PSI0NDAiIHk9IjE0MCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjE2OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjE5NiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjIyNCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iMzI1IiByPSIzOCIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik01ODIgMzI1IGwxNCAxNCBsMjYgLTI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iOSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjwvc3ZnPg==" alt="Ilustração sobre nova legislação"></div>
+        <div class="texto">
+          <div><span class="categoria">Legislação</span><span class="data">10/09/2026</span></div>
+          <h2>Nova lei do condomínio entra em vigor em 2026</h2>
+          <p>Entenda o que muda para síndicos e moradores e o que precisa ser ajustado até o fim do ano. Confira os principais pontos da nova lei e como se preparar sem sustos na próxima assembleia.</p>
+          <label class="leia-mais" for="v1">Leia mais</label>
+        </div>
+      </article>
+      <div class="lista">
+        <article class="card">
+          <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5YmRlZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Q2ZTBmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxyZWN0IHg9IjEwMCIgeT0iODAiIHdpZHRoPSI2MDAiIGhlaWdodD0iMjkwIiByeD0iMTYiIGZpbGw9IiNmZmYiLz4KPGcgZmlsbD0iI2I4YzZlYSI+PHJlY3QgeD0iMTUwIiB5PSIyNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI3MCIvPjxyZWN0IHg9IjI0MCIgeT0iMjM1IiB3aWR0aD0iNjAiIGhlaWdodD0iMTA1Ii8+PHJlY3QgeD0iMzMwIiB5PSIyMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxNDAiLz48L2c+CjxyZWN0IHg9IjQyMCIgeT0iMTUwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTkwIiBmaWxsPSIjMWMyMzQwIi8+PHJlY3QgeD0iNTEwIiB5PSIxMTUiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMjUiIGZpbGw9IiMwMDAiLz4KPHBhdGggZD0iTTE1MCAyNTAgTDI3MCAyMTAgTDM2MCAxNzUgTDQ1MCAxMzAgTDU2MCAxMDAiIHN0cm9rZT0iIzViN2JkNiIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGc+PGVsbGlwc2UgY3g9IjY0MCIgY3k9IjM2MCIgcng9IjcwIiByeT0iMjAiIGZpbGw9IiMxYzIzNDAiLz48cmVjdCB4PSI1NzAiIHk9IjMzMCIgd2lkdGg9IjE0MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzAwMCIvPjxlbGxpcHNlIGN4PSI2NDAiIGN5PSIzMzAiIHJ4PSI3MCIgcnk9IjIwIiBmaWxsPSIjM2E0NDcwIi8+CjxlbGxpcHNlIGN4PSI2NDAiIGN5PSIzMDAiIHJ4PSI3MCIgcnk9IjIwIiBmaWxsPSIjMDAwIi8+PGVsbGlwc2UgY3g9IjY0MCIgY3k9IjI5MCIgcng9IjcwIiByeT0iMjAiIGZpbGw9IiM1YjdiZDYiLz48dGV4dCB4PSI2NDAiIHk9IjI5OCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+UiQ8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Ilustração sobre inadimplência no condomínio"></div>
+          <div class="texto">
+            <div><span class="categoria">Financeiro</span><span class="data">02/09/2026</span></div>
+            <h3>5 dicas para reduzir a inadimplência no seu condomínio</h3>
+            <p>Veja práticas simples que ajudam a manter o caixa em dia.</p>
+            <label class="leia-mais" for="v2">Leia mais</label>
+          </div>
+        </article>
+        <article class="card">
+          <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhmYThlNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M1ZDNmNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxwYXRoIGQ9Ik00MDAgNjAgTDU2MCAxMTUgVjIyNSBDNTYwIDMxMCA0OTAgMzcwIDQwMCA0MDAgQzMxMCAzNzAgMjQwIDMxMCAyNDAgMjI1IFYxMTUgWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNDAwIDkwIEw1MzAgMTMzIFYyMjUgQzUzMCAyOTIgNDc1IDM0MiA0MDAgMzY4IEMzMjUgMzQyIDI3MCAyOTIgMjcwIDIyNSBWMTMzIFoiIGZpbGw9IiMxYzIzNDAiLz4KPHBhdGggZD0iTTM0MCAyMzAgbDQyIDQyIGw4MiAtODgiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0MCAxNTApIj48cmVjdCB4PSItNjAiIHk9Ii0yNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI1MCIgcng9IjEwIiBmaWxsPSIjMDAwIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIwIiByPSIxNiIgZmlsbD0iIzViN2JkNiIvPjxyZWN0IHg9Ii0xMCIgeT0iMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9Ii0zNSIgeT0iNjAiIHdpZHRoPSI3MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMwMDAiLz48L2c+CjxnIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii44Ij48cGF0aCBkPSJNNjkwIDIwMCBxMjAgMjAgMCA0MCIvPjxwYXRoIGQ9Ik03MDUgMTkwIHEzNCAzMCAwIDYwIi8+PC9nPjwvc3ZnPg==" alt="Ilustração sobre segurança em condomínios"></div>
+          <div class="texto">
+            <div><span class="categoria">Segurança</span><span class="data">28/08/2026</span></div>
+            <h3>Portaria remota: vale a pena para o seu prédio?</h3>
+            <p>Compare custos e benefícios antes de levar a proposta para votação.</p>
+            <label class="leia-mais" for="v3">Leia mais</label>
+          </div>
+        </article>
+        <article class="card">
+          <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2EzYjhlYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2QzZGVmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCAyMjUpIj48ZyBmaWxsPSIjMWMyMzQwIj4KPHJlY3QgeD0iLTI1IiB5PSItMTUwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIHJ4PSI4Ii8+PHJlY3QgeD0iLTI1IiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjYwIiByeD0iOCIvPjxyZWN0IHg9Ii0xNTAiIHk9Ii0yNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjUwIiByeD0iOCIvPjxyZWN0IHg9IjkwIiB5PSItMjUiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgcng9IjgiLz4KPGcgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cmVjdCB4PSItMjUiIHk9Ii0xNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI2MCIgcng9IjgiLz48cmVjdCB4PSItMjUiIHk9IjkwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIHJ4PSI4Ii8+PHJlY3QgeD0iLTE1MCIgeT0iLTI1IiB3aWR0aD0iNjAiIGhlaWdodD0iNTAiIHJ4PSI4Ii8+PHJlY3QgeD0iOTAiIHk9Ii0yNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjUwIiByeD0iOCIvPjwvZz4KPGNpcmNsZSByPSIxMTAiLz48L2c+PGNpcmNsZSByPSI0NSIgZmlsbD0iI2NmZGJmNyIvPjwvZz4KPGcgdHJhbnNmb3JtPSJyb3RhdGUoLTQwIDU4MCAyNDApIj48cmVjdCB4PSI1NjAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI2MCIgcng9IjE0IiBmaWxsPSIjMDAwIi8+CjxwYXRoIGQ9Ik01MzUgNjAgYTU1IDU1IDAgMSAxIDkwIDAgdjUwIGgtMzAgdi0zMCBoLTMwIHYzMCBoLTMwIHoiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSI1NzQiIHk9IjcwIiB3aWR0aD0iMTIiIGhlaWdodD0iNDAiIGZpbGw9IiNjZmRiZjciLz48L2c+PC9zdmc+" alt="Ilustração sobre manutenção predial"></div>
+          <div class="texto">
+            <div><span class="categoria">Manutenção</span><span class="data">20/08/2026</span></div>
+            <h3>Calendário de manutenção preventiva: o que não pode faltar</h3>
+            <p>Elevadores, bombas e extintores: saiba os prazos para cada item.</p>
+            <label class="leia-mais" for="v4">Leia mais</label>
+          </div>
+        </article>
+        <article class="card">
+          <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzk4YjBlYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NiZDhmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjIzMCIgcj0iNDIiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTcwIDM5MCBhODAgOTAgMCAwIDEgMTYwIDAgeiIgZmlsbD0iIzAwMCIvPjwvZz4KPGc+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMjE1IiByPSI0OCIgZmlsbD0iIzFjMjM0MCIvPjxwYXRoIGQ9Ik0zMTAgMzkwIGE5MCAxMDAgMCAwIDEgMTgwIDAgeiIgZmlsbD0iIzFjMjM0MCIvPjwvZz4KPGc+PGNpcmNsZSBjeD0iNTUwIiBjeT0iMjMwIiByPSI0MiIgZmlsbD0iIzViN2JkNiIvPjxwYXRoIGQ9Ik00NzAgMzkwIGE4MCA5MCAwIDAgMSAxNjAgMCB6IiBmaWxsPSIjNWI3YmQ2Ii8+PC9nPgo8cmVjdCB4PSIxMjAiIHk9IjcwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjgwIiByeD0iMTgiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMjAwIDE1MCBsLTEwIDMwIGw0MCAtMzB6IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjE1MCIgeT0iOTgiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjYjhjNmVhIi8+PHJlY3QgeD0iMTUwIiB5PSIxMTgiIHdpZHRoPSI3MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz4KPHJlY3QgeD0iNTAwIiB5PSI2MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgcng9IjE4IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTU5MCAxNDAgbDE0IDMwIGwyMCAtMzB6IiBmaWxsPSIjZmZmIi8+CjxwYXRoIGQ9Ik01NTAgMTAwIGMtMTIgLTIwIC0zNCAtNiAtMjIgMTIgbDIyIDIwIGwyMiAtMjAgYzEyIC0xOCAtMTAgLTMyIC0yMiAtMTJ6IiBmaWxsPSIjMDAwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MCAtNikiLz4KPHJlY3QgeD0iNjAiIHk9IjM5MCIgd2lkdGg9IjY4MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMxYzIzNDAiLz48L3N2Zz4=" alt="Ilustração sobre convivência entre moradores"></div>
+          <div class="texto">
+            <div><span class="categoria">Convivência</span><span class="data">12/08/2026</span></div>
+            <h3>Como resolver conflitos de barulho entre vizinhos</h3>
+            <p>Dicas de diálogo e regras do regimento interno para manter a paz.</p>
+            <label class="leia-mais" for="v5">Leia mais</label>
+          </div>
+        </article>
+        <article class="card">
+          <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E2YmZlOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2QzZTJmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxwYXRoIGQ9Ik00MDAgNjAgQzU2MCAxMjAgNjAwIDI4MCA0MDAgMzgwIEMyMDAgMjgwIDI0MCAxMjAgNDAwIDYwIFoiIGZpbGw9IiMwMDAiLz4KPHBhdGggZD0iTTQwMCAxMDAgVjM4MCIgc3Ryb2tlPSIjY2ZkYmY3IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8ZyBzdHJva2U9IiNjZmRiZjciIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNNDAwIDE4MCBMNDYwIDE1MCIvPjxwYXRoIGQ9Ik00MDAgMjMwIEw0NzAgMTk1Ii8+PHBhdGggZD0iTTQwMCAyODAgTDQ2MCAyNTAiLz48cGF0aCBkPSJNNDAwIDIwMCBMMzQwIDE3MCIvPjxwYXRoIGQ9Ik00MDAgMjUwIEwzMzUgMjE1Ii8+PHBhdGggZD0iTTQwMCAzMDAgTDM0NSAyNzAiLz48L2c+CjxwYXRoIGQ9Ik02NDAgMTIwIEM2OTAgMTkwIDcxMCAyMjAgNzEwIDI1MCBhNzAgNzAgMCAwIDEgLTE0MCAwIGMwIC0zMCAyMCAtNjAgNzAgLTEzMHoiIGZpbGw9IiM1YjdiZDYiLz4KPHBhdGggZD0iTTYxMCAyNTAgYTMwIDMwIDAgMCAwIDMwIDMwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuOCIvPgo8ZyBmaWxsPSIjMWMyMzQwIj48cmVjdCB4PSIxMjAiIHk9IjMzMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjYwIiByeD0iNyIvPjxjaXJjbGUgY3g9IjEyNyIgY3k9IjMyMCIgcj0iMzQiLz48cmVjdCB4PSIyMDAiIHk9IjM1MCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQwIiByeD0iNiIvPjxjaXJjbGUgY3g9IjIwNiIgY3k9IjM0MiIgcj0iMjQiLz48L2c+PC9zdmc+" alt="Ilustração sobre sustentabilidade"></div>
+          <div class="texto">
+            <div><span class="categoria">Sustentabilidade</span><span class="data">05/08/2026</span></div>
+            <h3>Economia de água e energia nas áreas comuns</h3>
+            <p>Medidas de baixo custo que reduzem a conta no fim do mês.</p>
+            <label class="leia-mais" for="v6">Leia mais</label>
+          </div>
+        </article>
+      </div>
+      <div class="rodape"><span>Ver notícias mais antigas</span></div>
+    </div>
+
+    <div class="materia-view m1">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzlkYjRlYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NkZGFmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnIGZpbGw9IiMxYzIzNDAiPjxyZWN0IHg9IjkwIiB5PSIxNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMjQwIi8+PHJlY3QgeD0iMjUwIiB5PSIyMTAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTgwIi8+PC9nPgo8ZyBmaWxsPSIjY2RkYWY3Ij48cmVjdCB4PSIxMTAiIHk9IjE3NSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgeD0iMTUwIiB5PSIxNzUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPjxyZWN0IHg9IjE5MCIgeT0iMTc1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz4KPHJlY3QgeD0iMTEwIiB5PSIyMjUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPjxyZWN0IHg9IjE1MCIgeT0iMjI1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz48cmVjdCB4PSIxOTAiIHk9IjIyNSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+CjxyZWN0IHg9IjExMCIgeT0iMjc1IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiLz48cmVjdCB4PSIxNTAiIHk9IjI3NSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgeD0iMTkwIiB5PSIyNzUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPgo8cmVjdCB4PSIyNzAiIHk9IjIzNSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIi8+PHJlY3QgeD0iMzEwIiB5PSIyMzUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIvPjxyZWN0IHg9IjI3MCIgeT0iMjg1IiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiLz48cmVjdCB4PSIzMTAiIHk9IjI4NSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIi8+PC9nPgo8cmVjdCB4PSI2MCIgeT0iMzkwIiB3aWR0aD0iNjgwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzFjMjM0MCIvPgo8ZyB0cmFuc2Zvcm09InJvdGF0ZSg2IDU0MCAyMjApIj48cmVjdCB4PSI0MTAiIHk9IjYwIiB3aWR0aD0iMjcwIiBoZWlnaHQ9IjMzMCIgcng9IjEyIiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjQ0MCIgeT0iMTAwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE2IiByeD0iOCIgZmlsbD0iIzFjMjM0MCIvPgo8cmVjdCB4PSI0NDAiIHk9IjE0MCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjE2OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjE5NiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz48cmVjdCB4PSI0NDAiIHk9IjIyNCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iMzI1IiByPSIzOCIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik01ODIgMzI1IGwxNCAxNCBsMjYgLTI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iOSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9nPjwvc3ZnPg==" alt="Ilustração sobre nova legislação"></div>
+        <div class="texto">
+          <div><span class="categoria">Legislação</span><span class="data">10/09/2026</span></div>
+          <h1>Nova lei do condomínio entra em vigor em 2026</h1>
+          <p>Entenda o que muda para síndicos e moradores e o que precisa ser ajustado até o fim do ano. As novas regras trazem mudanças na gestão, nas assembleias e na prestação de contas.</p>
+          <p>O primeiro passo é ler o texto com calma e comparar com a convenção e o regimento interno do prédio. Onde houver diferença, será preciso votar a atualização em assembleia.</p>
+          <p>Também vale reunir o conselho e a administradora para definir prazos e responsáveis. Assim o condomínio chega ao fim do ano em dia e sem surpresas.</p>
+        </div>
+      </article>
+    </div>
+    <div class="materia-view m2">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5YmRlZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Q2ZTBmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxyZWN0IHg9IjEwMCIgeT0iODAiIHdpZHRoPSI2MDAiIGhlaWdodD0iMjkwIiByeD0iMTYiIGZpbGw9IiNmZmYiLz4KPGcgZmlsbD0iI2I4YzZlYSI+PHJlY3QgeD0iMTUwIiB5PSIyNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI3MCIvPjxyZWN0IHg9IjI0MCIgeT0iMjM1IiB3aWR0aD0iNjAiIGhlaWdodD0iMTA1Ii8+PHJlY3QgeD0iMzMwIiB5PSIyMDAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxNDAiLz48L2c+CjxyZWN0IHg9IjQyMCIgeT0iMTUwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTkwIiBmaWxsPSIjMWMyMzQwIi8+PHJlY3QgeD0iNTEwIiB5PSIxMTUiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMjUiIGZpbGw9IiMwMDAiLz4KPHBhdGggZD0iTTE1MCAyNTAgTDI3MCAyMTAgTDM2MCAxNzUgTDQ1MCAxMzAgTDU2MCAxMDAiIHN0cm9rZT0iIzViN2JkNiIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGc+PGVsbGlwc2UgY3g9IjY0MCIgY3k9IjM2MCIgcng9IjcwIiByeT0iMjAiIGZpbGw9IiMxYzIzNDAiLz48cmVjdCB4PSI1NzAiIHk9IjMzMCIgd2lkdGg9IjE0MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzAwMCIvPjxlbGxpcHNlIGN4PSI2NDAiIGN5PSIzMzAiIHJ4PSI3MCIgcnk9IjIwIiBmaWxsPSIjM2E0NDcwIi8+CjxlbGxpcHNlIGN4PSI2NDAiIGN5PSIzMDAiIHJ4PSI3MCIgcnk9IjIwIiBmaWxsPSIjMDAwIi8+PGVsbGlwc2UgY3g9IjY0MCIgY3k9IjI5MCIgcng9IjcwIiByeT0iMjAiIGZpbGw9IiM1YjdiZDYiLz48dGV4dCB4PSI2NDAiIHk9IjI5OCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+UiQ8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Ilustração sobre inadimplência no condomínio"></div>
+        <div class="texto">
+          <div><span class="categoria">Financeiro</span><span class="data">02/09/2026</span></div>
+          <h1>5 dicas para reduzir a inadimplência no seu condomínio</h1>
+          <p>Veja práticas simples que ajudam a manter o caixa em dia. A inadimplência afeta todos os moradores e pode atrasar manutenções importantes.</p>
+          <p>Envie o boleto com antecedência, ofereça mais de uma forma de pagamento, faça contato logo após o primeiro atraso, negocie acordos possíveis e mantenha as contas sempre transparentes.</p>
+          <p>Quando o morador entende para onde vai o dinheiro, a chance de pagar em dia aumenta.</p>
+        </div>
+      </article>
+    </div>
+    <div class="materia-view m3">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhmYThlNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M1ZDNmNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxwYXRoIGQ9Ik00MDAgNjAgTDU2MCAxMTUgVjIyNSBDNTYwIDMxMCA0OTAgMzcwIDQwMCA0MDAgQzMxMCAzNzAgMjQwIDMxMCAyNDAgMjI1IFYxMTUgWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNDAwIDkwIEw1MzAgMTMzIFYyMjUgQzUzMCAyOTIgNDc1IDM0MiA0MDAgMzY4IEMzMjUgMzQyIDI3MCAyOTIgMjcwIDIyNSBWMTMzIFoiIGZpbGw9IiMxYzIzNDAiLz4KPHBhdGggZD0iTTM0MCAyMzAgbDQyIDQyIGw4MiAtODgiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0MCAxNTApIj48cmVjdCB4PSItNjAiIHk9Ii0yNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI1MCIgcng9IjEwIiBmaWxsPSIjMDAwIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIwIiByPSIxNiIgZmlsbD0iIzViN2JkNiIvPjxyZWN0IHg9Ii0xMCIgeT0iMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9Ii0zNSIgeT0iNjAiIHdpZHRoPSI3MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMwMDAiLz48L2c+CjxnIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9Ii44Ij48cGF0aCBkPSJNNjkwIDIwMCBxMjAgMjAgMCA0MCIvPjxwYXRoIGQ9Ik03MDUgMTkwIHEzNCAzMCAwIDYwIi8+PC9nPjwvc3ZnPg==" alt="Ilustração sobre segurança em condomínios"></div>
+        <div class="texto">
+          <div><span class="categoria">Segurança</span><span class="data">28/08/2026</span></div>
+          <h1>Portaria remota: vale a pena para o seu prédio?</h1>
+          <p>A portaria remota controla a entrada do prédio à distância, com câmeras, interfone e uma central de monitoramento. Muitos condomínios avaliam a troca para reduzir custos.</p>
+          <p>Antes de decidir, compare o valor mensal com o gasto atual de portaria, veja a reputação da empresa e confirme como funciona o atendimento em emergências.</p>
+          <p>A mudança precisa ser aprovada em assembleia. Leve orçamentos e explique bem as vantagens e os cuidados.</p>
+        </div>
+      </article>
+    </div>
+    <div class="materia-view m4">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2EzYjhlYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2QzZGVmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMCAyMjUpIj48ZyBmaWxsPSIjMWMyMzQwIj4KPHJlY3QgeD0iLTI1IiB5PSItMTUwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIHJ4PSI4Ii8+PHJlY3QgeD0iLTI1IiB5PSI5MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjYwIiByeD0iOCIvPjxyZWN0IHg9Ii0xNTAiIHk9Ii0yNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjUwIiByeD0iOCIvPjxyZWN0IHg9IjkwIiB5PSItMjUiIHdpZHRoPSI2MCIgaGVpZ2h0PSI1MCIgcng9IjgiLz4KPGcgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cmVjdCB4PSItMjUiIHk9Ii0xNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI2MCIgcng9IjgiLz48cmVjdCB4PSItMjUiIHk9IjkwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIHJ4PSI4Ii8+PHJlY3QgeD0iLTE1MCIgeT0iLTI1IiB3aWR0aD0iNjAiIGhlaWdodD0iNTAiIHJ4PSI4Ii8+PHJlY3QgeD0iOTAiIHk9Ii0yNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjUwIiByeD0iOCIvPjwvZz4KPGNpcmNsZSByPSIxMTAiLz48L2c+PGNpcmNsZSByPSI0NSIgZmlsbD0iI2NmZGJmNyIvPjwvZz4KPGcgdHJhbnNmb3JtPSJyb3RhdGUoLTQwIDU4MCAyNDApIj48cmVjdCB4PSI1NjAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI2MCIgcng9IjE0IiBmaWxsPSIjMDAwIi8+CjxwYXRoIGQ9Ik01MzUgNjAgYTU1IDU1IDAgMSAxIDkwIDAgdjUwIGgtMzAgdi0zMCBoLTMwIHYzMCBoLTMwIHoiIGZpbGw9IiMwMDAiLz48cmVjdCB4PSI1NzQiIHk9IjcwIiB3aWR0aD0iMTIiIGhlaWdodD0iNDAiIGZpbGw9IiNjZmRiZjciLz48L2c+PC9zdmc+" alt="Ilustração sobre manutenção predial"></div>
+        <div class="texto">
+          <div><span class="categoria">Manutenção</span><span class="data">20/08/2026</span></div>
+          <h1>Calendário de manutenção preventiva: o que não pode faltar</h1>
+          <p>Elevadores, bombas d'água, extintores e reservatórios pedem revisões em prazos diferentes. Anotar tudo em um calendário evita esquecimentos.</p>
+          <p>A manutenção preventiva costuma sair mais barata que o conserto de emergência e ainda reduz o risco de acidentes.</p>
+          <p>Peça sempre laudos e comprovantes das empresas contratadas e guarde os documentos para as prestações de contas.</p>
+        </div>
+      </article>
+    </div>
+    <div class="materia-view m5">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzk4YjBlYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NiZDhmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxnPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjIzMCIgcj0iNDIiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTcwIDM5MCBhODAgOTAgMCAwIDEgMTYwIDAgeiIgZmlsbD0iIzAwMCIvPjwvZz4KPGc+PGNpcmNsZSBjeD0iNDAwIiBjeT0iMjE1IiByPSI0OCIgZmlsbD0iIzFjMjM0MCIvPjxwYXRoIGQ9Ik0zMTAgMzkwIGE5MCAxMDAgMCAwIDEgMTgwIDAgeiIgZmlsbD0iIzFjMjM0MCIvPjwvZz4KPGc+PGNpcmNsZSBjeD0iNTUwIiBjeT0iMjMwIiByPSI0MiIgZmlsbD0iIzViN2JkNiIvPjxwYXRoIGQ9Ik00NzAgMzkwIGE4MCA5MCAwIDAgMSAxNjAgMCB6IiBmaWxsPSIjNWI3YmQ2Ii8+PC9nPgo8cmVjdCB4PSIxMjAiIHk9IjcwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjgwIiByeD0iMTgiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMjAwIDE1MCBsLTEwIDMwIGw0MCAtMzB6IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjE1MCIgeT0iOTgiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjYjhjNmVhIi8+PHJlY3QgeD0iMTUwIiB5PSIxMTgiIHdpZHRoPSI3MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNiOGM2ZWEiLz4KPHJlY3QgeD0iNTAwIiB5PSI2MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgcng9IjE4IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTU5MCAxNDAgbDE0IDMwIGwyMCAtMzB6IiBmaWxsPSIjZmZmIi8+CjxwYXRoIGQ9Ik01NTAgMTAwIGMtMTIgLTIwIC0zNCAtNiAtMjIgMTIgbDIyIDIwIGwyMiAtMjAgYzEyIC0xOCAtMTAgLTMyIC0yMiAtMTJ6IiBmaWxsPSIjMDAwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MCAtNikiLz4KPHJlY3QgeD0iNjAiIHk9IjM5MCIgd2lkdGg9IjY4MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMxYzIzNDAiLz48L3N2Zz4=" alt="Ilustração sobre convivência entre moradores"></div>
+        <div class="texto">
+          <div><span class="categoria">Convivência</span><span class="data">12/08/2026</span></div>
+          <h1>Como resolver conflitos de barulho entre vizinhos</h1>
+          <p>Barulho é uma das maiores causas de reclamação em condomínios. Na maioria das vezes, uma conversa educada resolve o problema.</p>
+          <p>Se não resolver, consulte o regimento interno, que costuma definir os horários de silêncio, e registre a reclamação com o síndico por escrito.</p>
+          <p>Manter o diálogo e o respeito evita que uma situação pequena vire um conflito maior.</p>
+        </div>
+      </article>
+    </div>
+    <div class="materia-view m6">
+      <label class="voltar" for="v0">&larr; Voltar para notícias</label>
+      <article class="materia">
+        <div class="capa"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E2YmZlOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2QzZTJmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0idXJsKCNnKSIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjcwIiByPSIxMjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4xOCIvPjxjaXJjbGUgY3g9IjcyMCIgY3k9IjQwMCIgcj0iMTUwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuMTUiLz4KCjxwYXRoIGQ9Ik00MDAgNjAgQzU2MCAxMjAgNjAwIDI4MCA0MDAgMzgwIEMyMDAgMjgwIDI0MCAxMjAgNDAwIDYwIFoiIGZpbGw9IiMwMDAiLz4KPHBhdGggZD0iTTQwMCAxMDAgVjM4MCIgc3Ryb2tlPSIjY2ZkYmY3IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8ZyBzdHJva2U9IiNjZmRiZjciIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNNDAwIDE4MCBMNDYwIDE1MCIvPjxwYXRoIGQ9Ik00MDAgMjMwIEw0NzAgMTk1Ii8+PHBhdGggZD0iTTQwMCAyODAgTDQ2MCAyNTAiLz48cGF0aCBkPSJNNDAwIDIwMCBMMzQwIDE3MCIvPjxwYXRoIGQ9Ik00MDAgMjUwIEwzMzUgMjE1Ii8+PHBhdGggZD0iTTQwMCAzMDAgTDM0NSAyNzAiLz48L2c+CjxwYXRoIGQ9Ik02NDAgMTIwIEM2OTAgMTkwIDcxMCAyMjAgNzEwIDI1MCBhNzAgNzAgMCAwIDEgLTE0MCAwIGMwIC0zMCAyMCAtNjAgNzAgLTEzMHoiIGZpbGw9IiM1YjdiZDYiLz4KPHBhdGggZD0iTTYxMCAyNTAgYTMwIDMwIDAgMCAwIDMwIDMwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuOCIvPgo8ZyBmaWxsPSIjMWMyMzQwIj48cmVjdCB4PSIxMjAiIHk9IjMzMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjYwIiByeD0iNyIvPjxjaXJjbGUgY3g9IjEyNyIgY3k9IjMyMCIgcj0iMzQiLz48cmVjdCB4PSIyMDAiIHk9IjM1MCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQwIiByeD0iNiIvPjxjaXJjbGUgY3g9IjIwNiIgY3k9IjM0MiIgcj0iMjQiLz48L2c+PC9zdmc+" alt="Ilustração sobre sustentabilidade"></div>
+        <div class="texto">
+          <div><span class="categoria">Sustentabilidade</span><span class="data">05/08/2026</span></div>
+          <h1>Economia de água e energia nas áreas comuns</h1>
+          <p>Medidas de baixo custo reduzem a conta no fim do mês e ajudam o meio ambiente. Trocar lâmpadas por LED e instalar sensores de presença já faz diferença.</p>
+          <p>Na água, vale revisar vazamentos, instalar arejadores nas torneiras e reaproveitar a água da chuva para lavar as áreas externas.</p>
+          <p>Divulgue os resultados para os moradores. Ver a economia na prática incentiva todo mundo a participar.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+</body>
+</html>

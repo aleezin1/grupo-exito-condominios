@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+
+  <link rel="stylesheet" href="../css/contato.css">
+</head>
+
+<body>
+  <main>
+    <section class="fale-conosco">
+      <h1>Fale conosco</h1>
+      <p>
+        Entre em contato conosco pelo canal de comunicação de sua preferência.
+        Preencha o formulário abaixo ou nos contate pelo telefone ou WhatsApp.
+      </p>
+    </section>
+
+    <!-- 2. CANAIS DE CONTATO (3 blocos lado a lado) -->
+    <section class="canais">
+      <div class="canal">
+        <h2>Telefone e WhatsApp</h2>
+        <!-- tel: abre o discador no celular -->
+        <p><a href="tel:+551127247755">Ligue: (11) 2724-7755</a></p>
+        <!-- wa.me: número só com dígitos (55 + DDD + número) -->
+        <p>
+          <a href="https://wa.me/551127247755" target="_blank" rel="noopener">
+            Clique aqui para falar pelo WhatsApp
+          </a>
+        </p>
+      </div>
+
+      <div class="canal">
+        <h2>E-mail</h2>
+        <!-- mailto: abre o programa de e-mail -->
+        <p><a href="mailto:contato@grupoexitoimoveis.com.br">contato@grupoexitoimoveis.com.br</a></p>
+      </div>
+
+      <div class="canal">
+        <h2>Endereço</h2>
+        <p>R. Serra de Botucatu, 878 - Conj 1503<br> Vila Gomes Cardim, São Paulo - SP, 03317-000, Brasil</p>
+      </div>
+    </section>
+
+    <!-- Horário: uma linha só, vale para todos os canais -->
+    <p class="horario">Horário de atendimento: Segunda a Sexta, das 9h às 17h.</p>
+
+    <!-- 3. FORMULÁRIO -->
+    <section class="formulario">
+      <h2>Preencha o formulário</h2>
+
+      <!-- action="#" = ainda não envia para lugar nenhum (falta um back-end) -->
+      <form action="#" method="post">
+
+        <div class="campo">
+          <!-- for="nome" liga o label ao input que tem id="nome" -->
+          <label for="nome">Nome Completo</label>
+          <input type="text" placeholder="Nome Completo" id="nome" name="nome">
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seumail@gmail.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="canal">Canal de comunicação de preferência</label>
+          <select id="canal" name="canal" required>
+            <option value="">Selecione</option>
+            <option value="email">E-mail</option>
+            <option value="telefone">Telefone</option>
+            <option value="whatsapp">WhatsApp</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto" required>
+            <option value="">Selecione</option>
+            <option value="comprar">Comprar imóvel</option>
+            <option value="alugar">Alugar imóvel</option>
+            <option value="vender">Vender meu imóvel</option>
+            <option value="administrar">Administrar meu imóvel</option>
+            <option value="outras">Outras informações</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- 4. REDES SOCIAIS -->
+    <section class="redes">
+      <h2>Redes sociais</h2>
+      <ul>
+        <!-- troque # pelos links reais da empresa -->
+        <li><a href="https://www.instagram.com/grupoexito.imoveis/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/people/Grupo-%C3%8Axito-Im%C3%B3veis/61592351807729/" target="_blank"
+            rel="noopener">Facebook</a></li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+
+</html>

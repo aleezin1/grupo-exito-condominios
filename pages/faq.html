@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta:charset="UTF-8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página FAQ</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'outfit', sans-serif;
+        }
+
+        img{
+            border-radius: 16px;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        body{
+            height: 100vh;
+            background-color: #E9F0FE;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .perguntas-frequentes{
+            width: 1000px;
+            text-align: center;
+        }
+
+        .perguntas-frequentes h1{
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .faq{
+            width: 100%;
+            list-style: none;
+        }
+
+        .faq li{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .faq li label{
+            padding: 15px 10px;
+            font-size: 18px;
+            font-weight: 500;
+            background-color: #fff;
+
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq li label span{
+            display: inline-block;
+            padding: 8px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .faq li label::before{
+            content: '+';
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .faq input[type=radio]{
+            display: none;
+        }
+
+        .faq .resposta{
+            color: #535353;
+            padding: 0px 14px;
+            background-color: #fff;
+            line-height: 32px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s, padding .5s;
+        }
+
+        .faq input[type=radio]:checked + label + .resposta{
+            max-height: 400px;
+            padding: 10px 10 px 20px;
+        }
+
+        .faq input[type=radio]:checked + label span{
+            background-color: #304B80;
+        }
+
+        .faq input[type=radio]:checked + label::before{
+            content: '-';
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <div class="perguntas-frequentes">
+
+                <img src="C:\Users\evand\Downloads\Modern Reception Area.png" alt="imobiliária" width="500">
+
+            <h1>Perguntas Frequentes</h1>
+
+            <ul class="faq">
+
+                <li>
+                    <input type="radio" name="acordeon" id="primeiro">
+                    <label for="primeiro"><span>01</span> Como faço para agendar uma visita?</label>
+                    <div class="resposta">
+                    <p>Escolha o imóvel desejado e entre em contato conosco para verificar os horários disponíveis para visita.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="segundo">
+                    <label for="segundo"><span>02</span> Quais são os custos além do valor do imóvel?</label>
+                    <div class="resposta">
+                    <p>Podem existir custos como ITBI, escritura, registro, taxas bancárias e despesas relacionadas à documentação.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="terceiro">
+                    <label for="terceiro"><span>03</span> Como funciona o processo de aluguel?</label>
+                    <div class="resposta">
+                    <p>Após escolher o imóvel, são realizadas a análise de documentos, aprovação do cadastro e assinatura do contrato de locação.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="quarto">
+                    <label for="quarto"><span>04</span> Como faço para anunciar meu imóvel?</label>
+                    <div class="resposta">
+                    <p>Entre em contato com nossa equipe e forneça as informações e documentos necessários para iniciarmos o processo de anúncio.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="quinto">
+                    <label for="quinto"><span>05</span> A imobiliária realiza avaliação de imóveis?</label>
+                    <div class="resposta">
+                    <p>Sim. Nossa equipe pode realizar uma avaliação considerando localização, características e valores praticados na região.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="sexto">
+                    <label for="sexto"><span>06</span> Os imóveis anunciados estão disponíveis para visita?</label>
+                    <div class="resposta">
+                    <p>A disponibilidade pode mudar rapidamente. Recomendamos entrar em contato para confirmar a situação e agendar uma visita.</p>
+                    </div>
+                </li>
+                <section class="contato" <h2>Qualquer dúvida?</h2>
+                    <p>
+                        <a href="https://wa.me/551125649963">Fale conosco</a>
+                    </p>
+                </section>
+
+            </ul>
+
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Componentes prontos — Grupo Êxito Condomínios (CSS puro, opcional)
+   --------------------------------------------------------------------------
+   Recria em CSS puro o visual da home (que é feita em Tailwind), para as
+   páginas em HTML/CSS ficarem com a mesma cara.
+
+   Depende de paleta.css. Importe nesta ordem:
+
+     <link rel="stylesheet" href="../css/paleta.css">
+     <link rel="stylesheet" href="../css/componentes.css">
+     <link rel="stylesheet" href="../css/sua-pagina.css">
+
+   Todas as classes começam com "ex-" para não conflitar com as classes da
+   sua página. Nada aqui é aplicado sozinho: só vale onde você usar a classe.
+   ========================================================================== */
+
+/* ---- Base da página (aplique no <body>) -------------------------------- */
+.ex-pagina {
+    margin: 0;
+    background: var(--cor-fundo);
+    color: var(--cor-texto-corpo);
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Layout ------------------------------------------------------------ */
+.ex-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.ex-secao {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.ex-secao--branca {
+    background: var(--cor-superficie);
+}
+
+/* ---- Títulos de seção -------------------------------------------------- */
+.ex-sobretitulo {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cor-teal);
+}
+
+.ex-titulo {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--cor-texto);
+}
+
+.ex-titulo--hero {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.ex-titulo__destaque {
+    background: var(--gradiente-marca);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ex-subtitulo {
+    margin: 0.5rem 0 0;
+    font-size: 15px;
+    color: var(--cor-texto-corpo);
+}
+
+@media (max-width: 640px) {
+    .ex-titulo { font-size: 28px; }
+    .ex-titulo--hero { font-size: 36px; }
+}
+
+/* ---- Botões ------------------------------------------------------------ */
+.ex-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--raio-medio);
+    font-family: var(--fonte-tecnica);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.ex-botao--primario {
+    background: var(--cor-navy-profundo);
+    color: var(--cor-texto-invertido);
+    box-shadow: var(--sombra-botao);
+}
+
+.ex-botao--primario:hover {
+    background: var(--cor-navy-claro);
+}
+
+.ex-botao--secundario {
+    background: var(--cor-superficie);
+    color: var(--cor-texto);
+    border-color: var(--cor-borda);
+}
+
+.ex-botao--secundario:hover {
+    background: var(--cor-superficie-variante);
+}
+
+.ex-botao--whatsapp {
+    background: var(--cor-sucesso);
+    color: var(--cor-texto-invertido);
+}
+
+.ex-botao--whatsapp:hover {
+    filter: brightness(0.92);
+}
+
+/* ---- Card -------------------------------------------------------------- */
+.ex-card {
+    padding: 2.5rem;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ex-card:hover {
+    border-color: rgb(var(--cor-ciano-eletrico-rgb) / 0.6);
+    box-shadow: var(--sombra-card);
+}
+
+.ex-card__titulo {
+    margin: 0 0 0.5rem;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+/* ---- Etiqueta / badge -------------------------------------------------- */
+.ex-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--raio-pilula);
+    background: rgb(var(--cor-ciano-suave-rgb) / 0.6);
+    color: var(--cor-teal);
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.ex-etiqueta--escura {
+    background: var(--cor-navy-profundo);
+    color: var(--cor-ciano-eletrico);
+}
+
+/* ---- Campos de formulário ---------------------------------------------- */
+.ex-campo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-medio);
+    background: var(--cor-superficie-variante);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.ex-campo::placeholder {
+    color: var(--cor-texto-suave);
+}
+
+.ex-campo:focus {
+    outline: none;
+    background: var(--cor-superficie);
+    border-color: var(--cor-ciano-eletrico);
+    box-shadow: 0 0 0 3px rgb(var(--cor-ciano-eletrico-rgb) / 0.35);
+}
+
+.ex-rotulo {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--cor-texto-secundario);
+}
