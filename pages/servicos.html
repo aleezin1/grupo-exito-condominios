@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/layout.css">
   <title>Serviços</title>
   <style>
     :root {
@@ -22,19 +27,10 @@
       background: var(--fundo);
     }
 
-    header, main, footer {
+    main {
       max-width: 60rem;
       margin: 0 auto;
       padding: 1.5rem 1.25rem;
-    }
-
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
     }
 
     a { color: var(--destaque); }
@@ -68,17 +64,41 @@
   </style>
 </head>
 <body>
-
-  <header>
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="servico-1.html">Gestão financeira</a></li>
-        <li><a href="servico-2.html">Planejamento de investimentos</a></li>
-        <li><a href="servico-3.html">Consultoria tributária</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- HEADER COMPARTILHADO (estilo em css/layout.css) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:+551125649963">(11) 2564-9963</a>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a>
+                </div>
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">Instagram</a>
+                    <a class="ex-topo__link" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="../index.html">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                </a>
+                <button class="ex-menu-botao" type="button" aria-controls="ex-menu" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="ex-menu" id="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="servicos.html" aria-current="page">Serviços</a>
+                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="contato.html">Contato</a>
+                    <a class="ex-menu__cta" href="../index.html#proposta">Falar com Consultor <span>→</span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
   <main>
     <h1>Nossos serviços</h1>
@@ -86,24 +106,24 @@
     <section class="servicos" aria-label="Resumo dos serviços">
 
         <article class="servico">
-        <img src="C:\Users\joaov\OneDrive\Imagens\WhatsApp Image 2026-09-24 at 12.52.03.jpeg" alt="Ícone representando gesgão financeira" style="width: 1000; height: auto;">
+        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.03.jpeg" alt="Ícone representando gesgão financeira" style="width: 1000; height: auto;">
         <h2>Gestão financeira</h2>
         <p>Acompanhamos suas contas mês a mês: entradas, saídas e dívidas. Você recebe um orçamento pronto e um relatório mensal mostrando para onde o dinheiro está indo.</p>
-        <a href="servico-1.html">Ver gestão financeira</a>
+        <a href="servicos-1.html">Ver gestão financeira</a>
       </article>
 
       <article class="servico">
-        <img src="C:\Users\joaov\OneDrive\Imagens\Acer\WhatsApp Image 2026-09-24 at 12.52.03.jpeg" alt="Ícone representando planejamento de investimentos" style="width: 1000; height: auto;">>
+        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.03%20(1).jpeg" alt="Ícone representando planejamento de investimentos" style="width: 1000; height: auto;">
         <h2>Planejamento de investimentos</h2>
         <p>Montamos uma carteira de investimentos alinhada ao seu perfil de risco e aos seus objetivos, como comprar um imóvel ou construir uma reserva de longo prazo.</p>
-        <a href="servico-2.html">Ver planejamento de investimentos</a>
+        <a href="servicos-2.html">Ver planejamento de investimentos</a>
       </article>
 
       <article class="servico">
-        <img src="C:\Users\joaov\OneDrive\Imagens\WhatsApp Image 2026-09-24 at 12.52.04.jpeg" alt="Ícone representando consultoria tributária" style="width: 1000; height: auto;">>
+        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.04.jpeg" alt="Ícone representando consultoria tributária" style="width: 1000; height: auto;">
         <h2>Consultoria tributária</h2>
         <p>Analisamos seus impostos e sua declaração de Imposto de Renda para reduzir a carga tributária dentro da lei e evitar multas por erros ou atrasos.</p>
-        <a href="servico-3.html">Ver consultoria tributária</a>
+        <a href="servicos-3.html">Ver consultoria tributária</a>
       </article>
 
     </section>
@@ -121,19 +141,19 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><a href="servico-1.html">Gestão financeira</a></th>
+            <th scope="row"><a href="servicos-1.html">Gestão financeira</a></th>
             <td>Quem gasta mais do que planeja ou tem dívidas</td>
             <td>Orçamento e relatório mensal</td>
             <td>Contínuo, mensal</td>
           </tr>
           <tr>
-            <th scope="row"><a href="servico-2.html">Planejamento de investimentos</a></th>
+            <th scope="row"><a href="servicos-2.html">Planejamento de investimentos</a></th>
             <td>Quem já sobra dinheiro e quer fazê-lo render</td>
             <td>Carteira personalizada por objetivo</td>
             <td>3 encontros, com revisão anual</td>
           </tr>
           <tr>
-            <th scope="row"><a href="servico-3.html">Consultoria tributária</a></th>
+            <th scope="row"><a href="servicos-3.html">Consultoria tributária</a></th>
             <td>Autônomos, MEIs e quem tem várias fontes de renda</td>
             <td>Análise fiscal e declaração revisada</td>
             <td>Pontual, uma vez por ano</td>
@@ -145,9 +165,48 @@
     <p class="chamada">Não sabe qual serviço escolher? <a href="contato.html">Fale com a gente</a>.</p>
   </main>
 
-  <footer>
-    <p><a href="contato.html">Contato</a></p>
-  </footer>
-
+    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Matriz Mogi</p>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </div>
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Filial São Paulo</p>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </div>
+                </div>
+                <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                    <p class="ex-rodape__rotulo">Páginas Internas</p>
+                    <div class="ex-rodape__links">
+                        <a href="../index.html">Início</a>
+                        <a href="quem-somos.html">Quem Somos</a>
+                        <a href="servicos.html">Serviços</a>
+                        <a href="projetos.html">Projetos &amp; Cases</a>
+                        <a href="noticias.html">Notícias &amp; Blog</a>
+                        <a href="faq.html">FAQ &amp; Dúvidas</a>
+                        <a href="contato.html">Fale Conosco</a>
+                        <a class="ex-rodape__cta" href="../index.html#proposta">Solicitar Estudo Condominial →</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="ex-rodape__base">
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p class="ex-rodape__assinatura">Executive Editorial • Proptech Management</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

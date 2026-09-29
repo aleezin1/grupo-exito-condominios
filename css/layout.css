@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Layout compartilhado — Header (menu) e Footer das páginas em /pages
+   --------------------------------------------------------------------------
+   Recria em CSS puro o header e o rodapé da home (index.html), com menu
+   responsivo (botão "hambúrguer" abaixo de 1024px).
+
+   Depende de paleta.css. Importe nesta ordem, dentro de /pages:
+
+     <link rel="stylesheet" href="../css/paleta.css">
+     <link rel="stylesheet" href="../css/layout.css">
+     <link rel="stylesheet" href="../css/sua-pagina.css">
+
+   E antes de </body>:
+
+     <script src="../js/menu.js"></script>
+
+   Todos os seletores começam com .ex-header ou .ex-rodape para que o CSS
+   de cada página (h1, p, img, a, button...) não altere o menu e o rodapé.
+   ========================================================================== */
+
+/* ---- Base comum ------------------------------------------------------- */
+/* Tira a margem padrão do navegador para o header/footer encostarem nas bordas */
+body {
+    margin: 0;
+}
+
+.ex-header,
+.ex-header *,
+.ex-rodape,
+.ex-rodape * {
+    box-sizing: border-box;
+    font-family: var(--fonte-texto);
+}
+
+.ex-header,
+.ex-rodape {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ex-header a,
+.ex-rodape a {
+    text-decoration: none;
+}
+
+.ex-header .ex-conteudo,
+.ex-rodape .ex-conteudo {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.ex-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ---- Faixa superior (telefone, e-mail, redes) ------------------------- */
+.ex-header .ex-topo {
+    background: var(--cor-navy-profundo);
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.ex-header .ex-topo .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 36px;
+}
+
+.ex-header .ex-topo__grupo {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.ex-header .ex-topo__link {
+    color: #cbd5e1;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__link:hover {
+    color: var(--cor-ciano-eletrico);
+}
+
+.ex-header .ex-topo__email {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-topo__email {
+        display: inline;
+    }
+}
+
+/* ---- Barra principal -------------------------------------------------- */
+.ex-header .ex-barra {
+    position: relative;
+    background: rgb(255 255 255 / 0.97);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 2px 18px rgb(var(--cor-navy-profundo-rgb) / 0.04);
+}
+
+.ex-header .ex-barra .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 80px;
+}
+
+.ex-header .ex-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ex-header .ex-logo img {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: 40px;
+    margin: 0;
+    border-radius: 0;
+    object-fit: contain;
+}
+
+/* ---- Menu (desktop) --------------------------------------------------- */
+.ex-header .ex-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.ex-header .ex-menu__link {
+    position: relative;
+    padding: 0;
+    color: var(--cor-texto-secundario);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-menu__link:hover,
+.ex-header .ex-menu__link[aria-current="page"] {
+    color: var(--cor-navy-profundo);
+}
+
+.ex-header .ex-menu__link[aria-current="page"] {
+    font-weight: 700;
+}
+
+.ex-header .ex-menu__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--cor-ciano-eletrico);
+}
+
+.ex-header .ex-menu__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--cor-navy-profundo);
+    color: var(--cor-texto-invertido);
+    font-family: var(--fonte-tecnica);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.ex-header .ex-menu__cta:hover {
+    background: var(--cor-navy-claro);
+    color: var(--cor-texto-invertido);
+}
+
+.ex-header .ex-menu__cta span {
+    color: var(--cor-ciano-eletrico);
+}
+
+/* ---- Botão hambúrguer ------------------------------------------------- */
+.ex-header .ex-menu-botao {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0 11px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 0.5rem;
+    background: var(--cor-superficie);
+    cursor: pointer;
+}
+
+.ex-header .ex-menu-botao:hover {
+    background: var(--cor-superficie-variante);
+}
+
+.ex-header .ex-menu-botao:focus-visible {
+    outline: 3px solid rgb(var(--cor-ciano-eletrico-rgb) / 0.5);
+    outline-offset: 2px;
+}
+
+.ex-header .ex-menu-botao span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 0;
+    padding: 0;
+    border-radius: 2px;
+    background: var(--cor-navy-profundo);
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Menu (celular e tablet) ------------------------------------------ */
+@media (max-width: 1023px) {
+    .ex-header .ex-menu-botao {
+        display: flex;
+    }
+
+    .ex-header .ex-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100vh - 116px);
+        overflow-y: auto;
+        padding: 0.5rem 1.5rem 1.5rem;
+        background: var(--cor-superficie);
+        border-bottom: 1px solid var(--cor-borda);
+        box-shadow: 0 16px 32px rgb(var(--cor-navy-profundo-rgb) / 0.1);
+    }
+
+    .ex-header .ex-menu.is-open {
+        display: flex;
+    }
+
+    .ex-header .ex-menu__link {
+        padding: 0.875rem 0;
+        border-bottom: 1px solid var(--cor-borda);
+        font-size: 15px;
+    }
+
+    .ex-header .ex-menu__link[aria-current="page"]::after {
+        display: none;
+    }
+
+    .ex-header .ex-menu__link[aria-current="page"] {
+        color: var(--cor-teal);
+    }
+
+    .ex-header .ex-menu__cta {
+        margin-top: 1.25rem;
+        padding: 0.875rem 1rem;
+    }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.ex-rodape {
+    padding: 4rem 0 2rem;
+    background: var(--cor-navy-profundo);
+    color: var(--cor-texto-invertido);
+    border-top: 1px solid #1e293b;
+}
+
+.ex-rodape p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.ex-rodape .ex-rodape__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .ex-rodape .ex-rodape__grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ex-rodape .ex-rodape__grade {
+        grid-template-columns: 4fr 5fr 3fr;
+    }
+}
+
+/* ---- Coluna 1: marca -------------------------------------------------- */
+.ex-rodape .ex-rodape__marca {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ex-rodape .ex-rodape__marca img {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: 36px;
+    margin: 0;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: left;
+    filter: brightness(0) invert(1);
+}
+
+.ex-rodape .ex-rodape__marca p {
+    max-width: 24rem;
+    line-height: 1.6;
+}
+
+/* ---- Coluna 2: unidades ----------------------------------------------- */
+.ex-rodape .ex-rodape__unidades {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .ex-rodape .ex-rodape__unidades {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.ex-rodape .ex-rodape__unidade {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    background: rgb(15 23 42 / 0.8);
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__endereco {
+    padding-top: 0.25rem;
+    color: var(--cor-texto-invertido);
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__detalhe {
+    font-size: 12px;
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__fone {
+    margin-top: 0.25rem;
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    color: var(--cor-ciano-eletrico);
+}
+
+/* ---- Rótulos (títulos pequenos) --------------------------------------- */
+.ex-rodape .ex-rodape__rotulo {
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-ciano-eletrico);
+}
+
+/* ---- Coluna 3: navegação ---------------------------------------------- */
+.ex-rodape .ex-rodape__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ex-rodape .ex-rodape__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+}
+
+.ex-rodape .ex-rodape__links a {
+    font-size: 13px;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.ex-rodape .ex-rodape__links a:hover {
+    color: var(--cor-texto-invertido);
+}
+
+.ex-rodape .ex-rodape__links .ex-rodape__cta {
+    grid-column: 1 / -1;
+    padding-top: 0.5rem;
+    border-top: 1px solid #1e293b;
+}
+
+/* ---- Linha final (copyright) ------------------------------------------ */
+.ex-rodape .ex-rodape__base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1e293b;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .ex-rodape .ex-rodape__base {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.ex-rodape .ex-rodape__base p {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.ex-rodape .ex-rodape__base .ex-rodape__assinatura {
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+}

@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina 6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <title>Gestão Financeira</title>
 
     <!--inicio css -->
 
@@ -185,20 +190,47 @@ p{
 
 <!-- inicio html-->
 
-<header>
-    <section class="container_header">
-     <img src="C:\Users\felip\OneDrive\Área de Trabalho\trabalho_html_segunda\pagina_6\img\logo.png" 
-     alt="logo" 
-     height="100px" 
-     width="170px">
-     <h1 class="titulo_baner" style="color: black;"> Gestão Financeira</h1>
-    </section> 
-</header>
 <body>
+    <!-- HEADER COMPARTILHADO (estilo em css/layout.css) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:+551125649963">(11) 2564-9963</a>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a>
+                </div>
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">Instagram</a>
+                    <a class="ex-topo__link" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="../index.html">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                </a>
+                <button class="ex-menu-botao" type="button" aria-controls="ex-menu" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="ex-menu" id="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="servicos.html" aria-current="page">Serviços</a>
+                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="contato.html">Contato</a>
+                    <a class="ex-menu__cta" href="../index.html#proposta">Falar com Consultor <span>→</span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <h1 class="texto-centralizado" style="color: white;">Gestão Financeira</h1>
     <br>
     <br> 
     <section class="container" style="display: flex; align-items: center; background-color: #00245d;"> 
-        <img src="C:\Users\felip\OneDrive\Área de Trabalho\trabalho_html_segunda\pagina_6\img\img.png" 
+        <img src="../img/img.png" 
         alt="pessoas analisando documentos" 
         height="350px" width="400px" 
         style="margin-left: 50px; 
@@ -281,46 +313,49 @@ p{
     <input type="text" placeholder="Endereço" id="endereco" name="endereco">
     <button type="submit" class="botao">Enviar</button>
 </form>
+
+    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Matriz Mogi</p>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </div>
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Filial São Paulo</p>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </div>
+                </div>
+                <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                    <p class="ex-rodape__rotulo">Páginas Internas</p>
+                    <div class="ex-rodape__links">
+                        <a href="../index.html">Início</a>
+                        <a href="quem-somos.html">Quem Somos</a>
+                        <a href="servicos.html">Serviços</a>
+                        <a href="projetos.html">Projetos &amp; Cases</a>
+                        <a href="noticias.html">Notícias &amp; Blog</a>
+                        <a href="faq.html">FAQ &amp; Dúvidas</a>
+                        <a href="contato.html">Fale Conosco</a>
+                        <a class="ex-rodape__cta" href="../index.html#proposta">Solicitar Estudo Condominial →</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="ex-rodape__base">
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p class="ex-rodape__assinatura">Executive Editorial • Proptech Management</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
 </body>
-<footer class="footer"  class="container">
-    <div>
-        <img src="C:\Users\felip\OneDrive\Área de Trabalho\trabalho_html_segunda\pagina_6\img\logo-grupo-exito.png"
-         alt="logo"
-         width="200px"
-         height="200px">
-        <p class="texto-preto">Gestão condominial com transparência.</p>
-        
-    </div>    
-    <section>
-        <h2 class="texto-preto">Endereços</h2>
-        <h3 class="texto-preto">Matriz:</h3>
-        <ul>
-            <li class="texto-preto">
-            R. Gonçalo Ferreira, 164 - Sala 3<br>
-            Mogi das Cruzes - SP - 08770-460
-            </li>
-        </ul>
-        <h3 class="texto-preto">Filial:</h3>
-        <ul>
-            <li class="texto-preto">
-                Avenida Rio das Pedras, 3.409, sobreloja<br>
-                São Paulo - SP - 03930-310
-            </li>
-        </ul>
-    </section>
-
-    <section style="margin-left: 50px;">
-        <h2 class="texto-preto">Contatos</h2>
-        <p class="texto-preto">(11) 2564-9963</p>
-    </section>
-
-    <section style="margin-left: 100px;">
-        <h2 class="texto-preto">Redes sociais</h2>
-        <p class="texto-preto">Instagram: grupoexito.condominios</p>
-        <p class="texto-preto">Facebook: Grupo Êxito</p>
-    </section>
-</footer>
-    <div class="rodape-final">
-    <p class="texto-preto">© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
-    </div> 
 </html>

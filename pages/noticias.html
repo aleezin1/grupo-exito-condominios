@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/paleta.css">
+    <link rel="stylesheet" href="../css/layout.css">
   <title>Notícias</title>
   <style>
     .noticias { background:#e8effd; font-family:Arial, Helvetica, sans-serif; color:#333; padding:60px 20px 80px; min-height:100vh; }
@@ -62,6 +67,41 @@
   </style>
 </head>
 <body>
+    <!-- HEADER COMPARTILHADO (estilo em css/layout.css) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:+551125649963">(11) 2564-9963</a>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a>
+                </div>
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">Instagram</a>
+                    <a class="ex-topo__link" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="../index.html">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                </a>
+                <button class="ex-menu-botao" type="button" aria-controls="ex-menu" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="ex-menu" id="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="noticias.html" aria-current="page">Notícias</a>
+                    <a class="ex-menu__link" href="faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="contato.html">Contato</a>
+                    <a class="ex-menu__cta" href="../index.html#proposta">Falar com Consultor <span>→</span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
 <main class="noticias">
   <div class="container">
 <input type="radio" name="v" id="v0" checked>
@@ -214,5 +254,49 @@
     </div>
   </div>
 </main>
+
+    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Matriz Mogi</p>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </div>
+                    <div class="ex-rodape__unidade">
+                        <p class="ex-rodape__rotulo">Filial São Paulo</p>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </div>
+                </div>
+                <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                    <p class="ex-rodape__rotulo">Páginas Internas</p>
+                    <div class="ex-rodape__links">
+                        <a href="../index.html">Início</a>
+                        <a href="quem-somos.html">Quem Somos</a>
+                        <a href="servicos.html">Serviços</a>
+                        <a href="projetos.html">Projetos &amp; Cases</a>
+                        <a href="noticias.html">Notícias &amp; Blog</a>
+                        <a href="faq.html">FAQ &amp; Dúvidas</a>
+                        <a href="contato.html">Fale Conosco</a>
+                        <a class="ex-rodape__cta" href="../index.html#proposta">Solicitar Estudo Condominial →</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="ex-rodape__base">
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p class="ex-rodape__assinatura">Executive Editorial • Proptech Management</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

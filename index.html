@@ -43,6 +43,17 @@
         ::-webkit-scrollbar {
             display: none;
         }
+
+        /* Menu mobile (controlado por js/menu.js) */
+        #menu-mobile:not(.is-open),
+        [data-menu-toggle] .menu-icone-fechar,
+        [data-menu-toggle][aria-expanded="true"] .menu-icone-abrir {
+            display: none;
+        }
+
+        [data-menu-toggle][aria-expanded="true"] .menu-icone-fechar {
+            display: inline;
+        }
     </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
@@ -250,10 +261,12 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <a aria-label="Instagram"
-                            class="text-slate-400 hover:text-brand-cyan-electric transition-colors" href="#"><span
+                            class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener"><span
                                 class="material-symbols-outlined text-[16px]">photo_camera</span></a>
                         <a aria-label="Facebook" class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
-                            href="#"><span class="material-symbols-outlined text-[16px]">public</span></a>
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener"><span
+                                class="material-symbols-outlined text-[16px]">public</span></a>
                     </div>
                 </div>
             </div>
@@ -263,15 +276,15 @@
             class="w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_18px_rgba(6,21,45,0.04)]">
             <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
                 <!-- Brand Logo Integration -->
-                <a class="flex items-center gap-3 group" href="#">
+                <a class="flex items-center gap-3 group" href="index.html">
                     <img alt="Grupo Êxito Condomínios"
                         class="h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
                         src="img/logo-grupo-exito-header.png">
                 </a>
                 <!-- Clean Editorial Navigation -->
-                <nav class="hidden lg:flex items-center gap-space-xl">
+                <nav class="hidden lg:flex items-center gap-space-xl" aria-label="Navegação principal">
                     <a class="font-body-md text-[14px] font-semibold text-brand-navy-deep relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-cyan-electric"
-                        href="#">Início</a>
+                        href="index.html" aria-current="page">Início</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/quem-somos.html">Quem Somos</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
@@ -279,12 +292,11 @@
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/projetos.html">Projetos</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="#noticias-comunidade">Notícias</a>
+                        href="pages/noticias.html">Notícias</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="#faq">FAQ</a>
+                        href="pages/faq.html">FAQ</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/contato.html">Contato</a>
-
                 </nav>
                 <div class="flex items-center gap-3">
                     <a class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
@@ -293,8 +305,42 @@
                         <span
                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
                     </a>
+                    <!-- Botão do menu mobile (abaixo de 1024px) -->
+                    <button
+                        class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 bg-white text-brand-navy-deep hover:bg-slate-50 transition-colors"
+                        type="button" aria-controls="menu-mobile" aria-expanded="false" aria-label="Abrir menu"
+                        data-menu-toggle>
+                        <span class="material-symbols-outlined text-[24px] menu-icone-abrir">menu</span>
+                        <span class="material-symbols-outlined text-[24px] menu-icone-fechar">close</span>
+                    </button>
                 </div>
             </div>
+            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
+            <nav class="lg:hidden border-t border-slate-200/80 bg-white shadow-[0_16px_32px_rgba(6,21,45,0.10)] max-h-[calc(100vh-116px)] overflow-y-auto"
+                id="menu-mobile" aria-label="Navegação principal (mobile)">
+                <div class="max-w-7xl mx-auto px-gutter py-2 flex flex-col">
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] font-semibold text-secondary"
+                        href="index.html" aria-current="page">Início</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/quem-somos.html">Quem Somos</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/servicos.html">Serviços</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/projetos.html">Projetos</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/noticias.html">Notícias</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/faq.html">FAQ</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/contato.html">Contato</a>
+                    <a class="mt-space-md mb-space-sm inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all"
+                        href="#proposta">
+                        <span class="">Falar com Consultor</span>
+                        <span
+                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
     <main class="w-full pt-28 bg-background">
@@ -1825,9 +1871,9 @@
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
                             href="pages/projetos.html">Projetos &amp; Cases</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="#noticias-comunidade">Notícias &amp; Blog</a>
+                            href="pages/noticias.html">Notícias &amp; Blog</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="#faq">FAQ &amp; Dúvidas</a>
+                            href="pages/faq.html">FAQ &amp; Dúvidas</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
                             href="pages/contato.html">Fale Conosco</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors col-span-2 pt-1 border-t border-slate-800"
@@ -1929,8 +1975,7 @@
             });
         }
     </script>
-
-
+    <script src="js/menu.js"></script>
 </body>
 
 </html>
