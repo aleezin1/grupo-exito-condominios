@@ -1,10 +1,12 @@
 /* ==========================================================================
    Layout compartilhado — Header (menu) e Footer das páginas em /pages
    --------------------------------------------------------------------------
-   Recria em CSS puro o header e o rodapé da home (index.html), com menu
-   responsivo (botão "hambúrguer" abaixo de 1024px).
+   Recria em CSS puro o header e o rodapé da home (index.html, feita em
+   Tailwind), com as mesmas medidas, cores e ícones. O menu vira botão
+   "hambúrguer" abaixo de 1024px, igual à home.
 
-   Depende de paleta.css. Importe nesta ordem, dentro de /pages:
+   Depende de paleta.css e das fontes do Google (Plus Jakarta Sans,
+   Space Grotesk e Material Symbols Outlined). Dentro de /pages:
 
      <link rel="stylesheet" href="../css/paleta.css">
      <link rel="stylesheet" href="../css/layout.css">
@@ -29,6 +31,8 @@ body {
 .ex-rodape,
 .ex-rodape * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: var(--fonte-texto);
 }
 
@@ -36,8 +40,6 @@ body {
 .ex-rodape {
     width: 100%;
     max-width: none;
-    margin: 0;
-    padding: 0;
     text-align: left;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -56,36 +58,62 @@ body {
     padding: 0 1.5rem;
 }
 
+/* Ícones (Material Symbols) — reaplica a fonte, que a regra acima sobrescreveria */
+.ex-header .material-symbols-outlined,
+.ex-rodape .material-symbols-outlined {
+    display: inline-block;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
 /* ==========================================================================
    HEADER
    ========================================================================== */
 .ex-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 50;
 }
 
-/* ---- Faixa superior (telefone, e-mail, redes) ------------------------- */
+/* ---- Faixa superior (telefone, e-mail, status, redes) ----------------- */
 .ex-header .ex-topo {
     background: var(--cor-navy-profundo);
     border-bottom: 1px solid rgb(255 255 255 / 0.1);
 }
 
-.ex-header .ex-topo .ex-conteudo {
+.ex-header .ex-topo > .ex-conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
     height: 36px;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
 }
 
 .ex-header .ex-topo__grupo {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
+}
+
+.ex-header .ex-topo__grupo--direita {
+    gap: 1rem;
 }
 
 .ex-header .ex-topo__link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
     color: #cbd5e1;
     font-size: 12px;
     transition: color 0.2s;
@@ -95,36 +123,107 @@ body {
     color: var(--cor-ciano-eletrico);
 }
 
+.ex-header .ex-topo__link .material-symbols-outlined {
+    font-size: 15px;
+    color: var(--cor-ciano-eletrico);
+}
+
+.ex-header .ex-topo__separador {
+    display: none;
+    color: #475569;
+}
+
 .ex-header .ex-topo__email {
     display: none;
 }
 
+.ex-header .ex-topo__status {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 1rem;
+    border-right: 1px solid #334155;
+    color: #cbd5e1;
+    font-family: var(--fonte-tecnica);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ex-header .ex-topo__ponto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--cor-sucesso);
+    animation: ex-pulsar 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ex-pulsar {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.ex-header .ex-topo__redes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-topo__rede {
+    display: flex;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__rede:hover {
+    color: var(--cor-ciano-eletrico);
+}
+
+.ex-header .ex-topo__rede .material-symbols-outlined {
+    font-size: 16px;
+}
+
 @media (min-width: 640px) {
-    .ex-header .ex-topo__email {
+    .ex-header .ex-topo__separador {
         display: inline;
+    }
+
+    .ex-header .ex-topo__email {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .ex-header .ex-topo__status {
+        display: flex;
     }
 }
 
 /* ---- Barra principal -------------------------------------------------- */
 .ex-header .ex-barra {
     position: relative;
-    background: rgb(255 255 255 / 0.97);
-    border-bottom: 1px solid var(--cor-borda);
+    background: rgb(255 255 255 / 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgb(226 232 240 / 0.8);
     box-shadow: 0 2px 18px rgb(var(--cor-navy-profundo-rgb) / 0.04);
 }
 
-.ex-header .ex-barra .ex-conteudo {
+.ex-header .ex-barra > .ex-conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
     height: 80px;
 }
 
 .ex-header .ex-logo {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    gap: 0.75rem;
 }
 
 .ex-header .ex-logo img {
@@ -132,34 +231,38 @@ body {
     width: auto;
     max-width: none;
     height: 40px;
-    margin: 0;
     border-radius: 0;
     object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.ex-header .ex-logo:hover img {
+    transform: scale(1.02);
 }
 
 /* ---- Menu (desktop) --------------------------------------------------- */
 .ex-header .ex-menu {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .ex-header .ex-menu__link {
     position: relative;
-    padding: 0;
     color: var(--cor-texto-secundario);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 24px;
     transition: color 0.2s;
 }
 
-.ex-header .ex-menu__link:hover,
-.ex-header .ex-menu__link[aria-current="page"] {
+.ex-header .ex-menu__link:hover {
     color: var(--cor-navy-profundo);
 }
 
 .ex-header .ex-menu__link[aria-current="page"] {
-    font-weight: 700;
+    color: var(--cor-navy-profundo);
+    font-weight: 600;
 }
 
 .ex-header .ex-menu__link[aria-current="page"]::after {
@@ -172,7 +275,14 @@ body {
     background: var(--cor-ciano-eletrico);
 }
 
-.ex-header .ex-menu__cta {
+/* ---- Ações da direita: botão consultor + hambúrguer ------------------- */
+.ex-header .ex-acoes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -180,43 +290,55 @@ body {
     padding: 0.625rem 1rem;
     border-radius: 0.5rem;
     background: var(--cor-navy-profundo);
-    color: var(--cor-texto-invertido);
+    color: #fff;
     font-family: var(--fonte-tecnica);
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    line-height: 16px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
     transition: background-color 0.2s;
 }
 
-.ex-header .ex-menu__cta:hover {
-    background: var(--cor-navy-claro);
-    color: var(--cor-texto-invertido);
+.ex-header .ex-cta:hover {
+    background: #1e293b;
+    color: #fff;
 }
 
-.ex-header .ex-menu__cta span {
+.ex-header .ex-cta .material-symbols-outlined {
+    font-size: 16px;
     color: var(--cor-ciano-eletrico);
+}
+
+.ex-header .ex-acoes .ex-cta {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-acoes .ex-cta {
+        display: inline-flex;
+    }
 }
 
 /* ---- Botão hambúrguer ------------------------------------------------- */
 .ex-header .ex-menu-botao {
     display: none;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 5px;
     width: 44px;
     height: 44px;
-    margin: 0;
-    padding: 0 11px;
-    border: 1px solid var(--cor-borda);
+    border: 1px solid #e2e8f0;
     border-radius: 0.5rem;
-    background: var(--cor-superficie);
+    background: #fff;
+    color: var(--cor-navy-profundo);
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .ex-header .ex-menu-botao:hover {
-    background: var(--cor-superficie-variante);
+    background: #f8fafc;
 }
 
 .ex-header .ex-menu-botao:focus-visible {
@@ -224,72 +346,73 @@ body {
     outline-offset: 2px;
 }
 
-.ex-header .ex-menu-botao span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin: 0;
-    padding: 0;
-    border-radius: 2px;
-    background: var(--cor-navy-profundo);
-    transition: transform 0.25s, opacity 0.25s;
+.ex-header .ex-menu-botao .material-symbols-outlined {
+    font-size: 24px;
 }
 
-.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.ex-header .ex-menu-botao .ex-icone-fechar,
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-abrir {
+    display: none;
 }
 
-.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-fechar {
+    display: inline-block;
 }
 
-.ex-header .ex-menu-botao[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+/* ---- Menu mobile (painel) --------------------------------------------- */
+.ex-header .ex-menu-mobile {
+    display: none;
 }
 
-/* ---- Menu (celular e tablet) ------------------------------------------ */
 @media (max-width: 1023px) {
-    .ex-header .ex-menu-botao {
-        display: flex;
-    }
-
     .ex-header .ex-menu {
         display: none;
+    }
+
+    .ex-header .ex-menu-botao {
+        display: inline-flex;
+    }
+
+    .ex-header .ex-menu-mobile {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
         max-height: calc(100vh - 116px);
         overflow-y: auto;
-        padding: 0.5rem 1.5rem 1.5rem;
-        background: var(--cor-superficie);
-        border-bottom: 1px solid var(--cor-borda);
+        background: #fff;
+        border-top: 1px solid rgb(226 232 240 / 0.8);
         box-shadow: 0 16px 32px rgb(var(--cor-navy-profundo-rgb) / 0.1);
     }
 
-    .ex-header .ex-menu.is-open {
+    .ex-header .ex-menu-mobile.is-open {
+        display: block;
+    }
+
+    .ex-header .ex-menu-mobile .ex-conteudo {
         display: flex;
+        flex-direction: column;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 
-    .ex-header .ex-menu__link {
+    .ex-header .ex-menu-mobile .ex-menu__link {
         padding: 0.875rem 0;
-        border-bottom: 1px solid var(--cor-borda);
+        border-bottom: 1px solid rgb(226 232 240 / 0.8);
         font-size: 15px;
+        line-height: 1.5;
     }
 
-    .ex-header .ex-menu__link[aria-current="page"]::after {
-        display: none;
-    }
-
-    .ex-header .ex-menu__link[aria-current="page"] {
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"] {
         color: var(--cor-teal);
     }
 
-    .ex-header .ex-menu__cta {
-        margin-top: 1.25rem;
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"]::after {
+        display: none;
+    }
+
+    .ex-header .ex-menu-mobile .ex-cta {
+        margin: 1rem 0 0.5rem;
         padding: 0.875rem 1rem;
     }
 }
@@ -298,23 +421,24 @@ body {
    FOOTER
    ========================================================================== */
 .ex-rodape {
-    padding: 4rem 0 2rem;
+    position: relative;
+    padding: 4rem 0 2.5rem;
     background: var(--cor-navy-profundo);
-    color: var(--cor-texto-invertido);
+    color: var(--cor-fundo);
     border-top: 1px solid #1e293b;
 }
 
 .ex-rodape p {
-    margin: 0;
-    padding: 0;
     font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
     color: #94a3b8;
 }
 
 .ex-rodape .ex-rodape__grade {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     padding-bottom: 2.5rem;
 }
 
@@ -342,7 +466,6 @@ body {
     width: auto;
     max-width: none;
     height: 36px;
-    margin: 0;
     border-radius: 0;
     object-fit: contain;
     object-position: left;
@@ -351,7 +474,30 @@ body {
 
 .ex-rodape .ex-rodape__marca p {
     max-width: 24rem;
-    line-height: 1.6;
+    line-height: 1.625;
+}
+
+.ex-rodape .ex-rodape__selos {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+}
+
+.ex-rodape .ex-rodape__selo {
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    background: #1e293b;
+    color: #cbd5e1;
+    font-family: var(--fonte-tecnica);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+}
+
+.ex-rodape .ex-rodape__selo--destaque {
+    color: var(--cor-ciano-eletrico);
 }
 
 /* ---- Coluna 2: unidades ----------------------------------------------- */
@@ -377,9 +523,25 @@ body {
     background: rgb(15 23 42 / 0.8);
 }
 
+.ex-rodape .ex-rodape__unidade-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--cor-ciano-eletrico);
+    font-family: var(--fonte-tecnica);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+}
+
+.ex-rodape .ex-rodape__unidade-titulo .material-symbols-outlined {
+    font-size: 16px;
+}
+
 .ex-rodape .ex-rodape__unidade .ex-rodape__endereco {
     padding-top: 0.25rem;
-    color: var(--cor-texto-invertido);
+    color: #fff;
 }
 
 .ex-rodape .ex-rodape__unidade .ex-rodape__detalhe {
@@ -388,47 +550,52 @@ body {
 
 .ex-rodape .ex-rodape__unidade .ex-rodape__fone {
     margin-top: 0.25rem;
-    font-family: var(--fonte-tecnica);
-    font-size: 11px;
     color: var(--cor-ciano-eletrico);
-}
-
-/* ---- Rótulos (títulos pequenos) --------------------------------------- */
-.ex-rodape .ex-rodape__rotulo {
     font-family: var(--fonte-tecnica);
     font-size: 11px;
     font-weight: 700;
+    line-height: 16px;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cor-ciano-eletrico);
 }
 
 /* ---- Coluna 3: navegação ---------------------------------------------- */
 .ex-rodape .ex-rodape__nav {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.25rem;
+}
+
+.ex-rodape .ex-rodape__rotulo {
+    color: var(--cor-ciano-eletrico);
+    font-family: var(--fonte-tecnica);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .ex-rodape .ex-rodape__links {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem 1rem;
+    padding-top: 0.5rem;
 }
 
 .ex-rodape .ex-rodape__links a {
-    font-size: 13px;
     color: #94a3b8;
+    font-size: 13px;
+    line-height: 20px;
     transition: color 0.2s;
 }
 
 .ex-rodape .ex-rodape__links a:hover {
-    color: var(--cor-texto-invertido);
+    color: #fff;
 }
 
 .ex-rodape .ex-rodape__links .ex-rodape__cta {
     grid-column: 1 / -1;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
     border-top: 1px solid #1e293b;
 }
 
@@ -438,7 +605,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 1rem;
     padding-top: 1.5rem;
     border-top: 1px solid #1e293b;
     text-align: center;
@@ -457,9 +624,50 @@ body {
 }
 
 .ex-rodape .ex-rodape__base .ex-rodape__assinatura {
+    color: #94a3b8;
     font-family: var(--fonte-tecnica);
     font-size: 11px;
-    letter-spacing: 0.06em;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #94a3b8;
+}
+
+/* ---- Botão flutuante do WhatsApp -------------------------------------- */
+.ex-rodape .ex-whatsapp {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    background: var(--cor-sucesso);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgb(16 185 129 / 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.ex-rodape .ex-whatsapp:hover {
+    transform: scale(1.05);
+    background: #059669;
+    color: #fff;
+}
+
+.ex-rodape .ex-whatsapp .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.ex-rodape .ex-whatsapp__texto {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .ex-rodape .ex-whatsapp__texto {
+        display: inline;
+    }
 }
