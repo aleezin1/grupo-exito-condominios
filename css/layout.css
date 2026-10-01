@@ -244,7 +244,13 @@ body {
 .ex-header .ex-menu {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1280px) {
+    .ex-header .ex-menu {
+        gap: 2.5rem;
+    }
 }
 
 .ex-header .ex-menu__link {

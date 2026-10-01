@@ -41,7 +41,7 @@
         }
 
         ::-webkit-scrollbar {
-            display: none;
+            /* display: none; */
         }
 
         /* Menu mobile (controlado por js/menu.js) */
@@ -262,8 +262,8 @@
                     <div class="flex items-center gap-3">
                         <a aria-label="Instagram"
                             class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
-                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener"><span
-                                class="material-symbols-outlined text-[16px]">photo_camera</span></a>
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank"
+                            rel="noopener"><span class="material-symbols-outlined text-[16px]">photo_camera</span></a>
                         <a aria-label="Facebook" class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
                             href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener"><span
                                 class="material-symbols-outlined text-[16px]">public</span></a>
@@ -282,13 +282,15 @@
                         src="img/logo-grupo-exito-header.png">
                 </a>
                 <!-- Clean Editorial Navigation -->
-                <nav class="hidden lg:flex items-center gap-space-xl" aria-label="Navegação principal">
+                <nav class="hidden lg:flex items-center gap-space-lg xl:gap-space-xl" aria-label="Navegação principal">
                     <a class="font-body-md text-[14px] font-semibold text-brand-navy-deep relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-cyan-electric"
                         href="index.html" aria-current="page">Início</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/quem-somos.html">Quem Somos</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/servicos.html">Serviços</a>
+                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
+                        href="pages/clientes.html">Clientes</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
                         href="pages/projetos.html">Projetos</a>
                     <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
@@ -325,6 +327,8 @@
                         href="pages/quem-somos.html">Quem Somos</a>
                     <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
                         href="pages/servicos.html">Serviços</a>
+                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
+                        href="pages/clientes.html">Clientes</a>
                     <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
                         href="pages/projetos.html">Projetos</a>
                     <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
@@ -643,17 +647,56 @@
                     </div>
                 </div>
             </section>
-            <!-- SECTION 1: NOSSAS VANTAGENS (REVISTA CORPORATIVA DIGITAL / PROPTECH CATALOG) -->
-            <section class="w-full bg-white py-space-2xl border-b border-slate-200/70" id="servicos">
+
+
+            <!-- BANNER / CALLOUT QUEM SOMOS -->
+            <section class="w-full bg-white py-space-lg border-b border-slate-200/70" id="quem-somos">
                 <div class="max-w-7xl mx-auto px-gutter">
-                    <!-- Editorial Section Header -->
+                    <div
+                        class="rounded-2xl bg-slate-50/70 border border-slate-200/90 shadow-sm p-space-lg sm:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+                        <div class="flex items-center gap-space-md">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center shrink-0 shadow-xs">
+                                <span class="material-symbols-outlined text-[30px]">history_edu</span>
+                            </div>
+                            <div>
+                                <div
+                                    class="inline-flex items-center gap-2 font-label-tech text-[11px] text-secondary font-bold uppercase tracking-wider mb-1">
+                                    <span class="w-2 h-2 rounded-full bg-status-success"></span> Tradição &amp;
+                                    Governança Executiva
+                                </div>
+                                <h3
+                                    class="font-title-md text-[18px] sm:text-[20px] font-bold text-brand-navy-deep tracking-tight">
+                                    Mais de 15 anos de excelência com constante inovação
+                                </h3>
+                                <p class="font-body-sm text-[13px] text-slate-600 mt-1 max-w-2xl">
+                                    Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
+                                    protegem seu patrimônio condominial diariamente.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 w-full sm:w-auto">
+                            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
+                                href="pages/quem-somos.html">
+                                <span class="">Conheça a história e liderança</span>
+                                <span
+                                    class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: ÁREAS DE ATUAÇÃO (REORGANIZADA IMEDIATAMENTE APÓS NOSSAS VANTAGENS) -->
+            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="servicos">
+                <div class="max-w-7xl mx-auto px-gutter">
                     <div
                         class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
                         <div class="max-w-2xl">
                             <span
                                 class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">ADMINISTRADORA
                                 PARA O SEU CONDOMÍNIO</span>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Nossas vantagens</h2>
+                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Nossos serviços</h2>
                             <p class="font-body-md text-body-md text-slate-600 mt-2">Tecnologia descomplicada e gestão
                                 rigorosa para elevar a governança e diminuir conflitos.</p>
                         </div>
@@ -665,115 +708,13 @@
                             </a>
                         </div>
                     </div>
-                    <!-- 4 Clean Magazine Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter lg:gap-gutter-lg pt-space-xl w-full">
-                        <!-- Advantage 1 -->
-                        <div
-                            class="group p-space-xl rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-brand-cyan-electric/60 hover:bg-white hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-space-lg">
-                                    <div
-                                        class="w-14 h-14 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center text-secondary group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric group-hover:border-brand-navy-deep transition-all shadow-xs">
-                                        <span class="material-symbols-outlined text-[28px]">devices</span>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-[11px] text-slate-400 font-bold uppercase tracking-wider bg-white/80 px-2.5 py-1 rounded-full border border-slate-200/60"><span
-                                            style="letter-spacing: 0.55px;" class="">SERVIÇO </span>01</span>
-                                </div>
-                                <h3
-                                    class="font-title-md text-[18px] font-bold text-brand-navy-deep uppercase tracking-tight mb-2.5 group-hover:text-secondary transition-colors">
-                                    TECNOLOGIA ALINHADA À GESTÃO
-                                </h3>
-                                <p class="font-body-md text-slate-600 leading-relaxed">
-                                    Área do condômino para boletos, prestação de contas em tempo real, comunicados,
-                                    reservas de áreas comuns e facilidades diárias.
-                                </p>
-                            </div>
-                            <div
-                                class="pt-space-md mt-space-lg border-t border-slate-200/80 flex items-center justify-between text-secondary font-label-badge text-label-badge group-hover:text-brand-cyan-electric transition-colors">
-                                <span class="font-semibold">App &amp; Web Integrados</span>
-                                <span
-                                    class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                            </div>
-                        </div>
-                        <!-- Advantage 2 -->
-                        <div
-                            class="group p-space-xl rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-brand-cyan-electric/60 hover:bg-white hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-space-lg">
-                                    <div
-                                        class="w-14 h-14 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center text-secondary group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric group-hover:border-brand-navy-deep transition-all shadow-xs">
-                                        <span class="material-symbols-outlined text-[28px]">bar_chart</span>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-[11px] text-slate-400 font-bold uppercase tracking-wider bg-white/80 px-2.5 py-1 rounded-full border border-slate-200/60"><span
-                                            style="letter-spacing: 0.55px;" class="">SERVIÇO </span>02</span>
-                                </div>
-                                <h3
-                                    class="font-title-md text-[18px] font-bold text-brand-navy-deep uppercase tracking-tight mb-2.5 group-hover:text-secondary transition-colors">
-                                    LEITURA DE ÁGUA E GÁS INFORMATIZADA
-                                </h3>
-                                <p class="font-body-md text-slate-600 leading-relaxed">
-                                    Leituras organizadas, fotografadas e registradas com telemetria para garantir total
-                                    rastreabilidade, economia e justiça no consumo.
-                                </p>
-                            </div>
-                            <div
-                                class="pt-space-md mt-space-lg border-t border-slate-200/80 flex items-center justify-between text-secondary font-label-badge text-label-badge group-hover:text-brand-cyan-electric transition-colors">
-                                <span class="font-semibold">Consumo Transparente</span>
-                                <span
-                                    class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                            </div>
-                        </div>
-                        <!-- Advantage 3 -->
-                        <div
-                            class="group p-space-xl rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-brand-cyan-electric/60 hover:bg-white hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-space-lg">
-                                    <div
-                                        class="w-14 h-14 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center text-secondary group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric group-hover:border-brand-navy-deep transition-all shadow-xs">
-                                        <span class="material-symbols-outlined text-[28px]">how_to_vote</span>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-[11px] text-slate-400 font-bold uppercase tracking-wider bg-white/80 px-2.5 py-1 rounded-full border border-slate-200/60">SERVIÇO
-                                        03</span>
-                                </div>
-                                <h3
-                                    class="font-title-md text-[18px] font-bold text-brand-navy-deep uppercase tracking-tight mb-2.5 group-hover:text-secondary transition-colors">
-                                    ASSEMBLEIAS COM SUPORTE COMPLETO
-                                </h3>
-                                <p class="font-body-md text-slate-600 leading-relaxed">
-                                    Organização, condução jurídica e registro de assembleias presenciais, virtuais ou
-                                    híbridas, com ata rápida e quóruns auditados.
-                                </p>
-                            </div>
-                            <div
-                                class="pt-space-md mt-space-lg border-t border-slate-200/80 flex items-center justify-between text-secondary font-label-badge text-label-badge group-hover:text-brand-cyan-electric transition-colors">
-                                <span class="font-semibold">Segurança &amp; Atas Jurídicas</span>
-                                <span
-                                    class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- SECTION 2: ÁREAS DE ATUAÇÃO (REORGANIZADA IMEDIATAMENTE APÓS NOSSAS VANTAGENS) -->
-            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="areas-atuacao">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div class="text-center max-w-3xl mx-auto pb-space-xl">
-                        <span
-                            class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold">GESTÃO
-                            COMPLETA E INTEGRADA</span>
-                        <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep mt-1">Áreas de atuação</h2>
-                        <p class="font-body-md text-body-md text-slate-600 mt-2">Os três pilares fundamentais para
-                            manter o seu condomínio valorizado, eficiente e juridicamente protegido.</p>
-                    </div>
+                    <br><br>
                     <!-- 3 Pillars Interactive Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
                         <!-- Area 1: Administrativa -->
-                        <div
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group cursor-default">
+                        <a
+                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
+                            href="pages/servicos-1.html" aria-label="Veja mais sobre Gestão Administrativa">
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
@@ -814,11 +755,18 @@
                                         <span class="">Controle automatizado de correspondências e encomendas</span>
                                     </li>
                                 </ul>
+                                <span
+                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
+                                    <span class="">Veja mais</span>
+                                    <span
+                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                </span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Area 2: Financeira -->
-                        <div
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group cursor-default">
+                        <a
+                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
+                            href="pages/servicos-2.html" aria-label="Veja mais sobre Gestão Financeira">
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors flex items-center justify-center mb-space-lg shadow-xs">
@@ -859,11 +807,18 @@
                                         <span class="">Emissão rápida de 2ª via com Pix Copia e Cola</span>
                                     </li>
                                 </ul>
+                                <span
+                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
+                                    <span class="">Veja mais</span>
+                                    <span
+                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                </span>
                             </div>
-                        </div>
+                        </a>
                         <!-- Area 3: Operacional -->
-                        <div
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group cursor-default">
+                        <a
+                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
+                            href="pages/servicos-3.html" aria-label="Veja mais sobre Gestão Operacional">
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-brand-cyan-electric group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
@@ -904,48 +859,18 @@
                                         <span class="">Acompanhamento de laudos e renovação de AVCB</span>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- BANNER / CALLOUT QUEM SOMOS -->
-            <section class="w-full bg-white py-space-lg border-b border-slate-200/70" id="quem-somos">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div
-                        class="rounded-2xl bg-slate-50/70 border border-slate-200/90 shadow-sm p-space-lg sm:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
-                        <div class="flex items-center gap-space-md">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center shrink-0 shadow-xs">
-                                <span class="material-symbols-outlined text-[30px]">history_edu</span>
-                            </div>
-                            <div>
-                                <div
-                                    class="inline-flex items-center gap-2 font-label-tech text-[11px] text-secondary font-bold uppercase tracking-wider mb-1">
-                                    <span class="w-2 h-2 rounded-full bg-status-success"></span> Tradição &amp;
-                                    Governança Executiva
-                                </div>
-                                <h3
-                                    class="font-title-md text-[18px] sm:text-[20px] font-bold text-brand-navy-deep tracking-tight">
-                                    Mais de 15 anos de excelência com constante inovação
-                                </h3>
-                                <p class="font-body-sm text-[13px] text-slate-600 mt-1 max-w-2xl">
-                                    Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
-                                    protegem seu patrimônio condominial diariamente.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="shrink-0 w-full sm:w-auto">
-                            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
-                                href="pages/quem-somos.html">
-                                <span class="">Conheça a história e liderança</span>
                                 <span
-                                    class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
-                            </a>
-                        </div>
+                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
+                                    <span class="">Veja mais</span>
+                                    <span
+                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>
+
             <!-- SECTION 3: PESSOAS NO CENTRO DA ADMINISTRAÇÃO & HUB EDITORIAL INTEGRADO DE NOTÍCIAS -->
             <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="noticias-comunidade">
                 <div class="max-w-7xl mx-auto px-gutter">
@@ -967,7 +892,8 @@
                         </div>
                         <div class="shrink-0 flex items-center gap-2">
                             <a class="inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-white border border-slate-200 hover:border-brand-navy-deep hover:bg-slate-50 text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all"
-                                href="pages/noticias.html"><span class="">Ver todas as notícias &amp; artigos</span><span
+                                href="pages/noticias.html"><span class="">Ver todas as notícias &amp;
+                                    artigos</span><span
                                     class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span></a>
                         </div>
                     </div>
@@ -978,8 +904,7 @@
                             class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col group hover:border-brand-cyan-electric/60 hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300">
                             <div class="relative h-72 sm:h-80 w-full overflow-hidden">
                                 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    alt="Assembleias virtuais em condomínio"
-                                    src="img/assembleias-virtuais.jpg">
+                                    alt="Assembleias virtuais em condomínio" src="img/assembleias-virtuais.jpg">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/80 via-transparent to-transparent">
                                 </div>
@@ -1051,8 +976,7 @@
                                 class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col sm:flex-row group hover:border-brand-cyan-electric/60 hover:shadow-[0_12px_30px_rgba(6,21,45,0.08)] transition-all duration-300">
                                 <div class="sm:w-5/12 h-48 sm:h-auto relative overflow-hidden shrink-0">
                                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        alt="Telemetria predial inteligente"
-                                        src="img/telemetria-predial.jpg">
+                                        alt="Telemetria predial inteligente" src="img/telemetria-predial.jpg">
                                     <span
                                         class="absolute top-3 left-3 px-2 py-0.5 rounded bg-brand-navy-deep text-white font-label-badge text-[10px] uppercase font-semibold">PROPTECH</span>
                                 </div>
@@ -1160,6 +1084,12 @@
                         <div
                             class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
                             <div>
+                                <!-- Foto do projeto: troque o ícone por
+                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Edifício Horizonte Residencial"> -->
+                                <div
+                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
@@ -1195,6 +1125,12 @@
                         <div
                             class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
                             <div>
+                                <!-- Foto do projeto: troque o ícone por
+                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Parque dos Ipês Corporativo"> -->
+                                <div
+                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
@@ -1230,6 +1166,12 @@
                         <div
                             class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
                             <div>
+                                <!-- Foto do projeto: troque o ícone por
+                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Residencial Vila Nova Mogi"> -->
+                                <div
+                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
@@ -1260,6 +1202,123 @@
                                     href="pages/projetos.html">
                                     <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECTION: CLIENTES & DEPOIMENTOS -->
+            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="clientes">
+                <div class="max-w-7xl mx-auto px-gutter">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
+                        <div class="max-w-2xl">
+                            <span
+                                class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">NOSSOS
+                                CLIENTES</span>
+                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Quem confia no nosso
+                                trabalho</h2>
+                            <p class="font-body-md text-body-md text-slate-600 mt-2">Condomínios e empresas que
+                                construíram parcerias de longo prazo com o Grupo Êxito.</p>
+                        </div>
+                        <a class="inline-flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-white border border-slate-200 hover:bg-brand-navy-deep hover:text-white hover:border-brand-navy-deep text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all duration-300"
+                            href="pages/clientes.html">
+                            <span class="">Ver todos os clientes</span>
+                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl">
+                        <!-- Cliente 1 -->
+                        <div
+                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
+                            <!-- Foto do cliente: troque o ícone por
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Condomínio Jardins"> -->
+                            <div
+                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span
+                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">CONDOMÍNIO
+                                    <span class="text-brand-cyan-electric">JARDINS</span></span>
+                            </div>
+                            <div class="p-space-lg flex flex-col flex-1">
+                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
+                                    O atendimento é rápido, profissional e nos passa muita segurança. Recomendo sem dúvidas!
+                                </p>
+                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
+                                    <!-- Foto da pessoa: troque o ícone por
+                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Mariana Santos"> -->
+                                    <div
+                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
+                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Mariana Santos</p>
+                                        <p class="font-body-sm text-[12px] text-slate-500">Síndica do Condomínio Jardins</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cliente 2 -->
+                        <div
+                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
+                            <!-- Foto do cliente: troque o ícone por
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Edifício Aurora"> -->
+                            <div
+                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span
+                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EDIFÍCIO
+                                    <span class="text-brand-cyan-electric">AURORA</span></span>
+                            </div>
+                            <div class="p-space-lg flex flex-col flex-1">
+                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
+                                    A gestão financeira melhorou muito depois que contratamos o Grupo Êxito. Equipe atenciosa e sempre disponível!
+                                </p>
+                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
+                                    <!-- Foto da pessoa: troque o ícone por
+                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de João Pedro"> -->
+                                    <div
+                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
+                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">João Pedro</p>
+                                        <p class="font-body-sm text-[12px] text-slate-500">Síndico do Ed. Aurora</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cliente 3 -->
+                        <div
+                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
+                            <!-- Foto do cliente: troque o ícone por
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Empresarial Pinheiros"> -->
+                            <div
+                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span
+                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EMPRESARIAL
+                                    <span class="text-brand-cyan-electric">PINHEIROS</span></span>
+                            </div>
+                            <div class="p-space-lg flex flex-col flex-1">
+                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
+                                    Desde o primeiro contato até a execução, tudo foi muito bem organizado. A equipe é excelente!
+                                </p>
+                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
+                                    <!-- Foto da pessoa: troque o ícone por
+                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Carlos Lima"> -->
+                                    <div
+                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
+                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Carlos Lima</p>
+                                        <p class="font-body-sm text-[12px] text-slate-500">Gerente – Empresarial Pinheiros</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1868,6 +1927,8 @@
                             href="pages/quem-somos.html">Quem Somos</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
                             href="pages/servicos.html">Serviços Vitrine</a>
+                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
+                            href="pages/clientes.html">Clientes</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
                             href="pages/projetos.html">Projetos &amp; Cases</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
