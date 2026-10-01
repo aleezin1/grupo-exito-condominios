@@ -113,3 +113,21 @@ summary:focus-visible,
 .carousel-pausa .material-symbols-outlined {
     font-size: 16px;
 }
+
+/* Sem rolagem lateral: efeitos que entram pelos lados (data-reveal="esquerda/direita")
+   e o zoom do fim do loading não podem empurrar a página para fora da tela.
+   No <html> vale para a janela (lá "clip" seria ignorado, por isso "hidden");
+   no <body> o "clip" corta de verdade e não atrapalha a rolagem vertical. */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    body {
+        overflow-x: clip;
+    }
+}

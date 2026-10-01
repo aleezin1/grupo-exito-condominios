@@ -245,10 +245,27 @@ html {
     display: block;
     width: auto;
     max-width: none;
-    height: 40px;
+    height: 46px;
     border-radius: 0;
     object-fit: contain;
     transition: transform 0.2s;
+}
+
+/* Celular (até 640px): logo maior e centralizado na barra, botão ☰ à direita */
+@media (max-width: 639px) {
+    .ex-header .ex-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .ex-header .ex-logo img {
+        height: 52px;
+    }
+
+    .ex-header .ex-acoes {
+        margin-left: auto;
+    }
 }
 
 .ex-header .ex-logo:hover img {

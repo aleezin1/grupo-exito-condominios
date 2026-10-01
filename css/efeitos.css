@@ -55,6 +55,15 @@
     translate: none;
 }
 
+/* Celular: entrar pelos lados não cabe na tela estreita, então sobe como os outros */
+@media (max-width: 767px) {
+
+    .fx [data-reveal="esquerda"],
+    .fx [data-reveal="direita"] {
+        translate: 0 40px;
+    }
+}
+
 /* Saída pelo topo da tela (rolando para baixo): sai subindo */
 .fx [data-reveal].fx-acima {
     translate: 0 -40px;
