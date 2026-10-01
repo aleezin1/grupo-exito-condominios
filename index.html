@@ -1,237 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-stitch-anim-opacity="true" style="opacity: 1;">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="web_standard" name="shell-type">
-    <title>Grupo Êxito Condomínios | Administração Condominial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Êxito Condomínios | Administração de Condomínios em Mogi das Cruzes e São Paulo</title>
+    <meta name="description"
+        content="Administração condominial com transparência, tecnologia e atendimento humano. Gestão administrativa, financeira e operacional para condomínios em Mogi das Cruzes e São Paulo.">
+    <meta name="author" content="Grupo Êxito Condomínios">
+    <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#06152d">
+
+    <!-- Compartilhamento (WhatsApp, Facebook, LinkedIn, X) -->
+    <!-- og:image precisa do endereço completo quando o site for publicado (ex.: https://seusite.com.br/img/...) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Grupo Êxito Condomínios">
+    <meta property="og:title" content="Grupo Êxito Condomínios | Administração Condominial">
+    <meta property="og:description"
+        content="Gestão condominial com transparência, tecnologia e atendimento humano em Mogi das Cruzes e São Paulo.">
+    <meta property="og:image" content="img/hero-reuniao-condominio.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/paleta.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet">
-    <style>
-        @layer base {
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/efeitos.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <link rel="stylesheet" href="css/assistente.css">
+    <script src="js/acessibilidade.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/efeitos.js"></script>
 
-            html,
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                overscroll-behavior: none;
-            }
-
-            main>:first-child {
-                margin-top: 0 !important;
-            }
-
-            main>:last-child {
-                margin-bottom: 0 !important;
-            }
-        }
-
-        ::-webkit-scrollbar {
-            /* display: none; */
-        }
-
-        /* Menu mobile (controlado por js/menu.js) */
-        #menu-mobile:not(.is-open),
-        [data-menu-toggle] .menu-icone-fechar,
-        [data-menu-toggle][aria-expanded="true"] .menu-icone-abrir {
-            display: none;
-        }
-
-        [data-menu-toggle][aria-expanded="true"] .menu-icone-fechar {
-            display: inline;
-        }
-    </style>
+    <!-- Tailwind (CDN) + configuração do projeto -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "status-success": "rgb(var(--cor-sucesso-rgb) / <alpha-value>)",
-                        "outline": "#75777e",
-                        "error": "#ba1a1a",
-                        "neon-cyan-glow": "rgba(0, 188, 212, 0.35)",
-                        "on-secondary-fixed-variant": "#004e59",
-                        "inverse-primary": "#b9c7e6",
-                        "on-primary-fixed-variant": "#394761",
-                        "background": "rgb(var(--cor-fundo-rgb) / <alpha-value>)",
-                        "primary-container": "#0d1b34",
-                        "on-secondary-fixed": "#001f25",
-                        "on-error-container": "#93000a",
-                        "secondary": "rgb(var(--cor-teal-rgb) / <alpha-value>)",
-                        "brand-cyan-electric": "rgb(var(--cor-ciano-eletrico-rgb) / <alpha-value>)",
-                        "on-background": "rgb(var(--cor-texto-rgb) / <alpha-value>)",
-                        "on-secondary-container": "#006573",
-                        "surface-card": "rgb(var(--cor-superficie-rgb) / <alpha-value>)",
-                        "primary-fixed-dim": "#b9c7e6",
-                        "outline-variant": "rgb(var(--cor-borda-rgb) / <alpha-value>)",
-                        "on-surface-variant": "rgb(var(--cor-texto-secundario-rgb) / <alpha-value>)",
-                        "surface-variant": "rgb(var(--cor-superficie-variante-rgb) / <alpha-value>)",
-                        "surface-container-highest": "#e2e8f0",
-                        "secondary-container": "rgb(var(--cor-ciano-suave-rgb) / <alpha-value>)",
-                        "surface": "rgb(var(--cor-fundo-rgb) / <alpha-value>)",
-                        "tertiary": "#000000",
-                        "surface-dim": "#e2e8f0",
-                        "border-subtle": "rgba(6, 21, 45, 0.08)",
-                        "primary-fixed": "#d7e2ff",
-                        "secondary-fixed-dim": "#44d8f1",
-                        "on-primary": "rgb(var(--cor-texto-invertido-rgb) / <alpha-value>)",
-                        "surface-bright": "rgb(var(--cor-superficie-rgb) / <alpha-value>)",
-                        "brand-navy-light": "rgb(var(--cor-navy-claro-rgb) / <alpha-value>)",
-                        "surface-tint": "rgb(var(--cor-ciano-eletrico-rgb) / <alpha-value>)",
-                        "on-tertiary-fixed-variant": "#004b73",
-                        "on-primary-fixed": "#0d1b34",
-                        "surface-container-low": "#ffffff",
-                        "on-surface": "rgb(var(--cor-texto-rgb) / <alpha-value>)",
-                        "tertiary-container": "#001d31",
-                        "brand-teal-vibrant": "rgb(var(--cor-teal-vibrante-rgb) / <alpha-value>)",
-                        "on-primary-container": "#7684a1",
-                        "on-tertiary": "#ffffff",
-                        "border-glass": "rgba(255, 255, 255, 0.8)",
-                        "surface-card-glass": "rgba(255, 255, 255, 0.92)",
-                        "brand-navy-surface": "rgb(var(--cor-navy-superficie-rgb) / <alpha-value>)",
-                        "error-container": "#ffdad6",
-                        "status-danger": "rgb(var(--cor-erro-rgb) / <alpha-value>)",
-                        "brand-cyan-glow": "rgb(var(--cor-ciano-eletrico-rgb) / <alpha-value>)",
-                        "inverse-on-surface": "#eaf1ff",
-                        "surface-container": "rgb(var(--cor-superficie-variante-rgb) / <alpha-value>)",
-                        "primary": "rgb(var(--cor-navy-profundo-rgb) / <alpha-value>)",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-fixed-dim": "#93ccff",
-                        "secondary-fixed": "#a1efff",
-                        "brand-navy-deep": "rgb(var(--cor-navy-profundo-rgb) / <alpha-value>)",
-                        "on-error": "#ffffff",
-                        "status-warning": "rgb(var(--cor-alerta-rgb) / <alpha-value>)",
-                        "on-tertiary-fixed": "#001d31",
-                        "on-tertiary-container": "#188ace",
-                        "surface-container-high": "#e2e8f0",
-                        "tertiary-fixed": "#cce5ff",
-                        "inverse-surface": "#213145",
-                        "surface-canvas": "rgb(var(--cor-superficie-rgb) / <alpha-value>)",
-                        "on-secondary": "rgb(var(--cor-texto-invertido-rgb) / <alpha-value>)"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.375rem",
-                        "lg": "0.75rem",
-                        "xl": "1rem",
-                        "2xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter-lg": "2rem",
-                        "gutter": "1.5rem",
-                        "margin-lg": "4rem",
-                        "margin-md": "2.5rem",
-                        "space-sm": "0.5rem",
-                        "margin": "1.5rem",
-                        "space-lg": "1.5rem",
-                        "space-xl": "2.5rem",
-                        "gutter-sm": "1rem",
-                        "space-md": "1rem",
-                        "space-2xl": "4rem",
-                        "space-xs": "0.25rem"
-                    },
-                    "fontFamily": {
-                        "label-badge": ["Space Grotesk", "system-ui", "sans-serif"],
-                        "headline-md": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "headline-lg-mobile": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "label-tech": ["Space Grotesk", "system-ui", "sans-serif"],
-                        "body-sm": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "display-hero-mobile": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "body-lg": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "headline-sm": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "display-hero": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "headline-lg": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "metric-display": ["Space Grotesk", "system-ui", "sans-serif"],
-                        "title-md": ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-                        "body-md": ["Plus Jakarta Sans", "system-ui", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "label-badge": ["12px", {
-                            "lineHeight": "16px",
-                            "letterSpacing": "0.04em",
-                            "fontWeight": "600"
-                        }],
-                        "headline-md": ["28px", {
-                            "lineHeight": "36px",
-                            "letterSpacing": "-0.02em",
-                            "fontWeight": "700"
-                        }],
-                        "headline-lg-mobile": ["28px", {
-                            "lineHeight": "36px",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "700"
-                        }],
-                        "label-tech": ["11px", {
-                            "lineHeight": "16px",
-                            "letterSpacing": "0.08em",
-                            "fontWeight": "700"
-                        }],
-                        "body-sm": ["13px", {
-                            "lineHeight": "20px",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "display-hero-mobile": ["36px", {
-                            "lineHeight": "44px",
-                            "letterSpacing": "-0.02em",
-                            "fontWeight": "800"
-                        }],
-                        "body-lg": ["18px", {
-                            "lineHeight": "28px",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "headline-sm": ["20px", {
-                            "lineHeight": "28px",
-                            "letterSpacing": "-0.015em",
-                            "fontWeight": "600"
-                        }],
-                        "display-hero": ["54px", {
-                            "lineHeight": "62px",
-                            "letterSpacing": "-0.035em",
-                            "fontWeight": "800"
-                        }],
-                        "headline-lg": ["38px", {
-                            "lineHeight": "46px",
-                            "letterSpacing": "-0.025em",
-                            "fontWeight": "700"
-                        }],
-                        "metric-display": ["32px", {
-                            "lineHeight": "36px",
-                            "letterSpacing": "-0.02em",
-                            "fontWeight": "700"
-                        }],
-                        "title-md": ["17px", {
-                            "lineHeight": "24px",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "600"
-                        }],
-                        "body-md": ["15px", {
-                            "lineHeight": "24px",
-                            "letterSpacing": "0em",
-                            "fontWeight": "400"
-                        }]
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="js/tailwind.config.js"></script>
 </head>
 
 <body
@@ -243,13 +63,13 @@
                 <div class="flex items-center gap-space-lg">
                     <a class="flex items-center gap-1.5 text-slate-300 hover:text-brand-cyan-electric transition-colors"
                         href="tel:1125649963">
-                        <span class="material-symbols-outlined text-[15px] text-brand-cyan-electric">call</span>
+                        <span aria-hidden="true" class="material-symbols-outlined text-[15px] text-brand-cyan-electric">call</span>
                         <span class="">(11) 2564-9963</span>
                     </a>
-                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <span class="text-slate-400 hidden sm:inline" aria-hidden="true">•</span>
                     <a class="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-brand-cyan-electric transition-colors"
                         href="mailto:contato@grupoexitocondominios.com.br">
-                        <span class="material-symbols-outlined text-[15px] text-brand-cyan-electric">mail</span>
+                        <span aria-hidden="true" class="material-symbols-outlined text-[15px] text-brand-cyan-electric">mail</span>
                         <span class="">contato@grupoexitocondominios.com.br</span>
                     </a>
                 </div>
@@ -263,10 +83,10 @@
                         <a aria-label="Instagram"
                             class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
                             href="https://www.instagram.com/grupoexito.condominios/" target="_blank"
-                            rel="noopener"><span class="material-symbols-outlined text-[16px]">photo_camera</span></a>
+                            rel="noopener"><span aria-hidden="true" class="material-symbols-outlined text-[16px]">photo_camera</span><span class="sr-only"> (abre em nova aba)</span></a>
                         <a aria-label="Facebook" class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
-                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener"><span
-                                class="material-symbols-outlined text-[16px]">public</span></a>
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener"><span aria-hidden="true"
+                                class="material-symbols-outlined text-[16px]">public</span><span class="sr-only"> (abre em nova aba)</span></a>
                     </div>
                 </div>
             </div>
@@ -304,7 +124,7 @@
                     <a class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
                         href="#proposta">
                         <span class="">Falar com Consultor</span>
-                        <span
+                        <span aria-hidden="true"
                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
                     </a>
                     <!-- Botão do menu mobile (abaixo de 1024px) -->
@@ -312,8 +132,8 @@
                         class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 bg-white text-brand-navy-deep hover:bg-slate-50 transition-colors"
                         type="button" aria-controls="menu-mobile" aria-expanded="false" aria-label="Abrir menu"
                         data-menu-toggle>
-                        <span class="material-symbols-outlined text-[24px] menu-icone-abrir">menu</span>
-                        <span class="material-symbols-outlined text-[24px] menu-icone-fechar">close</span>
+                        <span aria-hidden="true" class="material-symbols-outlined text-[24px] menu-icone-abrir">menu</span>
+                        <span aria-hidden="true" class="material-symbols-outlined text-[24px] menu-icone-fechar">close</span>
                     </button>
                 </div>
             </div>
@@ -340,7 +160,7 @@
                     <a class="mt-space-md mb-space-sm inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all"
                         href="#proposta">
                         <span class="">Falar com Consultor</span>
-                        <span
+                        <span aria-hidden="true"
                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
                     </a>
                 </div>
@@ -354,10 +174,12 @@
                 class="relative w-full bg-gradient-to-b from-[#f3f7fb] via-[#f8fafd] to-white pt-10 pb-space-2xl border-b border-slate-200/60 overflow-hidden">
                 <!-- Subtle Architectural Grid Background Pattern -->
                 <div
-                    class="absolute inset-0 bg-[radial-gradient(#00bcd4_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-15 pointer-events-none">
+                    class="absolute inset-x-0 -top-40 -bottom-40 bg-[radial-gradient(#00bcd4_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-15 pointer-events-none"
+                    data-parallax="0.35">
                 </div>
                 <div
-                    class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-brand-cyan-electric/10 to-transparent rounded-full blur-3xl pointer-events-none">
+                    class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-brand-cyan-electric/10 to-transparent rounded-full blur-3xl pointer-events-none"
+                    data-parallax="-0.25">
                 </div>
                 <div class="max-w-7xl mx-auto px-gutter relative z-10">
                     <!-- Eyebrow Editorial Tag -->
@@ -370,15 +192,15 @@
                                 CONDOMINIAL 4.0 • ALTA PERFORMANCE</span>
                         </div>
                         <div class="hidden md:flex items-center gap-3 font-label-tech text-label-tech text-slate-500">
-                            <span class="flex items-center gap-1"><span
+                            <span class="flex items-center gap-1"><span aria-hidden="true"
                                     class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
                                 AUDITORIA PREVENTIVA</span>
                             <span class="text-slate-300">•</span>
-                            <span class="flex items-center gap-1"><span
+                            <span class="flex items-center gap-1"><span aria-hidden="true"
                                     class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
                                 HUB SUPERLÓGICA</span>
                             <span class="text-slate-300">•</span>
-                            <span class="flex items-center gap-1"><span
+                            <span class="flex items-center gap-1"><span aria-hidden="true"
                                     class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
                                 SISTEMA ROZENDO</span>
                         </div>
@@ -386,7 +208,7 @@
                     <!-- Asymmetric Editorial Grid -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
                         <!-- Left Column: Editorial Headline & Manifesto -->
-                        <div class="lg:col-span-7 flex flex-col gap-space-md">
+                        <div class="lg:col-span-7 flex flex-col gap-space-md" data-reveal-stagger>
                             <div class="space-y-space-sm">
                                 <div
                                     class="inline-flex items-center gap-2 font-label-badge text-label-badge text-secondary uppercase tracking-widest font-bold">
@@ -408,12 +230,12 @@
                                 <a class="px-space-xl py-3.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider shadow-[0_10px_24px_rgba(6,21,45,0.18)] hover:bg-slate-800 hover:shadow-[0_12px_28px_rgba(6,21,45,0.25)] transition-all flex items-center gap-space-sm group"
                                     href="#proposta">
                                     <span class="">SOLICITAR PROPOSTA SOB MEDIDA</span>
-                                    <span
+                                    <span aria-hidden="true"
                                         class="material-symbols-outlined text-[18px] text-brand-cyan-electric group-hover:translate-x-1 transition-transform">arrow_forward</span>
                                 </a>
                                 <a class="px-space-lg py-3.5 rounded-lg bg-white border border-slate-200 text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2 shadow-xs"
                                     data-path="servicos" href="#servicos">
-                                    <span class="material-symbols-outlined text-[18px] text-secondary">grid_view</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[18px] text-secondary">grid_view</span>
                                     <span class="">Nossos Serviços</span>
                                 </a>
                             </div>
@@ -433,7 +255,7 @@
                                 <div
                                     class="p-3.5 sm:p-space-md rounded-xl bg-white border border-slate-200/80 shadow-xs flex flex-col">
                                     <span
-                                        class="font-label-tech text-[10px] sm:text-label-tech text-brand-cyan-electric uppercase font-bold tracking-wider">DISPONIBILIDADE</span>
+                                        class="font-label-tech text-[10px] sm:text-label-tech text-secondary uppercase font-bold tracking-wider">DISPONIBILIDADE</span>
                                     <span
                                         class="font-metric-display text-[26px] sm:text-metric-display text-brand-navy-deep font-bold mt-0.5">24/7</span>
                                     <span class="font-body-sm text-[12px] text-slate-500">App do Morador &amp;
@@ -451,7 +273,7 @@
                             </div>
                         </div>
                         <!-- Right Column: PropTech Multi-Device Clean Showcase with Interactive Carousel -->
-                        <div class="lg:col-span-5 relative mt-space-lg lg:mt-0">
+                        <div class="lg:col-span-5 relative mt-space-lg lg:mt-0" data-reveal="direita" style="--fx-atraso: 250ms">
                             <div class="relative">
                                 <!-- Main Executive Dashboard Glass Card -->
                                 <div
@@ -468,7 +290,7 @@
                                         </div>
                                         <div class="flex items-center gap-2">
                                             <span
-                                                class="font-label-badge text-[11px] text-status-success bg-emerald-50 px-2 py-0.5 rounded font-semibold uppercase flex items-center gap-1">
+                                                class="font-label-badge text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-semibold uppercase flex items-center gap-1">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
                                                 CONECTADO
                                             </span>
@@ -479,14 +301,16 @@
                                     </div>
                                     <!-- Interactive Carousel Container -->
                                     <div class="relative w-full h-60 sm:h-64 rounded-xl overflow-hidden mb-space-md border border-slate-200/80 group/carousel"
-                                        id="heroCarousel">
+                                        id="heroCarousel" role="region" aria-roledescription="carrossel"
+                                        aria-label="Destaques do portal do síndico">
                                         <!-- Slides Wrapper -->
-                                        <div class="relative w-full h-full" id="carouselSlides">
+                                        <div class="relative w-full h-full" id="carouselSlides" aria-live="off">
                                             <!-- Slide 1: Assembleia Digital Híbrida -->
                                             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-0"
-                                                data-slide="0">
+                                                data-slide="0" role="group" aria-roledescription="slide"
+                                                aria-label="1 de 3">
                                                 <img class="w-full h-full object-cover"
-                                                    alt="High tech modern condominium council meeting in a glass-walled executive boardroom overlooking the São Paulo city skyline with holographic dashboard displays and tablet management devices, deep blue and electric cyan ambient architectural lighting, photorealistic cinematic lighting"
+                                                    alt="Reunião de conselho de condomínio em sala envidraçada com vista para São Paulo"
                                                     src="img/hero-reuniao-condominio.jpg">
                                                 <div
                                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
@@ -500,7 +324,7 @@
                                                     class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                                                     <div>
                                                         <div class="flex items-center gap-2">
-                                                            <span
+                                                            <span aria-hidden="true"
                                                                 class="material-symbols-outlined text-[18px] text-brand-cyan-electric">videocam</span>
                                                             <span class="font-body-sm text-[13px] font-bold">Assembleia
                                                                 Digital Híbrida</span>
@@ -515,9 +339,10 @@
                                             </div>
                                             <!-- Slide 2: Telemetria Inteligente de Água & Gás -->
                                             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10"
-                                                data-slide="1">
+                                                data-slide="1" role="group" aria-roledescription="slide"
+                                                aria-label="2 de 3">
                                                 <img class="w-full h-full object-cover"
-                                                    alt="Smart building telemetry dashboard with water meters and sensor analytics"
+                                                    alt="Painel de telemetria predial com medidores de água e sensores"
                                                     src="img/telemetria-predial.jpg">
                                                 <div
                                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
@@ -531,7 +356,7 @@
                                                     class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                                                     <div>
                                                         <div class="flex items-center gap-2">
-                                                            <span
+                                                            <span aria-hidden="true"
                                                                 class="material-symbols-outlined text-[18px] text-brand-cyan-electric">water_drop</span>
                                                             <span class="font-body-sm text-[13px] font-bold">Telemetria
                                                                 de Água &amp; Gás</span>
@@ -546,9 +371,10 @@
                                             </div>
                                             <!-- Slide 3: Prestação de Contas & Balancete Digital -->
                                             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-0"
-                                                data-slide="2">
+                                                data-slide="2" role="group" aria-roledescription="slide"
+                                                aria-label="3 de 3">
                                                 <img class="w-full h-full object-cover"
-                                                    alt="Financial digital reporting and audited balance sheets on executive tablet"
+                                                    alt="Gestora analisando balancete digital em um tablet"
                                                     src="img/relatorios-financeiros.jpg">
                                                 <div
                                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
@@ -562,7 +388,7 @@
                                                     class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                                                     <div>
                                                         <div class="flex items-center gap-2">
-                                                            <span
+                                                            <span aria-hidden="true"
                                                                 class="material-symbols-outlined text-[18px] text-brand-cyan-electric">account_balance_wallet</span>
                                                             <span class="font-body-sm text-[13px] font-bold">Balancete
                                                                 &amp; Prestação Digital</span>
@@ -576,27 +402,28 @@
                                             </div>
                                         </div>
                                         <!-- Carousel Nav Buttons -->
-                                        <button aria-label="Slide anterior"
+                                        <button type="button" aria-label="Slide anterior"
                                             class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100"
                                             onclick="prevSlide()">
-                                            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chevron_left</span>
                                         </button>
-                                        <button aria-label="Próximo slide"
+                                        <button type="button" aria-label="Próximo slide"
                                             class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100"
                                             onclick="nextSlide()">
-                                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chevron_right</span>
                                         </button>
                                         <!-- Carousel Dots -->
-                                        <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-white/10"
-                                            id="carouselDots">
-                                            <button aria-label="Ir para slide 1"
-                                                class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all"
+                                        <div class="absolute top-2 right-2 z-20 flex items-center gap-0.5 bg-black/50 backdrop-blur-md px-1 py-0.5 rounded-full border border-white/10"
+                                            id="carouselDots" role="group" aria-label="Controles do carrossel">
+                                            <button type="button" id="carouselPausa" class="carousel-dot carousel-pausa"
+                                                aria-label="Pausar carrossel" aria-pressed="false">
+                                                <span aria-hidden="true" class="material-symbols-outlined">pause</span>
+                                            </button>
+                                            <button type="button" aria-label="Ir para slide 1" class="carousel-dot"
                                                 onclick="goToSlide(0)"></button>
-                                            <button aria-label="Ir para slide 2"
-                                                class="w-2 h-2 rounded-full bg-brand-cyan-electric transition-all"
-                                                onclick="goToSlide(1)"></button>
-                                            <button aria-label="Ir para slide 3"
-                                                class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all"
+                                            <button type="button" aria-label="Ir para slide 2" class="carousel-dot is-ativo"
+                                                aria-current="true" onclick="goToSlide(1)"></button>
+                                            <button type="button" aria-label="Ir para slide 3" class="carousel-dot"
                                                 onclick="goToSlide(2)"></button>
                                         </div>
                                     </div>
@@ -607,14 +434,14 @@
                                             <div class="flex items-center justify-between text-slate-500 mb-1">
                                                 <span class="font-label-tech text-[10px] uppercase">Boletos &amp; 2ª
                                                     Via</span>
-                                                <span
+                                                <span aria-hidden="true"
                                                     class="material-symbols-outlined text-[16px] text-secondary">receipt_long</span>
                                             </div>
                                             <div class="font-bold text-brand-navy-deep text-[15px]">Superlógica Hub
                                             </div>
                                             <span
-                                                class="text-[11px] text-status-success font-semibold flex items-center gap-1">
-                                                <span class="material-symbols-outlined text-[13px]">done_all</span> 100%
+                                                class="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[13px]">done_all</span> 100%
                                                 Digital
                                             </span>
                                         </div>
@@ -623,14 +450,14 @@
                                             <div class="flex items-center justify-between text-slate-500 mb-1">
                                                 <span class="font-label-tech text-[10px] uppercase">Telemetria Água
                                                     &amp; Gás</span>
-                                                <span
+                                                <span aria-hidden="true"
                                                     class="material-symbols-outlined text-[16px] text-brand-cyan-electric">water_drop</span>
                                             </div>
                                             <div class="font-bold text-brand-navy-deep text-[15px]">Consumo por Unidade
                                             </div>
                                             <span
                                                 class="text-[11px] text-secondary font-semibold flex items-center gap-1">
-                                                <span class="material-symbols-outlined text-[13px]">sensors</span>
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[13px]">sensors</span>
                                                 Individualizado
                                             </span>
                                         </div>
@@ -653,11 +480,12 @@
             <section class="w-full bg-white py-space-lg border-b border-slate-200/70" id="quem-somos">
                 <div class="max-w-7xl mx-auto px-gutter">
                     <div
+                        data-reveal="zoom"
                         class="rounded-2xl bg-slate-50/70 border border-slate-200/90 shadow-sm p-space-lg sm:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
                         <div class="flex items-center gap-space-md">
                             <div
                                 class="w-14 h-14 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center shrink-0 shadow-xs">
-                                <span class="material-symbols-outlined text-[30px]">history_edu</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[30px]">history_edu</span>
                             </div>
                             <div>
                                 <div
@@ -665,10 +493,10 @@
                                     <span class="w-2 h-2 rounded-full bg-status-success"></span> Tradição &amp;
                                     Governança Executiva
                                 </div>
-                                <h3
+                                <h2
                                     class="font-title-md text-[18px] sm:text-[20px] font-bold text-brand-navy-deep tracking-tight">
                                     Mais de 15 anos de excelência com constante inovação
-                                </h3>
+                                </h2>
                                 <p class="font-body-sm text-[13px] text-slate-600 mt-1 max-w-2xl">
                                     Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
                                     protegem seu patrimônio condominial diariamente.
@@ -679,7 +507,7 @@
                             <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
                                 href="pages/quem-somos.html">
                                 <span class="">Conheça a história e liderança</span>
-                                <span
+                                <span aria-hidden="true"
                                     class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
                             </a>
                         </div>
@@ -691,7 +519,7 @@
             <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="servicos">
                 <div class="max-w-7xl mx-auto px-gutter">
                     <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
+                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
                         <div class="max-w-2xl">
                             <span
                                 class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">ADMINISTRADORA
@@ -704,13 +532,13 @@
                             <a class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-secondary-container/40 text-secondary hover:bg-secondary hover:text-white font-label-badge text-label-badge transition-all"
                                 href="pages/servicos.html">
                                 <span class="">Explorar catálogo completo de serviços</span>
-                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                             </a>
                         </div>
                     </div>
                     <br><br>
                     <!-- 3 Pillars Interactive Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg" data-reveal-stagger>
                         <!-- Area 1: Administrativa -->
                         <a
                             class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
@@ -718,10 +546,10 @@
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span class="material-symbols-outlined text-[30px]">article</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">article</span>
                                 </div>
                                 <span
-                                    class="font-label-tech text-[11px] text-slate-400 uppercase font-bold tracking-wider">PILAR
+                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
                                     01</span>
                                 <h3
                                     class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
@@ -735,22 +563,22 @@
                             <div class="pt-space-md border-t border-slate-100">
                                 <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Digitalização e guarda documental rigorosa</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Cadastros e circulares oficiais em tempo real</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Assessoria para convenções e regimentos internos</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Controle automatizado de correspondências e encomendas</span>
                                     </li>
@@ -758,7 +586,7 @@
                                 <span
                                     class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
                                     <span class="">Veja mais</span>
-                                    <span
+                                    <span aria-hidden="true"
                                         class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
                                 </span>
                             </div>
@@ -770,10 +598,10 @@
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span class="material-symbols-outlined text-[30px]">account_balance_wallet</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">account_balance_wallet</span>
                                 </div>
                                 <span
-                                    class="font-label-tech text-[11px] text-slate-400 uppercase font-bold tracking-wider">PILAR
+                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
                                     02</span>
                                 <h3
                                     class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
@@ -787,22 +615,22 @@
                             <div class="pt-space-md border-t border-slate-100">
                                 <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
                                         <span class="">Prestação de contas via Superlógica Hub</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
                                         <span class="">Cobrança amigável com redução comprovada de inadimplência</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
                                         <span class="">Planejamento financeiro para obras e melhorias</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
                                         <span class="">Emissão rápida de 2ª via com Pix Copia e Cola</span>
                                     </li>
@@ -810,7 +638,7 @@
                                 <span
                                     class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
                                     <span class="">Veja mais</span>
-                                    <span
+                                    <span aria-hidden="true"
                                         class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
                                 </span>
                             </div>
@@ -822,10 +650,10 @@
                             <div>
                                 <div
                                     class="w-14 h-14 rounded-xl bg-slate-100 text-brand-cyan-electric group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span class="material-symbols-outlined text-[30px]">engineering</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">engineering</span>
                                 </div>
                                 <span
-                                    class="font-label-tech text-[11px] text-slate-400 uppercase font-bold tracking-wider">PILAR
+                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
                                     03</span>
                                 <h3
                                     class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
@@ -839,22 +667,22 @@
                             <div class="pt-space-md border-t border-slate-100">
                                 <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Qualificação rigorosa de terceirizados e prestadores</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Cronograma de vistorias técnicas periódicas</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Compliance trabalhista de funcionários e portarias</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
                                         <span class="">Acompanhamento de laudos e renovação de AVCB</span>
                                     </li>
@@ -862,7 +690,7 @@
                                 <span
                                     class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
                                     <span class="">Veja mais</span>
-                                    <span
+                                    <span aria-hidden="true"
                                         class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
                                 </span>
                             </div>
@@ -893,17 +721,17 @@
                         <div class="shrink-0 flex items-center gap-2">
                             <a class="inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-white border border-slate-200 hover:border-brand-navy-deep hover:bg-slate-50 text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all"
                                 href="pages/noticias.html"><span class="">Ver todas as notícias &amp;
-                                    artigos</span><span
+                                    artigos</span><span aria-hidden="true"
                                     class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span></a>
                         </div>
                     </div>
                     <!-- Part 1: Human-Centered Operations Mosaic -->
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg pt-space-xl pb-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg pt-space-xl pb-0" data-reveal-stagger>
                         <!-- Feature Card 1 (Left 7 Cols) -->
                         <div
                             class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col group hover:border-brand-cyan-electric/60 hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300">
                             <div class="relative h-72 sm:h-80 w-full overflow-hidden">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     alt="Assembleias virtuais em condomínio" src="img/assembleias-virtuais.jpg">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/80 via-transparent to-transparent">
@@ -916,16 +744,16 @@
                                 <div
                                     class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                                     <div class="flex items-center gap-3 font-label-tech text-[11px]">
-                                        <span class="flex items-center gap-1"><span
+                                        <span class="flex items-center gap-1"><span aria-hidden="true"
                                                 class="material-symbols-outlined text-[14px] text-brand-cyan-electric">calendar_today</span>
                                             08 Mai 2026</span>
                                         <span class="text-white/60">•</span>
-                                        <span class="flex items-center gap-1"><span
+                                        <span class="flex items-center gap-1"><span aria-hidden="true"
                                                 class="material-symbols-outlined text-[14px] text-brand-cyan-electric">schedule</span>
                                             5 min de leitura</span>
                                     </div>
                                     <span
-                                        class="font-label-tech text-[11px] bg-black/40 backdrop-blur-md px-2.5 py-1 rounded border border-white/20">RELATÓRIOS
+                                        class="font-label-tech text-[11px] bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/20">RELATÓRIOS
                                         AUDITADOS</span>
                                 </div>
                             </div>
@@ -945,12 +773,12 @@
                                     <div
                                         class="pt-space-md border-t border-slate-100 grid grid-cols-2 gap-space-sm text-slate-700 font-body-sm text-[13px] mb-space-md">
                                         <div class="flex items-center gap-2">
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[18px] text-secondary">fact_check</span>
                                             <span class="">Pautas Claras &amp; Alinhadas</span>
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[18px] text-brand-cyan-electric">analytics</span>
                                             <span class="">Prestação de Contas Digital</span>
                                         </div>
@@ -959,11 +787,11 @@
                                         <a class="inline-flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs group/btn"
                                             href="pages/noticias.html">
                                             <span class="">Ler matéria completa</span>
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[16px] text-brand-cyan-electric group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                                         </a>
                                         <span
-                                            class="text-[12px] font-label-tech text-slate-400 hidden sm:inline">DESTAQUE
+                                            class="text-[12px] font-label-tech text-slate-500 hidden sm:inline">DESTAQUE
                                             PRINCIPAL</span>
                                     </div>
                                 </div>
@@ -975,7 +803,7 @@
                             <div
                                 class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col sm:flex-row group hover:border-brand-cyan-electric/60 hover:shadow-[0_12px_30px_rgba(6,21,45,0.08)] transition-all duration-300">
                                 <div class="sm:w-5/12 h-48 sm:h-auto relative overflow-hidden shrink-0">
-                                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         alt="Telemetria predial inteligente" src="img/telemetria-predial.jpg">
                                     <span
                                         class="absolute top-3 left-3 px-2 py-0.5 rounded bg-brand-navy-deep text-white font-label-badge text-[10px] uppercase font-semibold">PROPTECH</span>
@@ -983,9 +811,9 @@
                                 <div class="p-space-md sm:p-space-lg flex flex-col justify-between flex-1">
                                     <div>
                                         <div
-                                            class="flex items-center justify-between mb-1 text-slate-400 font-label-tech text-[11px]">
+                                            class="flex items-center justify-between mb-1 text-slate-500 font-label-tech text-[11px]">
                                             <span class="text-secondary font-bold uppercase">24 ABR 2026</span>
-                                            <span class="flex items-center gap-1"><span
+                                            <span class="flex items-center gap-1"><span aria-hidden="true"
                                                     class="material-symbols-outlined text-[13px]">schedule</span> 3
                                                 min</span>
                                         </div>
@@ -1002,11 +830,11 @@
                                         <a class="inline-flex items-center gap-1 text-secondary font-label-badge text-[12px] font-bold group-hover:text-brand-cyan-electric transition-colors"
                                             href="pages/noticias.html">
                                             <span class="">Ler artigo</span>
-                                            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
                                         </a>
                                         <span
-                                            class="text-[11px] font-label-tech text-status-success font-semibold flex items-center gap-0.5">
-                                            <span class="material-symbols-outlined text-[13px]">trending_down</span>
+                                            class="text-[11px] font-label-tech text-emerald-700 font-semibold flex items-center gap-0.5">
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[13px]">trending_down</span>
                                             Economia
                                         </span>
                                     </div>
@@ -1016,7 +844,7 @@
                             <div
                                 class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col sm:flex-row group hover:border-brand-cyan-electric/60 hover:shadow-[0_12px_30px_rgba(6,21,45,0.08)] transition-all duration-300">
                                 <div class="sm:w-5/12 h-48 sm:h-auto relative overflow-hidden shrink-0">
-                                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         alt="Equipe executiva analisando relatórios e métricas de desempenho em escritórios modernos"
                                         src="img/equipe-executiva.jpg">
                                     <span
@@ -1025,9 +853,9 @@
                                 <div class="p-space-md sm:p-space-lg flex flex-col justify-between flex-1">
                                     <div>
                                         <div
-                                            class="flex items-center justify-between mb-1 text-slate-400 font-label-tech text-[11px]">
+                                            class="flex items-center justify-between mb-1 text-slate-500 font-label-tech text-[11px]">
                                             <span class="text-slate-600 font-bold uppercase">16 ABR 2026</span>
-                                            <span class="flex items-center gap-1"><span
+                                            <span class="flex items-center gap-1"><span aria-hidden="true"
                                                     class="material-symbols-outlined text-[13px]">schedule</span> 4
                                                 min</span>
                                         </div>
@@ -1044,11 +872,11 @@
                                         <a class="inline-flex items-center gap-1 text-secondary font-label-badge text-[12px] font-bold group-hover:text-brand-cyan-electric transition-colors"
                                             href="pages/noticias.html">
                                             <span class="">Ler artigo</span>
-                                            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
                                         </a>
                                         <span
                                             class="text-[11px] font-label-tech text-secondary font-semibold flex items-center gap-0.5">
-                                            <span class="material-symbols-outlined text-[13px]">verified</span> Jurídico
+                                            <span aria-hidden="true" class="material-symbols-outlined text-[13px]">verified</span> Jurídico
                                         </span>
                                     </div>
                                 </div>
@@ -1063,7 +891,7 @@
             <section class="w-full bg-white py-space-2xl border-b border-slate-200/70" id="projetos">
                 <div class="max-w-7xl mx-auto px-gutter">
                     <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
+                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
                         <div class="max-w-2xl">
                             <span
                                 class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">CASES
@@ -1076,10 +904,10 @@
                         <a class="inline-flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-slate-100 hover:bg-brand-navy-deep hover:text-white text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all duration-300"
                             href="pages/projetos.html">
                             <span class="">Ver todos os projetos e cases</span>
-                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                         </a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl" data-reveal-stagger>
                         <!-- Case 1 -->
                         <div
                             class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
@@ -1088,14 +916,14 @@
                                      <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Edifício Horizonte Residencial"> -->
                                 <div
                                     class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
                                             class="font-label-badge text-[11px] text-secondary bg-secondary-container/40 px-2 py-0.5 rounded font-semibold uppercase">Residencial
                                             Alto Padrão</span>
-                                        <span class="font-label-tech text-[11px] text-slate-400">142 UNIDADES</span>
+                                        <span class="font-label-tech text-[11px] text-slate-500">142 UNIDADES</span>
                                     </div>
                                     <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Edifício
                                         Horizonte Residencial</h3>
@@ -1111,13 +939,13 @@
                                 class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
                                 <div>
                                     <span
-                                        class="font-label-tech text-[10px] text-slate-400 uppercase block font-bold">RESULTADO</span>
-                                    <span class="font-headline-sm text-[16px] text-status-success font-bold">Redução de
+                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
+                                    <span class="font-headline-sm text-[16px] text-emerald-700 font-bold">Redução de
                                         18% em custos</span>
                                 </div>
                                 <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html">
-                                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    href="pages/projetos.html" aria-label="Ver o case Edifício Horizonte Residencial">
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
@@ -1129,14 +957,14 @@
                                      <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Parque dos Ipês Corporativo"> -->
                                 <div
                                     class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
                                             class="font-label-badge text-[11px] text-brand-navy-deep bg-slate-100 px-2 py-0.5 rounded font-semibold uppercase">Comercial
                                             &amp; Corporativo</span>
-                                        <span class="font-label-tech text-[11px] text-slate-400">88 SALAS</span>
+                                        <span class="font-label-tech text-[11px] text-slate-500">88 SALAS</span>
                                     </div>
                                     <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Parque dos Ipês
                                         Corporativo</h3>
@@ -1152,13 +980,13 @@
                                 class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
                                 <div>
                                     <span
-                                        class="font-label-tech text-[10px] text-slate-400 uppercase block font-bold">RESULTADO</span>
+                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
                                     <span class="font-headline-sm text-[16px] text-brand-navy-deep font-bold">Assembleia
                                         100% digital</span>
                                 </div>
                                 <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html">
-                                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    href="pages/projetos.html" aria-label="Ver o case Parque dos Ipês Corporativo">
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
@@ -1170,14 +998,14 @@
                                      <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Residencial Vila Nova Mogi"> -->
                                 <div
                                     class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span class="material-symbols-outlined text-[40px]">image</span>
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 </div>
                                 <div class="p-space-lg pb-0">
                                     <div class="flex items-center justify-between mb-2">
                                         <span
                                             class="font-label-badge text-[11px] text-secondary bg-secondary-container/40 px-2 py-0.5 rounded font-semibold uppercase">Condomínio
                                             Fechado</span>
-                                        <span class="font-label-tech text-[11px] text-slate-400">210 LOTES</span>
+                                        <span class="font-label-tech text-[11px] text-slate-500">210 LOTES</span>
                                     </div>
                                     <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Residencial
                                         Vila Nova Mogi</h3>
@@ -1193,14 +1021,14 @@
                                 class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
                                 <div>
                                     <span
-                                        class="font-label-tech text-[10px] text-slate-400 uppercase block font-bold">RESULTADO</span>
+                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
                                     <span
-                                        class="font-headline-sm text-[16px] text-status-success font-bold">Inadimplência
+                                        class="font-headline-sm text-[16px] text-emerald-700 font-bold">Inadimplência
                                         de 14% para 2.1%</span>
                                 </div>
                                 <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html">
-                                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    href="pages/projetos.html" aria-label="Ver o case Residencial Vila Nova Mogi">
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
@@ -1211,7 +1039,7 @@
             <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="clientes">
                 <div class="max-w-7xl mx-auto px-gutter">
                     <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
+                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
                         <div class="max-w-2xl">
                             <span
                                 class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">NOSSOS
@@ -1224,10 +1052,10 @@
                         <a class="inline-flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-white border border-slate-200 hover:bg-brand-navy-deep hover:text-white hover:border-brand-navy-deep text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all duration-300"
                             href="pages/clientes.html">
                             <span class="">Ver todos os clientes</span>
-                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
                         </a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl" data-reveal-stagger>
                         <!-- Cliente 1 -->
                         <div
                             class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
@@ -1235,13 +1063,13 @@
                                  <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Condomínio Jardins"> -->
                             <div
                                 class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 <span
                                     class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">CONDOMÍNIO
                                     <span class="text-brand-cyan-electric">JARDINS</span></span>
                             </div>
                             <div class="p-space-lg flex flex-col flex-1">
-                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
                                 <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
                                     O atendimento é rápido, profissional e nos passa muita segurança. Recomendo sem dúvidas!
                                 </p>
@@ -1250,7 +1078,7 @@
                                          <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Mariana Santos"> -->
                                     <div
                                         class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Mariana Santos</p>
@@ -1266,13 +1094,13 @@
                                  <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Edifício Aurora"> -->
                             <div
                                 class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 <span
                                     class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EDIFÍCIO
                                     <span class="text-brand-cyan-electric">AURORA</span></span>
                             </div>
                             <div class="p-space-lg flex flex-col flex-1">
-                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
                                 <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
                                     A gestão financeira melhorou muito depois que contratamos o Grupo Êxito. Equipe atenciosa e sempre disponível!
                                 </p>
@@ -1281,7 +1109,7 @@
                                          <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de João Pedro"> -->
                                     <div
                                         class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">João Pedro</p>
@@ -1297,13 +1125,13 @@
                                  <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Empresarial Pinheiros"> -->
                             <div
                                 class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span class="material-symbols-outlined text-[40px]">image</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
                                 <span
                                     class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EMPRESARIAL
                                     <span class="text-brand-cyan-electric">PINHEIROS</span></span>
                             </div>
                             <div class="p-space-lg flex flex-col flex-1">
-                                <span class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
+                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
                                 <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
                                     Desde o primeiro contato até a execução, tudo foi muito bem organizado. A equipe é excelente!
                                 </p>
@@ -1312,7 +1140,7 @@
                                          <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Carlos Lima"> -->
                                     <div
                                         class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span class="material-symbols-outlined text-[22px]">person</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Carlos Lima</p>
@@ -1339,35 +1167,37 @@
                         </p>
                     </div>
                     <!-- Category Tabs -->
-                    <div class="flex flex-wrap items-center justify-center gap-2 mb-space-xl" id="faqTabs">
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-space-xl" id="faqTabs" role="group"
+                        aria-label="Filtrar perguntas por assunto">
                         <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-brand-navy-deep text-white shadow-xs"
+                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-brand-navy-deep text-white shadow-xs" type="button" aria-pressed="true"
                             onclick="filterFaq('todas', this)">
                             Todas as dúvidas
                         </button>
                         <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep"
+                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
                             onclick="filterFaq('transicao', this)">
                             Transição &amp; Contratação
                         </button>
                         <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep"
+                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
                             onclick="filterFaq('financeiro', this)">
                             Financeiro &amp; Boletos
                         </button>
                         <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep"
+                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
                             onclick="filterFaq('tecnologia', this)">
                             Tecnologia &amp; App
                         </button>
                         <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep"
+                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
                             onclick="filterFaq('juridico', this)">
                             Jurídico &amp; Assembleias
                         </button>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
                         <!-- Accordions (8 Cols) -->
+                        <p class="sr-only" id="faqAviso" role="status"></p>
                         <div class="lg:col-span-8 space-y-space-sm" id="faqContainer">
                             <!-- Item 1: Transição -->
                             <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
@@ -1378,12 +1208,12 @@
                                         <div class="flex items-center gap-3">
                                             <span
                                                 class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">swap_horiz</span>
                                             </span>
                                             <span class="">Como funciona a transição de administradora para o
                                                 condomínio?</span>
                                         </div>
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                                     </summary>
                                     <div
@@ -1414,13 +1244,13 @@
                                         <div class="flex items-center gap-3">
                                             <span
                                                 class="w-8 h-8 rounded-lg bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0">
-                                                <span
+                                                <span aria-hidden="true"
                                                     class="material-symbols-outlined text-[18px]">account_balance</span>
                                             </span>
                                             <span class="">O síndico ou o conselho perdem o controle da conta
                                                 bancária?</span>
                                         </div>
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                                     </summary>
                                     <div
@@ -1442,12 +1272,12 @@
                                         <div class="flex items-center gap-3">
                                             <span
                                                 class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span class="material-symbols-outlined text-[18px]">smartphone</span>
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">smartphone</span>
                                             </span>
                                             <span class="">Como os moradores acessam o aplicativo, boletos e
                                                 reservas?</span>
                                         </div>
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                                     </summary>
                                     <div
@@ -1474,12 +1304,12 @@
                                         <div class="flex items-center gap-3">
                                             <span
                                                 class="w-8 h-8 rounded-lg bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0">
-                                                <span class="material-symbols-outlined text-[18px]">gavel</span>
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">gavel</span>
                                             </span>
                                             <span class="">As assembleias virtuais e híbridas possuem plena validade
                                                 jurídica?</span>
                                         </div>
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                                     </summary>
                                     <div
@@ -1501,12 +1331,12 @@
                                         <div class="flex items-center gap-3">
                                             <span
                                                 class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span class="material-symbols-outlined text-[18px]">timer</span>
+                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">timer</span>
                                             </span>
                                             <span class="">Qual é o tempo médio de resposta para dúvidas e solicitações
                                                 (SLA)?</span>
                                         </div>
-                                        <span
+                                        <span aria-hidden="true"
                                             class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                                     </summary>
                                     <div
@@ -1520,13 +1350,13 @@
                             </div>
                         </div>
                         <!-- Direct Support Contact Card (4 Cols) -->
-                        <div class="lg:col-span-4">
+                        <div class="lg:col-span-4" data-reveal="direita">
                             <div
                                 class="rounded-2xl bg-white border-2 border-brand-cyan-electric/40 shadow-[0_16px_40px_rgba(6,21,45,0.06)] p-space-lg sm:p-space-xl flex flex-col justify-between">
                                 <div>
                                     <div
                                         class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span class="material-symbols-outlined text-[26px]">support_agent</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">support_agent</span>
                                     </div>
                                     <span
                                         class="font-label-tech text-[10px] text-secondary uppercase font-bold tracking-wider">CANAL
@@ -1541,32 +1371,32 @@
                                     <div
                                         class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 mb-space-md space-y-2 text-[12px] font-body-sm text-slate-700">
                                         <div class="flex items-center gap-2">
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
                                             <span class="">Diagnóstico sem custo ou compromisso</span>
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
                                             <span class="">Atendimento em Mogi das Cruzes e SP</span>
                                         </div>
                                         <div class="flex items-center gap-2">
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
                                             <span class="">Plantão com gerente de conta dedicado</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="space-y-2.5 pt-2 border-t border-slate-100">
-                                    <a class="w-full py-3 rounded-lg bg-status-success text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 shadow-xs"
-                                        href="https://wa.me/551125649963" target="_blank">
-                                        <span class="material-symbols-outlined text-[18px]">chat</span>
+                                    <a class="w-full py-3 rounded-lg bg-emerald-700 text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-emerald-800 transition-all flex items-center justify-center gap-2 shadow-xs"
+                                        href="https://wa.me/551125649963" target="_blank" rel="noopener">
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chat</span>
                                         <span class="">Chamar no WhatsApp Direto</span>
-                                    </a>
+                                    <span class="sr-only"> (abre em nova aba)</span></a>
                                     <a class="w-full py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-brand-navy-deep font-label-badge text-[12px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
                                         href="pages/faq.html">
                                         <span class="">Ver Central de Ajuda Completa</span>
-                                        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
                                     </a>
                                 </div>
                             </div>
@@ -1579,10 +1409,10 @@
                 <div class="max-w-7xl mx-auto px-gutter">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
                         <!-- Left: Regional Overview -->
-                        <div class="lg:col-span-5 flex flex-col gap-space-md">
+                        <div class="lg:col-span-5 flex flex-col gap-space-md" data-reveal="esquerda">
                             <div
                                 class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-secondary w-fit shadow-xs">
-                                <span
+                                <span aria-hidden="true"
                                     class="material-symbols-outlined text-[16px] text-brand-cyan-electric">share_location</span>
                                 <span
                                     class="font-label-tech text-label-tech uppercase font-bold tracking-wider">PRESENÇA
@@ -1600,7 +1430,7 @@
                                 <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
                                     <div
                                         class="w-10 h-10 rounded-lg bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0">
-                                        <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[20px]">verified_user</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Segurança
@@ -1612,7 +1442,7 @@
                                 <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
                                     <div
                                         class="w-10 h-10 rounded-lg bg-brand-cyan-electric/15 text-secondary flex items-center justify-center shrink-0">
-                                        <span class="material-symbols-outlined text-[20px]">support_agent</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[20px]">support_agent</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Atendimento
@@ -1625,14 +1455,14 @@
                             <div class="pt-2 flex items-center gap-3">
                                 <a class="inline-flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-[12px] uppercase tracking-wider hover:bg-slate-800 transition-all"
                                     href="pages/contato.html">
-                                    <span
+                                    <span aria-hidden="true"
                                         class="material-symbols-outlined text-[16px] text-brand-cyan-electric">contact_phone</span>
                                     <span class="">Página de Contato &amp; Agendamento</span>
                                 </a>
                             </div>
                         </div>
                         <!-- Right: Detailed Architectural Address Blocks -->
-                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md" data-reveal-stagger="direita">
                             <!-- Address Card 1: Mogi das Cruzes (Matriz) -->
                             <div
                                 class="p-space-xl rounded-2xl bg-background border border-slate-200 shadow-sm flex flex-col justify-between hover:border-brand-navy-deep transition-all">
@@ -1642,11 +1472,11 @@
                                         <span
                                             class="font-label-badge text-label-badge text-secondary bg-secondary-container/30 px-2.5 py-0.5 rounded font-bold uppercase">SEDE
                                             MATRIZ</span>
-                                        <span class="font-label-tech text-label-tech text-slate-400">ALTO TIETÊ</span>
+                                        <span class="font-label-tech text-label-tech text-slate-500">ALTO TIETÊ</span>
                                     </div>
                                     <div
                                         class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span class="material-symbols-outlined text-[26px]">domain</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">domain</span>
                                     </div>
                                     <h3 class="font-headline-sm text-[20px] font-bold text-brand-navy-deep mb-1">Mogi
                                         das Cruzes</h3>
@@ -1660,10 +1490,10 @@
                                         2564-9963</span>
                                     <a class="text-secondary hover:text-brand-navy-deep font-label-badge text-label-badge flex items-center gap-1"
                                         href="https://maps.google.com/?q=Rua+Goncalo+Ferreira+164+Mogi+das+Cruzes"
-                                        target="_blank">
+                                        target="_blank" rel="noopener">
                                         <span class="">Ver Mapa</span>
-                                        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-                                    </a>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[14px]">open_in_new</span>
+                                    <span class="sr-only"> (abre em nova aba)</span></a>
                                 </div>
                             </div>
                             <!-- Address Card 2: São Paulo (Filial Capital) -->
@@ -1675,11 +1505,11 @@
                                         <span
                                             class="font-label-badge text-label-badge text-brand-navy-deep bg-slate-200/70 px-2.5 py-0.5 rounded font-bold uppercase">FILIAL
                                             CAPITAL</span>
-                                        <span class="font-label-tech text-label-tech text-slate-400">SÃO PAULO</span>
+                                        <span class="font-label-tech text-label-tech text-slate-500">SÃO PAULO</span>
                                     </div>
                                     <div
                                         class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span class="material-symbols-outlined text-[26px]">location_city</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">location_city</span>
                                     </div>
                                     <h3 class="font-headline-sm text-[20px] font-bold text-brand-navy-deep mb-1">São
                                         Paulo Capital</h3>
@@ -1693,10 +1523,10 @@
                                         CORPORATIVO</span>
                                     <a class="text-secondary hover:text-brand-navy-deep font-label-badge text-label-badge flex items-center gap-1"
                                         href="https://maps.google.com/?q=Av+Rio+das+Pedras+3409+Sao+Paulo"
-                                        target="_blank">
+                                        target="_blank" rel="noopener">
                                         <span class="">Ver Mapa</span>
-                                        <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-                                    </a>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[14px]">open_in_new</span>
+                                    <span class="sr-only"> (abre em nova aba)</span></a>
                                 </div>
                             </div>
                         </div>
@@ -1706,10 +1536,15 @@
             <!-- SECTION: CTA COM FORMULÁRIO COMPLETO ELEVADO EM CARD BRANCO -->
             <section class="w-full bg-background py-space-2xl relative overflow-hidden border-b border-slate-200/80"
                 id="proposta">
+                <!-- Brilhos decorativos com parallax -->
+                <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-brand-cyan-electric/10 blur-3xl pointer-events-none"
+                    data-parallax="0.3"></div>
+                <div class="absolute -bottom-32 right-0 w-[520px] h-[520px] rounded-full bg-brand-navy-deep/[0.06] blur-3xl pointer-events-none"
+                    data-parallax="-0.2"></div>
                 <div class="max-w-7xl mx-auto px-gutter relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
                         <!-- Left Column: Value Proposition & SLA Guarantees -->
-                        <div class="lg:col-span-5 flex flex-col gap-space-lg">
+                        <div class="lg:col-span-5 flex flex-col gap-space-lg" data-reveal="esquerda">
                             <div class="space-y-space-xs">
                                 <div
                                     class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 w-fit">
@@ -1731,7 +1566,7 @@
                                 <div class="flex items-start gap-3">
                                     <div
                                         class="w-10 h-10 rounded-xl bg-status-success/10 text-status-success flex items-center justify-center shrink-0 mt-0.5">
-                                        <span class="material-symbols-outlined text-[22px]">bolt</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">bolt</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Atendimento
@@ -1743,7 +1578,7 @@
                                 <div class="flex items-start gap-3">
                                     <div
                                         class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0 mt-0.5">
-                                        <span class="material-symbols-outlined text-[22px]">query_stats</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">query_stats</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Diagnóstico
@@ -1755,7 +1590,7 @@
                                 <div class="flex items-start gap-3">
                                     <div
                                         class="w-10 h-10 rounded-xl bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0 mt-0.5">
-                                        <span class="material-symbols-outlined text-[22px]">lock_person</span>
+                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">lock_person</span>
                                     </div>
                                     <div>
                                         <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Total
@@ -1766,15 +1601,15 @@
                                 </div>
                             </div>
                             <div class="pt-space-xs">
-                                <a class="inline-flex items-center gap-2 text-status-success font-headline-sm text-[16px] font-bold hover:underline"
-                                    href="https://wa.me/551125649963" target="_blank">
-                                    <span class="material-symbols-outlined text-[20px]">chat</span>
+                                <a class="inline-flex items-center gap-2 text-emerald-700 font-headline-sm text-[16px] font-bold hover:underline"
+                                    href="https://wa.me/551125649963" target="_blank" rel="noopener">
+                                    <span aria-hidden="true" class="material-symbols-outlined text-[20px]">chat</span>
                                     <span class="">Prefere falar agora? Chame no WhatsApp Direto →</span>
-                                </a>
+                                <span class="sr-only"> (abre em nova aba)</span></a>
                             </div>
                         </div>
                         <!-- Right Column: Elevated Crisp Form Card with Cyan Outline -->
-                        <div class="lg:col-span-7">
+                        <div class="lg:col-span-7" data-reveal="zoom">
                             <div
                                 class="rounded-2xl bg-white shadow-[0_20px_60px_rgba(6,21,45,0.08)] p-space-lg sm:p-space-xl relative border-2 border-brand-cyan-electric/30">
                                 <div
@@ -1789,45 +1624,47 @@
                                         class="font-label-tech text-label-tech text-secondary font-bold px-3 py-1 rounded bg-secondary-container/40 uppercase">RESPOSTA
                                         RÁPIDA</span>
                                 </div>
+                                <!-- Sem back-end: js/formulario.js guarda os dados e abre a confirmação -->
                                 <form class="grid grid-cols-1 sm:grid-cols-2 gap-space-md"
-                                    onsubmit="event.preventDefault();">
+                                    action="pages/confirmacao.html" method="get"
+                                    data-confirmacao="Proposta personalizada">
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-nome"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Nome
                                             Completo *</label>
                                         <input
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            placeholder="Ex: Carlos Eduardo Mendes" required="" type="text">
+                                            id="proposta-nome" name="nome" placeholder="Ex: Carlos Eduardo Mendes" required="" type="text" autocomplete="name">
                                     </div>
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-email"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">E-mail
                                             Corporativo ou Pessoal *</label>
                                         <input
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            placeholder="sindico@seudominio.com.br" required="" type="email">
+                                            id="proposta-email" name="email" placeholder="sindico@seudominio.com.br" required="" type="email" autocomplete="email">
                                     </div>
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-telefone"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">WhatsApp
                                             / Telefone *</label>
                                         <input
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            placeholder="(11) 98765-4321" required="" type="tel">
+                                            id="proposta-telefone" name="telefone" placeholder="(11) 98765-4321" required="" type="tel" autocomplete="tel">
                                     </div>
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-condominio"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Condomínio
                                             &amp; Cidade *</label>
                                         <input
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            placeholder="Ex: Edifício Bella Vista - Mogi" required="" type="text">
+                                            id="proposta-condominio" name="condominio" placeholder="Ex: Edifício Bella Vista - Mogi" required="" type="text">
                                     </div>
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-unidades"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Nº
                                             de Unidades / Apartamentos</label>
-                                        <select
+                                        <select id="proposta-unidades" name="unidades"
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all">
                                             <option value="1-30">Até 30 unidades</option>
                                             <option selected="" value="31-80">31 a 80 unidades</option>
@@ -1837,10 +1674,10 @@
                                         </select>
                                     </div>
                                     <div class="flex flex-col gap-1.5">
-                                        <label
+                                        <label for="proposta-papel"
                                             class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Seu
                                             Papel no Condomínio</label>
-                                        <select
+                                        <select id="proposta-papel" name="papel"
                                             class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all">
                                             <option selected="" value="sindico">Síndico(a) Eleito(a)</option>
                                             <option value="sindico-profissional">Síndico(a) Profissional</option>
@@ -1854,11 +1691,11 @@
                                             class="w-full py-3.5 px-space-xl rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider shadow-[0_8px_20px_rgba(6,21,45,0.18)] hover:bg-slate-800 transition-all flex items-center justify-center gap-space-sm cursor-pointer"
                                             type="submit">
                                             <span class="">SOLICITAR PROPOSTA PERSONALIZADA</span>
-                                            <span
+                                            <span aria-hidden="true"
                                                 class="material-symbols-outlined text-[18px] text-brand-cyan-electric">arrow_forward</span>
                                         </button>
                                         <p
-                                            class="font-label-tech text-[10px] text-center text-slate-400 mt-2 uppercase tracking-wider">
+                                            class="font-label-tech text-[10px] text-center text-slate-500 mt-2 uppercase tracking-wider">
                                             Garantia de privacidade • Atendimento direto por consultor executivo
                                         </p>
                                     </div>
@@ -1899,7 +1736,7 @@
                     <div class="p-space-md rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col gap-1">
                         <div
                             class="flex items-center gap-1.5 text-brand-cyan-electric font-label-badge text-label-badge font-bold">
-                            <span class="material-symbols-outlined text-[16px]">domain</span>
+                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">domain</span>
                             <span class="">MATRIZ MOGI</span>
                         </div>
                         <p class="font-body-sm text-[13px] text-white pt-1">R. Gonçalo Ferreira, 164</p>
@@ -1909,7 +1746,7 @@
                     <div class="p-space-md rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col gap-1">
                         <div
                             class="flex items-center gap-1.5 text-brand-cyan-glow font-label-badge text-label-badge font-bold">
-                            <span class="material-symbols-outlined text-[16px]">location_city</span>
+                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">location_city</span>
                             <span class="">FILIAL SÃO PAULO</span>
                         </div>
                         <p class="font-body-sm text-[13px] text-white pt-1">Av. Rio das Pedras, 3.409</p>
@@ -1922,7 +1759,7 @@
                     <span
                         class="font-label-badge text-label-badge text-brand-cyan-electric uppercase tracking-wider font-bold">Páginas
                         Internas</span>
-                    <nav class="grid grid-cols-2 gap-x-space-md gap-y-2 pt-2">
+                    <nav class="grid grid-cols-2 gap-x-space-md gap-y-2 pt-2" aria-label="Páginas do site">
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
                             href="pages/quem-somos.html">Quem Somos</a>
                         <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
@@ -1944,99 +1781,17 @@
             </div>
             <!-- Copyright Sub-Footer -->
             <div
-                class="pt-space-lg border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-[12px] text-slate-500">
+                class="pt-space-lg border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-[12px] text-slate-400">
                 <p class="">© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
                 <p class="font-label-tech text-[11px] text-slate-400 uppercase tracking-wider">EXECUTIVE EDITORIAL •
                     PROPTECH MANAGEMENT</p>
             </div>
         </div>
-        <!-- FLOATING WHATSAPP BUTTON -->
-        <div class="fixed bottom-6 right-6 z-50">
-            <a class="flex items-center gap-2 px-4 py-3 rounded-full bg-status-success text-white font-headline-sm text-[14px] shadow-[0_8px_24px_rgba(16,185,129,0.4)] hover:scale-105 hover:bg-emerald-600 transition-all"
-                href="https://wa.me/551125649963" target="_blank">
-                <span class="material-symbols-outlined text-[22px]">chat</span>
-                <span class="hidden md:inline font-semibold">WhatsApp Direto</span>
-            </a>
-        </div>
     </footer>
-    <!-- Interactive Scripts for Hero Carousel & FAQ Filtering -->
-    <script>
-        // Hero Dashboard Carousel Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('#carouselDots button');
-        let autoSlideInterval;
-
-        function showSlide(index) {
-            if (!slides.length) return;
-            currentSlide = (index + slides.length) % slides.length;
-            slides.forEach((slide, idx) => {
-                if (idx === currentSlide) {
-                    slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
-                    slide.classList.add('opacity-100', 'z-10');
-                } else {
-                    slide.classList.remove('opacity-100', 'z-10');
-                    slide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
-                }
-            });
-            dots.forEach((dot, idx) => {
-                if (idx === currentSlide) {
-                    dot.className = 'w-2 h-2 rounded-full bg-brand-cyan-electric transition-all';
-                } else {
-                    dot.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all';
-                }
-            });
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-            resetAutoSlide();
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-            resetAutoSlide();
-        }
-
-        function goToSlide(idx) {
-            showSlide(idx);
-            resetAutoSlide();
-        }
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 4500);
-        }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        startAutoSlide();
-
-        // FAQ Filter Functionality
-        function filterFaq(category, btnElement) {
-            const tabs = document.querySelectorAll('.faq-tab');
-            tabs.forEach(tab => {
-                tab.className =
-                    'faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep';
-            });
-            btnElement.className =
-                'faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-brand-navy-deep text-white shadow-xs';
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                if (category === 'todas' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="js/home.js"></script>
+    <script src="js/formulario.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/assistente.js"></script>
 </body>
 
 </html>

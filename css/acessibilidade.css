@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Menu de acessibilidade (montado por js/acessibilidade.js)
+   --------------------------------------------------------------------------
+   As opções ligam classes no <html>:
+     ac-zoom-1 / ac-zoom-2   texto maior
+     ac-contraste            alto contraste (fundo preto, texto branco, links amarelos)
+     ac-cinza                escala de cinza
+     ac-links                destaca links
+     ac-fonte                fonte mais legível e espaçada
+     ac-pausar               pausa animações, transições e parallax
+     ac-cursor               cursor grande
+     ac-guia                 guia de leitura (faixa que acompanha o mouse)
+   O widget fica dentro de .ac-raiz; os seletores começam por ela para o CSS
+   das páginas (button, p, h2...) não alterar o menu.
+   ========================================================================== */
+
+/* ---- Efeitos das opções ------------------------------------------------- */
+html.ac-zoom-1 body {
+    zoom: 1.15;
+}
+
+html.ac-zoom-2 body {
+    zoom: 1.3;
+}
+
+html.ac-cinza {
+    filter: grayscale(1);
+}
+
+/* Alto contraste: página preta, texto branco, links amarelos.
+   O resto fica transparente (e não preto) para camadas sobre fotos não
+   esconderem a imagem; só o que é fixo/flutuante ganha fundo preto. */
+html.ac-contraste,
+html.ac-contraste body {
+    background: #000 !important;
+}
+
+html.ac-contraste :where(*:not(.ac-guia-faixa)) {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: #fff !important;
+    border-color: #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.ac-contraste header,
+html.ac-contraste footer,
+html.ac-contraste #menu-mobile,
+html.ac-contraste .ex-menu-mobile,
+html.ac-contraste .ac-painel,
+html.ac-contraste .ac-botao,
+html.ac-contraste .ac-pular,
+html.ac-contraste .ga-botao,
+html.ac-contraste .ga-painel,
+html.ac-contraste .ga-mensagens,
+html.ac-contraste .ga-sugestoes,
+html.ac-contraste .ga-form,
+html.ac-contraste .ga-humano,
+html.ac-contraste input,
+html.ac-contraste select,
+html.ac-contraste textarea,
+html.ac-contraste option {
+    background-color: #000 !important;
+}
+
+/* logo (azul-marinho) fica branco para aparecer no preto */
+html.ac-contraste img[src*="logo"] {
+    filter: brightness(0) invert(1) !important;
+}
+
+html.ac-contraste a,
+html.ac-contraste a * {
+    color: #ffeb3b !important;
+}
+
+html.ac-contraste img:not([src*="logo"]),
+html.ac-contraste video,
+html.ac-contraste iframe {
+    filter: contrast(1.1);
+}
+
+html.ac-contraste ::placeholder {
+    color: #ccc !important;
+}
+
+html.ac-links a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 3px !important;
+}
+
+html.ac-links a:focus,
+html.ac-links a:hover {
+    outline: 3px solid #ffbf00 !important;
+    outline-offset: 2px !important;
+}
+
+html.ac-fonte body *:not(.material-symbols-outlined) {
+    font-family: Verdana, Tahoma, Arial, sans-serif !important;
+    letter-spacing: 0.03em !important;
+    word-spacing: 0.1em !important;
+}
+
+html.ac-pausar *,
+html.ac-pausar *::before,
+html.ac-pausar *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+}
+
+html.ac-cursor,
+html.ac-cursor * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l14 11-6.5 1 3.8 7.2-2.6 1.3-3.8-7.3L4 19z' fill='%23000' stroke='%23fff' stroke-width='1.4'/%3E%3C/svg%3E") 6 3, auto !important;
+}
+
+/* Faixa do guia de leitura */
+.ac-guia-faixa {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2147483000;
+    height: 3rem;
+    margin-top: -1.5rem;
+    pointer-events: none;
+    background: rgb(255 235 59 / 0.18);
+    border-top: 3px solid #ffbf00;
+    border-bottom: 3px solid #ffbf00;
+    display: none;
+}
+
+html.ac-guia .ac-guia-faixa {
+    display: block;
+}
+
+/* ---- Link "Pular para o conteúdo" (aparece ao navegar pelo teclado) ---- */
+.ac-raiz .ac-pular {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2147483001;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--cor-navy-profundo, #06152d);
+    color: #fff;
+    font: 600 14px/1.2 var(--fonte-texto, system-ui, sans-serif);
+    text-decoration: none;
+    translate: 0 -200%;
+    transition: translate 0.2s;
+}
+
+.ac-raiz .ac-pular:focus {
+    translate: none;
+    outline: 3px solid var(--cor-ciano-eletrico, #00bcd4);
+    outline-offset: 2px;
+}
+
+/* ---- Botão flutuante ---------------------------------------------------- */
+.ac-raiz,
+.ac-raiz * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fonte-texto, system-ui, sans-serif);
+    line-height: 1.4;
+    text-align: left;
+}
+
+.ac-raiz .ac-botao {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--cor-navy-profundo, #06152d);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgb(6 21 45 / 0.35);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.ac-raiz .ac-botao:hover {
+    transform: scale(1.06);
+    background: var(--cor-navy-claro, #0e3867);
+}
+
+.ac-raiz .ac-botao:focus-visible,
+.ac-raiz .ac-painel button:focus-visible,
+.ac-raiz .ac-painel a:focus-visible {
+    outline: 3px solid var(--cor-ciano-eletrico, #00bcd4);
+    outline-offset: 2px;
+}
+
+.ac-raiz .ac-botao svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* ---- Painel ------------------------------------------------------------- */
+.ac-raiz .ac-painel {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 5.5rem;
+    z-index: 61;
+    width: min(340px, calc(100vw - 2rem));
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    padding: 1.25rem;
+    border: 1px solid var(--cor-borda, #e2e8f0);
+    border-radius: 1rem;
+    background: #fff;
+    color: var(--cor-texto, #06152d);
+    box-shadow: 0 24px 48px rgb(6 21 45 / 0.22);
+}
+
+.ac-raiz .ac-painel[hidden] {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .ac-raiz .ac-botao {
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .ac-raiz .ac-painel {
+        left: 1rem;
+        bottom: 4.75rem;
+    }
+}
+
+.ac-raiz .ac-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ac-raiz .ac-titulo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-texto, #06152d);
+}
+
+.ac-raiz .ac-fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--cor-superficie-variante, #f1f5f9);
+    color: var(--cor-texto, #06152d);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.ac-raiz .ac-rotulo {
+    display: block;
+    margin: 0.75rem 0 0.5rem;
+    font-family: var(--fonte-tecnica, system-ui, sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-texto-secundario, #526071);
+}
+
+/* Tamanho do texto: A- A A+ */
+.ac-raiz .ac-tamanhos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+/* Opções liga/desliga */
+.ac-raiz .ac-opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-opcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-height: 76px;
+    padding: 0.625rem 0.5rem;
+    border: 1px solid var(--cor-borda, #e2e8f0);
+    border-radius: 0.75rem;
+    background: var(--cor-superficie-variante, #f1f5f9);
+    color: var(--cor-texto, #06152d);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.ac-raiz .ac-opcao:hover {
+    border-color: var(--cor-navy-profundo, #06152d);
+}
+
+.ac-raiz .ac-opcao[aria-pressed="true"] {
+    border-color: var(--cor-navy-profundo, #06152d);
+    background: var(--cor-navy-profundo, #06152d);
+    color: #fff;
+}
+
+.ac-raiz .ac-opcao svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.ac-raiz .ac-tamanhos .ac-opcao {
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.ac-raiz .ac-restaurar {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--cor-borda, #e2e8f0);
+    border-radius: 0.75rem;
+    background: #fff;
+    color: var(--cor-texto, #06152d);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ac-raiz .ac-restaurar:hover {
+    background: var(--cor-superficie-variante, #f1f5f9);
+}
+
+/* No alto contraste, a opção ligada ganha contorno amarelo (o fundo fica todo preto) */
+html.ac-contraste .ac-raiz .ac-opcao[aria-pressed="true"] {
+    outline: 3px solid #ffeb3b !important;
+    outline-offset: -3px;
+}
+
+/* ---- Ouvir esta página -------------------------------------------------- */
+.ac-raiz .ac-leitor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-ouvir {
+    flex-direction: row;
+    min-height: 52px;
+    gap: 0.5rem;
+    font-size: 14px;
+}
+
+.ac-raiz .ac-velocidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-velocidades .ac-opcao {
+    min-height: 36px;
+    font-size: 12px;
+}
+
+.ac-raiz .ac-dica {
+    font-size: 11px;
+    color: var(--cor-texto-secundario, #526071);
+}
+
+/* trecho sendo lido */
+.ac-lendo {
+    outline: 3px solid #ffbf00 !important;
+    outline-offset: 3px !important;
+    background-color: rgb(255 235 59 / 0.28) !important;
+    border-radius: 4px;
+    scroll-margin: 140px;
+}
+
+/* controle flutuante enquanto lê */
+.ac-raiz .ac-player {
+    position: fixed;
+    left: 5.25rem;
+    bottom: 1.5rem;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 52px;
+    padding: 0 0.5rem 0 1rem;
+    border: 2px solid #fff;
+    border-radius: 9999px;
+    background: var(--cor-navy-profundo, #06152d);
+    color: #fff;
+    box-shadow: 0 8px 24px rgb(6 21 45 / 0.35);
+}
+
+.ac-raiz .ac-player[hidden] {
+    display: none;
+}
+
+.ac-raiz .ac-player > svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--cor-ciano-eletrico, #00bcd4);
+}
+
+.ac-raiz .ac-player__status {
+    min-width: 92px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.ac-raiz .ac-player__botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.12);
+    color: #fff;
+    cursor: pointer;
+}
+
+.ac-raiz .ac-player__botao:hover {
+    background: rgb(255 255 255 / 0.24);
+}
+
+.ac-raiz .ac-player__botao:focus-visible {
+    outline: 3px solid var(--cor-ciano-eletrico, #00bcd4);
+    outline-offset: 2px;
+}
+
+.ac-raiz .ac-player__botao svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 480px) {
+    .ac-raiz .ac-player {
+        left: 4.5rem;
+        bottom: 1rem;
+    }
+}
+
+html.ac-contraste .ac-player {
+    background-color: #000 !important;
+}

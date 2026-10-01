@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Efeitos de entrada/saída e parallax (controlados por js/efeitos.js)
+   --------------------------------------------------------------------------
+   Entrada e saída — coloque no elemento:
+     data-reveal              sobe ao entrar (padrão)
+     data-reveal="descer"     desce ao entrar
+     data-reveal="esquerda"   vem da esquerda
+     data-reveal="direita"    vem da direita
+     data-reveal="zoom"       cresce ao entrar
+     data-reveal="fade"       só aparece (sem movimento)
+
+   Em sequência — coloque no elemento pai, cada filho entra um pouco depois:
+     data-reveal-stagger      (ou data-reveal-stagger="zoom", etc.)
+
+   Parallax:
+     data-parallax="0.2"      o elemento se move mais devagar que a rolagem
+                              (negativo = sentido contrário)
+     data-parallax-img        imagem dentro de um bloco com overflow-hidden
+
+   Usa as propriedades "translate" e "scale" (e não "transform") para não
+   brigar com as classes de transform do Tailwind (hover:scale-105 etc.).
+   Quem prefere menos movimento (sistema ou menu de acessibilidade) não vê
+   animação nenhuma.
+   ========================================================================== */
+
+.fx [data-reveal] {
+    opacity: 0;
+    translate: 0 40px;
+    transition:
+        opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+        scale 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--fx-atraso, 0ms);
+    will-change: opacity, translate;
+}
+
+.fx [data-reveal="descer"] {
+    translate: 0 -40px;
+}
+
+.fx [data-reveal="esquerda"] {
+    translate: -48px 0;
+}
+
+.fx [data-reveal="direita"] {
+    translate: 48px 0;
+}
+
+.fx [data-reveal="zoom"] {
+    translate: 0 16px;
+    scale: 0.94;
+}
+
+.fx [data-reveal="fade"] {
+    translate: none;
+}
+
+/* Saída pelo topo da tela (rolando para baixo): sai subindo */
+.fx [data-reveal].fx-acima {
+    translate: 0 -40px;
+}
+
+/* Visível */
+.fx [data-reveal].fx-visivel {
+    opacity: 1;
+    translate: none;
+    scale: none;
+}
+
+/* ---- Parallax ---------------------------------------------------------- */
+[data-parallax] {
+    translate: 0 var(--fx-y, 0px);
+    will-change: translate;
+}
+
+/* a imagem fica um pouco maior que o bloco para não aparecer borda ao mover */
+[data-parallax-img] {
+    scale: 1.15;
+    translate: 0 var(--fx-y, 0px);
+    will-change: translate;
+}
+
+/* ---- Sem animação (sistema pede menos movimento ou menu de acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+    .fx [data-reveal] {
+        opacity: 1;
+        translate: none;
+        scale: none;
+        transition: none;
+    }
+
+    [data-parallax],
+    [data-parallax-img] {
+        translate: none;
+    }
+}
+
+.ac-pausar [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+}
+
+.ac-pausar [data-parallax],
+.ac-pausar [data-parallax-img] {
+    translate: none !important;
+}

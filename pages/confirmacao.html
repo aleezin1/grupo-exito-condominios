@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão Financeira | Grupo Êxito Condomínios</title>
-    <meta name="description" content="Previsão orçamentária, cobrança, balancetes e prestação de contas transparente para o seu condomínio.">
+    <title>Solicitação recebida | Grupo Êxito Condomínios</title>
+    <meta name="description" content="Confirmação do envio da sua solicitação ao Grupo Êxito Condomínios.">
     <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#06152d">
@@ -21,188 +22,11 @@
     <link rel="stylesheet" href="../css/acessibilidade.css">
     <link rel="stylesheet" href="../css/assistente.css">
     <script src="../js/acessibilidade.js"></script>
-
-    <!--inicio css -->
-
-    <style>
-
-header {
-    background-color: white;    
-}
-
-body {
-    background-color:  #00245d;
-}
- 
-footer{
-    color: white;
-}
-
-.container{
-    display: flex;
-    align-items: 20px;
-    gap: 2px; 
-    flex-wrap: wrap;
-    background-color: white;
-}
-
-.container_header{
-    display: flex;
-    align-items: 200px;
-    gap: 200px; 
-    flex-wrap: wrap;
-}
-
-.titulo_baner{
-    margin-left: 250px;
-    
-}
-.titulo_rodape{
-    margin-left: 20px;
-}
-
-.texto-centralizado {
-  text-align: center;
-  background-color: #00245d;
-}
-
-.container-textos {
-    display: flex;
-    gap: 50px;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin: 30px auto;
-    flex-wrap: wrap;
-}
-
-.card {
-    border: 1px solid #0c0b0b;
-    border-radius: 8px;
-    padding: 30px;
-    width: 380px;
-    min-height: 250px;
-    background-color: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-}
-
-.card h2 {
-    color: #000;
-    font-size: 25px;
-    margin-bottom: 25px;
-}
-
-.card ul {
-    color: #000;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-h4{
-    color: black;
-}
-
-p{
-    color: white;
- 
-}
-
-.formulario {
-    width: 500px;
-    margin: 50px auto;
-    padding: 35px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-}
-
-.formulario h2 {
-    color: #00245d;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.formulario label {
-    display: block;
-    color: #000;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.formulario input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.formulario input:focus {
-    border-color: #00245d;
-    outline: none;
-}
-
-.botao {
-    display: block;
-    margin: 10px auto 0;
-    background-color: #0d00fd;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.botao:hover {
-    background-color: #0d00fd;
-    transform: scale(1.05);
-}
-
-.footer {
-    display: flex;
-    align-items: flex-start;
-    gap: 100 px;
-    padding: 40px;
-    color: white;
-    background-color: white;
-}
-.texto-preto{
-    color: black;
-}
-
-.footer section {
-    margin-top: 0;
-}
-
-.footer h2 {
-    margin-top: 0;
-}
-.rodape-final {
-    background-color: #fefefe;
-    text-align: center;
-    padding: 28px 20px;
-    border-top: 1px solid #34404c;
-}
-
-.rodape-final p {
-    margin: 0;
-    font-size: 16px;
-}   
-    </style>
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/confirmacao.css">
 </head>
 
-<!-- inicio html-->
-
-<body>
+<body class="ex-pagina">
     <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
@@ -242,7 +66,7 @@ p{
                 <nav class="ex-menu" aria-label="Navegação principal">
                     <a class="ex-menu__link" href="../index.html">Início</a>
                     <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
-                    <a class="ex-menu__link" href="servicos.html" aria-current="page">Serviços</a>
+                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
                     <a class="ex-menu__link" href="clientes.html">Clientes</a>
                     <a class="ex-menu__link" href="projetos.html">Projetos</a>
                     <a class="ex-menu__link" href="noticias.html">Notícias</a>
@@ -265,7 +89,7 @@ p{
                 <div class="ex-conteudo">
                     <a class="ex-menu__link" href="../index.html">Início</a>
                     <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
-                    <a class="ex-menu__link" href="servicos.html" aria-current="page">Serviços</a>
+                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
                     <a class="ex-menu__link" href="clientes.html">Clientes</a>
                     <a class="ex-menu__link" href="projetos.html">Projetos</a>
                     <a class="ex-menu__link" href="noticias.html">Notícias</a>
@@ -279,93 +103,94 @@ p{
             </nav>
         </div>
     </header>
-    <h1 class="texto-centralizado" style="color: white;">Gestão Financeira</h1>
-    <br>
-    <br> 
-    <section class="container" style="display: flex; align-items: center; background-color: #00245d;"> 
-        <img src="../img/img.png" 
-        alt="pessoas analisando documentos" 
-        height="350px" width="400px" 
-        style="margin-left: 50px; 
-        border-radius: 20px;"> 
-        <div style="margin-left: 40px;"> 
-            <h2 style="color: rgb(255, 255, 255);">Da análise à decisão</h2> 
-            <p> Uma gestão eficiente transforma informações em soluções organizadas, oferecendo ao síndico mais clareza, segurança e agilidade na tomada de decisões. </p>
+    <main class="confirmacao">
+        <div class="ex-container">
+            <div class="confirmacao__grade">
+
+                <!-- Cartão principal -->
+                <section class="confirmacao__cartao" aria-labelledby="confirmacao-titulo">
+                    <svg class="confirmacao__check" viewBox="0 0 56 56" aria-hidden="true">
+                        <circle cx="28" cy="28" r="26"></circle>
+                        <path d="M17 29l7 7 15-16"></path>
+                    </svg>
+
+                    <span class="ex-etiqueta" id="confirmacao-tipo">Solicitação</span>
+                    <h1 class="ex-titulo" id="confirmacao-titulo" style="margin-top: 0.75rem;">
+                        Recebemos sua solicitação<span id="confirmacao-nome"></span>!
+                    </h1>
+                    <p class="ex-subtitulo confirmacao__texto">
+                        Obrigado pelo contato. Um consultor do Grupo Êxito vai analisar as informações e
+                        retornar pelo canal informado. Guarde o número do protocolo abaixo.
+                    </p>
+
+                    <!-- Protocolo -->
+                    <div class="confirmacao__protocolo" id="confirmacao-bloco-protocolo">
+                        <div>
+                            <span class="ex-sobretitulo">Número do protocolo</span>
+                            <strong class="confirmacao__protocolo-numero" id="confirmacao-protocolo">—</strong>
+                        </div>
+                        <button class="ex-botao ex-botao--secundario confirmacao__copiar" type="button"
+                            id="confirmacao-copiar">Copiar</button>
+                    </div>
+
+                    <!-- Resumo do que foi preenchido -->
+                    <div class="confirmacao__resumo" id="confirmacao-resumo" hidden>
+                        <span class="ex-sobretitulo">Resumo da solicitação</span>
+                        <dl class="confirmacao__lista" id="confirmacao-lista"></dl>
+                    </div>
+
+                    <div class="confirmacao__acoes">
+                        <a class="ex-botao ex-botao--primario" href="../index.html">Voltar para a home</a>
+                        <a class="ex-botao ex-botao--whatsapp" id="confirmacao-whatsapp"
+                            href="https://wa.me/551125649963" target="_blank" rel="noopener">Acompanhar pelo WhatsApp</a>
+                        <button class="ex-botao ex-botao--secundario" type="button" onclick="window.print()">Salvar
+                            comprovante</button>
+                    </div>
+
+                    <p class="confirmacao__aviso">
+                        Projeto acadêmico: nenhum dado foi enviado. As informações ficam só neste navegador e
+                        somem ao fechar a aba.
+                    </p>
+                </section>
+
+                <!-- Próximos passos -->
+                <aside class="confirmacao__passos" aria-labelledby="passos-titulo">
+                    <span class="ex-sobretitulo">O que acontece agora</span>
+                    <h2 class="confirmacao__passos-titulo" id="passos-titulo">Próximos passos</h2>
+                    <ol class="confirmacao__linha">
+                        <li class="confirmacao__passo confirmacao__passo--feito">
+                            <span class="confirmacao__passo-numero">✓</span>
+                            <strong>Solicitação registrada</strong>
+                            <span class="confirmacao__passo-descricao" id="confirmacao-data">Agora mesmo</span>
+                        </li>
+                        <li class="confirmacao__passo">
+                            <span class="confirmacao__passo-numero">2</span>
+                            <strong>Análise do consultor</strong>
+                            <span class="confirmacao__passo-descricao">Avaliamos o perfil do condomínio e a necessidade informada.</span>
+                            <span class="confirmacao__prazo">Até 2h úteis</span>
+                        </li>
+                        <li class="confirmacao__passo">
+                            <span class="confirmacao__passo-numero">3</span>
+                            <strong>Contato personalizado</strong>
+                            <span class="confirmacao__passo-descricao">Um consultor entra em contato para entender os detalhes.</span>
+                            <span class="confirmacao__prazo">Até 1 dia útil</span>
+                        </li>
+                        <li class="confirmacao__passo">
+                            <span class="confirmacao__passo-numero">4</span>
+                            <strong>Estudo e proposta</strong>
+                            <span class="confirmacao__passo-descricao">Você recebe o estudo comparativo e a proposta sob medida.</span>
+                            <span class="confirmacao__prazo">Até 3 dias úteis</span>
+                        </li>
+                    </ol>
+                    <p class="confirmacao__contato">
+                        Precisa falar agora? Ligue <a href="tel:1125649963">(11) 2564-9963</a> ou escreva para
+                        <a href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a>.
+                    </p>
+                </aside>
+
+            </div>
         </div>
-    </section>
-    <section class="texto-centralizado">
-        <h1 style="color: white;">Soluções completas para a gestão condominial</h1>
-    </section>
-    <div class="cards">
-        <section class="card" style="color: black;">
-            <h2 style="color: black;">Gestão de Recursos Humanos:</h2>
-            <ul type="square">    
-                <li>Nas rotinas de colaboradores documentos;</li>
-                <li>Admissões;</li>
-                <li>Férias;</li>
-                <li>Desligamentos</li> 
-                <li>Benefícios e acompanhamento das obrigações trabalhistas.</li>
-            </ul> 
-        </section>
-        <section class="card" >
-            <h2>Gestão Administrativa:</h2>
-            <ul type="square">
-                <li>Gerenciamento de cadastros atendimento aos condôminos; </li> 
-                <li>organização documental comunicados;</li> 
-                <li>apoio ao síndico e acompanhamento de demandas.</li>
-            </ul>
-        </section>
-        <section class="card">
-            <h2>Gestão Financeira:</h2>
-            <ul type="square">
-                <li>Elaboração e acompanhamento da previsão orçamentária;</li> 
-                <li>pagamentos vencimentos; </li> 
-                <li>cobrança administrativa;</li> 
-                <li>balancetes e prestação de contas.</li>
-            </ul>
-        </section>
-    </div>
-    <div class="cards">
-        <section class="card">
-            <h2>Gestão Operacional:</h2>
-            <ul type="square"> 
-                <li>Acompanhamento das rotinas operacionais;</li> 
-                <li>fornecedores; </li> 
-                <li>segurança;</li>
-                <li> manutenção preventiva e necessidades do condomínio.</li>
-            </ul>
-        </section>
-        <section class="card">
-        <h2>Departamento Jurídico:</h2>
-        <ul type="square">
-            <li>Jurídico condominial;</li>
-            <li>Notificações extrajudiciais;</li>
-            <li>Orientação sobre legislação;</li>
-            <li>Convenção e regulamento interno;</li>
-            <li>Conforme o escopo contratado.</li>
-        </ul>
-        </section>
-        <section class="card">
-            <h2>Assembleias e Tecnologia:</h2>
-            <ul style="square">
-                <li> Assembleias e Tecnologia;</li>
-                <li>Digitais para facilitar comunicação;</li> 
-                <li>Acesso às informações e participação dos condôminos;</li>
-            </ul>
-        </section>
-    </div>
-<form action="confirmacao.html" method="get" class="formulario" data-confirmacao="Gestão Financeira">
-    <h2>Entre em contato conosco</h2>
-    <label for="nome">Nome completo</label>
-    <input type="text" placeholder="Nome completo" id="nome" name="nome">
-    <label for="email">E-mail</label>
-    <input type="email" placeholder="E-mail" id="email" name="email">
-    <label for="telefone">Telefone</label>
-    <input type="tel" placeholder="Telefone" id="telefone" name="telefone">
-    <label for="endereco">Endereço</label>
-    <input type="text" placeholder="Endereço" id="endereco" name="endereco">
-    <button type="submit" class="botao">Enviar</button>
-</form>
+    </main>
 
     <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
     <footer class="ex-rodape">
@@ -421,6 +246,60 @@ p{
     </footer>
     <script src="../js/menu.js"></script>
     <script src="../js/assistente.js"></script>
-    <script src="../js/formulario.js"></script>
+    <script>
+        // Mostra os dados guardados por js/formulario.js
+        (function () {
+            var dados = null;
+            try {
+                dados = JSON.parse(sessionStorage.getItem('ge-confirmacao'));
+            } catch (erro) { }
+
+            if (!dados) {
+                // Página aberta direto, sem enviar formulário
+                document.getElementById('confirmacao-bloco-protocolo').hidden = true;
+                document.getElementById('confirmacao-copiar').hidden = true;
+                return;
+            }
+
+            document.getElementById('confirmacao-tipo').textContent = dados.tipo;
+            document.getElementById('confirmacao-protocolo').textContent = dados.protocolo;
+
+            var quando = new Date(dados.data);
+            document.getElementById('confirmacao-data').textContent =
+                quando.toLocaleDateString('pt-BR') + ' às ' +
+                quando.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+            var lista = document.getElementById('confirmacao-lista');
+            dados.campos.forEach(function (campo) {
+                if (campo.nome === 'nome') {
+                    document.getElementById('confirmacao-nome').textContent = ', ' + campo.valor.split(' ')[0];
+                }
+                var item = document.createElement('div');
+                item.className = 'confirmacao__item' + (campo.valor.length > 40 ? ' confirmacao__item--largo' : '');
+                var dt = document.createElement('dt');
+                dt.textContent = campo.rotulo;
+                var dd = document.createElement('dd');
+                dd.textContent = campo.valor;
+                item.appendChild(dt);
+                item.appendChild(dd);
+                lista.appendChild(item);
+            });
+            document.getElementById('confirmacao-resumo').hidden = dados.campos.length === 0;
+
+            // WhatsApp já com o protocolo na mensagem
+            document.getElementById('confirmacao-whatsapp').href = 'https://wa.me/551125649963?text=' +
+                encodeURIComponent('Olá! Acabei de enviar uma solicitação pelo site. Protocolo: ' + dados.protocolo);
+
+            var botaoCopiar = document.getElementById('confirmacao-copiar');
+            botaoCopiar.addEventListener('click', function () {
+                if (!navigator.clipboard) return;
+                navigator.clipboard.writeText(dados.protocolo).then(function () {
+                    botaoCopiar.textContent = 'Copiado!';
+                    setTimeout(function () { botaoCopiar.textContent = 'Copiar'; }, 2000);
+                });
+            });
+        })();
+    </script>
 </body>
+
 </html>

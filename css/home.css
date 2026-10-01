@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Estilos próprios da home (index.html)
+   --------------------------------------------------------------------------
+   O visual da home é feito com classes do Tailwind direto no HTML. Aqui fica
+   só o que o Tailwind não cobre. A configuração do Tailwind (cores, fontes,
+   espaçamentos) fica em js/tailwind.config.js.
+   ========================================================================== */
+
+@layer base {
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overscroll-behavior: none;
+    }
+
+    main>:first-child {
+        margin-top: 0 !important;
+    }
+
+    main>:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+::-webkit-scrollbar {
+    /* display: none; */
+}
+
+/* Menu mobile (controlado por js/menu.js) */
+#menu-mobile:not(.is-open),
+[data-menu-toggle] .menu-icone-fechar,
+[data-menu-toggle][aria-expanded="true"] .menu-icone-abrir {
+    display: none;
+}
+
+[data-menu-toggle][aria-expanded="true"] .menu-icone-fechar {
+    display: inline;
+}
+
+/* Rolagem suave ao clicar em links para seções da página (#servicos, #proposta...) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Desconta a altura do header fixo (36px da faixa + 80px da barra) para a
+   seção não ficar escondida atrás dele ao chegar pelo link */
+section[id] {
+    scroll-margin-top: 132px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ==========================================================================
+   Acessibilidade da home
+   ========================================================================== */
+
+/* Foco do teclado sempre visível, em fundo claro ou escuro (contorno escuro + halo branco) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--cor-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff;
+    border-radius: 6px;
+}
+
+/* Pontos do carrossel: o ponto é pequeno, mas a área de toque tem 24px (WCAG 2.5.8) */
+.carousel-dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.carousel-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.45);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.carousel-dot:hover::before {
+    background: rgb(255 255 255 / 0.85);
+}
+
+.carousel-dot.is-ativo::before {
+    background: var(--cor-ciano-eletrico);
+    transform: scale(1.25);
+}
+
+/* Botão pausar/continuar usa o ícone no lugar do ponto */
+.carousel-pausa::before {
+    display: none;
+}
+
+.carousel-pausa .material-symbols-outlined {
+    font-size: 16px;
+}

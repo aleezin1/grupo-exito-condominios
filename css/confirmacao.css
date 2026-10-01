@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Página de confirmação de envio (pages/confirmacao.html)
+   Depende de paleta.css e componentes.css.
+   ========================================================================== */
+
+.confirmacao {
+    padding: 4rem 0 5rem;
+    background:
+        radial-gradient(circle at 15% 0%, rgb(var(--cor-ciano-eletrico-rgb) / 0.12), transparent 45%),
+        var(--cor-fundo);
+}
+
+.confirmacao__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+    .confirmacao__grade {
+        grid-template-columns: 7fr 5fr;
+        align-items: start;
+    }
+}
+
+/* ---- Cartão principal -------------------------------------------------- */
+.confirmacao__cartao {
+    padding: 2.5rem;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-card);
+}
+
+@media (max-width: 640px) {
+    .confirmacao__cartao {
+        padding: 1.5rem;
+    }
+}
+
+/* Check animado */
+.confirmacao__check {
+    display: block;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.5rem;
+}
+
+.confirmacao__check circle {
+    fill: rgb(var(--cor-sucesso-rgb) / 0.12);
+    stroke: var(--cor-sucesso);
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: confirmacao-traco 0.6s ease-out forwards;
+}
+
+.confirmacao__check path {
+    fill: none;
+    stroke: var(--cor-sucesso);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: confirmacao-traco 0.4s 0.5s ease-out forwards;
+}
+
+@keyframes confirmacao-traco {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.confirmacao__texto {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+}
+
+/* Protocolo */
+.confirmacao__protocolo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed rgb(var(--cor-teal-rgb) / 0.45);
+    border-radius: var(--raio-grande);
+    background: rgb(var(--cor-ciano-suave-rgb) / 0.45);
+}
+
+.confirmacao__protocolo-numero {
+    display: block;
+    margin-top: 0.25rem;
+    font-family: var(--fonte-tecnica);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--cor-texto);
+}
+
+.confirmacao__copiar {
+    padding: 0.625rem 1rem;
+    font-size: 11px;
+}
+
+/* Resumo dos dados enviados */
+.confirmacao__resumo {
+    margin-top: 2rem;
+}
+
+.confirmacao__lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0.75rem 0 0;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .confirmacao__lista {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.confirmacao__item {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--cor-borda);
+    background: var(--cor-superficie);
+}
+
+.confirmacao__item dt {
+    font-family: var(--fonte-tecnica);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-texto-suave);
+}
+
+.confirmacao__item dd {
+    margin: 0.125rem 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto);
+    word-break: break-word;
+}
+
+.confirmacao__item--largo {
+    grid-column: 1 / -1;
+}
+
+/* Ações */
+.confirmacao__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.confirmacao__aviso {
+    margin: 1.5rem 0 0;
+    font-size: 12px;
+    color: var(--cor-texto-suave);
+}
+
+/* ---- Coluna lateral: próximos passos ----------------------------------- */
+.confirmacao__passos {
+    padding: 2rem;
+    background: var(--cor-navy-profundo);
+    border-radius: var(--raio-card);
+    color: var(--cor-texto-invertido);
+}
+
+.confirmacao__passos .ex-sobretitulo {
+    color: var(--cor-ciano-eletrico);
+}
+
+.confirmacao__passos-titulo {
+    margin: 0 0 1.5rem;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cor-texto-invertido);
+}
+
+.confirmacao__linha {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.confirmacao__passo {
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+}
+
+.confirmacao__passo:last-child {
+    padding-bottom: 0;
+}
+
+/* linha vertical ligando os passos */
+.confirmacao__passo:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 34px;
+    bottom: 2px;
+    width: 2px;
+    background: rgb(255 255 255 / 0.12);
+}
+
+.confirmacao__passo-numero {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.08);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    font-family: var(--fonte-tecnica);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cor-ciano-eletrico);
+}
+
+.confirmacao__passo--feito .confirmacao__passo-numero {
+    background: var(--cor-sucesso);
+    border-color: var(--cor-sucesso);
+    color: #fff;
+}
+
+.confirmacao__passo strong {
+    display: block;
+    font-size: 15px;
+    color: var(--cor-texto-invertido);
+}
+
+.confirmacao__passo .confirmacao__passo-descricao {
+    display: block;
+    margin-top: 0.125rem;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.confirmacao__passo .confirmacao__prazo {
+    display: inline-block;
+    margin-top: 0.375rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--raio-pilula);
+    background: rgb(var(--cor-ciano-eletrico-rgb) / 0.15);
+    font-family: var(--fonte-tecnica);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cor-ciano-eletrico);
+}
+
+.confirmacao__contato {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.confirmacao__contato a {
+    color: var(--cor-ciano-eletrico);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Estado "sem dados" (página aberta direto, sem enviar formulário) */
+.confirmacao [hidden] {
+    display: none !important;
+}
+
+/* ---- Impressão: "Salvar comprovante" ------------------------------------ */
+@media print {
+    .ex-header,
+    .ex-rodape,
+    .confirmacao__acoes,
+    .confirmacao__copiar,
+    .ga-botao,
+    .ga-painel,
+    .ac-botao,
+    .ac-painel {
+        display: none !important;
+    }
+
+    .confirmacao {
+        padding: 0;
+        background: none;
+    }
+
+    .confirmacao__cartao,
+    .confirmacao__passos {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #000;
+    }
+
+    .confirmacao__passos * {
+        color: #000 !important;
+    }
+}
