@@ -433,44 +433,7 @@
             </div>
         </section>
 
-        <section id="proposta" aria-labelledby="titulo-proposta">
-            <h2 id="titulo-proposta">Pronto para transformar a gestão do seu condomínio?</h2>
-            <p>Receba uma análise financeira e uma proposta sob medida. Retorno em até 2 horas úteis, sem compromisso.</p>
-            <!-- Sem back-end: js/formulario.js guarda os dados e abre a confirmação -->
-            <form action="pages/confirmacao.html" method="get" data-confirmacao="Proposta personalizada">
-                <label for="proposta-nome">Nome completo *</label>
-                <input id="proposta-nome" name="nome" type="text" required autocomplete="name">
 
-                <label for="proposta-email">E-mail *</label>
-                <input id="proposta-email" name="email" type="email" required autocomplete="email">
-
-                <label for="proposta-telefone">WhatsApp / Telefone *</label>
-                <input id="proposta-telefone" name="telefone" type="tel" required autocomplete="tel">
-
-                <label for="proposta-condominio">Condomínio e cidade *</label>
-                <input id="proposta-condominio" name="condominio" type="text" required>
-
-                <label for="proposta-unidades">Nº de unidades</label>
-                <select id="proposta-unidades" name="unidades">
-                    <option value="1-30">Até 30 unidades</option>
-                    <option value="31-80" selected>31 a 80 unidades</option>
-                    <option value="81-150">81 a 150 unidades</option>
-                    <option value="151-300">151 a 300 unidades</option>
-                    <option value="300+">Mais de 300 unidades</option>
-                </select>
-
-                <label for="proposta-papel">Seu papel no condomínio</label>
-                <select id="proposta-papel" name="papel">
-                    <option value="sindico" selected>Síndico(a) eleito(a)</option>
-                    <option value="sindico-profissional">Síndico(a) profissional</option>
-                    <option value="conselho">Membro do conselho fiscal</option>
-                    <option value="morador">Morador(a) / Condômino</option>
-                    <option value="outro">Outro representante</option>
-                </select>
-
-                <button class="botao" type="submit">Solicitar proposta</button>
-            </form>
-        </section>
     </main>
 
     <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao das páginas internas) -->
