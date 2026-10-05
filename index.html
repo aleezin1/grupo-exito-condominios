@@ -1,1799 +1,525 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Êxito Condomínios | Administração de Condomínios em Mogi das Cruzes e São Paulo</title>
-    <meta name="description"
-        content="Administração condominial com transparência, tecnologia e atendimento humano. Gestão administrativa, financeira e operacional para condomínios em Mogi das Cruzes e São Paulo.">
-    <meta name="author" content="Grupo Êxito Condomínios">
+    <meta name="description" content="Administração condominial com transparência, tecnologia e atendimento humano. Gestão administrativa, financeira e operacional para condomínios em Mogi das Cruzes e São Paulo.">
     <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#06152d">
-
-    <!-- Compartilhamento (WhatsApp, Facebook, LinkedIn, X) -->
-    <!-- og:image precisa do endereço completo quando o site for publicado (ex.: https://seusite.com.br/img/...) -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="Grupo Êxito Condomínios">
-    <meta property="og:title" content="Grupo Êxito Condomínios | Administração Condominial">
-    <meta property="og:description"
-        content="Gestão condominial com transparência, tecnologia e atendimento humano em Mogi das Cruzes e São Paulo.">
-    <meta property="og:image" content="img/hero-reuniao-condominio.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16.png">
     <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
-
-    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="css/paleta.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/efeitos.css">
-    <link rel="stylesheet" href="css/loading.css">
-    <link rel="stylesheet" href="css/acessibilidade.css">
-    <link rel="stylesheet" href="css/assistente.css">
-    <script src="js/acessibilidade.js"></script>
-    <script src="js/loading.js"></script>
-    <script src="js/efeitos.js"></script>
-
-    <!-- Tailwind (CDN) + configuração do projeto -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- Versão simplificada da home (index.html): mesmo conteúdo, CSS simples nesta página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f5f7fa;
+            line-height: 1.6;
+        }
+        main > section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+        h1 {
+            font-size: 44px;
+            color: #06152d;
+            line-height: 1.15;
+        }
+        h2 {
+            font-size: 30px;
+            color: #06152d;
+            margin-bottom: 5px;
+        }
+        h3 {
+            font-size: 20px;
+            color: #06152d;
+        }
+        p,
+        li {
+            color: #555;
+        }
+        a {
+            color: #00838f;
+            font-weight: bold;
+        }
+        .botao {
+            display: inline-block;
+            background-color: #06152d;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .grade {
+            display: flex;
+            gap: 20px;
+        }
+        .grade > * {
+            flex: 1;
+            background-color: white;
+            padding: 20px 25px;
+            margin: 0;
+            border-radius: 8px;
+        }
+        dl.grade dt {
+            font-size: 30px;
+            font-weight: bold;
+            color: #06152d;
+        }
+        dl.grade dd {
+            margin: 0;
+            color: #777;
+        }
+        blockquote {
+            margin: 0;
+            font-style: italic;
+        }
+        details {
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        summary {
+            font-weight: bold;
+            color: #06152d;
+            cursor: pointer;
+        }
+        address {
+            font-style: normal;
+        }
+        form {
+            max-width: 600px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+        input,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 15px;
+            border: 1px solid #ccd3dc;
+            border-radius: 6px;
+        }
+        form .botao {
+            margin-top: 15px;
+        }
+        @media (max-width: 800px) {
+            .grade {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
-
-<body
-    class="bg-surface font-body-md text-on-surface antialiased selection:bg-brand-cyan-electric/20 selection:text-brand-navy-deep">
-    <!-- TOP TICKER BAR -->
-    <header class="fixed top-0 left-0 w-full z-50">
-        <div class="w-full bg-brand-navy-deep text-surface-canvas border-b border-white/10">
-            <div class="max-w-7xl mx-auto px-gutter flex items-center justify-between h-9 font-body-sm text-[12px]">
-                <div class="flex items-center gap-space-lg">
-                    <a class="flex items-center gap-1.5 text-slate-300 hover:text-brand-cyan-electric transition-colors"
-                        href="tel:1125649963">
-                        <span aria-hidden="true" class="material-symbols-outlined text-[15px] text-brand-cyan-electric">call</span>
-                        <span class="">(11) 2564-9963</span>
+<body>
+    <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao das páginas internas) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:1125649963">
+                        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                        <span>(11) 2564-9963</span>
                     </a>
-                    <span class="text-slate-400 hidden sm:inline" aria-hidden="true">•</span>
-                    <a class="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-brand-cyan-electric transition-colors"
-                        href="mailto:contato@grupoexitocondominios.com.br">
-                        <span aria-hidden="true" class="material-symbols-outlined text-[15px] text-brand-cyan-electric">mail</span>
-                        <span class="">contato@grupoexitocondominios.com.br</span>
+                    <span class="ex-topo__separador" aria-hidden="true">•</span>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
+                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        <span>contato@grupoexitocondominios.com.br</span>
                     </a>
                 </div>
-                <div class="flex items-center gap-space-md">
-                    <div
-                        class="hidden md:flex items-center gap-2 pr-space-md border-r border-slate-700 text-slate-300 font-label-tech text-label-tech uppercase">
-                        <span class="w-2 h-2 rounded-full bg-status-success animate-pulse inline-block"></span>
-                        <span class="">Operação Digital Conectada</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <a aria-label="Instagram"
-                            class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
-                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank"
-                            rel="noopener"><span aria-hidden="true" class="material-symbols-outlined text-[16px]">photo_camera</span><span class="sr-only"> (abre em nova aba)</span></a>
-                        <a aria-label="Facebook" class="text-slate-400 hover:text-brand-cyan-electric transition-colors"
-                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener"><span aria-hidden="true"
-                                class="material-symbols-outlined text-[16px]">public</span><span class="sr-only"> (abre em nova aba)</span></a>
+                <div class="ex-topo__grupo ex-topo__grupo--direita">
+                    <div class="ex-topo__redes">
+                        <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                        </a>
+                        <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- EXECUTIVE EDITORIAL FLOATING MAIN NAVBAR -->
-        <div
-            class="w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_18px_rgba(6,21,45,0.04)]">
-            <div class="relative h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
-                <!-- Brand Logo Integration -->
-                <!-- Logo: centralizado no celular (até 640px), à esquerda nas telas maiores -->
-                <a class="flex items-center gap-3 group max-sm:absolute max-sm:left-1/2 max-sm:-translate-x-1/2"
-                    href="index.html">
-                    <img alt="Grupo Êxito Condomínios"
-                        class="h-[52px] sm:h-[46px] w-auto object-contain transition-transform group-hover:scale-[1.02]"
-                        src="img/logo-grupo-exito-header.png">
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="index-v2.html">
+                    <img src="img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
                 </a>
-                <!-- Clean Editorial Navigation -->
-                <nav class="hidden lg:flex items-center gap-space-lg xl:gap-space-xl" aria-label="Navegação principal">
-                    <a class="font-body-md text-[14px] font-semibold text-brand-navy-deep relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-cyan-electric"
-                        href="index.html" aria-current="page">Início</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/quem-somos.html">Quem Somos</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/servicos.html">Serviços</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/clientes.html">Clientes</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/projetos.html">Projetos</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/noticias.html">Notícias</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/faq.html">FAQ</a>
-                    <a class="font-body-md text-[14px] text-on-surface-variant hover:text-brand-navy-deep transition-colors"
-                        href="pages/contato.html">Contato</a>
+                <nav class="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="index-v2.html" aria-current="page">Início</a>
+                    <a class="ex-menu__link" href="pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="pages/contato.html">Contato</a>
                 </nav>
-                <div class="flex items-center gap-3 max-sm:ml-auto">
-                    <a class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
-                        href="#proposta">
-                        <span class="">Falar com Consultor</span>
-                        <span aria-hidden="true"
-                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
+                <div class="ex-acoes">
+                    <a class="ex-cta" href="#proposta">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                     </a>
-                    <!-- Botão do menu mobile (abaixo de 1024px) -->
-                    <button
-                        class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-200 bg-white text-brand-navy-deep hover:bg-slate-50 transition-colors"
-                        type="button" aria-controls="menu-mobile" aria-expanded="false" aria-label="Abrir menu"
-                        data-menu-toggle>
-                        <span aria-hidden="true" class="material-symbols-outlined text-[24px] menu-icone-abrir">menu</span>
-                        <span aria-hidden="true" class="material-symbols-outlined text-[24px] menu-icone-fechar">close</span>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                        <span class="material-symbols-outlined ex-icone-abrir" aria-hidden="true">menu</span>
+                        <span class="material-symbols-outlined ex-icone-fechar" aria-hidden="true">close</span>
                     </button>
                 </div>
             </div>
             <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
-            <nav class="lg:hidden border-t border-slate-200/80 bg-white shadow-[0_16px_32px_rgba(6,21,45,0.10)] max-h-[calc(100vh-116px)] overflow-y-auto"
-                id="menu-mobile" aria-label="Navegação principal (mobile)">
-                <div class="max-w-7xl mx-auto px-gutter py-2 flex flex-col">
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] font-semibold text-secondary"
-                        href="index.html" aria-current="page">Início</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/quem-somos.html">Quem Somos</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/servicos.html">Serviços</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/clientes.html">Clientes</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/projetos.html">Projetos</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/noticias.html">Notícias</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/faq.html">FAQ</a>
-                    <a class="py-3.5 border-b border-slate-200/80 font-body-md text-[15px] text-on-surface-variant hover:text-brand-navy-deep"
-                        href="pages/contato.html">Contato</a>
-                    <a class="mt-space-md mb-space-sm inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all"
-                        href="#proposta">
-                        <span class="">Falar com Consultor</span>
-                        <span aria-hidden="true"
-                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
+            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
+                <div class="ex-conteudo">
+                    <a class="ex-menu__link" href="index-v2.html" aria-current="page">Início</a>
+                    <a class="ex-menu__link" href="pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="pages/contato.html">Contato</a>
+                    <a class="ex-cta" href="#proposta">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                     </a>
                 </div>
             </nav>
         </div>
     </header>
-    <main class="w-full pt-28 bg-background">
-        <div class="flex flex-col w-full">
-            <!-- HERO SECTION: EXECUTIVE EDITORIAL & CLEAN NEO-PROPTECH -->
-            <section
-                class="relative w-full bg-gradient-to-b from-[#f3f7fb] via-[#f8fafd] to-white pt-10 pb-space-2xl border-b border-slate-200/60 overflow-hidden">
-                <!-- Subtle Architectural Grid Background Pattern -->
-                <div
-                    class="absolute inset-x-0 -top-40 -bottom-40 bg-[radial-gradient(#00bcd4_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-15 pointer-events-none"
-                    data-parallax="0.35">
-                </div>
-                <div
-                    class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-brand-cyan-electric/10 to-transparent rounded-full blur-3xl pointer-events-none"
-                    data-parallax="-0.25">
-                </div>
-                <div class="max-w-7xl mx-auto px-gutter relative z-10">
-                    <!-- Eyebrow Editorial Tag -->
-                    <div
-                        class="flex flex-wrap items-center justify-between gap-space-sm pb-space-md border-b border-slate-200/60 mb-space-lg">
-                        <div
-                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-brand-navy-deep shadow-xs">
-                            <span class="w-2 h-2 rounded-full bg-brand-cyan-electric"></span>
-                            <span class="font-label-tech text-label-tech tracking-wider uppercase text-slate-700">GESTÃO
-                                CONDOMINIAL 4.0 • ALTA PERFORMANCE</span>
-                        </div>
-                        <div class="hidden md:flex items-center gap-3 font-label-tech text-label-tech text-slate-500">
-                            <span class="flex items-center gap-1"><span aria-hidden="true"
-                                    class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
-                                AUDITORIA PREVENTIVA</span>
-                            <span class="text-slate-300">•</span>
-                            <span class="flex items-center gap-1"><span aria-hidden="true"
-                                    class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
-                                HUB SUPERLÓGICA</span>
-                            <span class="text-slate-300">•</span>
-                            <span class="flex items-center gap-1"><span aria-hidden="true"
-                                    class="material-symbols-outlined text-[14px] text-brand-cyan-electric">check_circle</span>
-                                SISTEMA ROZENDO</span>
-                        </div>
-                    </div>
-                    <!-- Asymmetric Editorial Grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
-                        <!-- Left Column: Editorial Headline & Manifesto -->
-                        <div class="lg:col-span-7 flex flex-col gap-space-md" data-reveal-stagger>
-                            <div class="space-y-space-sm">
-                                <div
-                                    class="inline-flex items-center gap-2 font-label-badge text-label-badge text-secondary uppercase tracking-widest font-bold">
-                                    <span class="w-4 h-0.5 bg-brand-cyan-electric inline-block"></span>
-                                    TRANSFORMAÇÃO DIGITAL COM ATENDIMENTO HUMANO
-                                </div>
-                                <h1
-                                    class="font-display-hero text-display-hero text-brand-navy-deep leading-[1.08] tracking-tight">
-                                    Inovando a forma de se viver em <span
-                                        class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-navy-deep via-secondary to-brand-cyan-electric">condomínio</span>
-                                </h1>
-                            </div>
-                            <p class="font-body-lg text-body-lg text-slate-600 max-w-xl leading-relaxed">
-                                Administração condominial moderna com governança executiva, tecnologia de ponta e
-                                suporte humanizado diário para transformar o patrimônio e a rotina do seu condomínio.
-                            </p>
-                            <!-- Executive CTAs -->
-                            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-                                <a class="px-space-xl py-3.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider shadow-[0_10px_24px_rgba(6,21,45,0.18)] hover:bg-slate-800 hover:shadow-[0_12px_28px_rgba(6,21,45,0.25)] transition-all flex items-center gap-space-sm group"
-                                    href="#proposta">
-                                    <span class="">SOLICITAR PROPOSTA SOB MEDIDA</span>
-                                    <span aria-hidden="true"
-                                        class="material-symbols-outlined text-[18px] text-brand-cyan-electric group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                                </a>
-                                <a class="px-space-lg py-3.5 rounded-lg bg-white border border-slate-200 text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center gap-2 shadow-xs"
-                                    data-path="servicos" href="#servicos">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[18px] text-secondary">grid_view</span>
-                                    <span class="">Nossos Serviços</span>
-                                </a>
-                            </div>
-                            <!-- 3 Executive Credibility Metrics in Crisp White Cards -->
-                            <div
-                                class="pt-space-md grid grid-cols-3 gap-space-sm sm:gap-space-md border-t border-slate-200/80 mt-space-sm">
-                                <div
-                                    class="p-3.5 sm:p-space-md rounded-xl bg-white border border-slate-200/80 shadow-xs flex flex-col">
-                                    <span
-                                        class="font-label-tech text-[10px] sm:text-label-tech text-secondary uppercase font-bold tracking-wider">PRECISÃO
-                                        DIGITAL</span>
-                                    <span
-                                        class="font-metric-display text-[26px] sm:text-metric-display text-brand-navy-deep font-bold mt-0.5">99.8%</span>
-                                    <span class="font-body-sm text-[12px] text-slate-500">Rateio &amp; leitura sem
-                                        falhas</span>
-                                </div>
-                                <div
-                                    class="p-3.5 sm:p-space-md rounded-xl bg-white border border-slate-200/80 shadow-xs flex flex-col">
-                                    <span
-                                        class="font-label-tech text-[10px] sm:text-label-tech text-secondary uppercase font-bold tracking-wider">DISPONIBILIDADE</span>
-                                    <span
-                                        class="font-metric-display text-[26px] sm:text-metric-display text-brand-navy-deep font-bold mt-0.5">24/7</span>
-                                    <span class="font-body-sm text-[12px] text-slate-500">App do Morador &amp;
-                                        Síndico</span>
-                                </div>
-                                <div
-                                    class="p-3.5 sm:p-space-md rounded-xl bg-white border border-slate-200/80 shadow-xs flex flex-col">
-                                    <span
-                                        class="font-label-tech text-[10px] sm:text-label-tech text-slate-700 uppercase font-bold tracking-wider">EXPERIÊNCIA</span>
-                                    <span
-                                        class="font-metric-display text-[26px] sm:text-metric-display text-brand-navy-deep font-bold mt-0.5">+15
-                                        Anos</span>
-                                    <span class="font-body-sm text-[12px] text-slate-500">Excelência e solidez</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Right Column: PropTech Multi-Device Clean Showcase with Interactive Carousel -->
-                        <div class="lg:col-span-5 relative mt-space-lg lg:mt-0" data-reveal="direita" style="--fx-atraso: 250ms">
-                            <div class="relative">
-                                <!-- Main Executive Dashboard Glass Card -->
-                                <div
-                                    class="rounded-2xl bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(6,21,45,0.08)] p-space-md sm:p-space-lg relative overflow-hidden">
-                                    <!-- Neo-PropTech HUD Top Bar -->
-                                    <div
-                                        class="flex items-center justify-between pb-space-sm border-b border-slate-100 mb-space-sm">
-                                        <div class="flex items-center gap-2">
-                                            <span
-                                                class="w-2.5 h-2.5 rounded-full bg-status-success animate-pulse"></span>
-                                            <span
-                                                class="font-label-tech text-label-tech uppercase text-slate-600 font-bold">Portal
-                                                Síndico &amp; Gestão 360°</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span
-                                                class="font-label-badge text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-semibold uppercase flex items-center gap-1">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
-                                                CONECTADO
-                                            </span>
-                                            <span
-                                                class="font-label-badge text-[11px] text-secondary bg-secondary-container/40 px-2.5 py-0.5 rounded font-semibold uppercase">Ambiente
-                                                Seguro</span>
-                                        </div>
-                                    </div>
-                                    <!-- Interactive Carousel Container -->
-                                    <div class="relative w-full h-60 sm:h-64 rounded-xl overflow-hidden mb-space-md border border-slate-200/80 group/carousel"
-                                        id="heroCarousel" role="region" aria-roledescription="carrossel"
-                                        aria-label="Destaques do portal do síndico">
-                                        <!-- Slides Wrapper -->
-                                        <div class="relative w-full h-full" id="carouselSlides" aria-live="off">
-                                            <!-- Slide 1: Assembleia Digital Híbrida -->
-                                            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-0"
-                                                data-slide="0" role="group" aria-roledescription="slide"
-                                                aria-label="1 de 3">
-                                                <img class="w-full h-full object-cover"
-                                                    alt="Reunião de conselho de condomínio em sala envidraçada com vista para São Paulo"
-                                                    src="img/hero-reuniao-condominio.jpg">
-                                                <div
-                                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
-                                                </div>
-                                                <div class="absolute top-3 left-3">
-                                                    <span
-                                                        class="text-[10px] font-label-tech uppercase bg-black/60 backdrop-blur-md text-brand-cyan-electric border border-brand-cyan-electric/30 px-2.5 py-0.5 rounded-full font-bold">MÓDULO
-                                                        LIVE</span>
-                                                </div>
-                                                <div
-                                                    class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                                                    <div>
-                                                        <div class="flex items-center gap-2">
-                                                            <span aria-hidden="true"
-                                                                class="material-symbols-outlined text-[18px] text-brand-cyan-electric">videocam</span>
-                                                            <span class="font-body-sm text-[13px] font-bold">Assembleia
-                                                                Digital Híbrida</span>
-                                                        </div>
-                                                        <p class="text-[11px] text-slate-300 mt-0.5">Votação auditada em
-                                                            tempo real &amp; biometria</p>
-                                                    </div>
-                                                    <span
-                                                        class="text-[11px] font-label-tech bg-white/20 backdrop-blur-md px-2.5 py-1 rounded font-bold border border-white/20">QUÓRUM
-                                                        84%</span>
-                                                </div>
-                                            </div>
-                                            <!-- Slide 2: Telemetria Inteligente de Água & Gás -->
-                                            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10"
-                                                data-slide="1" role="group" aria-roledescription="slide"
-                                                aria-label="2 de 3">
-                                                <img class="w-full h-full object-cover"
-                                                    alt="Painel de telemetria predial com medidores de água e sensores"
-                                                    src="img/telemetria-predial.jpg">
-                                                <div
-                                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
-                                                </div>
-                                                <div class="absolute top-3 left-3">
-                                                    <span
-                                                        class="text-[10px] font-label-tech uppercase bg-black/60 backdrop-blur-md text-brand-cyan-electric border border-brand-cyan-electric/30 px-2.5 py-0.5 rounded-full font-bold">TELEMETRIA
-                                                        24H</span>
-                                                </div>
-                                                <div
-                                                    class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                                                    <div>
-                                                        <div class="flex items-center gap-2">
-                                                            <span aria-hidden="true"
-                                                                class="material-symbols-outlined text-[18px] text-brand-cyan-electric">water_drop</span>
-                                                            <span class="font-body-sm text-[13px] font-bold">Telemetria
-                                                                de Água &amp; Gás</span>
-                                                        </div>
-                                                        <p class="text-[11px] text-slate-300 mt-0.5">Leitura fotográfica
-                                                            e detecção de vazamentos</p>
-                                                    </div>
-                                                    <span
-                                                        class="text-[11px] font-label-tech bg-status-success/30 text-emerald-300 backdrop-blur-md px-2.5 py-1 rounded font-bold border border-emerald-400/30">ZERO
-                                                        PERDAS</span>
-                                                </div>
-                                            </div>
-                                            <!-- Slide 3: Prestação de Contas & Balancete Digital -->
-                                            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-0"
-                                                data-slide="2" role="group" aria-roledescription="slide"
-                                                aria-label="3 de 3">
-                                                <img class="w-full h-full object-cover"
-                                                    alt="Gestora analisando balancete digital em um tablet"
-                                                    src="img/relatorios-financeiros.jpg">
-                                                <div
-                                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/90 via-brand-navy-deep/30 to-black/20">
-                                                </div>
-                                                <div class="absolute top-3 left-3">
-                                                    <span
-                                                        class="text-[10px] font-label-tech uppercase bg-black/60 backdrop-blur-md text-brand-cyan-electric border border-brand-cyan-electric/30 px-2.5 py-0.5 rounded-full font-bold">COMPLIANCE
-                                                        FISCAL</span>
-                                                </div>
-                                                <div
-                                                    class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                                                    <div>
-                                                        <div class="flex items-center gap-2">
-                                                            <span aria-hidden="true"
-                                                                class="material-symbols-outlined text-[18px] text-brand-cyan-electric">account_balance_wallet</span>
-                                                            <span class="font-body-sm text-[13px] font-bold">Balancete
-                                                                &amp; Prestação Digital</span>
-                                                        </div>
-                                                        <p class="text-[11px] text-slate-300 mt-0.5">Conciliação diária
-                                                            integrada Superlógica Hub</p>
-                                                    </div>
-                                                    <span
-                                                        class="text-[11px] font-label-tech bg-white/20 backdrop-blur-md px-2.5 py-1 rounded font-bold border border-white/20">AUDITADO</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Carousel Nav Buttons -->
-                                        <button type="button" aria-label="Slide anterior"
-                                            class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100"
-                                            onclick="prevSlide()">
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chevron_left</span>
-                                        </button>
-                                        <button type="button" aria-label="Próximo slide"
-                                            class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all opacity-80 hover:opacity-100"
-                                            onclick="nextSlide()">
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chevron_right</span>
-                                        </button>
-                                        <!-- Carousel Dots -->
-                                        <div class="absolute top-2 right-2 z-20 flex items-center gap-0.5 bg-black/50 backdrop-blur-md px-1 py-0.5 rounded-full border border-white/10"
-                                            id="carouselDots" role="group" aria-label="Controles do carrossel">
-                                            <button type="button" id="carouselPausa" class="carousel-dot carousel-pausa"
-                                                aria-label="Pausar carrossel" aria-pressed="false">
-                                                <span aria-hidden="true" class="material-symbols-outlined">pause</span>
-                                            </button>
-                                            <button type="button" aria-label="Ir para slide 1" class="carousel-dot"
-                                                onclick="goToSlide(0)"></button>
-                                            <button type="button" aria-label="Ir para slide 2" class="carousel-dot is-ativo"
-                                                aria-current="true" onclick="goToSlide(1)"></button>
-                                            <button type="button" aria-label="Ir para slide 3" class="carousel-dot"
-                                                onclick="goToSlide(2)"></button>
-                                        </div>
-                                    </div>
-                                    <!-- Telemetry Indicator Widgets in Clean White/Off-White -->
-                                    <div class="grid grid-cols-2 gap-space-xs sm:gap-space-sm">
-                                        <div
-                                            class="p-space-sm rounded-lg bg-slate-50 border border-slate-200/70 flex flex-col justify-between">
-                                            <div class="flex items-center justify-between text-slate-500 mb-1">
-                                                <span class="font-label-tech text-[10px] uppercase">Boletos &amp; 2ª
-                                                    Via</span>
-                                                <span aria-hidden="true"
-                                                    class="material-symbols-outlined text-[16px] text-secondary">receipt_long</span>
-                                            </div>
-                                            <div class="font-bold text-brand-navy-deep text-[15px]">Superlógica Hub
-                                            </div>
-                                            <span
-                                                class="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[13px]">done_all</span> 100%
-                                                Digital
-                                            </span>
-                                        </div>
-                                        <div
-                                            class="p-space-sm rounded-lg bg-slate-50 border border-slate-200/70 flex flex-col justify-between">
-                                            <div class="flex items-center justify-between text-slate-500 mb-1">
-                                                <span class="font-label-tech text-[10px] uppercase">Telemetria Água
-                                                    &amp; Gás</span>
-                                                <span aria-hidden="true"
-                                                    class="material-symbols-outlined text-[16px] text-brand-cyan-electric">water_drop</span>
-                                            </div>
-                                            <div class="font-bold text-brand-navy-deep text-[15px]">Consumo por Unidade
-                                            </div>
-                                            <span
-                                                class="text-[11px] text-secondary font-semibold flex items-center gap-1">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[13px]">sensors</span>
-                                                Individualizado
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Footer Badge -->
-                                    <div
-                                        class="mt-space-sm pt-space-xs border-t border-slate-100 flex items-center justify-between text-[11px] font-label-tech text-slate-500">
-                                        <span class="">UNIDADES MOGI DAS CRUZES &amp; CAPITAL SP</span>
-                                        <span class="text-brand-navy-deep font-semibold">SEGURANÇA LGPD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
+    <main>
+        <section aria-labelledby="titulo-inicio">
+            <h1 id="titulo-inicio">Inovando a forma de se viver em condomínio</h1>
+            <p>
+                Administração condominial moderna com governança executiva, tecnologia de ponta e
+                suporte humanizado diário para transformar o patrimônio e a rotina do seu condomínio.
+            </p>
+            <p><a class="botao" href="#proposta">Solicitar proposta sob medida</a></p>
+            <dl class="grade">
+                <div>
+                    <dt>99.8%</dt>
+                    <dd>Precisão no rateio e leitura</dd>
+                </div>
+                <div>
+                    <dt>24/7</dt>
+                    <dd>App do Morador e do Síndico</dd>
+                </div>
+                <div>
+                    <dt>+15 anos</dt>
+                    <dd>De excelência e solidez</dd>
+                </div>
+            </dl>
+        </section>
 
-            <!-- BANNER / CALLOUT QUEM SOMOS -->
-            <section class="w-full bg-white py-space-lg border-b border-slate-200/70" id="quem-somos">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div
-                        data-reveal="zoom"
-                        class="rounded-2xl bg-slate-50/70 border border-slate-200/90 shadow-sm p-space-lg sm:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
-                        <div class="flex items-center gap-space-md">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center shrink-0 shadow-xs">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[30px]">history_edu</span>
-                            </div>
-                            <div>
-                                <div
-                                    class="inline-flex items-center gap-2 font-label-tech text-[11px] text-secondary font-bold uppercase tracking-wider mb-1">
-                                    <span class="w-2 h-2 rounded-full bg-status-success"></span> Tradição &amp;
-                                    Governança Executiva
-                                </div>
-                                <h2
-                                    class="font-title-md text-[18px] sm:text-[20px] font-bold text-brand-navy-deep tracking-tight">
-                                    Mais de 15 anos de excelência com constante inovação
-                                </h2>
-                                <p class="font-body-sm text-[13px] text-slate-600 mt-1 max-w-2xl">
-                                    Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
-                                    protegem seu patrimônio condominial diariamente.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="shrink-0 w-full sm:w-auto">
-                            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs"
-                                href="pages/quem-somos.html">
-                                <span class="">Conheça a história e liderança</span>
-                                <span aria-hidden="true"
-                                    class="material-symbols-outlined text-[16px] text-brand-cyan-electric">arrow_forward</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section id="quem-somos" aria-labelledby="titulo-quem-somos">
+            <h2 id="titulo-quem-somos">Mais de 15 anos de excelência com constante inovação</h2>
+            <p>
+                Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
+                protegem seu patrimônio condominial diariamente.
+            </p>
+            <p><a href="pages/quem-somos.html">Conheça a história e liderança</a></p>
+        </section>
 
-            <!-- SECTION 2: ÁREAS DE ATUAÇÃO (REORGANIZADA IMEDIATAMENTE APÓS NOSSAS VANTAGENS) -->
-            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="servicos">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
-                        <div class="max-w-2xl">
-                            <span
-                                class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">ADMINISTRADORA
-                                PARA O SEU CONDOMÍNIO</span>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Nossos serviços</h2>
-                            <p class="font-body-md text-body-md text-slate-600 mt-2">Tecnologia descomplicada e gestão
-                                rigorosa para elevar a governança e diminuir conflitos.</p>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <a class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-secondary-container/40 text-secondary hover:bg-secondary hover:text-white font-label-badge text-label-badge transition-all"
-                                href="pages/servicos.html">
-                                <span class="">Explorar catálogo completo de serviços</span>
-                                <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                            </a>
-                        </div>
-                    </div>
-                    <br><br>
-                    <!-- 3 Pillars Interactive Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg" data-reveal-stagger>
-                        <!-- Area 1: Administrativa -->
-                        <a
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
-                            href="pages/servicos-1.html" aria-label="Veja mais sobre Gestão Administrativa">
-                            <div>
-                                <div
-                                    class="w-14 h-14 rounded-xl bg-slate-100 text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">article</span>
-                                </div>
-                                <span
-                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
-                                    01</span>
-                                <h3
-                                    class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
-                                    Gestão Administrativa
-                                </h3>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mb-space-md">
-                                    Cadastros digitais, atendimento a moradores, organização de arquivos fiscais,
-                                    suporte permanente ao síndico e rotinas burocráticas ágeis.
-                                </p>
-                            </div>
-                            <div class="pt-space-md border-t border-slate-100">
-                                <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Digitalização e guarda documental rigorosa</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Cadastros e circulares oficiais em tempo real</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Assessoria para convenções e regimentos internos</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Controle automatizado de correspondências e encomendas</span>
-                                    </li>
-                                </ul>
-                                <span
-                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
-                                    <span class="">Veja mais</span>
-                                    <span aria-hidden="true"
-                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                                </span>
-                            </div>
-                        </a>
-                        <!-- Area 2: Financeira -->
-                        <a
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
-                            href="pages/servicos-2.html" aria-label="Veja mais sobre Gestão Financeira">
-                            <div>
-                                <div
-                                    class="w-14 h-14 rounded-xl bg-slate-100 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">account_balance_wallet</span>
-                                </div>
-                                <span
-                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
-                                    02</span>
-                                <h3
-                                    class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
-                                    Gestão Financeira
-                                </h3>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mb-space-md">
-                                    Previsão orçamentária minuciosa, contas a pagar, conciliação bancária diária,
-                                    cobrança administrativa de inadimplentes e balancetes transparentes.
-                                </p>
-                            </div>
-                            <div class="pt-space-md border-t border-slate-100">
-                                <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
-                                        <span class="">Prestação de contas via Superlógica Hub</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
-                                        <span class="">Cobrança amigável com redução comprovada de inadimplência</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
-                                        <span class="">Planejamento financeiro para obras e melhorias</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
-                                        <span class="">Emissão rápida de 2ª via com Pix Copia e Cola</span>
-                                    </li>
-                                </ul>
-                                <span
-                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
-                                    <span class="">Veja mais</span>
-                                    <span aria-hidden="true"
-                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                                </span>
-                            </div>
-                        </a>
-                        <!-- Area 3: Operacional -->
-                        <a
-                            class="p-space-xl rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan-electric"
-                            href="pages/servicos-3.html" aria-label="Veja mais sobre Gestão Operacional">
-                            <div>
-                                <div
-                                    class="w-14 h-14 rounded-xl bg-slate-100 text-brand-cyan-electric group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors flex items-center justify-center mb-space-lg shadow-xs">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[30px]">engineering</span>
-                                </div>
-                                <span
-                                    class="font-label-tech text-[11px] text-slate-500 uppercase font-bold tracking-wider">PILAR
-                                    03</span>
-                                <h3
-                                    class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mt-1 mb-space-sm">
-                                    Gestão Operacional
-                                </h3>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mb-space-md">
-                                    Auditoria de fornecedores e contratos terceirizados, plano de manutenção preventiva
-                                    predial, controle de portaria e rotinas de segurança.
-                                </p>
-                            </div>
-                            <div class="pt-space-md border-t border-slate-100">
-                                <ul class="space-y-2.5 text-slate-600 font-body-sm text-[13px]">
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Qualificação rigorosa de terceirizados e prestadores</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Cronograma de vistorias técnicas periódicas</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Compliance trabalhista de funcionários e portarias</span>
-                                    </li>
-                                    <li class="flex items-center gap-2">
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[16px] text-brand-cyan-electric">check_circle</span>
-                                        <span class="">Acompanhamento de laudos e renovação de AVCB</span>
-                                    </li>
-                                </ul>
-                                <span
-                                    class="mt-space-lg inline-flex items-center gap-1.5 text-secondary group-hover:text-brand-navy-deep font-label-badge text-label-badge uppercase tracking-wider transition-colors">
-                                    <span class="">Veja mais</span>
-                                    <span aria-hidden="true"
-                                        class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 3: PESSOAS NO CENTRO DA ADMINISTRAÇÃO & HUB EDITORIAL INTEGRADO DE NOTÍCIAS -->
-            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="noticias-comunidade">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <!-- Editorial Section Header -->
-                    <div
-                        class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200">
-                        <div class="max-w-3xl">
-                            <div
-                                class="inline-flex items-center gap-2 font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold mb-1">
-                                <span class="w-2 h-2 rounded-full bg-status-success"></span>CONHECIMENTO &amp;
-                                ATUALIZAÇÕES PRÁTICAS</div>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep tracking-tight">Notícias
-                                &amp; Artigos</h2>
-                            <p class="font-body-md text-body-md text-slate-600 mt-2">
-                                Acreditamos que a melhor tecnologia só tem valor real quando orientada para facilitar o
-                                dia a dia das pessoas. Unimos acolhimento humano com conteúdo técnico atualizado para
-                                orientar síndicos, conselheiros e moradores.
-                            </p>
-                        </div>
-                        <div class="shrink-0 flex items-center gap-2">
-                            <a class="inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-white border border-slate-200 hover:border-brand-navy-deep hover:bg-slate-50 text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all"
-                                href="pages/noticias.html"><span class="">Ver todas as notícias &amp;
-                                    artigos</span><span aria-hidden="true"
-                                    class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span></a>
-                        </div>
-                    </div>
-                    <!-- Part 1: Human-Centered Operations Mosaic -->
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg pt-space-xl pb-0" data-reveal-stagger>
-                        <!-- Feature Card 1 (Left 7 Cols) -->
-                        <div
-                            class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col group hover:border-brand-cyan-electric/60 hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300">
-                            <div class="relative h-72 sm:h-80 w-full overflow-hidden">
-                                <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    alt="Assembleias virtuais em condomínio" src="img/assembleias-virtuais.jpg">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/80 via-transparent to-transparent">
-                                </div>
-                                <div class="absolute top-4 left-4 flex items-center gap-2">
-                                    <span
-                                        class="px-3 py-1 rounded bg-secondary text-white font-label-badge text-[11px] uppercase tracking-wider font-semibold shadow-xs">Jurídico
-                                        &amp; Compliance Condominial</span>
-                                </div>
-                                <div
-                                    class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                                    <div class="flex items-center gap-3 font-label-tech text-[11px]">
-                                        <span class="flex items-center gap-1"><span aria-hidden="true"
-                                                class="material-symbols-outlined text-[14px] text-brand-cyan-electric">calendar_today</span>
-                                            08 Mai 2026</span>
-                                        <span class="text-white/60">•</span>
-                                        <span class="flex items-center gap-1"><span aria-hidden="true"
-                                                class="material-symbols-outlined text-[14px] text-brand-cyan-electric">schedule</span>
-                                            5 min de leitura</span>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-[11px] bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/20">RELATÓRIOS
-                                        AUDITADOS</span>
-                                </div>
-                            </div>
-                            <div class="p-space-lg sm:p-space-xl flex flex-col justify-between flex-1">
-                                <div>
-                                    <h3
-                                        class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold mb-space-xs group-hover:text-secondary transition-colors">
-                                        Novas regras e tendências para Assembleias Virtuais em 2026
-                                    </h3>
-                                    <p class="font-body-md text-body-md text-slate-600 leading-relaxed mb-space-md">
-                                        Entenda os critérios de validade jurídica, quóruns qualificados e auditoria de
-                                        votos necessários para assembleias híbridas e virtuais seguras segundo a
-                                        legislação em vigor.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div
-                                        class="pt-space-md border-t border-slate-100 grid grid-cols-2 gap-space-sm text-slate-700 font-body-sm text-[13px] mb-space-md">
-                                        <div class="flex items-center gap-2">
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[18px] text-secondary">fact_check</span>
-                                            <span class="">Pautas Claras &amp; Alinhadas</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[18px] text-brand-cyan-electric">analytics</span>
-                                            <span class="">Prestação de Contas Digital</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                                        <a class="inline-flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xs group/btn"
-                                            href="pages/noticias.html">
-                                            <span class="">Ler matéria completa</span>
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[16px] text-brand-cyan-electric group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                                        </a>
-                                        <span
-                                            class="text-[12px] font-label-tech text-slate-500 hidden sm:inline">DESTAQUE
-                                            PRINCIPAL</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Right 5 Cols: Two Stacked Editorial Cards -->
-                        <div class="lg:col-span-5 flex flex-col gap-gutter">
-                            <!-- Sub-Card 1: Telemetria & PropTech -->
-                            <div
-                                class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col sm:flex-row group hover:border-brand-cyan-electric/60 hover:shadow-[0_12px_30px_rgba(6,21,45,0.08)] transition-all duration-300">
-                                <div class="sm:w-5/12 h-48 sm:h-auto relative overflow-hidden shrink-0">
-                                    <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        alt="Telemetria predial inteligente" src="img/telemetria-predial.jpg">
-                                    <span
-                                        class="absolute top-3 left-3 px-2 py-0.5 rounded bg-brand-navy-deep text-white font-label-badge text-[10px] uppercase font-semibold">PROPTECH</span>
-                                </div>
-                                <div class="p-space-md sm:p-space-lg flex flex-col justify-between flex-1">
-                                    <div>
-                                        <div
-                                            class="flex items-center justify-between mb-1 text-slate-500 font-label-tech text-[11px]">
-                                            <span class="text-secondary font-bold uppercase">24 ABR 2026</span>
-                                            <span class="flex items-center gap-1"><span aria-hidden="true"
-                                                    class="material-symbols-outlined text-[13px]">schedule</span> 3
-                                                min</span>
-                                        </div>
-                                        <h4
-                                            class="font-title-md text-[16px] font-bold text-brand-navy-deep group-hover:text-secondary transition-colors mb-1.5 leading-snug">
-                                            Eficiência energética e redução de taxas com telemetria
-                                        </h4>
-                                        <p class="font-body-sm text-[13px] text-slate-600 leading-relaxed mb-3">
-                                            Medição digital automatizada de água e gás evita desperdícios invisíveis e
-                                            otimiza o rateio condominial.
-                                        </p>
-                                    </div>
-                                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-                                        <a class="inline-flex items-center gap-1 text-secondary font-label-badge text-[12px] font-bold group-hover:text-brand-cyan-electric transition-colors"
-                                            href="pages/noticias.html">
-                                            <span class="">Ler artigo</span>
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
-                                        </a>
-                                        <span
-                                            class="text-[11px] font-label-tech text-emerald-700 font-semibold flex items-center gap-0.5">
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[13px]">trending_down</span>
-                                            Economia
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Sub-Card 2: Compliance Predial -->
-                            <div
-                                class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col sm:flex-row group hover:border-brand-cyan-electric/60 hover:shadow-[0_12px_30px_rgba(6,21,45,0.08)] transition-all duration-300">
-                                <div class="sm:w-5/12 h-48 sm:h-auto relative overflow-hidden shrink-0">
-                                    <img data-parallax-img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                        alt="Equipe executiva analisando relatórios e métricas de desempenho em escritórios modernos"
-                                        src="img/equipe-executiva.jpg">
-                                    <span
-                                        class="absolute top-3 left-3 px-2 py-0.5 rounded bg-secondary text-white font-label-badge text-[10px] uppercase font-semibold">COMPLIANCE</span>
-                                </div>
-                                <div class="p-space-md sm:p-space-lg flex flex-col justify-between flex-1">
-                                    <div>
-                                        <div
-                                            class="flex items-center justify-between mb-1 text-slate-500 font-label-tech text-[11px]">
-                                            <span class="text-slate-600 font-bold uppercase">16 ABR 2026</span>
-                                            <span class="flex items-center gap-1"><span aria-hidden="true"
-                                                    class="material-symbols-outlined text-[13px]">schedule</span> 4
-                                                min</span>
-                                        </div>
-                                        <h4
-                                            class="font-title-md text-[16px] font-bold text-brand-navy-deep group-hover:text-secondary transition-colors mb-1.5 leading-snug">
-                                            Segurança jurídica na terceirização predial
-                                        </h4>
-                                        <p class="font-body-sm text-[13px] text-slate-600 leading-relaxed mb-3">
-                                            Mitigue corresponsabilidade trabalhista com auditoria sistemática de guias,
-                                            certidões e encargos sindicais.
-                                        </p>
-                                    </div>
-                                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-                                        <a class="inline-flex items-center gap-1 text-secondary font-label-badge text-[12px] font-bold group-hover:text-brand-cyan-electric transition-colors"
-                                            href="pages/noticias.html">
-                                            <span class="">Ler artigo</span>
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
-                                        </a>
-                                        <span
-                                            class="text-[11px] font-label-tech text-secondary font-semibold flex items-center gap-0.5">
-                                            <span aria-hidden="true" class="material-symbols-outlined text-[13px]">verified</span> Jurídico
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Part 2: Integrated Knowledge Hub & Curated Articles -->
-
-                </div>
-            </section>
-            <!-- SECTION: PROJETOS & CONDOMÍNIOS ATENDIDOS (CASES MODELO) -->
-            <section class="w-full bg-white py-space-2xl border-b border-slate-200/70" id="projetos">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
-                        <div class="max-w-2xl">
-                            <span
-                                class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">CASES
-                                DE SUCESSO &amp; GESTÃO</span>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Projetos &amp;
-                                Condomínios Atendidos</h2>
-                            <p class="font-body-md text-body-md text-slate-600 mt-2">Conheça alguns dos empreendimentos
-                                e cases administrados com a excelência do Grupo Êxito.</p>
-                        </div>
-                        <a class="inline-flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-slate-100 hover:bg-brand-navy-deep hover:text-white text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all duration-300"
-                            href="pages/projetos.html">
-                            <span class="">Ver todos os projetos e cases</span>
-                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                        </a>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl" data-reveal-stagger>
-                        <!-- Case 1 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                            <div>
-                                <!-- Foto do projeto: troque o ícone por
-                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Edifício Horizonte Residencial"> -->
-                                <div
-                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                </div>
-                                <div class="p-space-lg pb-0">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span
-                                            class="font-label-badge text-[11px] text-secondary bg-secondary-container/40 px-2 py-0.5 rounded font-semibold uppercase">Residencial
-                                            Alto Padrão</span>
-                                        <span class="font-label-tech text-[11px] text-slate-500">142 UNIDADES</span>
-                                    </div>
-                                    <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Edifício
-                                        Horizonte Residencial</h3>
-                                    <p class="font-body-sm text-[12px] text-slate-500 mb-space-md">Mogi das Cruzes / SP
-                                        • Gestão Plena</p>
-                                    <p class="font-body-sm text-body-sm text-slate-600 leading-relaxed mb-space-md">
-                                        Reestruturação completa de contas a pagar, modernização do sistema de portaria e
-                                        implantação de telemetria individual de água.
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
-                                <div>
-                                    <span
-                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
-                                    <span class="font-headline-sm text-[16px] text-emerald-700 font-bold">Redução de
-                                        18% em custos</span>
-                                </div>
-                                <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html" aria-label="Ver o case Edifício Horizonte Residencial">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Case 2 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                            <div>
-                                <!-- Foto do projeto: troque o ícone por
-                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Parque dos Ipês Corporativo"> -->
-                                <div
-                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                </div>
-                                <div class="p-space-lg pb-0">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span
-                                            class="font-label-badge text-[11px] text-brand-navy-deep bg-slate-100 px-2 py-0.5 rounded font-semibold uppercase">Comercial
-                                            &amp; Corporativo</span>
-                                        <span class="font-label-tech text-[11px] text-slate-500">88 SALAS</span>
-                                    </div>
-                                    <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Parque dos Ipês
-                                        Corporativo</h3>
-                                    <p class="font-body-sm text-[12px] text-slate-500 mb-space-md">São Paulo / SP •
-                                        Gestão Financeira &amp; Legal</p>
-                                    <p class="font-body-sm text-body-sm text-slate-600 leading-relaxed mb-space-md">
-                                        Adequação à LGPD, auditoria de fornecedores terceirizados e implantação do
-                                        portal de deliberações com atas automatizadas.
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
-                                <div>
-                                    <span
-                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
-                                    <span class="font-headline-sm text-[16px] text-brand-navy-deep font-bold">Assembleia
-                                        100% digital</span>
-                                </div>
-                                <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html" aria-label="Ver o case Parque dos Ipês Corporativo">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Case 3 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                            <div>
-                                <!-- Foto do projeto: troque o ícone por
-                                     <img class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="img/..." alt="Residencial Vila Nova Mogi"> -->
-                                <div
-                                    class="aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                </div>
-                                <div class="p-space-lg pb-0">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span
-                                            class="font-label-badge text-[11px] text-secondary bg-secondary-container/40 px-2 py-0.5 rounded font-semibold uppercase">Condomínio
-                                            Fechado</span>
-                                        <span class="font-label-tech text-[11px] text-slate-500">210 LOTES</span>
-                                    </div>
-                                    <h3 class="font-title-md text-[18px] font-bold text-brand-navy-deep">Residencial
-                                        Vila Nova Mogi</h3>
-                                    <p class="font-body-sm text-[12px] text-slate-500 mb-space-md">Mogi das Cruzes / SP
-                                        • Gestão Operacional</p>
-                                    <p class="font-body-sm text-body-sm text-slate-600 leading-relaxed mb-space-md">
-                                        Recuperação de taxa de inadimplência histórica com acordo amigável e plano
-                                        continuado de conservação das áreas comuns.
-                                    </p>
-                                </div>
-                            </div>
-                            <div
-                                class="p-space-lg pt-space-md border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
-                                <div>
-                                    <span
-                                        class="font-label-tech text-[10px] text-slate-500 uppercase block font-bold">RESULTADO</span>
-                                    <span
-                                        class="font-headline-sm text-[16px] text-emerald-700 font-bold">Inadimplência
-                                        de 14% para 2.1%</span>
-                                </div>
-                                <a class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-navy-deep group-hover:bg-brand-navy-deep group-hover:text-brand-cyan-electric transition-colors"
-                                    href="pages/projetos.html" aria-label="Ver o case Residencial Vila Nova Mogi">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION: CLIENTES & DEPOIMENTOS -->
-            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="clientes">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-xl border-b border-slate-200" data-reveal>
-                        <div class="max-w-2xl">
-                            <span
-                                class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold block mb-1">NOSSOS
-                                CLIENTES</span>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep">Quem confia no nosso
-                                trabalho</h2>
-                            <p class="font-body-md text-body-md text-slate-600 mt-2">Condomínios e empresas que
-                                construíram parcerias de longo prazo com o Grupo Êxito.</p>
-                        </div>
-                        <a class="inline-flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-white border border-slate-200 hover:bg-brand-navy-deep hover:text-white hover:border-brand-navy-deep text-brand-navy-deep font-label-badge text-label-badge tracking-wider transition-all duration-300"
-                            href="pages/clientes.html">
-                            <span class="">Ver todos os clientes</span>
-                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                        </a>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xl" data-reveal-stagger>
-                        <!-- Cliente 1 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
-                            <!-- Foto do cliente: troque o ícone por
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Condomínio Jardins"> -->
-                            <div
-                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                <span
-                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">CONDOMÍNIO
-                                    <span class="text-brand-cyan-electric">JARDINS</span></span>
-                            </div>
-                            <div class="p-space-lg flex flex-col flex-1">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
-                                    O atendimento é rápido, profissional e nos passa muita segurança. Recomendo sem dúvidas!
-                                </p>
-                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
-                                    <!-- Foto da pessoa: troque o ícone por
-                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Mariana Santos"> -->
-                                    <div
-                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Mariana Santos</p>
-                                        <p class="font-body-sm text-[12px] text-slate-500">Síndica do Condomínio Jardins</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Cliente 2 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
-                            <!-- Foto do cliente: troque o ícone por
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Edifício Aurora"> -->
-                            <div
-                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                <span
-                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EDIFÍCIO
-                                    <span class="text-brand-cyan-electric">AURORA</span></span>
-                            </div>
-                            <div class="p-space-lg flex flex-col flex-1">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
-                                    A gestão financeira melhorou muito depois que contratamos o Grupo Êxito. Equipe atenciosa e sempre disponível!
-                                </p>
-                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
-                                    <!-- Foto da pessoa: troque o ícone por
-                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de João Pedro"> -->
-                                    <div
-                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">João Pedro</p>
-                                        <p class="font-body-sm text-[12px] text-slate-500">Síndico do Ed. Aurora</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Cliente 3 -->
-                        <div
-                            class="group rounded-2xl bg-white border border-slate-200 hover:border-brand-navy-deep hover:shadow-[0_16px_36px_rgba(6,21,45,0.08)] transition-all duration-300 overflow-hidden flex flex-col">
-                            <!-- Foto do cliente: troque o ícone por
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="img/clientes/..." alt="Empresarial Pinheiros"> -->
-                            <div
-                                class="relative aspect-[16/9] bg-slate-200 overflow-hidden flex items-center justify-center text-slate-400">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[40px]">image</span>
-                                <span
-                                    class="absolute left-space-md bottom-space-md px-2.5 py-1 rounded bg-brand-navy-deep/90 text-white font-label-badge text-[11px] uppercase tracking-wider">EMPRESARIAL
-                                    <span class="text-brand-cyan-electric">PINHEIROS</span></span>
-                            </div>
-                            <div class="p-space-lg flex flex-col flex-1">
-                                <span aria-hidden="true" class="material-symbols-outlined text-[36px] text-brand-cyan-electric">format_quote</span>
-                                <p class="font-body-md text-body-md text-slate-600 leading-relaxed mt-space-sm flex-1">
-                                    Desde o primeiro contato até a execução, tudo foi muito bem organizado. A equipe é excelente!
-                                </p>
-                                <div class="flex items-center gap-3 pt-space-md mt-space-lg border-t border-slate-100">
-                                    <!-- Foto da pessoa: troque o ícone por
-                                         <img class="w-full h-full object-cover" src="img/clientes/..." alt="Foto de Carlos Lima"> -->
-                                    <div
-                                        class="w-11 h-11 rounded-full bg-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-slate-400">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">person</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Carlos Lima</p>
-                                        <p class="font-body-sm text-[12px] text-slate-500">Gerente – Empresarial Pinheiros</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION 4: FAQ MODERNO, INTERATIVO COM TABS DE FILTRO E CARD DE SUPORTE DIRETO -->
-            <section class="w-full bg-background py-space-2xl border-b border-slate-200/70" id="faq">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div class="max-w-3xl mx-auto text-center pb-space-lg">
-                        <span
-                            class="font-label-tech text-label-tech text-secondary tracking-widest uppercase font-bold">CENTRAL
-                            DE DÚVIDAS &amp; TRANSPARÊNCIA</span>
-                        <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep mt-1">Perguntas Frequentes
-                        </h2>
-                        <p class="font-body-md text-body-md text-slate-600 mt-2">
-                            Encontre respostas imediatas sobre migração de administradora, controle financeiro,
-                            tecnologia e aspectos jurídicos da sua gestão.
-                        </p>
-                    </div>
-                    <!-- Category Tabs -->
-                    <div class="flex flex-wrap items-center justify-center gap-2 mb-space-xl" id="faqTabs" role="group"
-                        aria-label="Filtrar perguntas por assunto">
-                        <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-brand-navy-deep text-white shadow-xs" type="button" aria-pressed="true"
-                            onclick="filterFaq('todas', this)">
-                            Todas as dúvidas
-                        </button>
-                        <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
-                            onclick="filterFaq('transicao', this)">
-                            Transição &amp; Contratação
-                        </button>
-                        <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
-                            onclick="filterFaq('financeiro', this)">
-                            Financeiro &amp; Boletos
-                        </button>
-                        <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
-                            onclick="filterFaq('tecnologia', this)">
-                            Tecnologia &amp; App
-                        </button>
-                        <button
-                            class="faq-tab px-4 py-2 rounded-full font-label-badge text-[12px] uppercase transition-all bg-white border border-slate-200 text-slate-600 hover:border-brand-navy-deep" type="button" aria-pressed="false"
-                            onclick="filterFaq('juridico', this)">
-                            Jurídico &amp; Assembleias
-                        </button>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
-                        <!-- Accordions (8 Cols) -->
-                        <p class="sr-only" id="faqAviso" role="status"></p>
-                        <div class="lg:col-span-8 space-y-space-sm" id="faqContainer">
-                            <!-- Item 1: Transição -->
-                            <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
-                                data-category="transicao">
-                                <details class="group/d [&amp;_svg]:open:-rotate-180 p-space-md sm:p-space-lg" open="">
-                                    <summary
-                                        class="flex justify-between items-center font-title-md text-[16px] font-bold text-brand-navy-deep cursor-pointer list-none">
-                                        <div class="flex items-center gap-3">
-                                            <span
-                                                class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">swap_horiz</span>
-                                            </span>
-                                            <span class="">Como funciona a transição de administradora para o
-                                                condomínio?</span>
-                                        </div>
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
-                                    </summary>
-                                    <div
-                                        class="font-body-sm text-[14px] text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed pl-11">
-                                        <p class="mb-2">Nossa equipe jurídica e contábil assume integralmente o processo
-                                            de migração, sem dor de cabeça para o síndico:</p>
-                                        <ul class="space-y-1.5 list-disc list-inside text-slate-500 mb-2">
-                                            <li class="">Recolhimento e auditoria da pasta contábil e contratos em
-                                                vigor;</li>
-                                            <li class="">Parametrização completa do condomínio no Superlógica Hub em até
-                                                48 horas;</li>
-                                            <li class="">Emissão do primeiro mês de boletos sem atrasos nem
-                                                duplicidades;</li>
-                                            <li class="">Comunicação oficial e treinamento rápido para moradores e
-                                                conselho.</li>
-                                        </ul>
-                                        <p class="font-medium text-slate-700">A rotina do seu condomínio continua
-                                            funcionando perfeitamente durante todo o processo.</p>
-                                    </div>
-                                </details>
-                            </div>
-                            <!-- Item 2: Financeiro -->
-                            <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
-                                data-category="financeiro">
-                                <details class="group/d [&amp;_svg]:open:-rotate-180 p-space-md sm:p-space-lg">
-                                    <summary
-                                        class="flex justify-between items-center font-title-md text-[16px] font-bold text-brand-navy-deep cursor-pointer list-none">
-                                        <div class="flex items-center gap-3">
-                                            <span
-                                                class="w-8 h-8 rounded-lg bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0">
-                                                <span aria-hidden="true"
-                                                    class="material-symbols-outlined text-[18px]">account_balance</span>
-                                            </span>
-                                            <span class="">O síndico ou o conselho perdem o controle da conta
-                                                bancária?</span>
-                                        </div>
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
-                                    </summary>
-                                    <div
-                                        class="font-body-sm text-[14px] text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed pl-11">
-                                        <p class="">De forma alguma. Trabalhamos tanto com conta individual vinculada ao
-                                            CNPJ do condomínio quanto com modelo de subcontas auditadas. <strong>Nenhum
-                                                pagamento é liquidado sem a autorização digital expressa do
-                                                síndico</strong>. Todas as conciliações são diárias e disponíveis em
-                                            tempo real na tela do conselho fiscal.</p>
-                                    </div>
-                                </details>
-                            </div>
-                            <!-- Item 3: Tecnologia -->
-                            <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
-                                data-category="tecnologia">
-                                <details class="group/d [&amp;_svg]:open:-rotate-180 p-space-md sm:p-space-lg">
-                                    <summary
-                                        class="flex justify-between items-center font-title-md text-[16px] font-bold text-brand-navy-deep cursor-pointer list-none">
-                                        <div class="flex items-center gap-3">
-                                            <span
-                                                class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">smartphone</span>
-                                            </span>
-                                            <span class="">Como os moradores acessam o aplicativo, boletos e
-                                                reservas?</span>
-                                        </div>
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
-                                    </summary>
-                                    <div
-                                        class="font-body-sm text-[14px] text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed pl-11">
-                                        <p class="">Através do nosso aplicativo mobile disponível para iOS e Android ou
-                                            pelo portal web. Cada condômino tem login criptografado individual para:</p>
-                                        <ul class="space-y-1.5 list-disc list-inside text-slate-500 mt-2">
-                                            <li class="">Segunda via instantânea de boleto e código Pix Copia e Cola;
-                                            </li>
-                                            <li class="">Reserva de salão de festas, churrasqueiras e áreas comuns;</li>
-                                            <li class="">Autorização prévia de visitantes e encomendas na portaria;</li>
-                                            <li class="">Visualização de atas, convenção e prestação de contas mensal
-                                                detalhada.</li>
-                                        </ul>
-                                    </div>
-                                </details>
-                            </div>
-                            <!-- Item 4: Juridico -->
-                            <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
-                                data-category="juridico">
-                                <details class="group/d [&amp;_svg]:open:-rotate-180 p-space-md sm:p-space-lg">
-                                    <summary
-                                        class="flex justify-between items-center font-title-md text-[16px] font-bold text-brand-navy-deep cursor-pointer list-none">
-                                        <div class="flex items-center gap-3">
-                                            <span
-                                                class="w-8 h-8 rounded-lg bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">gavel</span>
-                                            </span>
-                                            <span class="">As assembleias virtuais e híbridas possuem plena validade
-                                                jurídica?</span>
-                                        </div>
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
-                                    </summary>
-                                    <div
-                                        class="font-body-sm text-[14px] text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed pl-11">
-                                        <p class="">Sim. Conforme a Lei Federal nº 14.309/2022 e o Código Civil
-                                            Brasileiro, nossas plataformas garantem credenciamento seguro, registro
-                                            auditável de quórum por fração ideal, votação sigilosa ou nominal com
-                                            gravação integral e lavratura ágil da ata com assinatura digital
-                                            qualificada.</p>
-                                    </div>
-                                </details>
-                            </div>
-                            <!-- Item 5: Transição & SLA -->
-                            <div class="faq-item group bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-brand-cyan-electric/50 transition-all overflow-hidden"
-                                data-category="transicao">
-                                <details class="group/d [&amp;_svg]:open:-rotate-180 p-space-md sm:p-space-lg">
-                                    <summary
-                                        class="flex justify-between items-center font-title-md text-[16px] font-bold text-brand-navy-deep cursor-pointer list-none">
-                                        <div class="flex items-center gap-3">
-                                            <span
-                                                class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
-                                                <span aria-hidden="true" class="material-symbols-outlined text-[18px]">timer</span>
-                                            </span>
-                                            <span class="">Qual é o tempo médio de resposta para dúvidas e solicitações
-                                                (SLA)?</span>
-                                        </div>
-                                        <span aria-hidden="true"
-                                            class="material-symbols-outlined text-[20px] text-secondary group-open/d:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
-                                    </summary>
-                                    <div
-                                        class="font-body-sm text-[14px] text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed pl-11">
-                                        <p class="">Nosso contrato de nível de serviço (SLA) garante <strong>retorno
-                                                formal em até 2 horas úteis</strong> pelo canal dedicado de WhatsApp e
-                                            e-mail com o gerente da sua conta. Além disso, disponibilizamos canal de
-                                            plantão emergencial 24h para manutenções críticas.</p>
-                                    </div>
-                                </details>
-                            </div>
-                        </div>
-                        <!-- Direct Support Contact Card (4 Cols) -->
-                        <div class="lg:col-span-4" data-reveal="direita">
-                            <div
-                                class="rounded-2xl bg-white border-2 border-brand-cyan-electric/40 shadow-[0_16px_40px_rgba(6,21,45,0.06)] p-space-lg sm:p-space-xl flex flex-col justify-between">
-                                <div>
-                                    <div
-                                        class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">support_agent</span>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-[10px] text-secondary uppercase font-bold tracking-wider">CANAL
-                                        DIRETO &amp; EXECUTIVO</span>
-                                    <h3 class="font-headline-sm text-[20px] font-bold text-brand-navy-deep mt-1 mb-2">
-                                        Ainda tem dúvidas? Fale com nossos especialistas
-                                    </h3>
-                                    <p class="font-body-sm text-slate-600 leading-relaxed mb-space-md">
-                                        Nossa diretoria e consultores estão prontos para analisar sua convenção atual,
-                                        esclarecer dúvidas contratuais ou agendar uma reunião técnica no seu condomínio.
-                                    </p>
-                                    <div
-                                        class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 mb-space-md space-y-2 text-[12px] font-body-sm text-slate-700">
-                                        <div class="flex items-center gap-2">
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
-                                            <span class="">Diagnóstico sem custo ou compromisso</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
-                                            <span class="">Atendimento em Mogi das Cruzes e SP</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
-                                            <span class="">Plantão com gerente de conta dedicado</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="space-y-2.5 pt-2 border-t border-slate-100">
-                                    <a class="w-full py-3 rounded-lg bg-emerald-700 text-white font-label-badge text-label-badge uppercase tracking-wider hover:bg-emerald-800 transition-all flex items-center justify-center gap-2 shadow-xs"
-                                        href="https://wa.me/551125649963" target="_blank" rel="noopener">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[18px]">chat</span>
-                                        <span class="">Chamar no WhatsApp Direto</span>
-                                    <span class="sr-only"> (abre em nova aba)</span></a>
-                                    <a class="w-full py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-brand-navy-deep font-label-badge text-[12px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
-                                        href="pages/faq.html">
-                                        <span class="">Ver Central de Ajuda Completa</span>
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[15px]">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION: COBERTURA REGIONAL COM BLOCOS ARQUITETÔNICOS (MOGI DAS CRUZES & SÃO PAULO) -->
-            <section class="w-full bg-white py-space-2xl border-b border-slate-200/70">
-                <div class="max-w-7xl mx-auto px-gutter">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
-                        <!-- Left: Regional Overview -->
-                        <div class="lg:col-span-5 flex flex-col gap-space-md" data-reveal="esquerda">
-                            <div
-                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-secondary w-fit shadow-xs">
-                                <span aria-hidden="true"
-                                    class="material-symbols-outlined text-[16px] text-brand-cyan-electric">share_location</span>
-                                <span
-                                    class="font-label-tech text-label-tech uppercase font-bold tracking-wider">PRESENÇA
-                                    REGIONAL ESTRATÉGICA</span>
-                            </div>
-                            <h2 class="font-headline-lg text-headline-lg text-brand-navy-deep tracking-tight">
-                                Mais proximidade para uma gestão melhor
-                            </h2>
-                            <p class="font-body-md text-body-md text-slate-600 leading-relaxed">
-                                Com matriz consolidada no Alto Tietê e unidade executiva na capital paulista, oferecemos
-                                atendimento presencial ágil com consultores especializados e presença física constante
-                                no seu condomínio.
-                            </p>
-                            <div class="space-y-3 pt-2">
-                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                                    <div
-                                        class="w-10 h-10 rounded-lg bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[20px]">verified_user</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Segurança
-                                            Jurídica &amp; Tributária</p>
-                                        <p class="font-body-sm text-[12px] text-slate-500">Conformidade estrita com a
-                                            legislação civil e trabalhista</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                                    <div
-                                        class="w-10 h-10 rounded-lg bg-brand-cyan-electric/15 text-secondary flex items-center justify-center shrink-0">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[20px]">support_agent</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[14px] text-brand-navy-deep font-bold">Atendimento
-                                            Humanizado SLA 2h</p>
-                                        <p class="font-body-sm text-[12px] text-slate-500">Canal direto com o gerente
-                                            dedicado da sua conta</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pt-2 flex items-center gap-3">
-                                <a class="inline-flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-brand-navy-deep text-white font-label-badge text-[12px] uppercase tracking-wider hover:bg-slate-800 transition-all"
-                                    href="pages/contato.html">
-                                    <span aria-hidden="true"
-                                        class="material-symbols-outlined text-[16px] text-brand-cyan-electric">contact_phone</span>
-                                    <span class="">Página de Contato &amp; Agendamento</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Right: Detailed Architectural Address Blocks -->
-                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-md" data-reveal-stagger="direita">
-                            <!-- Address Card 1: Mogi das Cruzes (Matriz) -->
-                            <div
-                                class="p-space-xl rounded-2xl bg-background border border-slate-200 shadow-sm flex flex-col justify-between hover:border-brand-navy-deep transition-all">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-between pb-space-sm border-b border-slate-200 mb-space-md">
-                                        <span
-                                            class="font-label-badge text-label-badge text-secondary bg-secondary-container/30 px-2.5 py-0.5 rounded font-bold uppercase">SEDE
-                                            MATRIZ</span>
-                                        <span class="font-label-tech text-label-tech text-slate-500">ALTO TIETÊ</span>
-                                    </div>
-                                    <div
-                                        class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">domain</span>
-                                    </div>
-                                    <h3 class="font-headline-sm text-[20px] font-bold text-brand-navy-deep mb-1">Mogi
-                                        das Cruzes</h3>
-                                    <p class="font-body-md text-slate-700 font-medium">R. Gonçalo Ferreira, 164</p>
-                                    <p class="font-body-sm text-slate-500">Sala 3 - Centro Empresarial</p>
-                                    <p class="font-body-sm text-slate-500">Mogi das Cruzes - SP</p>
-                                </div>
-                                <div
-                                    class="pt-space-md mt-space-md border-t border-slate-200 flex items-center justify-between">
-                                    <span class="font-label-tech text-label-tech text-slate-500">TELEFONE: (11)
-                                        2564-9963</span>
-                                    <a class="text-secondary hover:text-brand-navy-deep font-label-badge text-label-badge flex items-center gap-1"
-                                        href="https://maps.google.com/?q=Rua+Goncalo+Ferreira+164+Mogi+das+Cruzes"
-                                        target="_blank" rel="noopener">
-                                        <span class="">Ver Mapa</span>
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[14px]">open_in_new</span>
-                                    <span class="sr-only"> (abre em nova aba)</span></a>
-                                </div>
-                            </div>
-                            <!-- Address Card 2: São Paulo (Filial Capital) -->
-                            <div
-                                class="p-space-xl rounded-2xl bg-background border border-slate-200 shadow-sm flex flex-col justify-between hover:border-brand-navy-deep transition-all">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-between pb-space-sm border-b border-slate-200 mb-space-md">
-                                        <span
-                                            class="font-label-badge text-label-badge text-brand-navy-deep bg-slate-200/70 px-2.5 py-0.5 rounded font-bold uppercase">FILIAL
-                                            CAPITAL</span>
-                                        <span class="font-label-tech text-label-tech text-slate-500">SÃO PAULO</span>
-                                    </div>
-                                    <div
-                                        class="w-12 h-12 rounded-xl bg-brand-navy-deep text-brand-cyan-electric flex items-center justify-center mb-space-md shadow-xs">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[26px]">location_city</span>
-                                    </div>
-                                    <h3 class="font-headline-sm text-[20px] font-bold text-brand-navy-deep mb-1">São
-                                        Paulo Capital</h3>
-                                    <p class="font-body-md text-slate-700 font-medium">Av. Rio das Pedras, 3.409</p>
-                                    <p class="font-body-sm text-slate-500">Zona Leste / Centro Expandido</p>
-                                    <p class="font-body-sm text-slate-500">São Paulo - SP</p>
-                                </div>
-                                <div
-                                    class="pt-space-md mt-space-md border-t border-slate-200 flex items-center justify-between">
-                                    <span class="font-label-tech text-label-tech text-slate-500">ATENDIMENTO
-                                        CORPORATIVO</span>
-                                    <a class="text-secondary hover:text-brand-navy-deep font-label-badge text-label-badge flex items-center gap-1"
-                                        href="https://maps.google.com/?q=Av+Rio+das+Pedras+3409+Sao+Paulo"
-                                        target="_blank" rel="noopener">
-                                        <span class="">Ver Mapa</span>
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[14px]">open_in_new</span>
-                                    <span class="sr-only"> (abre em nova aba)</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION: CTA COM FORMULÁRIO COMPLETO ELEVADO EM CARD BRANCO -->
-            <section class="w-full bg-background py-space-2xl relative overflow-hidden border-b border-slate-200/80"
-                id="proposta">
-                <!-- Brilhos decorativos com parallax -->
-                <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-brand-cyan-electric/10 blur-3xl pointer-events-none"
-                    data-parallax="0.3"></div>
-                <div class="absolute -bottom-32 right-0 w-[520px] h-[520px] rounded-full bg-brand-navy-deep/[0.06] blur-3xl pointer-events-none"
-                    data-parallax="-0.2"></div>
-                <div class="max-w-7xl mx-auto px-gutter relative z-10">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
-                        <!-- Left Column: Value Proposition & SLA Guarantees -->
-                        <div class="lg:col-span-5 flex flex-col gap-space-lg" data-reveal="esquerda">
-                            <div class="space-y-space-xs">
-                                <div
-                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 w-fit">
-                                    <span class="w-2 h-2 rounded-full bg-status-success"></span>
-                                    <span
-                                        class="font-label-tech text-label-tech text-slate-700 uppercase font-bold tracking-wider">CONSULTORIA
-                                        &amp; DIAGNÓSTICO</span>
-                                </div>
-                                <h2
-                                    class="font-headline-lg text-headline-lg text-brand-navy-deep leading-tight tracking-tight">
-                                    Pronto para transformar a gestão do seu condomínio?
-                                </h2>
-                                <p class="font-body-lg text-body-lg text-slate-600 leading-relaxed">
-                                    Receba uma análise financeira detalhada e uma proposta sob medida para a realidade
-                                    do seu condomínio em Mogi das Cruzes ou São Paulo.
-                                </p>
-                            </div>
-                            <div class="space-y-space-md pt-space-xs">
-                                <div class="flex items-start gap-3">
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-status-success/10 text-status-success flex items-center justify-center shrink-0 mt-0.5">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">bolt</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Atendimento
-                                            em até 2 horas úteis</p>
-                                        <p class="font-body-sm text-[13px] text-slate-500">Retorno garantido por
-                                            consultor especializado com agendamento presencial ou digital.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0 mt-0.5">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">query_stats</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Diagnóstico
-                                            financeiro inicial sem compromisso</p>
-                                        <p class="font-body-sm text-[13px] text-slate-500">Mapeamento de custos,
-                                            contratos terceirizados e redução de inadimplência.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-slate-100 text-brand-navy-deep flex items-center justify-center shrink-0 mt-0.5">
-                                        <span aria-hidden="true" class="material-symbols-outlined text-[22px]">lock_person</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-title-md text-[15px] font-bold text-brand-navy-deep">Total
-                                            conformidade com LGPD</p>
-                                        <p class="font-body-sm text-[13px] text-slate-500">Segurança de dados e sigilo
-                                            documental absoluto garantidos para a gestão.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pt-space-xs">
-                                <a class="inline-flex items-center gap-2 text-emerald-700 font-headline-sm text-[16px] font-bold hover:underline"
-                                    href="https://wa.me/551125649963" target="_blank" rel="noopener">
-                                    <span aria-hidden="true" class="material-symbols-outlined text-[20px]">chat</span>
-                                    <span class="">Prefere falar agora? Chame no WhatsApp Direto →</span>
-                                <span class="sr-only"> (abre em nova aba)</span></a>
-                            </div>
-                        </div>
-                        <!-- Right Column: Elevated Crisp Form Card with Cyan Outline -->
-                        <div class="lg:col-span-7" data-reveal="zoom">
-                            <div
-                                class="rounded-2xl bg-white shadow-[0_20px_60px_rgba(6,21,45,0.08)] p-space-lg sm:p-space-xl relative border-2 border-brand-cyan-electric/30">
-                                <div
-                                    class="flex items-center justify-between pb-space-md border-b border-slate-100 mb-space-lg">
-                                    <div>
-                                        <h3 class="font-headline-sm text-headline-sm text-brand-navy-deep font-bold">
-                                            Solicitar Proposta Sob Medida</h3>
-                                        <p class="font-body-sm text-slate-500">Preencha os dados e receba o estudo
-                                            comparativo personalizado.</p>
-                                    </div>
-                                    <span
-                                        class="font-label-tech text-label-tech text-secondary font-bold px-3 py-1 rounded bg-secondary-container/40 uppercase">RESPOSTA
-                                        RÁPIDA</span>
-                                </div>
-                                <!-- Sem back-end: js/formulario.js guarda os dados e abre a confirmação -->
-                                <form class="grid grid-cols-1 sm:grid-cols-2 gap-space-md"
-                                    action="pages/confirmacao.html" method="get"
-                                    data-confirmacao="Proposta personalizada">
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-nome"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Nome
-                                            Completo *</label>
-                                        <input
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            id="proposta-nome" name="nome" placeholder="Ex: Carlos Eduardo Mendes" required="" type="text" autocomplete="name">
-                                    </div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-email"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">E-mail
-                                            Corporativo ou Pessoal *</label>
-                                        <input
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            id="proposta-email" name="email" placeholder="sindico@seudominio.com.br" required="" type="email" autocomplete="email">
-                                    </div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-telefone"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">WhatsApp
-                                            / Telefone *</label>
-                                        <input
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            id="proposta-telefone" name="telefone" placeholder="(11) 98765-4321" required="" type="tel" autocomplete="tel">
-                                    </div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-condominio"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Condomínio
-                                            &amp; Cidade *</label>
-                                        <input
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep placeholder-slate-400 text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all"
-                                            id="proposta-condominio" name="condominio" placeholder="Ex: Edifício Bella Vista - Mogi" required="" type="text">
-                                    </div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-unidades"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Nº
-                                            de Unidades / Apartamentos</label>
-                                        <select id="proposta-unidades" name="unidades"
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all">
-                                            <option value="1-30">Até 30 unidades</option>
-                                            <option selected="" value="31-80">31 a 80 unidades</option>
-                                            <option value="81-150">81 a 150 unidades</option>
-                                            <option value="151-300">151 a 300 unidades</option>
-                                            <option value="300+">Mais de 300 unidades / Multi-torres</option>
-                                        </select>
-                                    </div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <label for="proposta-papel"
-                                            class="font-label-badge text-[11px] text-slate-700 uppercase font-semibold">Seu
-                                            Papel no Condomínio</label>
-                                        <select id="proposta-papel" name="papel"
-                                            class="w-full px-space-md py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-brand-navy-deep text-body-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan-electric/40 focus:border-brand-cyan-electric transition-all">
-                                            <option selected="" value="sindico">Síndico(a) Eleito(a)</option>
-                                            <option value="sindico-profissional">Síndico(a) Profissional</option>
-                                            <option value="conselho">Membro do Conselho Fiscal</option>
-                                            <option value="morador">Morador(a) / Condômino</option>
-                                            <option value="outro">Outro representante</option>
-                                        </select>
-                                    </div>
-                                    <div class="sm:col-span-2 pt-space-xs">
-                                        <button
-                                            class="w-full py-3.5 px-space-xl rounded-lg bg-brand-navy-deep text-white font-label-badge text-label-badge uppercase tracking-wider shadow-[0_8px_20px_rgba(6,21,45,0.18)] hover:bg-slate-800 transition-all flex items-center justify-center gap-space-sm cursor-pointer"
-                                            type="submit">
-                                            <span class="">SOLICITAR PROPOSTA PERSONALIZADA</span>
-                                            <span aria-hidden="true"
-                                                class="material-symbols-outlined text-[18px] text-brand-cyan-electric">arrow_forward</span>
-                                        </button>
-                                        <p
-                                            class="font-label-tech text-[10px] text-center text-slate-500 mt-2 uppercase tracking-wider">
-                                            Garantia de privacidade • Atendimento direto por consultor executivo
-                                        </p>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-    <!-- INSTITUTIONAL EXECUTIVE FOOTER -->
-    <footer
-        class="w-full bg-brand-navy-deep text-surface-canvas relative pt-space-2xl pb-space-xl border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-gutter">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-space-xl">
-                <!-- Column 1: Logo & Mission -->
-                <div class="lg:col-span-4 flex flex-col gap-space-md">
-                    <div class="flex items-center gap-space-sm">
-                        <img alt="Grupo Êxito Condomínios" class="h-9 w-auto object-contain brightness-0 invert"
-                            src="img/logo-grupo-exito-header.png">
-                    </div>
-                    <p class="font-body-sm text-body-sm text-slate-400 max-w-sm leading-relaxed">
-                        Administração condominial com transparência integral, tecnologia de ponta, proximidade física e
-                        soluções sob medida para síndicos e condôminos.
-                    </p>
-                    <div class="flex items-center gap-2 pt-1">
-                        <span
-                            class="px-2.5 py-1 rounded bg-slate-800 text-brand-cyan-electric font-label-tech text-[10px] font-bold">SUPERLÓGICA
-                            HUB</span>
-                        <span
-                            class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-label-tech text-[10px] font-bold">ROZENDO
-                            ADM</span>
-                    </div>
-                </div>
-                <!-- Column 2: Regional Hubs -->
-                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-                    <div class="p-space-md rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col gap-1">
-                        <div
-                            class="flex items-center gap-1.5 text-brand-cyan-electric font-label-badge text-label-badge font-bold">
-                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">domain</span>
-                            <span class="">MATRIZ MOGI</span>
-                        </div>
-                        <p class="font-body-sm text-[13px] text-white pt-1">R. Gonçalo Ferreira, 164</p>
-                        <p class="font-body-sm text-[12px] text-slate-400">Sala 3 - Mogi das Cruzes / SP</p>
-                        <p class="font-label-tech text-[11px] text-brand-cyan-electric mt-1">Tel: (11) 2564-9963</p>
-                    </div>
-                    <div class="p-space-md rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col gap-1">
-                        <div
-                            class="flex items-center gap-1.5 text-brand-cyan-glow font-label-badge text-label-badge font-bold">
-                            <span aria-hidden="true" class="material-symbols-outlined text-[16px]">location_city</span>
-                            <span class="">FILIAL SÃO PAULO</span>
-                        </div>
-                        <p class="font-body-sm text-[13px] text-white pt-1">Av. Rio das Pedras, 3.409</p>
-                        <p class="font-body-sm text-[12px] text-slate-400">São Paulo / SP</p>
-                        <p class="font-label-tech text-[11px] text-brand-cyan-glow mt-1">Atendimento Regional</p>
-                    </div>
-                </div>
-                <!-- Column 3: Quick Navigation -->
-                <div class="lg:col-span-3 flex flex-col gap-space-xs">
-                    <span
-                        class="font-label-badge text-label-badge text-brand-cyan-electric uppercase tracking-wider font-bold">Páginas
-                        Internas</span>
-                    <nav class="grid grid-cols-2 gap-x-space-md gap-y-2 pt-2" aria-label="Páginas do site">
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/quem-somos.html">Quem Somos</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/servicos.html">Serviços Vitrine</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/clientes.html">Clientes</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/projetos.html">Projetos &amp; Cases</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/noticias.html">Notícias &amp; Blog</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/faq.html">FAQ &amp; Dúvidas</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors"
-                            href="pages/contato.html">Fale Conosco</a>
-                        <a class="font-body-sm text-[13px] text-slate-400 hover:text-white transition-colors col-span-2 pt-1 border-t border-slate-800"
-                            href="#proposta">Solicitar Estudo Condominial →</a>
-                    </nav>
-                </div>
+        <section id="servicos" aria-labelledby="titulo-servicos">
+            <h2 id="titulo-servicos">Nossos serviços</h2>
+            <p>Tecnologia descomplicada e gestão rigorosa para elevar a governança e diminuir conflitos.</p>
+            <div class="grade">
+                <article>
+                    <h3>Gestão Administrativa</h3>
+                    <p>Cadastros digitais, atendimento a moradores, organização de arquivos fiscais e suporte permanente ao síndico.</p>
+                    <ul>
+                        <li>Digitalização e guarda documental</li>
+                        <li>Cadastros e circulares em tempo real</li>
+                        <li>Assessoria para convenções e regimentos</li>
+                        <li>Controle de correspondências e encomendas</li>
+                    </ul>
+                    <a href="pages/servicos-1.html">Veja mais</a>
+                </article>
+                <article>
+                    <h3>Gestão Financeira</h3>
+                    <p>Previsão orçamentária, contas a pagar, conciliação bancária diária, cobrança de inadimplentes e balancetes transparentes.</p>
+                    <ul>
+                        <li>Prestação de contas via Superlógica Hub</li>
+                        <li>Cobrança amigável de inadimplentes</li>
+                        <li>Planejamento financeiro para obras</li>
+                        <li>2ª via com Pix Copia e Cola</li>
+                    </ul>
+                    <a href="pages/servicos-2.html">Veja mais</a>
+                </article>
+                <article>
+                    <h3>Gestão Operacional</h3>
+                    <p>Auditoria de fornecedores, manutenção preventiva predial, controle de portaria e rotinas de segurança.</p>
+                    <ul>
+                        <li>Qualificação de terceirizados</li>
+                        <li>Vistorias técnicas periódicas</li>
+                        <li>Compliance trabalhista</li>
+                        <li>Laudos e renovação de AVCB</li>
+                    </ul>
+                    <a href="pages/servicos-3.html">Veja mais</a>
+                </article>
             </div>
-            <!-- Copyright Sub-Footer -->
-            <div
-                class="pt-space-lg border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-[12px] text-slate-400">
-                <p class="">© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
-                <p class="font-label-tech text-[11px] text-slate-400 uppercase tracking-wider">EXECUTIVE EDITORIAL •
-                    PROPTECH MANAGEMENT</p>
+            <p><a href="pages/servicos.html">Ver todos os serviços</a></p>
+        </section>
+
+        <section id="noticias" aria-labelledby="titulo-noticias">
+            <h2 id="titulo-noticias">Notícias &amp; Artigos</h2>
+            <p>Conteúdo técnico atualizado para orientar síndicos, conselheiros e moradores.</p>
+            <div class="grade">
+                <article>
+                    <h3>Novas regras e tendências para Assembleias Virtuais em 2026</h3>
+                    <p><time datetime="2026-05-08">08 mai 2026</time> • 5 min de leitura</p>
+                    <p>Critérios de validade jurídica, quóruns qualificados e auditoria de votos para assembleias híbridas e virtuais.</p>
+                    <a href="pages/noticias.html">Ler matéria</a>
+                </article>
+                <article>
+                    <h3>Eficiência energética e redução de taxas com telemetria</h3>
+                    <p><time datetime="2026-04-24">24 abr 2026</time> • 3 min de leitura</p>
+                    <p>Medição digital de água e gás evita desperdícios e otimiza o rateio condominial.</p>
+                    <a href="pages/noticias.html">Ler artigo</a>
+                </article>
+                <article>
+                    <h3>Segurança jurídica na terceirização predial</h3>
+                    <p><time datetime="2026-04-16">16 abr 2026</time> • 4 min de leitura</p>
+                    <p>Auditoria sistemática de guias, certidões e encargos sindicais para reduzir riscos trabalhistas.</p>
+                    <a href="pages/noticias.html">Ler artigo</a>
+                </article>
+            </div>
+            <p><a href="pages/noticias.html">Ver todas as notícias</a></p>
+        </section>
+
+        <section id="projetos" aria-labelledby="titulo-projetos">
+            <h2 id="titulo-projetos">Projetos &amp; Condomínios Atendidos</h2>
+            <p>Alguns dos empreendimentos administrados pelo Grupo Êxito.</p>
+            <div class="grade">
+                <article>
+                    <h3>Edifício Horizonte Residencial</h3>
+                    <p>Mogi das Cruzes / SP • 142 unidades</p>
+                    <p>Reestruturação de contas a pagar, modernização da portaria e telemetria individual de água.</p>
+                    <p><strong>Resultado: redução de 18% em custos</strong></p>
+                </article>
+                <article>
+                    <h3>Parque dos Ipês Corporativo</h3>
+                    <p>São Paulo / SP • 88 salas</p>
+                    <p>Adequação à LGPD, auditoria de fornecedores e portal de deliberações com atas automatizadas.</p>
+                    <p><strong>Resultado: assembleia 100% digital</strong></p>
+                </article>
+                <article>
+                    <h3>Residencial Vila Nova Mogi</h3>
+                    <p>Mogi das Cruzes / SP • 210 lotes</p>
+                    <p>Acordo amigável com inadimplentes e plano contínuo de conservação das áreas comuns.</p>
+                    <p><strong>Resultado: inadimplência de 14% para 2,1%</strong></p>
+                </article>
+            </div>
+            <p><a href="pages/projetos.html">Ver todos os projetos</a></p>
+        </section>
+
+        <section id="clientes" aria-labelledby="titulo-clientes">
+            <h2 id="titulo-clientes">Quem confia no nosso trabalho</h2>
+            <p>Condomínios e empresas com parcerias de longo prazo com o Grupo Êxito.</p>
+            <div class="grade">
+                <figure>
+                    <blockquote>
+                        <p>"O atendimento é rápido, profissional e nos passa muita segurança. Recomendo sem dúvidas!"</p>
+                    </blockquote>
+                    <figcaption><strong>Mariana Santos</strong>, síndica do Condomínio Jardins</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>
+                        <p>"A gestão financeira melhorou muito depois que contratamos o Grupo Êxito. Equipe atenciosa e sempre disponível!"</p>
+                    </blockquote>
+                    <figcaption><strong>João Pedro</strong>, síndico do Ed. Aurora</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>
+                        <p>"Desde o primeiro contato até a execução, tudo foi muito bem organizado. A equipe é excelente!"</p>
+                    </blockquote>
+                    <figcaption><strong>Carlos Lima</strong>, gerente do Empresarial Pinheiros</figcaption>
+                </figure>
+            </div>
+            <p><a href="pages/clientes.html">Ver todos os clientes</a></p>
+        </section>
+
+        <section id="faq" aria-labelledby="titulo-faq">
+            <h2 id="titulo-faq">Perguntas Frequentes</h2>
+            <details>
+                <summary>Como funciona a transição de administradora para o condomínio?</summary>
+                <p>Nossa equipe jurídica e contábil assume todo o processo de migração:</p>
+                <ul>
+                    <li>Auditoria da pasta contábil e dos contratos em vigor;</li>
+                    <li>Cadastro do condomínio no Superlógica Hub em até 48 horas;</li>
+                    <li>Primeiro mês de boletos sem atrasos nem duplicidades;</li>
+                    <li>Comunicado oficial e treinamento para moradores e conselho.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>O síndico ou o conselho perdem o controle da conta bancária?</summary>
+                <p>
+                    Não. Trabalhamos com conta vinculada ao CNPJ do condomínio ou com subcontas auditadas.
+                    Nenhum pagamento é feito sem a autorização digital do síndico, e as conciliações são diárias.
+                </p>
+            </details>
+            <details>
+                <summary>Como os moradores acessam o aplicativo, boletos e reservas?</summary>
+                <p>Pelo aplicativo (iOS e Android) ou pelo portal web, com login individual para:</p>
+                <ul>
+                    <li>Segunda via de boleto e Pix Copia e Cola;</li>
+                    <li>Reserva de salão de festas e áreas comuns;</li>
+                    <li>Autorização de visitantes e encomendas;</li>
+                    <li>Atas, convenção e prestação de contas mensal.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>As assembleias virtuais e híbridas têm validade jurídica?</summary>
+                <p>
+                    Sim. Conforme a Lei nº 14.309/2022 e o Código Civil, garantimos credenciamento seguro,
+                    registro de quórum, votação gravada e ata com assinatura digital.
+                </p>
+            </details>
+            <details>
+                <summary>Qual é o tempo médio de resposta (SLA)?</summary>
+                <p>
+                    Retorno em até 2 horas úteis pelo WhatsApp e e-mail do gerente da sua conta,
+                    além de plantão 24h para emergências.
+                </p>
+            </details>
+            <p><a href="pages/faq.html">Ver todas as perguntas</a> ou <a href="https://wa.me/551125649963" target="_blank" rel="noopener">fale no WhatsApp</a>.</p>
+        </section>
+
+        <section id="unidades" aria-labelledby="titulo-unidades">
+            <h2 id="titulo-unidades">Mais proximidade para uma gestão melhor</h2>
+            <p>Matriz no Alto Tietê e unidade na capital paulista, com atendimento presencial no seu condomínio.</p>
+            <div class="grade">
+                <article>
+                    <h3>Mogi das Cruzes (Matriz)</h3>
+                    <address>
+                        R. Gonçalo Ferreira, 164, Sala 3<br>
+                        Mogi das Cruzes - SP<br>
+                        <a href="tel:1125649963">(11) 2564-9963</a>
+                    </address>
+                    <p><a href="https://maps.google.com/?q=Rua+Goncalo+Ferreira+164+Mogi+das+Cruzes" target="_blank" rel="noopener">Ver mapa</a></p>
+                </article>
+                <article>
+                    <h3>São Paulo (Filial)</h3>
+                    <address>
+                        Av. Rio das Pedras, 3.409<br>
+                        São Paulo - SP
+                    </address>
+                    <p><a href="https://maps.google.com/?q=Av+Rio+das+Pedras+3409+Sao+Paulo" target="_blank" rel="noopener">Ver mapa</a></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="proposta" aria-labelledby="titulo-proposta">
+            <h2 id="titulo-proposta">Pronto para transformar a gestão do seu condomínio?</h2>
+            <p>Receba uma análise financeira e uma proposta sob medida. Retorno em até 2 horas úteis, sem compromisso.</p>
+            <!-- Sem back-end: js/formulario.js guarda os dados e abre a confirmação -->
+            <form action="pages/confirmacao.html" method="get" data-confirmacao="Proposta personalizada">
+                <label for="proposta-nome">Nome completo *</label>
+                <input id="proposta-nome" name="nome" type="text" required autocomplete="name">
+
+                <label for="proposta-email">E-mail *</label>
+                <input id="proposta-email" name="email" type="email" required autocomplete="email">
+
+                <label for="proposta-telefone">WhatsApp / Telefone *</label>
+                <input id="proposta-telefone" name="telefone" type="tel" required autocomplete="tel">
+
+                <label for="proposta-condominio">Condomínio e cidade *</label>
+                <input id="proposta-condominio" name="condominio" type="text" required>
+
+                <label for="proposta-unidades">Nº de unidades</label>
+                <select id="proposta-unidades" name="unidades">
+                    <option value="1-30">Até 30 unidades</option>
+                    <option value="31-80" selected>31 a 80 unidades</option>
+                    <option value="81-150">81 a 150 unidades</option>
+                    <option value="151-300">151 a 300 unidades</option>
+                    <option value="300+">Mais de 300 unidades</option>
+                </select>
+
+                <label for="proposta-papel">Seu papel no condomínio</label>
+                <select id="proposta-papel" name="papel">
+                    <option value="sindico" selected>Síndico(a) eleito(a)</option>
+                    <option value="sindico-profissional">Síndico(a) profissional</option>
+                    <option value="conselho">Membro do conselho fiscal</option>
+                    <option value="morador">Morador(a) / Condômino</option>
+                    <option value="outro">Outro representante</option>
+                </select>
+
+                <button class="botao" type="submit">Solicitar proposta</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao das páginas internas) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <address class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined" aria-hidden="true">domain</span>
+                            <span>MATRIZ MOGI</span>
+                        </div>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </address>
+                    <address class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined" aria-hidden="true">location_city</span>
+                            <span>FILIAL SÃO PAULO</span>
+                        </div>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </address>
+                </div>
+                <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                    <span class="ex-rodape__rotulo">Páginas Internas</span>
+                    <div class="ex-rodape__links">
+                        <a href="pages/quem-somos.html">Quem Somos</a>
+                        <a href="pages/servicos.html">Serviços</a>
+                        <a href="pages/clientes.html">Clientes</a>
+                        <a href="pages/projetos.html">Projetos &amp; Cases</a>
+                        <a href="pages/noticias.html">Notícias &amp; Blog</a>
+                        <a href="pages/faq.html">FAQ &amp; Dúvidas</a>
+                        <a href="pages/contato.html">Fale Conosco</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="ex-rodape__base">
+                <p><small>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</small></p>
             </div>
         </div>
     </footer>
-    <script src="js/home.js"></script>
     <script src="js/formulario.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/assistente.js"></script>
 </body>
-
 </html>
