@@ -67,18 +67,38 @@ Caso seja necessário alterar:
 ```text
 grupoexitocondominios/
 │
-├── index.html
+├── index.html                  # Home
+├── favicon.ico                 # Ícone da aba do navegador
 │
 ├── css/
-│   ├── paleta.css
-│   └── componentes.css
+│   ├── paleta.css              # Cores, fontes e medidas do projeto (compartilhado)
+│   ├── componentes.css         # Botões, cards, etiquetas... prontos (compartilhado, opcional)
+│   ├── layout.css              # Header (menu) e footer das páginas internas (compartilhado)
+│   ├── acessibilidade.css      # Menu de acessibilidade (compartilhado)
+│   ├── assistente.css          # Assistente virtual (compartilhado)
+│   ├── home.css                # Estilos próprios da home
+│   ├── efeitos.css             # Efeitos de entrada/saída e parallax (home)
+│   ├── loading.css             # Tela de carregamento (home)
+│   ├── confirmacao.css         # Tela de confirmação de formulário
+│   ├── clientes.css            # Página Clientes
+│   ├── contato.css             # Página Contato
+│   ├── adm.css                 # Página Fale Conosco (adm-contato)
+│   └── servicos-1.css          # Página Serviços 1
+│
+├── js/
+│   ├── menu.js                 # Abre/fecha o menu no celular (compartilhado)
+│   ├── acessibilidade.js       # Menu de acessibilidade + "Ouvir esta página" (compartilhado)
+│   ├── assistente.js           # Assistente virtual "Felipe João" (compartilhado)
+│   ├── formulario.js           # Envio de formulário -> tela de confirmação (compartilhado)
+│   ├── tailwind.config.js      # Configuração do Tailwind da home
+│   ├── home.js                 # Carrossel e filtro do FAQ da home
+│   ├── efeitos.js              # Efeitos de entrada/saída e parallax (home)
+│   └── loading.js              # Tela de carregamento (home)
 │
 ├── img/
-│   ├── logo/
-│   ├── banners/
-│   ├── clientes/
-│   ├── projetos/
-│   └── noticias/
+│   ├── favicon/                # Ícones do site (gerados a partir do logo)
+│   ├── clientes/               # Imagens da página Clientes
+│   └── ...                     # Logos, banners, projetos e notícias
 │
 ├── pages/
 │   ├── quem-somos.html
@@ -87,16 +107,17 @@ grupoexitocondominios/
 │   ├── servicos-1.html
 │   ├── servicos-2.html
 │   ├── servicos-3.html
+│   ├── projetos.html
+│   ├── noticias.html
 │   ├── faq.html
 │   ├── contato.html
-│   ├── projetos.html
-│   └── noticias.html
-│
-├── js/
-│   └── script.js
+│   ├── adm-contato.html
+│   └── confirmacao.html        # Tela mostrada depois de enviar um formulário
 │
 └── README.md
 ```
+
+> Arquivos marcados como **compartilhado** são usados por várias páginas. Antes de alterar, avise o grupo (veja as [Regras básicas do grupo](#-regras-básicas-do-grupo)).
 
 ### O que fica em cada pasta?
 
@@ -278,6 +299,176 @@ Não é necessário tentar transformar todos os elementos em componentes compart
 
 ---
 
+# 🧱 Header, footer e recursos compartilhados
+
+Todas as páginas internas usam o **mesmo header (menu) e o mesmo footer** da home, para o site ficar com a mesma cara.
+
+* O visual fica em `css/layout.css`.
+* O menu vira botão ☰ no celular (abaixo de 1024px), controlado por `js/menu.js`.
+* No celular, o logo fica maior e centralizado.
+
+### O que cada página precisa ter
+
+**Dentro do `<head>`** (depois do `<meta name="viewport">`):
+
+```html
+<title>Nome da Página | Grupo Êxito Condomínios</title>
+<meta name="description" content="Uma frase descrevendo a página.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06152d">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+<link rel="manifest" href="../img/favicon/site.webmanifest">
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+<!-- CSS compartilhado (nesta ordem) -->
+<link rel="stylesheet" href="../css/paleta.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/acessibilidade.css">
+<link rel="stylesheet" href="../css/assistente.css">
+<script src="../js/acessibilidade.js"></script>
+
+<!-- Depois, o CSS da SUA página -->
+<link rel="stylesheet" href="../css/sua-pagina.css">
+```
+
+**Dentro do `<body>`:**
+
+1. Logo no começo, o bloco `<!-- HEADER COMPARTILHADO -->`.
+2. O conteúdo da sua página, de preferência dentro de `<main>`.
+3. No fim, o bloco `<!-- FOOTER COMPARTILHADO -->` e os scripts:
+
+```html
+<script src="../js/menu.js"></script>
+<script src="../js/assistente.js"></script>
+<!-- só se a página tiver formulário: -->
+<script src="../js/formulario.js"></script>
+```
+
+### Como criar uma página nova
+
+O jeito mais fácil é **copiar uma página que já existe** (ex.: `pages/faq.html`), manter o `<head>`, o header e o footer, e trocar só o conteúdo do meio.
+
+No menu, a página atual fica destacada com `aria-current="page"`:
+
+```html
+<a class="ex-menu__link" href="faq.html" aria-current="page">FAQ</a>
+```
+
+Se for preciso **adicionar ou renomear um item do menu**, o menu tem que ser alterado na home e em **todas** as páginas (no menu desktop, no menu mobile e no footer). Combine com o grupo antes.
+
+### Cuidados com o CSS da sua página
+
+O header e o footer usam classes que começam com `ex-` (`.ex-header`, `.ex-rodape`...) para o CSS de cada página não mexer neles. Mesmo assim, evite regras muito genéricas que afetem a página inteira, como:
+
+```css
+/* ❌ evite: muda o body inteiro (e pode empurrar o header/footer) */
+body { display: flex; padding: 40px; }
+
+/* ✅ prefira: aplique no seu próprio conteúdo */
+main { display: flex; padding: 40px; }
+.minha-secao img { width: 100%; }
+```
+
+---
+
+# ✨ Recursos do site
+
+### ⏳ Tela de carregamento (home)
+
+Animação de prédio inteligente: as janelas acendem andar por andar e, no fim, um "portão" se abre ao meio com parallax.
+
+* Arquivos: `css/loading.css` e `js/loading.js`.
+* Dura cerca de **5 segundos** e só sai depois que a página carregou.
+* Aparece **só na primeira visita** da sessão. Pode ser pulada com clique, com o botão **Pular** ou com **Esc**.
+* Para ver de novo: feche a aba ou abra `index.html?loading=1`.
+
+### 🎬 Efeitos de entrada/saída e parallax (home)
+
+Elementos aparecem ao rolar a página (e somem ao sair da tela). Basta colocar um atributo no HTML:
+
+```html
+<div data-reveal>...</div>                 <!-- sobe ao entrar -->
+<div data-reveal="zoom">...</div>          <!-- também: descer, esquerda, direita, fade -->
+<div data-reveal-stagger>...</div>         <!-- os filhos entram um de cada vez -->
+<div data-parallax="0.2">...</div>         <!-- move mais devagar que a rolagem -->
+```
+
+Detalhes em `css/efeitos.css`. No celular, `esquerda` e `direita` viram "subir", para não gerar rolagem lateral.
+
+### 🤖 Assistente virtual "Felipe João"
+
+Substitui o botão de WhatsApp flutuante. Funciona **100% no navegador**, sem servidor e sem custo: entende a pergunta por palavras-chave e responde com links para as páginas certas. Quando não sabe, oferece falar com um atendente no WhatsApp.
+
+Para **ensinar uma resposta nova**, adicione um item na lista `BASE` em `js/assistente.js`:
+
+```js
+{
+    id: 'estacionamento',
+    palavras: ['estacionamento', 'vaga', 'garagem'],
+    resposta: 'Ajudamos a organizar o sorteio de vagas. Veja [Gestão Operacional](site:pages/servicos-3.html).',
+    sugestoes: ['Quero uma proposta', 'Falar com atendente']
+}
+```
+
+* Links: `[texto](site:pages/pagina.html)` para páginas do site, `[texto](whatsapp:mensagem pronta)` para o WhatsApp.
+* Para trocar o nome do assistente, altere `NOME` no início do arquivo.
+
+> Não é uma IA de verdade (como ChatGPT/Gemini): isso exigiria um servidor para esconder a chave da API.
+
+### ♿ Menu de acessibilidade
+
+Botão no canto inferior esquerdo, em todas as páginas (`js/acessibilidade.js`):
+
+* Tamanho do texto, alto contraste, escala de cinza, destacar links, fonte legível, pausar animações, guia de leitura e cursor grande.
+* **Ouvir esta página:** lê o conteúdo em voz alta com a voz do próprio navegador (grátis), destacando o trecho lido. Se houver texto selecionado, lê só a seleção.
+* As escolhas ficam salvas no navegador.
+
+### 📨 Formulários e tela de confirmação
+
+Ainda não há back-end (o formulário não envia para lugar nenhum). Formulários com `data-confirmacao` guardam os dados no navegador e abrem `pages/confirmacao.html`, que mostra protocolo, resumo e próximos passos:
+
+```html
+<form action="confirmacao.html" method="get" data-confirmacao="Fale conosco">
+    <label for="nome">Nome</label>
+    <input id="nome" name="nome" autocomplete="name" required>
+    ...
+</form>
+<script src="../js/formulario.js"></script>
+```
+
+Cada campo precisa de `name` e de um `<label for="...">` para aparecer no resumo.
+
+---
+
+# ♿ Acessibilidade — checklist rápido
+
+A home foi auditada com as regras da **WCAG**. Para as páginas seguirem o mesmo padrão:
+
+* [ ] Toda imagem tem `alt` descrevendo o conteúdo, **em português**.
+* [ ] Só um `<h1>` por página, e os títulos seguem a ordem (`h1` → `h2` → `h3`, sem pular).
+* [ ] Todo campo de formulário tem `<label for="id-do-campo">` (placeholder não substitui label).
+* [ ] Ícones decorativos têm `aria-hidden="true"` (senão o leitor de tela lê "arrow_forward"):
+
+```html
+<span aria-hidden="true" class="material-symbols-outlined">arrow_forward</span>
+```
+
+* [ ] Botões e links só com ícone têm nome: `<button aria-label="Fechar">✕</button>`.
+* [ ] Links que abrem nova aba avisam: `<a href="..." target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>`.
+* [ ] Texto com contraste suficiente: cinza muito claro (ex.: `#94a3b8`) sobre branco **não passa**; use as cores de texto da `paleta.css`.
+* [ ] Dá para usar a página só com o teclado (**Tab**, **Enter**, **Esc**) e o foco fica visível.
+
+> **Leitor de tela** é um programa que a pessoa instala (NVDA no Windows, VoiceOver no iPhone/Mac, TalkBack no Android). Testar a página com ele uma vez ajuda muito.
+
+---
+
 # 📐 Padrão de HTML
 
 Procurem utilizar HTML semântico.
@@ -388,6 +579,10 @@ Nas páginas internas:
 <img src="../img/clientes/cliente-01.jpg" alt="Nome do cliente">
 ```
 
+Use sempre **caminhos relativos** ao projeto. Caminhos do seu computador (ex.: `C:\Users\seu-nome\Downloads\foto.png`) só funcionam na sua máquina e quebram para o resto do grupo.
+
+Se o nome do arquivo tiver espaços, troque cada espaço por `%20` no `src` (ou, melhor, renomeie o arquivo sem espaços).
+
 Evitem utilizar imagens diretamente de sites externos.
 
 Também é importante sempre preencher o atributo `alt`:
@@ -436,13 +631,17 @@ O projeto utiliza:
 
 * **HTML5**
 * **CSS3**
-* **JavaScript**
-* **Google Fonts**
-* **Material Symbols**
+* **JavaScript** (puro, sem bibliotecas)
+* **Tailwind CSS** — só na home, via CDN, com a configuração em `js/tailwind.config.js`
+* **Google Fonts** (Plus Jakarta Sans e Space Grotesk)
+* **Material Symbols** (ícones)
+* **Web Speech API** — voz do navegador usada no "Ouvir esta página"
 * **Git**
 * **GitHub**
 
 O projeto está sendo desenvolvido inicialmente com foco em **HTML e CSS**. O JavaScript será utilizado quando houver necessidade de interação e comportamento na página.
+
+Todos os recursos são **gratuitos** e não precisam de instalação nem de chave de API.
 
 ---
 
@@ -461,6 +660,11 @@ no navegador.
 Também recomendamos utilizar a extensão **Live Server** no VS Code.
 
 Com o Live Server, ao salvar uma alteração no código, o navegador pode atualizar automaticamente a página.
+
+Dicas:
+
+* A tela de carregamento aparece só na primeira visita. Para ver de novo, abra `index.html?loading=1`.
+* Se uma alteração de CSS não aparecer, recarregue sem cache: **Ctrl + Shift + R**.
 
 ---
 
