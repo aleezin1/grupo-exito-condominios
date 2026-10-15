@@ -1,6 +1,6 @@
-# Grupo Êxito Condomínios — Site Institucional
+# Grupo Êxito Condomínios - Site Institucional
 
-> ⚠️ **Projeto exclusivamente para fins de estudo.**
+> **Projeto exclusivamente para fins de estudo.**
 
 Projeto desenvolvido para a faculdade de **Engenharia de Software**.
 
@@ -10,7 +10,7 @@ Este projeto não representa o site oficial da empresa e não possui finalidade 
 
 ---
 
-## 👥 Equipe e divisão das páginas
+## Equipe e divisão das páginas
 
 O projeto possui **11 integrantes**, sendo cada integrante responsável pelo desenvolvimento de uma página.
 
@@ -62,7 +62,7 @@ Caso seja necessário alterar:
 
 ---
 
-# 📁 Estrutura do projeto
+# Estrutura do projeto
 
 ```text
 grupoexitocondominios/
@@ -73,12 +73,7 @@ grupoexitocondominios/
 ├── css/
 │   ├── paleta.css              # Cores, fontes e medidas do projeto (compartilhado)
 │   ├── componentes.css         # Botões, cards, etiquetas... prontos (compartilhado, opcional)
-│   ├── layout.css              # Header (menu) e footer das páginas internas (compartilhado)
-│   ├── acessibilidade.css      # Menu de acessibilidade (compartilhado)
-│   ├── assistente.css          # Assistente virtual (compartilhado)
-│   ├── home.css                # Estilos próprios da home
-│   ├── efeitos.css             # Efeitos de entrada/saída e parallax (home)
-│   ├── loading.css             # Tela de carregamento (home)
+│   ├── layout.css              # Header (menu) e footer das páginas (compartilhado)
 │   ├── confirmacao.css         # Tela de confirmação de formulário
 │   ├── clientes.css            # Página Clientes
 │   ├── contato.css             # Página Contato
@@ -87,13 +82,7 @@ grupoexitocondominios/
 │
 ├── js/
 │   ├── menu.js                 # Abre/fecha o menu no celular (compartilhado)
-│   ├── acessibilidade.js       # Menu de acessibilidade + "Ouvir esta página" (compartilhado)
-│   ├── assistente.js           # Assistente virtual "Felipe João" (compartilhado)
-│   ├── formulario.js           # Envio de formulário -> tela de confirmação (compartilhado)
-│   ├── tailwind.config.js      # Configuração do Tailwind da home
-│   ├── home.js                 # Carrossel e filtro do FAQ da home
-│   ├── efeitos.js              # Efeitos de entrada/saída e parallax (home)
-│   └── loading.js              # Tela de carregamento (home)
+│   └── formulario.js           # Envio de formulário -> tela de confirmação (compartilhado)
 │
 ├── img/
 │   ├── favicon/                # Ícones do site (gerados a partir do logo)
@@ -114,10 +103,12 @@ grupoexitocondominios/
 │   ├── adm-contato.html
 │   └── confirmacao.html        # Tela mostrada depois de enviar um formulário
 │
-└── README.md
+└── docs/
+    ├── README.md               # Este documento
+    └── giti-para-iniciantes.pdf # Material de apoio sobre Git
 ```
 
-> Arquivos marcados como **compartilhado** são usados por várias páginas. Antes de alterar, avise o grupo (veja as [Regras básicas do grupo](#-regras-básicas-do-grupo)).
+> Arquivos marcados como **compartilhado** são usados por várias páginas. Antes de alterar, avise o grupo (veja as [Regras básicas do grupo](#regras-básicas-do-grupo)).
 
 ### O que fica em cada pasta?
 
@@ -141,13 +132,13 @@ Local onde devem ficar as imagens utilizadas no site.
 
 Arquivos JavaScript utilizados para comportamentos e interações do site.
 
-**`README.md`**
+**`docs/`**
 
-Documento com as informações e regras do projeto.
+Documentação do projeto: este README e materiais de apoio, como o PDF de Git para iniciantes.
 
 ---
 
-# 🎨 Organização do CSS
+# Organização do CSS
 
 Como o grupo está começando a trabalhar com CSS, a ideia é manter a estrutura simples.
 
@@ -175,7 +166,7 @@ A prioridade neste momento é aprender e praticar:
 
 ---
 
-## 🎯 Paleta de cores
+## Paleta de cores
 
 As cores principais do projeto ficam centralizadas no arquivo:
 
@@ -185,62 +176,58 @@ css/paleta.css
 
 Isso evita que cada integrante escolha uma cor diferente para cada página.
 
-Exemplo:
+Cores do projeto:
 
-```css
-:root {
-    --cor-navy-profundo: #06152d;
-    --cor-navy-superficie: #0a1e3b;
-    --cor-navy-claro: #0e3867;
+| Cor                 | Valor RGB            | Onde usar                              |
+| ------------------- | -------------------- | -------------------------------------- |
+| Navy profundo       | `rgb(6, 21, 45)`     | Header, rodapé, botões principais      |
+| Navy superfície     | `rgb(10, 30, 59)`    | Cards sobre fundo escuro               |
+| Navy claro          | `rgb(14, 56, 103)`   | Hover e variações                      |
+| Ciano elétrico      | `rgb(0, 188, 212)`   | Ícones, links ativos, detalhes         |
+| Teal                | `rgb(0, 104, 118)`   | Títulos de seção, links em fundo claro |
+| Teal vibrante       | `rgb(24, 168, 182)`  | Gradientes e ilustrações               |
+| Ciano suave         | `rgb(214, 247, 255)` | Fundo de etiquetas e badges            |
+| Fundo               | `rgb(248, 250, 253)` | Fundo da página                        |
+| Superfície          | `rgb(255, 255, 255)` | Cards, formulários                     |
+| Superfície variante | `rgb(241, 245, 249)` | Blocos secundários, inputs             |
+| Borda               | `rgb(226, 232, 240)` | Bordas e divisórias                    |
+| Texto               | `rgb(6, 21, 45)`     | Títulos e texto forte                  |
+| Texto corpo         | `rgb(71, 85, 105)`   | Parágrafos                             |
+| Texto secundário    | `rgb(82, 96, 113)`   | Legendas, textos de apoio              |
+| Texto suave         | `rgb(148, 163, 184)` | Placeholders, metadados                |
+| Texto invertido     | `rgb(255, 255, 255)` | Texto sobre fundo navy                 |
+| Sucesso             | `rgb(16, 185, 129)`  | Confirmação, WhatsApp                  |
+| Alerta              | `rgb(245, 158, 11)`  | Avisos                                 |
+| Erro                | `rgb(239, 68, 68)`   | Erros de formulário                    |
 
-    --cor-ciano-eletrico: #00bcd4;
-    --cor-teal: #006876;
-    --cor-teal-vibrante: #18a8b6;
-
-    --cor-fundo: #f8fafd;
-    --cor-superficie: #ffffff;
-    --cor-borda: #e2e8f0;
-
-    --cor-texto: #06152d;
-    --cor-texto-corpo: #475569;
-    --cor-texto-secundario: #526071;
-}
-```
-
-Na sua página, você pode utilizar essas variáveis:
+Na sua página, basta copiar o valor da cor:
 
 ```css
 .titulo {
-    color: var(--cor-texto);
+    color: rgb(6, 21, 45);
 }
 
 .botao {
-    background-color: var(--cor-ciano-eletrico);
+    background-color: rgb(0, 188, 212);
 }
 
 .card {
-    background-color: var(--cor-superficie);
-    border: 1px solid var(--cor-borda);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
 }
 ```
 
-### Por que usar variáveis?
-
-Imagine que o grupo decida mudar o azul principal do site.
-
-Sem variáveis, seria necessário procurar várias cores diferentes nos arquivos CSS.
-
-Com variáveis:
+Precisa de transparência? Use `rgba` e acrescente um quarto valor, de `0` (invisível) a `1` (sólido):
 
 ```css
---cor-navy-profundo: #06152d;
+.fundo-destaque {
+    background-color: rgba(0, 188, 212, 0.15);
+}
 ```
-
-basta alterar o valor uma vez.
 
 ---
 
-# 🧩 Componentes compartilhados
+# Componentes compartilhados
 
 O arquivo:
 
@@ -272,8 +259,8 @@ Exemplo:
 }
 
 .ex-botao--primario {
-    background-color: var(--cor-ciano-eletrico);
-    color: var(--cor-navy-profundo);
+    background-color: rgb(0, 188, 212);
+    color: rgb(6, 21, 45);
 }
 ```
 
@@ -299,12 +286,12 @@ Não é necessário tentar transformar todos os elementos em componentes compart
 
 ---
 
-# 🧱 Header, footer e recursos compartilhados
+# Header, footer e estrutura das páginas
 
 Todas as páginas internas usam o **mesmo header (menu) e o mesmo footer** da home, para o site ficar com a mesma cara.
 
 * O visual fica em `css/layout.css`.
-* O menu vira botão ☰ no celular (abaixo de 1024px), controlado por `js/menu.js`.
+* O menu vira um botão no celular (abaixo de 1024px), controlado por `js/menu.js`.
 * No celular, o logo fica maior e centralizado.
 
 ### O que cada página precisa ter
@@ -330,9 +317,6 @@ Todas as páginas internas usam o **mesmo header (menu) e o mesmo footer** da ho
 <!-- CSS compartilhado (nesta ordem) -->
 <link rel="stylesheet" href="../css/paleta.css">
 <link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/acessibilidade.css">
-<link rel="stylesheet" href="../css/assistente.css">
-<script src="../js/acessibilidade.js"></script>
 
 <!-- Depois, o CSS da SUA página -->
 <link rel="stylesheet" href="../css/sua-pagina.css">
@@ -346,7 +330,6 @@ Todas as páginas internas usam o **mesmo header (menu) e o mesmo footer** da ho
 
 ```html
 <script src="../js/menu.js"></script>
-<script src="../js/assistente.js"></script>
 <!-- só se a página tiver formulário: -->
 <script src="../js/formulario.js"></script>
 ```
@@ -368,69 +351,19 @@ Se for preciso **adicionar ou renomear um item do menu**, o menu tem que ser alt
 O header e o footer usam classes que começam com `ex-` (`.ex-header`, `.ex-rodape`...) para o CSS de cada página não mexer neles. Mesmo assim, evite regras muito genéricas que afetem a página inteira, como:
 
 ```css
-/* ❌ evite: muda o body inteiro (e pode empurrar o header/footer) */
+/* evite: muda o body inteiro (e pode empurrar o header/footer) */
 body { display: flex; padding: 40px; }
 
-/* ✅ prefira: aplique no seu próprio conteúdo */
+/* prefira: aplique no seu próprio conteúdo */
 main { display: flex; padding: 40px; }
 .minha-secao img { width: 100%; }
 ```
 
 ---
 
-# ✨ Recursos do site
+# Recursos do site
 
-### ⏳ Tela de carregamento (home)
-
-Animação de prédio inteligente: as janelas acendem andar por andar e, no fim, um "portão" se abre ao meio com parallax.
-
-* Arquivos: `css/loading.css` e `js/loading.js`.
-* Dura cerca de **5 segundos** e só sai depois que a página carregou.
-* Aparece **só na primeira visita** da sessão. Pode ser pulada com clique, com o botão **Pular** ou com **Esc**.
-* Para ver de novo: feche a aba ou abra `index.html?loading=1`.
-
-### 🎬 Efeitos de entrada/saída e parallax (home)
-
-Elementos aparecem ao rolar a página (e somem ao sair da tela). Basta colocar um atributo no HTML:
-
-```html
-<div data-reveal>...</div>                 <!-- sobe ao entrar -->
-<div data-reveal="zoom">...</div>          <!-- também: descer, esquerda, direita, fade -->
-<div data-reveal-stagger>...</div>         <!-- os filhos entram um de cada vez -->
-<div data-parallax="0.2">...</div>         <!-- move mais devagar que a rolagem -->
-```
-
-Detalhes em `css/efeitos.css`. No celular, `esquerda` e `direita` viram "subir", para não gerar rolagem lateral.
-
-### 🤖 Assistente virtual "Felipe João"
-
-Substitui o botão de WhatsApp flutuante. Funciona **100% no navegador**, sem servidor e sem custo: entende a pergunta por palavras-chave e responde com links para as páginas certas. Quando não sabe, oferece falar com um atendente no WhatsApp.
-
-Para **ensinar uma resposta nova**, adicione um item na lista `BASE` em `js/assistente.js`:
-
-```js
-{
-    id: 'estacionamento',
-    palavras: ['estacionamento', 'vaga', 'garagem'],
-    resposta: 'Ajudamos a organizar o sorteio de vagas. Veja [Gestão Operacional](site:pages/servicos-3.html).',
-    sugestoes: ['Quero uma proposta', 'Falar com atendente']
-}
-```
-
-* Links: `[texto](site:pages/pagina.html)` para páginas do site, `[texto](whatsapp:mensagem pronta)` para o WhatsApp.
-* Para trocar o nome do assistente, altere `NOME` no início do arquivo.
-
-> Não é uma IA de verdade (como ChatGPT/Gemini): isso exigiria um servidor para esconder a chave da API.
-
-### ♿ Menu de acessibilidade
-
-Botão no canto inferior esquerdo, em todas as páginas (`js/acessibilidade.js`):
-
-* Tamanho do texto, alto contraste, escala de cinza, destacar links, fonte legível, pausar animações, guia de leitura e cursor grande.
-* **Ouvir esta página:** lê o conteúdo em voz alta com a voz do próprio navegador (grátis), destacando o trecho lido. Se houver texto selecionado, lê só a seleção.
-* As escolhas ficam salvas no navegador.
-
-### 📨 Formulários e tela de confirmação
+### Formulários e tela de confirmação
 
 Ainda não há back-end (o formulário não envia para lugar nenhum). Formulários com `data-confirmacao` guardam os dados no navegador e abrem `pages/confirmacao.html`, que mostra protocolo, resumo e próximos passos:
 
@@ -447,29 +380,7 @@ Cada campo precisa de `name` e de um `<label for="...">` para aparecer no resumo
 
 ---
 
-# ♿ Acessibilidade — checklist rápido
-
-A home foi auditada com as regras da **WCAG**. Para as páginas seguirem o mesmo padrão:
-
-* [ ] Toda imagem tem `alt` descrevendo o conteúdo, **em português**.
-* [ ] Só um `<h1>` por página, e os títulos seguem a ordem (`h1` → `h2` → `h3`, sem pular).
-* [ ] Todo campo de formulário tem `<label for="id-do-campo">` (placeholder não substitui label).
-* [ ] Ícones decorativos têm `aria-hidden="true"` (senão o leitor de tela lê "arrow_forward"):
-
-```html
-<span aria-hidden="true" class="material-symbols-outlined">arrow_forward</span>
-```
-
-* [ ] Botões e links só com ícone têm nome: `<button aria-label="Fechar">✕</button>`.
-* [ ] Links que abrem nova aba avisam: `<a href="..." target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>`.
-* [ ] Texto com contraste suficiente: cinza muito claro (ex.: `#94a3b8`) sobre branco **não passa**; use as cores de texto da `paleta.css`.
-* [ ] Dá para usar a página só com o teclado (**Tab**, **Enter**, **Esc**) e o foco fica visível.
-
-> **Leitor de tela** é um programa que a pessoa instala (NVDA no Windows, VoiceOver no iPhone/Mac, TalkBack no Android). Testar a página com ele uma vez ajuda muito.
-
----
-
-# 📐 Padrão de HTML
+# Padrão de HTML
 
 Procurem utilizar HTML semântico.
 
@@ -525,7 +436,7 @@ Algumas tags importantes:
 
 ---
 
-# 📱 Responsividade
+# Responsividade
 
 As páginas precisam funcionar em diferentes tamanhos de tela.
 
@@ -555,7 +466,7 @@ Não é necessário tentar deixar o site perfeito em todos os dispositivos logo 
 
 ---
 
-# 🖼️ Imagens
+# Imagens
 
 Todas as imagens utilizadas no projeto devem ficar dentro da pasta:
 
@@ -595,7 +506,7 @@ O `alt` deve descrever o conteúdo da imagem.
 
 ---
 
-# 🔗 Links entre as páginas
+# Links entre as páginas
 
 Na página inicial:
 
@@ -625,17 +536,15 @@ Antes de finalizar sua tarefa, teste todos os links da sua página.
 
 ---
 
-# 🌐 Tecnologias
+# Tecnologias
 
 O projeto utiliza:
 
 * **HTML5**
 * **CSS3**
 * **JavaScript** (puro, sem bibliotecas)
-* **Tailwind CSS** — só na home, via CDN, com a configuração em `js/tailwind.config.js`
 * **Google Fonts** (Plus Jakarta Sans e Space Grotesk)
 * **Material Symbols** (ícones)
-* **Web Speech API** — voz do navegador usada no "Ouvir esta página"
 * **Git**
 * **GitHub**
 
@@ -645,7 +554,7 @@ Todos os recursos são **gratuitos** e não precisam de instalação nem de chav
 
 ---
 
-# ▶️ Como executar o projeto
+# Como executar o projeto
 
 Não é necessário instalar nenhuma ferramenta específica para visualizar o site.
 
@@ -663,12 +572,11 @@ Com o Live Server, ao salvar uma alteração no código, o navegador pode atuali
 
 Dicas:
 
-* A tela de carregamento aparece só na primeira visita. Para ver de novo, abra `index.html?loading=1`.
 * Se uma alteração de CSS não aparecer, recarregue sem cache: **Ctrl + Shift + R**.
 
 ---
 
-# 🌱 Para quem está começando no CSS
+# Para quem está começando no CSS
 
 Não precisa tentar decorar todas as propriedades CSS.
 
@@ -687,10 +595,10 @@ Por exemplo:
 
 Aqui:
 
-* `background-color` → define a cor do fundo;
-* `padding` → espaço interno;
-* `margin` → espaço externo;
-* `border-radius` → arredonda os cantos.
+* `background-color`: define a cor do fundo;
+* `padding`: espaço interno;
+* `margin`: espaço externo;
+* `border-radius`: arredonda os cantos.
 
 Depois, podemos evoluir para Flexbox:
 
@@ -719,7 +627,7 @@ O importante é entender o código que está sendo utilizado.
 
 ---
 
-# 🌿 Git e GitHub
+# Git e GitHub
 
 Cada integrante deve trabalhar na sua própria branch.
 
@@ -779,7 +687,7 @@ Procurem fazer commits pequenos e que representem uma alteração específica.
 
 ---
 
-# 🤝 Regras básicas do grupo
+# Regras básicas do grupo
 
 1. Cada integrante deve trabalhar principalmente na sua própria página.
 2. Não apagar ou modificar o código de outra pessoa sem conversar antes.
@@ -797,7 +705,7 @@ Procurem fazer commits pequenos e que representem uma alteração específica.
 
 ---
 
-# 📋 Controle das tarefas
+# Controle das tarefas
 
 As tarefas de cada página estão organizadas no **ClickUp**.
 
@@ -814,7 +722,7 @@ Os tickets estão disponíveis na tabela de **Equipe e divisão das páginas** n
 
 ---
 
-# 🎓 Objetivo do projeto
+# Objetivo do projeto
 
 Além de desenvolver o site, o projeto tem como objetivo praticar:
 
