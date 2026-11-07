@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Operacional | Grupo Êxito Condomínios</title>
@@ -13,127 +11,12 @@
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="../css/paleta.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <!-- <link rel="stylesheet" href="../css/acessibilidade.css">
-    <link rel="stylesheet" href="../css/assistente.css">
-    <script src="../js/acessibilidade.js"></script> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--importa fontes do "Google fonts"-->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
-    <!--importa fontes do "Google fonts"-->
-
-    <style>
-        body {
-            background-color: white;
-            font-family: "Manrope", sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        h1 {
-            color: #1c587f;
-            font-size: 50px;
-        }
-
-        h2 {
-            color: #1c587f;
-        }
-
-        article {
-            margin: auto;
-            max-width: 767px;
-            padding: 20px;
-
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        img {
-            border-radius: 16px;
-            display: block;
-            width: 100%;
-            margin: 0 auto;
-            margin-bottom: 40px;
-            margin-top: 20px;
-        }
-
-        table {
-            border: 0.1px solid #cccccc;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 16px;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        th,
-        td {
-            border: 1px solid #cccccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        thead th {
-            background-color: #1c587f;
-            color: white;
-        }
-
-        .link1 {
-            display: inline-block;
-            background-color: rgb(118, 165, 42);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 16px;
-            text-decoration: none;
-            transition: background-color 0.3s ease-in;
-        }
-
-        .link2 {
-            display: inline-block;
-            background-color: rgb(248, 3, 3);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 16px;
-            text-decoration: none;
-            transition: background-color 0.3s ease-in;
-        }
-
-        .link1:hover {
-            background-color: rgb(99, 0, 0);
-        }
-        
-        .link2:hover {
-            background-color: rgb(28, 99, 0);
-        }
-
-        .conteiner-flex {
-            display: flex;
-            gap: 10px;
-        }
-
-        .conteiner-link-flex {
-            justify-content: center;
-            display: flex;
-            gap: 50px;
-        }
-
-        strong {
-            margin-top: 20px;
-            display: block;
-        }
-    </style>
-
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/acessibilidade.js"></script>
 </head>
 
-<body>
-    <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+<body class="pagina-servicos-3">
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -167,7 +50,7 @@
         <div class="ex-barra">
             <div class="ex-conteudo">
                 <a class="ex-logo" href="../index.html">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
                 </a>
                 <nav class="ex-menu" aria-label="Navegação principal">
                     <a class="ex-menu__link" href="../index.html">Início</a>
@@ -209,169 +92,144 @@
             </nav>
         </div>
     </header>
+
     <main>
-        <article>
-            <h1> Gestão Operacional </h1>
-            <strong class="intro"> Cuidamos da equipe, manutenção e dos fornecedores do dia a dia do condomínio.
-            </strong>
-            <img src="../img/img1.png"
-                alt="Gestor orientando a equipe">
-
-            <section> <!--Lista não ordenada "Benefícios"-->
-                <strong> -- BENEFÍCIOS DA GESTÃO OPERACIONAL </strong>
-                <h2> A rotina do condomínio funcionando com métodos </h2>
-                <p>Uma operação eficiente depende de acompanhamento, planejamento e organização.
-                    Nossa gestão operacional acompanha as necessidades do condomínio e transforma demandas do dia a dia
-                    em processos mais previsíveis. O trabalho envolve:</p>
-                <ul>
-                    <li> Gestão de porteiros e zeladores </li>
-                    <li> Agendamento de manutenções preventivas </li>
-                    <li> Contratação e fiscalização de fornecedores </li>
-                    <li> Plantão para emergências 24h </li>
-                </ul>
-            </section>
-
-            <section> <!--Lista ordenada "Como funciona"-->
-                <strong> -- COMO FUNCIONA </strong>
-                <h2> Operação organizada começa pelo diagnóstico </h2>
-                <p> O acompanhamento operacional acontece de maneira estruturada, permitindo identificar necessidades,
-                    planejar ações e acompanhar sua execução. </p>
-                <ol>
-                    <li> Vistoria inicial das instalações </li>
-                    <li> Plano de manutenção preventiva </li>
-                    <li> Gestão da equipe operacional </li>
-                    <li> Acompanhamento contínuo </li>
-                </ol>
-            </section>
-
-            <section> <!-- O que fazemos -->
-                <strong> -- O QUE FAZEMOS </strong>
-                <h2> Gestão operacional na prática </h2>
-                <p>As principais frentes de atuação para manter as rotinas do condomínio organizadas e acompanhadas.</p>
-            </section>
-
-            <div class="conteiner-flex">
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> Gestão de porteiros e zeladores </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Acompanhamento das equipes responsáveis pela rotina operacional do condomínio.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </section>
-
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> Manutenção preventiva </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Agendamento e acompanhamento das manutenções preventivas das instalações e
-                                    equipamentos. </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+        <!-- TOPO com foto (componente .ex-hero) -->
+        <section class="ex-hero">
+            <div class="ex-hero__pelicula"></div>
+            <div class="ex-hero__conteudo">
+                <span class="ex-hero__rotulo">Serviços</span>
+                <h1 class="ex-hero__titulo">Gestão Operacional</h1>
+                <p class="ex-hero__texto">Cuidamos da equipe, manutenção e dos fornecedores do dia a dia do condomínio.</p>
             </div>
-            <div class="conteiner-flex">
-                <section>
+        </section>
+
+        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
+        <div class="ex-container">
+            <div class="conteudo">
+                <!-- Lista não ordenada "Benefícios" -->
+                <section aria-labelledby="titulo-servicos-3">
+                    <div class="ex-cabecalho">
+                        <span class="ex-sobretitulo">Benefícios da gestão operacional</span>
+                        <h2 id="titulo-servicos-3">A rotina do condomínio funcionando com métodos</h2>
+                        <p class="ex-subtitulo">Uma operação eficiente depende de acompanhamento, planejamento e organização.
+                            Nossa gestão operacional acompanha as necessidades do condomínio e transforma demandas do dia a dia
+                            em processos mais previsíveis. O trabalho envolve:</p>
+                    </div>
+                    <ul>
+                        <li>Gestão de porteiros e zeladores</li>
+                        <li>Agendamento de manutenções preventivas</li>
+                        <li>Contratação e fiscalização de fornecedores</li>
+                        <li>Plantão para emergências 24h</li>
+                    </ul>
+                </section>
+
+                <!-- Lista ordenada "Como funciona" -->
+                <section aria-labelledby="titulo-como-funciona">
+                    <div class="ex-cabecalho">
+                        <span class="ex-sobretitulo">Como funciona</span>
+                        <h2 id="titulo-como-funciona">Operação organizada começa pelo diagnóstico</h2>
+                        <p class="ex-subtitulo">O acompanhamento operacional acontece de maneira estruturada, permitindo identificar necessidades,
+                            planejar ações e acompanhar sua execução.</p>
+                    </div>
+                    <ol>
+                        <li>Vistoria inicial das instalações</li>
+                        <li>Plano de manutenção preventiva</li>
+                        <li>Gestão da equipe operacional</li>
+                        <li>Acompanhamento contínuo</li>
+                    </ol>
+                </section>
+
+                <!-- O que fazemos: 4 cards, dois por linha -->
+                <section aria-labelledby="titulo-o-que-fazemos">
+                    <div class="ex-cabecalho">
+                        <span class="ex-sobretitulo">O que fazemos</span>
+                        <h2 id="titulo-o-que-fazemos">Gestão operacional na prática</h2>
+                        <p class="ex-subtitulo">As principais frentes de atuação para manter as rotinas do condomínio organizadas e acompanhadas.</p>
+                    </div>
+
+                    <div class="conteiner-flex">
+                        <article class="card">
+                            <h3>Gestão de porteiros e zeladores</h3>
+                            <p>Acompanhamento das equipes responsáveis pela rotina operacional do condomínio.</p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Manutenção preventiva</h3>
+                            <p>Agendamento e acompanhamento das manutenções preventivas das instalações e equipamentos.</p>
+                        </article>
+                    </div>
+
+                    <div class="conteiner-flex">
+                        <article class="card">
+                            <h3>Fornecedores</h3>
+                            <p>Contratação, acompanhamento e fiscalização dos prestadores de serviços.</p>
+                        </article>
+
+                        <article class="card">
+                            <h3>Emergências</h3>
+                            <p>Plantão para situações emergenciais que demandam atenção ao longo da operação.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Escopo: lista e tabela "O que está incluso" -->
+                <section aria-labelledby="titulo-incluso">
+                    <div class="ex-cabecalho">
+                        <span class="ex-sobretitulo">Escopo</span>
+                        <h2 id="titulo-incluso">O que está incluso</h2>
+                        <p class="ex-subtitulo">Uma visão objetiva das principais frentes contempladas na gestão operacional.</p>
+                    </div>
+                    <ul>
+                        <li>Seleção e gestão de porteiros e zeladores</li>
+                        <li>Plano preventivo de equipamentos</li>
+                        <li>Acompanhamento das áreas comuns</li>
+                        <li>Contratação de prestadores</li>
+                        <li>Fiscalização de fornecedores</li>
+                    </ul>
                     <table>
+                        <caption>Frentes incluídas na gestão operacional</caption>
                         <thead>
                             <tr>
-                                <th> Fornecedores </th>
+                                <th scope="col">FRENTE</th>
+                                <th scope="col">DESCRIÇÃO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td> Contratação, acompanhamento e fiscalização dos prestadores de serviços. </td>
+                                <td>Equipe</td>
+                                <td>Seleção e gestão de porteiros e zeladores</td>
+                            </tr>
+                            <tr>
+                                <td>Manutenção</td>
+                                <td>Plano preventivo de equipamentos e áreas comuns</td>
+                            </tr>
+                            <tr>
+                                <td>Fornecedores</td>
+                                <td>Contratação e fiscalização de prestadores</td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
 
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> Emergências </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Plantão para situações emergenciais que demandam atenção ao longo da operação.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
+                <!-- Links internos "contato" e "serviços" -->
+                <div class="conteiner-link-flex">
+                    <a class="ex-botao ex-botao--primario" href="contato.html">Solicitar orçamento</a>
+                    <a class="ex-botao ex-botao--secundario" href="servicos.html">Voltar para serviços</a>
+                </div>
+
+                <!-- Fonte da foto do topo -->
+                <p class="ex-nota nota-fonte">Foto do topo: Pixabay / gerado por IA.</p>
             </div>
-
-            <section> <!--Tabela "O que está incluso"-->
-                <strong> -- ESCOPO </strong>
-                <h2>O que está incluso</h2>
-                <p>Uma visão objetiva das principais frentes contempladas na gestão operacional.</p>
-                <ul>
-                    <li> Seleção e gestão de porteiros e zeladores </li>
-                    <li> Plano preventivo de equipamentos </li>
-                    <li> Acompanhamento das áreas comuns </li>
-                    <li> Contratação de prestadores </li>
-                    <li> Fiscalização de fornecedores </li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> FRENTE </th>
-                            <th> DESCRIÇÃO </th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> Equipe </td>
-                            <td> Seleção e gestão de porteiros e zeladores</td>
-                        </tr>
-                        <tr>
-                            <td> Manutenção </td>
-                            <td> Plano preventivo de equipamentos e áreas comuns</td>
-                        </tr>
-                        <tr>
-                            <td> Fornecedores </td>
-                            <td> Contratação e fiscalização de prestadores</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!--Links internos "serviços" e "contato"-->
-            <div class="conteiner-link-flex">
-                <section>
-                        <a class="link1" href="contato.html"> Solicitar orçamento </a>
-                </section>
-                <section>
-                        <a class="link2" href="servicos.html"> Voltar para serviços </a>
-                </section>
-            </div>
-
-        </article>
+        </div>
     </main>
 
-    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
                 <div class="ex-rodape__marca">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
                     <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
                     <div class="ex-rodape__selos">
                         <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
@@ -398,28 +256,38 @@
                         <p class="ex-rodape__fone">Atendimento Regional</p>
                     </div>
                 </div>
-                <nav class="ex-rodape__nav" aria-label="Páginas do site">
-                    <span class="ex-rodape__rotulo">Páginas Internas</span>
-                    <div class="ex-rodape__links">
-                        <a href="quem-somos.html">Quem Somos</a>
-                        <a href="servicos.html">Serviços Vitrine</a>
-                        <a href="clientes.html">Clientes</a>
-                        <a href="projetos.html">Projetos &amp; Cases</a>
-                        <a href="noticias.html">Notícias &amp; Blog</a>
-                        <a href="faq.html">FAQ &amp; Dúvidas</a>
-                        <a href="contato.html">Fale Conosco</a>
-                        <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
-                    </div>
-                </nav>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="quem-somos.html">Quem Somos</a>
+                            <a href="servicos.html">Serviços Vitrine</a>
+                            <a href="clientes.html">Clientes</a>
+                            <a href="projetos.html">Projetos &amp; Cases</a>
+                            <a href="noticias.html">Notícias &amp; Blog</a>
+                            <a href="faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="contato.html">Fale Conosco</a>
+                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="../docs/paginas.html">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
             </div>
         </div>
     </footer>
-    <!-- <script src="../js/menu.js"></script>
-    <script src="../js/assistente.js"></script> -->
+    <script src="../js/menu.js"></script>
+    <script src="../js/cookies.js"></script>
 </body>
 
 </html>

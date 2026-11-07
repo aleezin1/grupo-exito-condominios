@@ -1,82 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Serviços | Grupo Êxito Condomínios</title>
-    <meta name="description" content="Gestão administrativa, financeira e operacional para condomínios residenciais e comerciais.">
+    <meta name="description"
+        content="Gestão administrativa, financeira e operacional para condomínios residenciais e comerciais.">
     <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#06152d">
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="../css/paleta.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <!-- <link rel="stylesheet" href="../css/acessibilidade.css">
-    <link rel="stylesheet" href="../css/assistente.css">
-    <script src="../js/acessibilidade.js"></script> -->
-  <style>
-    :root {
-      --texto: #1c2b26;
-      --fundo: #fbfaf7;
-      --borda: #d9d6cc;
-      --destaque: #1f6b4f;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-      color: var(--texto);
-      background: var(--fundo);
-    }
-
-    main {
-      max-width: 60rem;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem;
-    }
-
-    a { color: var(--destaque); }
-    a:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
-
-    h1 { font-size: 2rem; margin: 0 0 .5rem; }
-    h2 { font-size: 1.3rem; margin: 0 0 .5rem; }
-
-    .servicos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .servico {
-      border-top: 3px solid var(--destaque);
-      padding-top: 1rem;
-    }
-
-    .servico img { width: 72px; height: 72px; display: block; margin-bottom: .75rem; }
-
-    .tabela-wrapper { overflow-x: auto; margin-top: 1rem; }
-
-    table { border-collapse: collapse; width: 100%; min-width: 36rem; }
-    caption { text-align: left; font-weight: bold; font-size: 1.2rem; padding-bottom: .75rem; }
-    th, td { border: 1px solid var(--borda); padding: .6rem .75rem; text-align: left; vertical-align: top; }
-    thead th { background: #eef3ef; }
-
-    .chamada { margin-top: 2.5rem; }
-  </style>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/acessibilidade.js"></script>
 </head>
-<body>
-    <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+
+<body class="pagina-servicos">
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -97,10 +39,12 @@
                         <span>Operação Digital Conectada</span>
                     </div>
                     <div class="ex-topo__redes">
-                        <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                        <a class="ex-topo__rede" aria-label="Instagram"
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
                             <span class="material-symbols-outlined">photo_camera</span>
                         </a>
-                        <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                        <a class="ex-topo__rede" aria-label="Facebook"
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
                             <span class="material-symbols-outlined">public</span>
                         </a>
                     </div>
@@ -110,7 +54,9 @@
         <div class="ex-barra">
             <div class="ex-conteudo">
                 <a class="ex-logo" href="../index.html">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
                 </a>
                 <nav class="ex-menu" aria-label="Navegação principal">
                     <a class="ex-menu__link" href="../index.html">Início</a>
@@ -127,7 +73,8 @@
                         <span>Falar com Consultor</span>
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
-                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false"
+                        aria-label="Abrir menu" data-menu-toggle>
                         <span class="material-symbols-outlined ex-icone-abrir">menu</span>
                         <span class="material-symbols-outlined ex-icone-fechar">close</span>
                     </button>
@@ -153,78 +100,130 @@
         </div>
     </header>
 
-  <main>
-    <h1>Nossos serviços</h1>
-    <p>Três formas de organizar o seu dinheiro. Veja o que cada uma entrega e escolha a que resolve o seu problema agora.</p>
-    <section class="servicos" aria-label="Resumo dos serviços">
+    <main>
+        <!-- TOPO com foto (componente .ex-hero) -->
+        <section class="ex-hero">
+            <div class="ex-hero__pelicula"></div>
+            <div class="ex-hero__conteudo">
+                <span class="ex-hero__rotulo">Serviços</span>
+                <h1 class="ex-hero__titulo">Serviços para
+                    <strong>administração de condomínios</strong>
+                </h1>
+                <p class="ex-hero__texto">
+                    Conheça nossas opções de serviços
+                </p>
+            </div>
+        </section>
 
-        <article class="servico">
-        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.03.jpeg" alt="Ícone representando gesgão financeira" style="width: 1000; height: auto;">
-        <h2>Gestão financeira</h2>
-        <p>Acompanhamos suas contas mês a mês: entradas, saídas e dívidas. Você recebe um orçamento pronto e um relatório mensal mostrando para onde o dinheiro está indo.</p>
-        <a href="servicos-1.html">Ver gestão financeira</a>
-      </article>
+        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
+        <div class="ex-container">
+            <!-- RESUMO DOS SERVIÇOS: 3 cards lado a lado (grade automática).
+                 No celular, um card embaixo do outro. -->
+            <section class="servicos" aria-labelledby="titulo-servicos">
 
-      <article class="servico">
-        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.03%20(1).jpeg" alt="Ícone representando planejamento de investimentos" style="width: 1000; height: auto;">
-        <h2>Planejamento de investimentos</h2>
-        <p>Montamos uma carteira de investimentos alinhada ao seu perfil de risco e aos seus objetivos, como comprar um imóvel ou construir uma reserva de longo prazo.</p>
-        <a href="servicos-2.html">Ver planejamento de investimentos</a>
-      </article>
+                <div class="ex-cabecalho">
+                    <h2 id="titulo-servicos">Como podemos ajudar</h2>
+                    <p class="ex-subtitulo">Conheça nossas principais especialidades e como podemos fazer a diferença no
+                        seu dia a dia.</p>
+                </div>
 
-      <article class="servico">
-        <img src="../img/WhatsApp%20Image%202026-09-24%20at%2012.52.04.jpeg" alt="Ícone representando consultoria tributária" style="width: 1000; height: auto;">
-        <h2>Consultoria tributária</h2>
-        <p>Analisamos seus impostos e sua declaração de Imposto de Renda para reduzir a carga tributária dentro da lei e evitar multas por erros ou atrasos.</p>
-        <a href="servicos-3.html">Ver consultoria tributária</a>
-      </article>
+                <div class="servicos-grade">
 
-    </section>
+                    <article class="servico">
+                        <img src="../img/servicos/consultoria-tributaria.jpg" width="499" height="1024"
+                            alt="Cartaz com um notebook, livros, uma balança da justiça e uma folha escrita Impostos com uma caneta em cima">
+                        <h3>Gestão Administrativa</h3>
+                        <p>
+                            Gerenciamento de cadastros, atendimento aos condôminos, organização documental,
+                            comunicados, apoio ao síndico e acompanhamento de demandas.
+                        </p>
+                        <a href="servicos-1.html">Ver gestão administrativa</a>
+                    </article>
 
-    <section class="tabela-wrapper" aria-label="Comparação dos serviços">
-      <table>
-        <caption>Comparação dos serviços</caption>
-        <thead>
-          <tr>
-            <th scope="col">Serviço</th>
-            <th scope="col">Para quem</th>
-            <th scope="col">O que você recebe</th>
-            <th scope="col">Duração</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><a href="servicos-1.html">Gestão financeira</a></th>
-            <td>Quem gasta mais do que planeja ou tem dívidas</td>
-            <td>Orçamento e relatório mensal</td>
-            <td>Contínuo, mensal</td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="servicos-2.html">Planejamento de investimentos</a></th>
-            <td>Quem já sobra dinheiro e quer fazê-lo render</td>
-            <td>Carteira personalizada por objetivo</td>
-            <td>3 encontros, com revisão anual</td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="servicos-3.html">Consultoria tributária</a></th>
-            <td>Autônomos, MEIs e quem tem várias fontes de renda</td>
-            <td>Análise fiscal e declaração revisada</td>
-            <td>Pontual, uma vez por ano</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+                    <article class="servico">
+                        <img src="../img/servicos/gestao-financeira.jpg" width="510" height="1024"
+                            alt="Cartaz com uma calculadora, um caderno com a lista receitas, despesas, metas e resultados e uma caneta sobre a mesa">
+                        <h3>Gestão Financeira</h3>
+                        <p>
+                            Elaboração e acompanhamento da previsão orçamentária, pagamentos, vencimentos, cobrança
+                            administrativa, balancetes e prestação de contas.
+                        </p>
+                        <a href="servicos-2.html">Ver gestão financeira</a>
+                    </article>
 
-    <p class="chamada">Não sabe qual serviço escolher? <a href="contato.html">Fale com a gente</a>.</p>
-  </main>
+                    <article class="servico">
+                        <img src="../img/servicos/planejamento-investimentos.jpg" width="522" height="1023"
+                            alt="Cartaz com pilhas de moedas cada vez mais altas, com um broto de planta em cada uma, e uma seta de gráfico subindo">
+                        <h3>Gestão Operacional</h3>
+                        <p>
+                            Acompanhamento das rotinas operacionais, fornecedores, segurança, manutenção preventiva e
+                            necessidades do condomínio.
+                        </p>
+                        <a href="servicos-3.html">Ver gestão operacional</a>
+                    </article>
+                </div>
+            </section>
 
-    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+            <!-- COMPARAÇÃO: a tabela rola para o lado no celular -->
+            <section class="servicos-comparacao" aria-labelledby="titulo-comparacao">
+                <h2 id="titulo-comparacao">Qual serviço é o ideal para você?</h2>
+                <div class="tabela-wrapper">
+                    <table>
+                        <caption>Comparação dos serviços</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Serviço</th>
+                                <th scope="col">Para quem</th>
+                                <th scope="col">O que você recebe</th>
+                                <th scope="col">Duração</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="servicos-1.html">Gestão Administrativa</a></th>
+                                <td>Síndicos que precisam de apoio com cadastros, documentos, comunicados e
+                                    demandas</td>
+                                <td>Cadastros em dia, atendimento aos condôminos, documentos organizados, comunicados e
+                                    acompanhamento de demandas</td>
+                                <td>Contínuo, com acompanhamento mensal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="servicos-2.html">Gestão Financeira</a></th>
+                                <td>Síndicos que querem mais clareza, segurança e agilidade nas decisões</td>
+                                <td>Previsão orçamentária, pagamentos e vencimentos, cobrança administrativa, balancetes
+                                    e prestação de contas</td>
+                                <td>Contínuo, com acompanhamento da previsão orçamentária</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="servicos-3.html">Gestão Operacional</a></th>
+                                <td>Condomínios que precisam de fornecedores, segurança e manutenção organizados</td>
+                                <td>Acompanhamento das rotinas operacionais, dos fornecedores, da segurança e da
+                                    manutenção preventiva</td>
+                                <td>Contínuo, com plantão para emergências 24h</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- CHAMADA FINAL: leva para a página de contato -->
+            <p class="chamada">Não sabe qual serviço escolher? <a href="contato.html">Fale com a gente</a>.</p>
+
+            <!-- Fonte da foto do topo -->
+            <p class="ex-nota nota-fonte">Foto do topo: Pixabay. Fotos dos serviços: Pixabay / gerado por IA.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
                 <div class="ex-rodape__marca">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
-                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e
+                        soluções sob medida para síndicos e condôminos.</p>
                     <div class="ex-rodape__selos">
                         <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
                         <span class="ex-rodape__selo">ROZENDO ADM</span>
@@ -250,27 +249,38 @@
                         <p class="ex-rodape__fone">Atendimento Regional</p>
                     </div>
                 </div>
-                <nav class="ex-rodape__nav" aria-label="Páginas do site">
-                    <span class="ex-rodape__rotulo">Páginas Internas</span>
-                    <div class="ex-rodape__links">
-                        <a href="quem-somos.html">Quem Somos</a>
-                        <a href="servicos.html">Serviços Vitrine</a>
-                        <a href="clientes.html">Clientes</a>
-                        <a href="projetos.html">Projetos &amp; Cases</a>
-                        <a href="noticias.html">Notícias &amp; Blog</a>
-                        <a href="faq.html">FAQ &amp; Dúvidas</a>
-                        <a href="contato.html">Fale Conosco</a>
-                        <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
-                    </div>
-                </nav>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="quem-somos.html">Quem Somos</a>
+                            <a href="servicos.html">Serviços Vitrine</a>
+                            <a href="clientes.html">Clientes</a>
+                            <a href="projetos.html">Projetos &amp; Cases</a>
+                            <a href="noticias.html">Notícias &amp; Blog</a>
+                            <a href="faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="contato.html">Fale Conosco</a>
+                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="../docs/paginas.html">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
             </div>
         </div>
     </footer>
     <script src="../js/menu.js"></script>
-    <!-- <script src="../js/assistente.js"></script> -->
+    <script src="../js/cookies.js"></script>
 </body>
+
 </html>

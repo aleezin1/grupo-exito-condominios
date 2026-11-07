@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Página: quem-somos.html
+   Só vale para esta página: toda regra começa com .pagina-quem-somos
+   (classe do <body>). Assim ela não mexe nas outras páginas quando todo o
+   CSS é juntado no css/style.css (python docs/scripts/montar_style.py).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no global.css, iguais em todo o site. Esta página não muda a
+   tipografia: só a cor, quando o texto está sobre fundo escuro. As
+   variações (nota pequena...) usam os componentes .ex-* do global.css.
+   Aqui ficam só o alinhamento, os espaços, as caixas e as cores de fundo. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do global.css, de ponta a ponta da tela.
+   Aqui fica só a foto de fundo desta página (o caminho sai de css/page/
+   até img/). */
+.pagina-quem-somos .ex-hero {
+    background-image: url("../../img/hero-reuniao-condominio.jpg");
+}
+
+/* O conteúdo abaixo do topo usa o container-base do site (.ex-container,
+   1200px, com o mesmo respiro lateral do header e do footer). Aqui fica só
+   o espaço de baixo do conteúdo. O espaço de cima (50px abaixo do topo)
+   vem do componente .ex-hero. */
+.pagina-quem-somos main > .ex-container {
+    padding-bottom: 60px;
+}
+
+/* Títulos das seções (Missão, Visão, Valores) com mais espaço acima.
+   O primeiro (Nossa Missão) fica sem margem em cima pela regra do topo
+   (.ex-hero) no padrão do site. */
+.pagina-quem-somos main > .ex-container > h2 {
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.pagina-quem-somos .valores {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagina-quem-somos .valor {
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    flex: 1;
+    text-align: center;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina-quem-somos .valor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(6, 21, 45, 0.12);
+    border-color: rgb(0, 188, 212);
+}
+
+/* Vídeo: um especialista explica */
+.pagina-quem-somos .video-especialista {
+    margin-top: 60px;
+}
+
+.pagina-quem-somos .video-especialista h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.pagina-quem-somos .video-especialista figure {
+    max-width: 100%;
+    margin: 25px auto 0;
+}
+
+/* Vídeo responsivo: ocupa a largura toda e mantém o formato 16:9 */
+.pagina-quem-somos .video-especialista iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.06);
+}
+
+/* Legenda com o aviso e o crédito do vídeo (texto: componente .ex-nota) */
+.pagina-quem-somos .video-especialista figcaption {
+    margin-top: 12px;
+}
+
+/* Diferenciais da empresa: caixa azul-marinho. Os textos direto sobre o
+   fundo escuro (título e descrição) ficam claros; os cards de dentro são
+   brancos e usam o padrão. */
+.pagina-quem-somos .diferenciais {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(
+        135deg,
+        rgb(6, 21, 45),
+        rgb(10, 30, 59)
+    );
+    border-radius: 12px;
+}
+
+.pagina-quem-somos .diferenciais h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-quem-somos .descricao-diferenciais {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgb(214, 247, 255);
+}
+
+.pagina-quem-somos .lista-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagina-quem-somos .diferencial {
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid rgb(0, 188, 212);
+    border-left: 1px solid rgb(226, 232, 240);
+    border-right: 1px solid rgb(226, 232, 240);
+    border-bottom: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.08);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina-quem-somos .diferencial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+    border-top-color: rgb(24, 168, 182);
+}
+
+.pagina-quem-somos .diferencial h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.pagina-quem-somos .diferencial p {
+    margin-bottom: 0;
+}
+
+/* Fonte da foto do topo: nota discreta no fim da página (texto: componente
+   .ex-nota; aqui só o espaço e o alinhamento, iguais aos da Clientes) */
+.pagina-quem-somos .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .pagina-quem-somos .valores,
+    .pagina-quem-somos .lista-diferenciais {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .pagina-quem-somos main > .ex-container {
+        padding-bottom: 40px;
+    }
+
+    .pagina-quem-somos .diferenciais {
+        padding: 30px 20px;
+    }
+
+    .pagina-quem-somos .video-especialista {
+        margin-top: 40px;
+    }
+}

@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Página: confirmacao.html
+   Só vale com <body class="pagina-confirmacao">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no global.css, iguais em todo o site. Esta página não muda a
+   tipografia. O título usa o .ex-titulo, o número do protocolo usa o
+   .ex-numero, o número e o prazo de cada etapa usam a .ex-etiqueta, os
+   rótulos do resumo usam o .ex-sobretitulo e as descrições, o contato e o
+   aviso usam o .ex-nota. Aqui ficam só o alinhamento, os espaços, as caixas
+   e, no fundo azul-marinho, a cor do texto (branco ou ciano). */
+
+/* Fundo da página: um brilho ciano no canto de cima sobre o fundo claro */
+.pagina-confirmacao main {
+    padding: 4rem 0 5rem;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(0, 188, 212, 0.12), transparent 45%),
+        rgb(248, 250, 253);
+}
+
+/* Duas colunas no computador (cartão + próximos passos), uma no celular */
+.pagina-confirmacao .confirmacao__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+    .pagina-confirmacao .confirmacao__grade {
+        grid-template-columns: 7fr 5fr;
+        align-items: start;
+    }
+}
+
+/* ---- Cartão principal -------------------------------------------------- */
+.pagina-confirmacao .confirmacao__cartao {
+    padding: 2.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+@media (max-width: 640px) {
+    .pagina-confirmacao .confirmacao__cartao {
+        padding: 1.5rem;
+    }
+}
+
+/* Check animado (círculo e "visto" desenhados aos poucos) */
+.pagina-confirmacao .confirmacao__check {
+    display: block;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.5rem;
+}
+
+.pagina-confirmacao .confirmacao__check circle {
+    fill: rgba(16, 185, 129, 0.12);
+    stroke: rgb(16, 185, 129);
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: confirmacao-traco 0.6s ease-out forwards;
+}
+
+.pagina-confirmacao .confirmacao__check path {
+    fill: none;
+    stroke: rgb(16, 185, 129);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: confirmacao-traco 0.4s 0.5s ease-out forwards;
+}
+
+/* O nome começa com "confirmacao" para não colidir com outra página */
+@keyframes confirmacao-traco {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Espaço entre a etiqueta e o título do cartão.
+   Duas classes juntas para ganhar do "margin: 0" do .ex-titulo do global.css */
+.pagina-confirmacao .ex-titulo.confirmacao__titulo {
+    margin-top: 0.75rem;
+}
+
+.pagina-confirmacao .confirmacao__texto {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+}
+
+/* Protocolo (caixa tracejada) */
+.pagina-confirmacao .confirmacao__protocolo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed rgba(0, 104, 118, 0.45);
+    border-radius: 1rem;
+    background: rgba(214, 247, 255, 0.45);
+}
+
+/* Número do protocolo (texto: componente .ex-numero) */
+.pagina-confirmacao .confirmacao__protocolo-numero {
+    margin-top: 0.25rem;
+}
+
+/* Botão "Copiar" um pouco mais baixo que os outros botões */
+.pagina-confirmacao .confirmacao__copiar {
+    padding: 0.625rem 1rem;
+}
+
+/* Resumo dos dados enviados (rótulos: componente .ex-sobretitulo) */
+.pagina-confirmacao .confirmacao__resumo {
+    margin-top: 2rem;
+}
+
+.pagina-confirmacao .confirmacao__lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0.75rem 0 0;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .pagina-confirmacao .confirmacao__lista {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.pagina-confirmacao .confirmacao__item {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+    background: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__item dd {
+    margin: 0.125rem 0 0;
+    overflow-wrap: anywhere;      /* e-mail ou texto longo quebra em vez de vazar */
+}
+
+/* Campo com texto longo (ex.: mensagem) ocupa a linha inteira */
+.pagina-confirmacao .confirmacao__item--largo {
+    grid-column: 1 / -1;
+}
+
+/* Botões */
+.pagina-confirmacao .confirmacao__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* Aviso do fim do cartão (texto: componente .ex-nota) */
+.pagina-confirmacao .confirmacao__aviso {
+    margin: 1.5rem 0 0;
+}
+
+/* ---- Coluna lateral: próximos passos (fundo azul-marinho) -------------- */
+.pagina-confirmacao .confirmacao__passos {
+    padding: 2rem;
+    background: rgb(6, 21, 45);
+    border-radius: 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__passos .ex-sobretitulo {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-confirmacao .confirmacao__passos-titulo {
+    margin: 0 0 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__linha {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-confirmacao .confirmacao__passo {
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+}
+
+.pagina-confirmacao .confirmacao__passo:last-child {
+    padding-bottom: 0;
+}
+
+/* Linha vertical ligando os passos */
+.pagina-confirmacao .confirmacao__passo:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 34px;
+    bottom: 2px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Número da etapa: componente .ex-etiqueta, aqui só a bolinha */
+.pagina-confirmacao .confirmacao__passo-numero {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgb(0, 188, 212);
+}
+
+/* Etapa já feita: bolinha verde com o "visto" branco */
+.pagina-confirmacao .confirmacao__passo--feito .confirmacao__passo-numero {
+    background: rgb(16, 185, 129);
+    border-color: rgb(16, 185, 129);
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__passo strong {
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+/* Descrição da etapa (texto: componente .ex-nota), branco mais suave */
+.pagina-confirmacao .confirmacao__passo .confirmacao__passo-descricao {
+    display: block;
+    margin-top: 0.125rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Prazo da etapa (texto: componente .ex-etiqueta), em ciano */
+.pagina-confirmacao .confirmacao__passo .confirmacao__prazo {
+    display: inline-block;
+    margin-top: 0.375rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    background: rgba(0, 188, 212, 0.15);
+    color: rgb(0, 188, 212);
+}
+
+/* Telefone e e-mail no fim da coluna (texto: componente .ex-nota) */
+.pagina-confirmacao .confirmacao__contato {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pagina-confirmacao .confirmacao__contato a {
+    color: rgb(0, 188, 212);
+    text-decoration: none;
+}
+
+/* Estado "sem dados" (página aberta direto, sem enviar formulário):
+   o !important garante que o "hidden" esconda até os botões .ex-botao */
+.pagina-confirmacao [hidden] {
+    display: none !important;
+}
+
+/* ---- Impressão: "Salvar comprovante" ------------------------------------
+   Esconde o menu, o rodapé, os botões e os recursos flutuantes (assistente
+   e acessibilidade) só nesta página, e imprime tudo em azul-marinho. */
+@media print {
+    .pagina-confirmacao .ex-header,
+    .pagina-confirmacao .ex-rodape,
+    .pagina-confirmacao .confirmacao__acoes,
+    .pagina-confirmacao .confirmacao__copiar,
+    .pagina-confirmacao .ga-botao,
+    .pagina-confirmacao .ga-painel,
+    .pagina-confirmacao .ac-botao,
+    .pagina-confirmacao .ac-painel {
+        display: none !important;
+    }
+
+    .pagina-confirmacao main {
+        padding: 0;
+        background: none;
+    }
+
+    .pagina-confirmacao .confirmacao__cartao,
+    .pagina-confirmacao .confirmacao__passos {
+        box-shadow: none;
+        border: 1px solid rgb(226, 232, 240);
+        background: rgb(255, 255, 255);
+        color: rgb(6, 21, 45);
+    }
+
+    .pagina-confirmacao .confirmacao__passos * {
+        color: rgb(6, 21, 45) !important;
+    }
+}

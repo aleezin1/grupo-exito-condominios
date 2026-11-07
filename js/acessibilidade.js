@@ -1,6 +1,6 @@
 // Menu de acessibilidade — monta o botão e o painel sozinho, em qualquer página.
 // Carregue no <head> (sem defer): assim as preferências salvas são aplicadas antes
-// da página aparecer, sem "piscar". Estilos em css/acessibilidade.css.
+// da página aparecer, sem "piscar". Estilos em css/style.css (bloco COMPONENTE: acessibilidade).
 (function () {
     var raiz = document.documentElement;
     var CHAVE = 'ge-acessibilidade';
@@ -43,8 +43,6 @@
         OPCOES.forEach(function (op) {
             raiz.classList.toggle('ac-' + op.id, !!estado[op.id]);
         });
-        // avisa outros scripts (parallax, carrossel)
-        document.dispatchEvent(new CustomEvent('ac:mudou', { detail: estado }));
     }
 
     aplicar(); // já no <head>, antes de a página aparecer

@@ -12,22 +12,12 @@
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="../css/paleta.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <!-- <link rel="stylesheet" href="../css/acessibilidade.css">
-    <link rel="stylesheet" href="../css/assistente.css"> -->
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/acessibilidade.js"></script>
-    <link rel="stylesheet" href="../css/componentes.css">
-    <link rel="stylesheet" href="../css/confirmacao.css">
 </head>
 
-<body class="ex-pagina">
-    <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+<body class="pagina-confirmacao">
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -61,7 +51,7 @@
         <div class="ex-barra">
             <div class="ex-conteudo">
                 <a class="ex-logo" href="../index.html">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
                 </a>
                 <nav class="ex-menu" aria-label="Navegação principal">
                     <a class="ex-menu__link" href="../index.html">Início</a>
@@ -103,7 +93,7 @@
             </nav>
         </div>
     </header>
-    <main class="confirmacao">
+    <main>
         <div class="ex-container">
             <div class="confirmacao__grade">
 
@@ -115,7 +105,7 @@
                     </svg>
 
                     <span class="ex-etiqueta" id="confirmacao-tipo">Solicitação</span>
-                    <h1 class="ex-titulo" id="confirmacao-titulo" style="margin-top: 0.75rem;">
+                    <h1 class="ex-titulo confirmacao__titulo" id="confirmacao-titulo">
                         Recebemos sua solicitação<span id="confirmacao-nome"></span>!
                     </h1>
                     <p class="ex-subtitulo confirmacao__texto">
@@ -127,7 +117,7 @@
                     <div class="confirmacao__protocolo" id="confirmacao-bloco-protocolo">
                         <div>
                             <span class="ex-sobretitulo">Número do protocolo</span>
-                            <strong class="confirmacao__protocolo-numero" id="confirmacao-protocolo">—</strong>
+                            <strong class="ex-numero confirmacao__protocolo-numero" id="confirmacao-protocolo">—</strong>
                         </div>
                         <button class="ex-botao ex-botao--secundario confirmacao__copiar" type="button"
                             id="confirmacao-copiar">Copiar</button>
@@ -147,7 +137,7 @@
                             comprovante</button>
                     </div>
 
-                    <p class="confirmacao__aviso">
+                    <p class="ex-nota confirmacao__aviso">
                         Projeto acadêmico: nenhum dado foi enviado. As informações ficam só neste navegador e
                         somem ao fechar a aba.
                     </p>
@@ -159,30 +149,30 @@
                     <h2 class="confirmacao__passos-titulo" id="passos-titulo">Próximos passos</h2>
                     <ol class="confirmacao__linha">
                         <li class="confirmacao__passo confirmacao__passo--feito">
-                            <span class="confirmacao__passo-numero">✓</span>
+                            <span class="ex-etiqueta confirmacao__passo-numero">✓</span>
                             <strong>Solicitação registrada</strong>
-                            <span class="confirmacao__passo-descricao" id="confirmacao-data">Agora mesmo</span>
+                            <span class="ex-nota confirmacao__passo-descricao" id="confirmacao-data">Agora mesmo</span>
                         </li>
                         <li class="confirmacao__passo">
-                            <span class="confirmacao__passo-numero">2</span>
+                            <span class="ex-etiqueta confirmacao__passo-numero">2</span>
                             <strong>Análise do consultor</strong>
-                            <span class="confirmacao__passo-descricao">Avaliamos o perfil do condomínio e a necessidade informada.</span>
-                            <span class="confirmacao__prazo">Até 2h úteis</span>
+                            <span class="ex-nota confirmacao__passo-descricao">Avaliamos o perfil do condomínio e a necessidade informada.</span>
+                            <span class="ex-etiqueta confirmacao__prazo">Até 2h úteis</span>
                         </li>
                         <li class="confirmacao__passo">
-                            <span class="confirmacao__passo-numero">3</span>
+                            <span class="ex-etiqueta confirmacao__passo-numero">3</span>
                             <strong>Contato personalizado</strong>
-                            <span class="confirmacao__passo-descricao">Um consultor entra em contato para entender os detalhes.</span>
-                            <span class="confirmacao__prazo">Até 1 dia útil</span>
+                            <span class="ex-nota confirmacao__passo-descricao">Um consultor entra em contato para entender os detalhes.</span>
+                            <span class="ex-etiqueta confirmacao__prazo">Até 1 dia útil</span>
                         </li>
                         <li class="confirmacao__passo">
-                            <span class="confirmacao__passo-numero">4</span>
+                            <span class="ex-etiqueta confirmacao__passo-numero">4</span>
                             <strong>Estudo e proposta</strong>
-                            <span class="confirmacao__passo-descricao">Você recebe o estudo comparativo e a proposta sob medida.</span>
-                            <span class="confirmacao__prazo">Até 3 dias úteis</span>
+                            <span class="ex-nota confirmacao__passo-descricao">Você recebe o estudo comparativo e a proposta sob medida.</span>
+                            <span class="ex-etiqueta confirmacao__prazo">Até 3 dias úteis</span>
                         </li>
                     </ol>
-                    <p class="confirmacao__contato">
+                    <p class="ex-nota confirmacao__contato">
                         Precisa falar agora? Ligue <a href="tel:1125649963">(11) 2564-9963</a> ou escreva para
                         <a href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a>.
                     </p>
@@ -192,12 +182,12 @@
         </div>
     </main>
 
-    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
                 <div class="ex-rodape__marca">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
                     <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
                     <div class="ex-rodape__selos">
                         <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
@@ -224,28 +214,37 @@
                         <p class="ex-rodape__fone">Atendimento Regional</p>
                     </div>
                 </div>
-                <nav class="ex-rodape__nav" aria-label="Páginas do site">
-                    <span class="ex-rodape__rotulo">Páginas Internas</span>
-                    <div class="ex-rodape__links">
-                        <a href="quem-somos.html">Quem Somos</a>
-                        <a href="servicos.html">Serviços Vitrine</a>
-                        <a href="clientes.html">Clientes</a>
-                        <a href="projetos.html">Projetos &amp; Cases</a>
-                        <a href="noticias.html">Notícias &amp; Blog</a>
-                        <a href="faq.html">FAQ &amp; Dúvidas</a>
-                        <a href="contato.html">Fale Conosco</a>
-                        <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
-                    </div>
-                </nav>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="quem-somos.html">Quem Somos</a>
+                            <a href="servicos.html">Serviços Vitrine</a>
+                            <a href="clientes.html">Clientes</a>
+                            <a href="projetos.html">Projetos &amp; Cases</a>
+                            <a href="noticias.html">Notícias &amp; Blog</a>
+                            <a href="faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="contato.html">Fale Conosco</a>
+                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="../docs/paginas.html">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
             </div>
         </div>
     </footer>
     <script src="../js/menu.js"></script>
-    <!-- <script src="../js/assistente.js"></script> -->
     <script>
         // Mostra os dados guardados por js/formulario.js
         (function () {
@@ -277,6 +276,7 @@
                 var item = document.createElement('div');
                 item.className = 'confirmacao__item' + (campo.valor.length > 40 ? ' confirmacao__item--largo' : '');
                 var dt = document.createElement('dt');
+                dt.className = 'ex-sobretitulo';
                 dt.textContent = campo.rotulo;
                 var dd = document.createElement('dd');
                 dd.textContent = campo.valor;
@@ -300,6 +300,7 @@
             });
         })();
     </script>
+    <script src="../js/cookies.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Página: projetos.html
+   Carregado depois de css/global.css. Só vale para esta página.
+   (veio do <style> que ficava dentro de projetos.html)
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de body, h1, h2, h3, p e a vêm do padrão das
+   tags no global.css. */
+
+/* Conteúdo centralizado (a página não tem <main>, por isso fica no body;
+   o header e o rodapé têm text-align próprio e não mudam) */
+/* body {
+    text-align: center;
+} */
+
+/* Foto do topo (componente .ex-hero) */
+.pagina-projetos .ex-hero {
+    background-image: url("../../img/projetos/hero.jpg");
+    margin-bottom: 50px;
+}
+
+/* Faixas coloridas com texto branco: título da página e chamada final.
+   Fundo teal da paleta (antes #1677d2, fora da paleta) */
+.pagina-projetos .projetos__titulo,
+.pagina-projetos .chamada h2 {
+    margin: 0;
+    padding: 20px 12px;
+    background-color: rgb(0, 104, 118);
+    color: rgb(255, 255, 255);
+}
+
+.pagina-projetos .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 900px;
+}
+
+/* Fotos dos cards de projeto (só as do .projeto: o logo do header e do
+   rodapé não mudam) */
+.pagina-projetos .projeto img {
+    display: block;
+    max-width: 800px;
+    width: 90%;
+    height: 600px;
+    border-radius: 8px;
+}

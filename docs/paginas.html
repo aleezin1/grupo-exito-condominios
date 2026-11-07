@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Páginas do site | Grupo Êxito Condomínios</title>
+    <meta name="description" content="Painel interno do grupo com o link de todas as páginas do site e o andamento de cada uma.">
+    <!-- Página interna do grupo: não faz parte do site e não deve aparecer no Google. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#06152d">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
+    <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/acessibilidade.js"></script>
+</head>
+
+<body>
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:1125649963">
+                        <span class="material-symbols-outlined">call</span>
+                        <span>(11) 2564-9963</span>
+                    </a>
+                    <span class="ex-topo__separador">•</span>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>contato@grupoexitocondominios.com.br</span>
+                    </a>
+                </div>
+                <div class="ex-topo__grupo ex-topo__grupo--direita">
+                    <div class="ex-topo__status">
+                        <span class="ex-topo__ponto"></span>
+                        <span>Operação Digital Conectada</span>
+                    </div>
+                    <div class="ex-topo__redes">
+                        <a class="ex-topo__rede" aria-label="Instagram"
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </a>
+                        <a class="ex-topo__rede" aria-label="Facebook"
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined">public</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="../index.html">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                </a>
+                <nav class="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="../pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="../pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="../pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="../pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="../pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="../pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="../pages/contato.html">Contato</a>
+                </nav>
+                <div class="ex-acoes">
+                    <a class="ex-cta" href="../pages/contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false"
+                        aria-label="Abrir menu" data-menu-toggle>
+                        <span class="material-symbols-outlined ex-icone-abrir">menu</span>
+                        <span class="material-symbols-outlined ex-icone-fechar">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
+            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
+                <div class="ex-conteudo">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="../pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="../pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="../pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="../pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="../pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="../pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="../pages/contato.html">Contato</a>
+                    <a class="ex-cta" href="../pages/contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Painel do grupo (documentação, fora do site) -->
+    <main class="ex-secao">
+        <div class="ex-container">
+            <h1>Páginas do site</h1>
+
+            <p>Painel do grupo com o andamento da 2ª entrega. Aqui estão todas as páginas do site, na ordem do menu, com o responsável e o status de cada uma. <strong>Fechada</strong> quer dizer que a página foi revisada, validada no W3C e tem o relatório final e o "antes e depois". A nota do líder aparece na coluna <strong>Nota</strong>. <strong>Aberta</strong> quer dizer que a página ainda está em revisão. A coluna <strong>O que falta</strong> mostra o que ainda precisa ser feito em cada página, inclusive nas fechadas.</p>
+
+            <p>Última atualização: <time datetime="2026-11-06">06/11/2026</time></p>
+
+            <p><strong>12 de 12 páginas fechadas.</strong></p>
+
+            <table>
+                <caption>Páginas do site e status da 2ª entrega</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nº</th>
+                        <th scope="col">Página</th>
+                        <th scope="col">Arquivo</th>
+                        <th scope="col">Responsável</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">O que falta</th>
+                        <th scope="col">Entregou na 2ª fase?</th>
+                        <th scope="col">Nota do líder</th>
+                        <th scope="col">Relatório</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <th scope="row"><a href="../index.html">Início (Home)</a></th>
+                        <td>index.html</td>
+                        <td>Alexander</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>
+                            <a href="testes/pages/index/index.md">Relatório</a><br>
+                            <a href="testes/pages/index/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <th scope="row"><a href="../pages/quem-somos.html">Quem Somos</a></th>
+                        <td>pages/quem-somos.html</td>
+                        <td>Anthony</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>7 / 10</td>
+                        <td>
+                            <a href="testes/pages/quem-somos/quem-somos.md">Relatório</a><br>
+                            <a href="testes/pages/quem-somos/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <th scope="row"><a href="../pages/servicos.html">Serviços (vitrine)</a></th>
+                        <td>pages/servicos.html</td>
+                        <td>João</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>5 / 10</td>
+                        <td>
+                            <a href="testes/pages/servicos/servicos.md">Relatório</a><br>
+                            <a href="testes/pages/servicos/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <th scope="row"><a href="../pages/servicos-1.html">Serviços 1 — Gestão Administrativa</a></th>
+                        <td>pages/servicos-1.html</td>
+                        <td>Arthur</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>7 / 10</td>
+                        <td>
+                            <a href="testes/pages/servicos-1/servicos-1.md">Relatório</a><br>
+                            <a href="testes/pages/servicos-1/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <th scope="row"><a href="../pages/servicos-2.html">Serviços 2 — Gestão Financeira</a></th>
+                        <td>pages/servicos-2.html</td>
+                        <td>Felipe Dias</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>7 / 10</td>
+                        <td>
+                            <a href="testes/pages/servicos-2/servicos-2.md">Relatório</a><br>
+                            <a href="testes/pages/servicos-2/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <th scope="row"><a href="../pages/servicos-3.html">Serviços 3 — Gestão Operacional</a></th>
+                        <td>pages/servicos-3.html</td>
+                        <td>David</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>9 / 10</td>
+                        <td>
+                            <a href="testes/pages/servicos-3/servicos-3.md">Relatório</a><br>
+                            <a href="testes/pages/servicos-3/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <th scope="row"><a href="../pages/clientes.html">Clientes</a></th>
+                        <td>pages/clientes.html</td>
+                        <td>Gabriel</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Não</td>
+                        <td>7 / 10</td>
+                        <td>
+                            <a href="testes/pages/clientes/clientes.md">Relatório</a><br>
+                            <a href="testes/pages/clientes/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <th scope="row"><a href="../pages/projetos.html">Projetos</a></th>
+                        <td>pages/projetos.html</td>
+                        <td>Felipe Gabriel</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>6 / 10</td>
+                        <td>
+                            <a href="testes/pages/projetos/projetos.md">Relatório</a><br>
+                            <a href="testes/pages/projetos/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <th scope="row"><a href="../pages/noticias.html">Notícias</a></th>
+                        <td>pages/noticias.html</td>
+                        <td>Enzo</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Não</td>
+                        <td>4 / 10</td>
+                        <td>
+                            <a href="testes/pages/noticias/noticias.md">Relatório</a><br>
+                            <a href="testes/pages/noticias/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <th scope="row"><a href="../pages/faq.html">FAQ</a></th>
+                        <td>pages/faq.html</td>
+                        <td>Evandro</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Não</td>
+                        <td>6 / 10</td>
+                        <td>
+                            <a href="testes/pages/faq/faq.md">Relatório</a><br>
+                            <a href="testes/pages/faq/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <th scope="row"><a href="../pages/contato.html">Contato</a></th>
+                        <td>pages/contato.html</td>
+                        <td>Pablo</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>6 / 10</td>
+                        <td>
+                            <a href="testes/pages/contato/contato.md">Relatório</a><br>
+                            <a href="testes/pages/contato/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <th scope="row"><a href="../pages/politica-privacidade.html">Política de Privacidade</a></th>
+                        <td>pages/politica-privacidade.html</td>
+                        <td>Guilherme</td>
+                        <td><span class="ex-etiqueta">Fechada</span></td>
+                        <td>Nada pendente</td>
+                        <td>Sim</td>
+                        <td>5 / 10</td>
+                        <td>
+                            <a href="testes/pages/politica-privacidade/politica-privacidade.md">Relatório</a><br>
+                            <a href="testes/pages/politica-privacidade/antes-depois.md">Antes e depois</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e
+                        soluções sob medida para síndicos e condôminos.</p>
+                    <div class="ex-rodape__selos">
+                        <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
+                        <span class="ex-rodape__selo">ROZENDO ADM</span>
+                    </div>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <div class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined">domain</span>
+                            <span>MATRIZ MOGI</span>
+                        </div>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </div>
+                    <div class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined">location_city</span>
+                            <span>FILIAL SÃO PAULO</span>
+                        </div>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </div>
+                </div>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="../pages/quem-somos.html">Quem Somos</a>
+                            <a href="../pages/servicos.html">Serviços Vitrine</a>
+                            <a href="../pages/clientes.html">Clientes</a>
+                            <a href="../pages/projetos.html">Projetos &amp; Cases</a>
+                            <a href="../pages/noticias.html">Notícias &amp; Blog</a>
+                            <a href="../pages/faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="../pages/contato.html">Fale Conosco</a>
+                            <a href="../pages/orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="../pages/contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="paginas.html" aria-current="page">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="ex-rodape__base">
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="../pages/politica-privacidade.html">Política de Privacidade</a> <a href="../pages/orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+                <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
+    <script src="../js/cookies.js"></script>
+</body>
+
+</html>

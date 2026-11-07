@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Efeitos de entrada/saída e parallax (controlados por js/efeitos.js)
+   --------------------------------------------------------------------------
+   Entrada e saída — coloque no elemento:
+     data-reveal              sobe ao entrar (padrão)
+     data-reveal="descer"     desce ao entrar
+     data-reveal="esquerda"   vem da esquerda
+     data-reveal="direita"    vem da direita
+     data-reveal="zoom"       cresce ao entrar
+     data-reveal="fade"       só aparece (sem movimento)
+
+   Em sequência — coloque no elemento pai, cada filho entra um pouco depois:
+     data-reveal-stagger      (ou data-reveal-stagger="zoom", etc.)
+
+   Parallax:
+     data-parallax="0.2"      o elemento se move mais devagar que a rolagem
+                              (negativo = sentido contrário)
+     data-parallax-img        imagem dentro de um bloco com overflow-hidden
+
+   Atraso extra na entrada: classe fx-atraso-250 (espera 250ms).
+
+   Usa as propriedades "translate" e "scale" (e não "transform") para não
+   brigar com os efeitos de hover das páginas, que usam "transform"
+   (ex.: a foto que cresce um pouco no hover).
+   O atraso de cada filho do data-reveal-stagger e o deslocamento do parallax
+   são escritos pelo js/efeitos.js direto no elemento (transition-delay e
+   translate), sem variáveis.
+   Quem prefere menos movimento (sistema ou menu de acessibilidade) não vê
+   animação nenhuma.
+   ========================================================================== */
+
+.fx [data-reveal] {
+    opacity: 0;
+    translate: 0 40px;
+    transition:
+        opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+        scale 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, translate;
+}
+
+/* Entrada com um pouco de atraso (ex.: o segundo bloco de uma linha) */
+.fx .fx-atraso-250 {
+    transition-delay: 250ms;
+}
+
+.fx [data-reveal="descer"] {
+    translate: 0 -40px;
+}
+
+.fx [data-reveal="esquerda"] {
+    translate: -48px 0;
+}
+
+.fx [data-reveal="direita"] {
+    translate: 48px 0;
+}
+
+.fx [data-reveal="zoom"] {
+    translate: 0 16px;
+    scale: 0.94;
+}
+
+.fx [data-reveal="fade"] {
+    translate: none;
+}
+
+/* Celular: entrar pelos lados não cabe na tela estreita, então sobe como os outros */
+@media (max-width: 767px) {
+
+    .fx [data-reveal="esquerda"],
+    .fx [data-reveal="direita"] {
+        translate: 0 40px;
+    }
+}
+
+/* Saída pelo topo da tela (rolando para baixo): sai subindo */
+.fx [data-reveal].fx-acima {
+    translate: 0 -40px;
+}
+
+/* Visível */
+.fx [data-reveal].fx-visivel {
+    opacity: 1;
+    translate: none;
+    scale: none;
+}
+
+/* ---- Parallax ----------------------------------------------------------
+   O js/efeitos.js muda o "translate" do elemento conforme a rolagem. */
+[data-parallax] {
+    will-change: translate;
+}
+
+/* a imagem fica um pouco maior que o bloco para não aparecer borda ao mover */
+[data-parallax-img] {
+    scale: 1.15;
+    will-change: translate;
+}
+
+/* ---- Sem animação (sistema pede menos movimento ou menu de acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+    .fx [data-reveal] {
+        opacity: 1;
+        translate: none;
+        scale: none;
+        transition: none;
+    }
+
+    [data-parallax],
+    [data-parallax-img] {
+        translate: none;
+    }
+}
+
+.ac-pausar [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+}
+
+.ac-pausar [data-parallax],
+.ac-pausar [data-parallax-img] {
+    translate: none !important;
+}

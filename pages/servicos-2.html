@@ -1,209 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Financeira | Grupo Êxito Condomínios</title>
-    <meta name="description" content="Previsão orçamentária, cobrança, balancetes e prestação de contas transparente para o seu condomínio.">
+    <meta name="description"
+        content="Previsão orçamentária, cobrança, balancetes e prestação de contas transparente para o seu condomínio.">
     <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#06152d">
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="../img/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="../css/paleta.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <!-- <link rel="stylesheet" href="../css/acessibilidade.css">
-    <link rel="stylesheet" href="../css/assistente.css">
-    <script src="../js/acessibilidade.js"></script> -->
-
-    <!--inicio css -->
-
-    <style>
-
-header {
-    background-color: white;    
-}
-
-body {
-    background-color:  #00245d;
-}
- 
-footer{
-    color: white;
-}
-
-.container{
-    display: flex;
-    align-items: 20px;
-    gap: 2px; 
-    flex-wrap: wrap;
-    background-color: white;
-}
-
-.container_header{
-    display: flex;
-    align-items: 200px;
-    gap: 200px; 
-    flex-wrap: wrap;
-}
-
-.titulo_baner{
-    margin-left: 250px;
-    
-}
-.titulo_rodape{
-    margin-left: 20px;
-}
-
-.texto-centralizado {
-  text-align: center;
-  background-color: #00245d;
-}
-
-.container-textos {
-    display: flex;
-    gap: 50px;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin: 30px auto;
-    flex-wrap: wrap;
-}
-
-.card {
-    border: 1px solid #0c0b0b;
-    border-radius: 8px;
-    padding: 30px;
-    width: 380px;
-    min-height: 250px;
-    background-color: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-}
-
-.card h2 {
-    color: #000;
-    font-size: 25px;
-    margin-bottom: 25px;
-}
-
-.card ul {
-    color: #000;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-h4{
-    color: black;
-}
-
-p{
-    color: white;
- 
-}
-
-.formulario {
-    width: 500px;
-    margin: 50px auto;
-    padding: 35px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-}
-
-.formulario h2 {
-    color: #00245d;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.formulario label {
-    display: block;
-    color: #000;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.formulario input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.formulario input:focus {
-    border-color: #00245d;
-    outline: none;
-}
-
-.botao {
-    display: block;
-    margin: 10px auto 0;
-    background-color: #0d00fd;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.botao:hover {
-    background-color: #0d00fd;
-    transform: scale(1.05);
-}
-
-.footer {
-    display: flex;
-    align-items: flex-start;
-    gap: 100 px;
-    padding: 40px;
-    color: white;
-    background-color: white;
-}
-.texto-preto{
-    color: black;
-}
-
-.footer section {
-    margin-top: 0;
-}
-
-.footer h2 {
-    margin-top: 0;
-}
-.rodape-final {
-    background-color: #fefefe;
-    text-align: center;
-    padding: 28px 20px;
-    border-top: 1px solid #34404c;
-}
-
-.rodape-final p {
-    margin: 0;
-    font-size: 16px;
-}   
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/acessibilidade.js"></script>
 </head>
 
-<!-- inicio html-->
-
-<body>
-    <!-- HEADER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+<body class="pagina-servicos-2">
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -224,10 +39,12 @@ p{
                         <span>Operação Digital Conectada</span>
                     </div>
                     <div class="ex-topo__redes">
-                        <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                        <a class="ex-topo__rede" aria-label="Instagram"
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
                             <span class="material-symbols-outlined">photo_camera</span>
                         </a>
-                        <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                        <a class="ex-topo__rede" aria-label="Facebook"
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
                             <span class="material-symbols-outlined">public</span>
                         </a>
                     </div>
@@ -237,7 +54,9 @@ p{
         <div class="ex-barra">
             <div class="ex-conteudo">
                 <a class="ex-logo" href="../index.html">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
                 </a>
                 <nav class="ex-menu" aria-label="Navegação principal">
                     <a class="ex-menu__link" href="../index.html">Início</a>
@@ -254,7 +73,8 @@ p{
                         <span>Falar com Consultor</span>
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
-                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false"
+                        aria-label="Abrir menu" data-menu-toggle>
                         <span class="material-symbols-outlined ex-icone-abrir">menu</span>
                         <span class="material-symbols-outlined ex-icone-fechar">close</span>
                     </button>
@@ -279,101 +99,99 @@ p{
             </nav>
         </div>
     </header>
-    <h1 class="texto-centralizado" style="color: white;">Gestão Financeira</h1>
-    <br>
-    <br> 
-    <section class="container" style="display: flex; align-items: center; background-color: #00245d;"> 
-        <img src="../img/img.png" 
-        alt="pessoas analisando documentos" 
-        height="350px" width="400px" 
-        style="margin-left: 50px; 
-        border-radius: 20px;"> 
-        <div style="margin-left: 40px;"> 
-            <h2 style="color: rgb(255, 255, 255);">Da análise à decisão</h2> 
-            <p> Uma gestão eficiente transforma informações em soluções organizadas, oferecendo ao síndico mais clareza, segurança e agilidade na tomada de decisões. </p>
-        </div>
-    </section>
-    <section class="texto-centralizado">
-        <h1 style="color: white;">Soluções completas para a gestão condominial</h1>
-    </section>
-    <div class="cards">
-        <section class="card" style="color: black;">
-            <h2 style="color: black;">Gestão de Recursos Humanos:</h2>
-            <ul type="square">    
-                <li>Nas rotinas de colaboradores documentos;</li>
-                <li>Admissões;</li>
-                <li>Férias;</li>
-                <li>Desligamentos</li> 
-                <li>Benefícios e acompanhamento das obrigações trabalhistas.</li>
-            </ul> 
-        </section>
-        <section class="card" >
-            <h2>Gestão Administrativa:</h2>
-            <ul type="square">
-                <li>Gerenciamento de cadastros atendimento aos condôminos; </li> 
-                <li>organização documental comunicados;</li> 
-                <li>apoio ao síndico e acompanhamento de demandas.</li>
-            </ul>
-        </section>
-        <section class="card">
-            <h2>Gestão Financeira:</h2>
-            <ul type="square">
-                <li>Elaboração e acompanhamento da previsão orçamentária;</li> 
-                <li>pagamentos vencimentos; </li> 
-                <li>cobrança administrativa;</li> 
-                <li>balancetes e prestação de contas.</li>
-            </ul>
-        </section>
-    </div>
-    <div class="cards">
-        <section class="card">
-            <h2>Gestão Operacional:</h2>
-            <ul type="square"> 
-                <li>Acompanhamento das rotinas operacionais;</li> 
-                <li>fornecedores; </li> 
-                <li>segurança;</li>
-                <li> manutenção preventiva e necessidades do condomínio.</li>
-            </ul>
-        </section>
-        <section class="card">
-        <h2>Departamento Jurídico:</h2>
-        <ul type="square">
-            <li>Jurídico condominial;</li>
-            <li>Notificações extrajudiciais;</li>
-            <li>Orientação sobre legislação;</li>
-            <li>Convenção e regulamento interno;</li>
-            <li>Conforme o escopo contratado.</li>
-        </ul>
-        </section>
-        <section class="card">
-            <h2>Assembleias e Tecnologia:</h2>
-            <ul style="square">
-                <li> Assembleias e Tecnologia;</li>
-                <li>Digitais para facilitar comunicação;</li> 
-                <li>Acesso às informações e participação dos condôminos;</li>
-            </ul>
-        </section>
-    </div>
-<form action="confirmacao.html" method="get" class="formulario" data-confirmacao="Gestão Financeira">
-    <h2>Entre em contato conosco</h2>
-    <label for="nome">Nome completo</label>
-    <input type="text" placeholder="Nome completo" id="nome" name="nome">
-    <label for="email">E-mail</label>
-    <input type="email" placeholder="E-mail" id="email" name="email">
-    <label for="telefone">Telefone</label>
-    <input type="tel" placeholder="Telefone" id="telefone" name="telefone">
-    <label for="endereco">Endereço</label>
-    <input type="text" placeholder="Endereço" id="endereco" name="endereco">
-    <button type="submit" class="botao">Enviar</button>
-</form>
 
-    <!-- FOOTER COMPARTILHADO (estilo em css/layout.css, igual ao da home) -->
+    <main>
+        <!-- TOPO com foto (componente .ex-hero) -->
+        <section class="ex-hero">
+            <div class="ex-hero__pelicula"></div>
+            <div class="ex-hero__conteudo">
+                <span class="ex-hero__rotulo">Serviços</span>
+                <h1 class="ex-hero__titulo">Gestão Financeira</h1>
+                <p class="ex-hero__texto">Previsão orçamentária, cobrança, balancetes e prestação de contas transparente
+                    para o seu condomínio.</p>
+            </div>
+        </section>
+
+        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
+        <div class="ex-container">
+            <!-- Da análise à decisão -->
+            <section class="secao-analise">
+                <div class="ex-cabecalho">
+                    <h2 id="titulo-servicos-2">Da análise à decisão</h2>
+                    <p class="ex-subtitulo">Uma gestão eficiente transforma informações em soluções organizadas,
+                        oferecendo ao síndico mais clareza, segurança e agilidade na tomada de decisões.</p>
+                </div>
+            </section>
+
+            <!-- Soluções: 6 cards, três por linha -->
+            <div class="solucoes">
+                <div class="cards">
+                    <article class="card">
+                        <h3>Soluções que garantem uma gestão financeira eficiente</h3>
+                        <ul class="lista-quadrado">
+                            <li>Emissão e cobrança automatizada de boletos condominiais</li>
+                            <li>Prestação de contas mensal detalhada e transparente.</li>
+                            <li>Monitoramento e controle da inadimplência.</li>
+                            <li>Relatórios financeiros digitais e atualizados.</li>
+                            <li>Planejamento orçamentário e controle do fluxo de caixa</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Mais controle e segurança para as finanças do seu condomínio</h3>
+                        <ul class="lista-quadrado">
+                            <li>Conciliação bancária e conferência das movimentações financeiras.</li>
+                            <li>Gestão e acompanhamento de contratos com fornecedores.</li>
+                            <li>Controle e planejamento do fundo de reserva condominial.</li>
+                            <li>Previsão de despesas e análise de custos operacionais.</li>
+                            <li>Organização de documentos fiscais e comprovantes de pagamento.</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Como funciona nossa gestão financeira</h3>
+                        <ul class="lista-quadrado">
+                            <li>Diagnóstico da situação financeira do condomínio.</li>
+                            <li>Organização e controle das receitas e despesas.</li>
+                            <li>Fechamento mensal e conciliação bancária.</li>
+                            <li>Envio da prestação de contas aos síndicos e condôminos.</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Como funciona nosso planejamento financeiro</h3>
+                        <ul class="lista-quadrado">
+                            <li>Levantamento dos custos e necessidades do condomínio.</li>
+                            <li>Elaboração da previsão orçamentária anual.</li>
+                            <li>Definição das prioridades e reservas financeiras.</li>
+                            <li>Monitoramento dos gastos e arrecadações.</li>
+                            <li>Análise dos resultados e ajustes no planejamento.</li>
+                        </ul>
+                    </article>
+                </div>
+
+            </div>
+
+            <!-- Links internos "contato" e "serviços" -->
+            <div class="conteiner-link-flex">
+                <a class="ex-botao ex-botao--primario" href="contato.html">Solicitar orçamento</a>
+                <a class="ex-botao ex-botao--secundario" href="servicos.html">Voltar para serviços</a>
+            </div>
+
+            <!-- Fonte da foto do topo -->
+            <p class="ex-nota nota-fonte">Foto do topo: Gerado por IA.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
                 <div class="ex-rodape__marca">
-                    <img src="../img/logo-grupo-exito-header.png" alt="Grupo Êxito Condomínios">
-                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e
+                        soluções sob medida para síndicos e condôminos.</p>
                     <div class="ex-rodape__selos">
                         <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
                         <span class="ex-rodape__selo">ROZENDO ADM</span>
@@ -399,28 +217,39 @@ p{
                         <p class="ex-rodape__fone">Atendimento Regional</p>
                     </div>
                 </div>
-                <nav class="ex-rodape__nav" aria-label="Páginas do site">
-                    <span class="ex-rodape__rotulo">Páginas Internas</span>
-                    <div class="ex-rodape__links">
-                        <a href="quem-somos.html">Quem Somos</a>
-                        <a href="servicos.html">Serviços Vitrine</a>
-                        <a href="clientes.html">Clientes</a>
-                        <a href="projetos.html">Projetos &amp; Cases</a>
-                        <a href="noticias.html">Notícias &amp; Blog</a>
-                        <a href="faq.html">FAQ &amp; Dúvidas</a>
-                        <a href="contato.html">Fale Conosco</a>
-                        <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
-                    </div>
-                </nav>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="quem-somos.html">Quem Somos</a>
+                            <a href="servicos.html">Serviços Vitrine</a>
+                            <a href="clientes.html">Clientes</a>
+                            <a href="projetos.html">Projetos &amp; Cases</a>
+                            <a href="noticias.html">Notícias &amp; Blog</a>
+                            <a href="faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="contato.html">Fale Conosco</a>
+                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="../docs/paginas.html">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a
+                        href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
             </div>
         </div>
     </footer>
     <script src="../js/menu.js"></script>
-    <!-- <script src="../js/assistente.js"></script>
-    <script src="../js/formulario.js"></script> -->
+    <script src="../js/cookies.js"></script>
 </body>
+
 </html>

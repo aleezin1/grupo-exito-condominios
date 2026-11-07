@@ -1,0 +1,1495 @@
+/* ==========================================================================
+   Página: index.html (home)
+   Carregado depois de css/global.css. Só vale para esta página: toda regra
+   começa com .pagina-index (a classe do <body>).
+   --------------------------------------------------------------------------
+   Fonte, cor e tamanho dos textos vêm do padrão das tags e dos componentes
+   .ex-* do global.css (.ex-titulo, .ex-sobretitulo, .ex-nota, .ex-botao,
+   .ex-card, .ex-etiqueta...). Aqui ficam só o layout, os espaços, os fundos,
+   as bordas e as sombras. Cor de texto só muda em fundo escuro.
+
+   Tamanhos de tela usados (iguais em toda a página):
+     640px   celular deitado / tablet pequeno
+     768px   tablet
+     1024px  computador (as colunas lado a lado começam aqui)
+   ========================================================================== */
+
+/* ---- Página inteira ------------------------------------------------------
+   Sem rolagem para os lados: os efeitos que entram pelos lados e o zoom do
+   fim do loading não podem empurrar a página para fora da tela. */
+.pagina-index {
+    overflow-x: hidden;
+    overscroll-behavior: none;
+}
+
+/* Foco do teclado sempre visível no conteúdo (contorno teal + halo branco) */
+.pagina-index main a:focus-visible,
+.pagina-index main button:focus-visible,
+.pagina-index main summary:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255);
+    border-radius: 6px;
+}
+
+/* Texto só para leitor de tela (fica invisível na tela) */
+.pagina-index .visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   PEÇAS REPETIDAS NA PÁGINA
+   ========================================================================== */
+
+/* Bolinha colorida (status) */
+.pagina-index .ponto {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+}
+
+.pagina-index .ponto--pequeno {
+    width: 6px;
+    height: 6px;
+}
+
+.pagina-index .ponto--ciano {
+    background: rgb(0, 188, 212);
+}
+
+.pagina-index .ponto--verde {
+    background: rgb(16, 185, 129);
+}
+
+/* Bolinha que pisca devagar ("ao vivo") */
+.pagina-index .ponto--pulsando {
+    width: 10px;
+    height: 10px;
+    animation: index-pulsar 2s ease-in-out infinite;
+}
+
+@keyframes index-pulsar {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Tracinho ciano antes de um rótulo */
+.pagina-index .traco {
+    display: inline-block;
+    width: 1rem;
+    height: 2px;
+    background: rgb(0, 188, 212);
+}
+
+/* Rótulo com bolinha ou tracinho na frente */
+.pagina-index .com-ponto,
+.pagina-index .inicio__sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Caixa quadrada com um ícone no meio */
+.pagina-index .icone-caixa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 1rem;
+}
+
+.pagina-index .icone-caixa--grande {
+    width: 56px;
+    height: 56px;
+}
+
+.pagina-index .icone-caixa--media {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+}
+
+.pagina-index .icone-caixa--pequena {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.75rem;
+}
+
+/* Fundo escuro: o ícone fica ciano */
+.pagina-index .icone-caixa--navy {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .icone-caixa--clara {
+    background: rgb(241, 245, 249);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .icone-caixa--ciano-suave {
+    background: rgba(214, 247, 255, 0.4);
+}
+
+/* Lista com ícone de "check" na frente de cada item */
+.pagina-index .lista-check {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-index .lista-check li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Link de texto com seta (ex.: "Veja mais", "Ler artigo", "Ver Mapa") */
+.pagina-index .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    text-decoration: none;
+}
+
+.pagina-index .link-seta .ex-sobretitulo {
+    margin: 0;
+}
+
+/* Seta dos botões e links anda um pouquinho no hover */
+.pagina-index .botao-seta .material-symbols-outlined:last-child,
+.pagina-index .link-seta .material-symbols-outlined {
+    transition: transform 0.2s;
+}
+
+.pagina-index .botao-seta:hover .material-symbols-outlined:last-child,
+.pagina-index .link-seta:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+/* Botão com fundo ciano suave (texto teal dos links); no hover fica teal */
+.pagina-index .botao-claro {
+    padding: 0.5rem 0.875rem;
+    background: rgba(214, 247, 255, 0.4);
+}
+
+.pagina-index .botao-claro:hover {
+    background: rgb(0, 104, 118);
+    color: rgb(255, 255, 255);
+}
+
+/* Botão secundário cinza-claro; no hover fica azul-marinho */
+.pagina-index .botao-cinza {
+    background: rgb(241, 245, 249);
+    border-color: transparent;
+}
+
+.pagina-index .botao-cinza:hover {
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+}
+
+/* Etiqueta com fundo teal (fica sobre foto) */
+.pagina-index .etiqueta-teal {
+    background: rgb(0, 104, 118);
+    color: rgb(255, 255, 255);
+}
+
+/* Lugar da foto enquanto ela não chega: fundo cinza com ícone de imagem */
+.pagina-index .foto-vazia {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: rgb(226, 232, 240);
+}
+
+/* Botão redondo só com a seta */
+.pagina-index .botao-redondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 9999px;
+    background: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Cabeçalho das seções: texto à esquerda e botão à direita */
+.pagina-index .secao-topo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .secao-topo__texto {
+    max-width: 42rem;
+}
+
+.pagina-index .secao-topo .ex-botao {
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/* Grade de 3 cards (um embaixo do outro no celular) */
+.pagina-index .grade-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.pagina-index .grade-3--espaco {
+    padding-top: 2.5rem;
+}
+
+/* Cards que ficam com borda azul-marinho no hover */
+.pagina-index .servico:hover,
+.pagina-index .caso:hover,
+.pagina-index .cliente:hover,
+.pagina-index .endereco:hover {
+    border-color: rgb(6, 21, 45);
+}
+
+/* Lista de vantagens (ícone + título + texto curto) */
+.pagina-index .vantagens {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    list-style: none;
+}
+
+.pagina-index .vantagem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pagina-index .vantagem .ex-card__titulo {
+    display: block;
+    margin: 0;
+}
+
+.pagina-index .vantagem .ex-nota {
+    display: block;
+}
+
+/* ==========================================================================
+   1. TOPO DA HOME
+   ========================================================================== */
+
+.pagina-index .inicio {
+    position: relative;
+    overflow: hidden;
+    padding: 2.5rem 0 4rem;
+    background: linear-gradient(rgb(241, 245, 249), rgb(248, 250, 253), rgb(255, 255, 255));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+/* Fundo de pontinhos ciano (maior que a seção por causa do parallax) */
+.pagina-index .inicio__pontos {
+    position: absolute;
+    top: -10rem;
+    right: 0;
+    bottom: -10rem;
+    left: 0;
+    background-image: radial-gradient(rgb(0, 188, 212) 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Brilho ciano redondo e desfocado */
+.pagina-index .inicio__brilho {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    width: 500px;
+    height: 500px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), transparent);
+    filter: blur(64px);
+    pointer-events: none;
+}
+
+/* O conteúdo fica na frente do fundo decorativo */
+.pagina-index .inicio__conteudo {
+    position: relative;
+    z-index: 10;
+}
+
+/* Faixa de selos acima do título */
+.pagina-index .inicio__faixa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.pagina-index .inicio__etiqueta {
+    gap: 0.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+/* Selos (só aparecem do tablet para cima) */
+.pagina-index .inicio__selos {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-index .inicio__selos li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+/* Duas colunas: texto (7 partes) e painel (5 partes) */
+.pagina-index .inicio__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pagina-index .inicio__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pagina-index .inicio__sobretitulo {
+    margin-bottom: 0.5rem;
+}
+
+.pagina-index .inicio__resumo {
+    max-width: 36rem;
+    margin: 0;
+}
+
+.pagina-index .inicio__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.25rem;
+}
+
+/* Três indicadores em cards brancos */
+.pagina-index .metricas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.pagina-index .metrica {
+    display: flex;
+    flex-direction: column;
+    padding: 0.875rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .metrica .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .metrica .ex-numero {
+    margin-top: 0.125rem;
+}
+
+/* ---- Painel do síndico (coluna da direita) ------------------------------ */
+.pagina-index .inicio__painel {
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.pagina-index .painel {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1.5rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 20px 50px rgba(6, 21, 45, 0.08);
+}
+
+.pagina-index .painel__topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .painel__status,
+.pagina-index .painel__etiquetas {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagina-index .painel__status .ex-sobretitulo {
+    margin: 0;
+}
+
+/* ---- Carrossel ----------------------------------------------------------- */
+.pagina-index .carrossel {
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+}
+
+.pagina-index .carrossel__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Cada slide fica um em cima do outro; só o "is-ativo" aparece */
+.pagina-index .carrossel__slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s;
+}
+
+.pagina-index .carrossel__slide.is-ativo {
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pagina-index .carrossel__slide img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+}
+
+/* Película escura por cima da foto, para o texto branco aparecer */
+.pagina-index .carrossel__slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(6, 21, 45, 0.9), rgba(6, 21, 45, 0.3), rgba(6, 21, 45, 0.2));
+}
+
+/* Etiqueta no canto de cima (fica na frente da película) */
+.pagina-index .carrossel__selo {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    background: rgba(6, 21, 45, 0.6);
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+/* Texto em baixo da foto (fundo escuro: texto branco) */
+.pagina-index .carrossel__legenda {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .carrossel__titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.pagina-index .carrossel__legenda .ex-nota {
+    margin: 0.125rem 0 0;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .carrossel__indicador {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+}
+
+/* Setas (anterior / próximo) */
+.pagina-index .carrossel__seta {
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: rgba(6, 21, 45, 0.5);
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.pagina-index .carrossel__seta:hover {
+    background: rgba(6, 21, 45, 0.8);
+    opacity: 1;
+}
+
+.pagina-index .carrossel__seta--anterior {
+    left: 0.625rem;
+}
+
+.pagina-index .carrossel__seta--proximo {
+    right: 0.625rem;
+}
+
+/* Pausar + pontos (canto de cima, à direita) */
+.pagina-index .carrossel__pontos {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    background: rgba(6, 21, 45, 0.5);
+}
+
+/* O ponto é pequeno, mas a área de toque tem 24px (WCAG 2.5.8) */
+.pagina-index .carrossel__ponto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.pagina-index .carrossel__ponto::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.45);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.pagina-index .carrossel__ponto:hover::before {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.pagina-index .carrossel__ponto.is-ativo::before {
+    background: rgb(0, 188, 212);
+    transform: scale(1.25);
+}
+
+/* O botão pausar/continuar mostra o ícone no lugar do ponto */
+.pagina-index .carrossel__pausa::before {
+    display: none;
+}
+
+/* ---- Indicadores pequenos e rodapé do painel ---------------------------- */
+.pagina-index .painel__widgets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+}
+
+.pagina-index .widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    border-radius: 0.75rem;
+    background: rgb(248, 250, 253);
+}
+
+.pagina-index .widget__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-index .widget .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .widget .ex-card__titulo {
+    margin: 0 0 0.25rem;
+}
+
+.pagina-index .widget .ex-etiqueta {
+    align-self: flex-start;
+}
+
+.pagina-index .painel__rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-top: 0.5rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .painel__rodape .ex-sobretitulo {
+    margin: 0;
+}
+
+/* ==========================================================================
+   2. CHAMADA PARA QUEM SOMOS
+   ========================================================================== */
+
+.pagina-index .chamada-quem-somos {
+    padding: 1.5rem 0;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.pagina-index .chamada-quem-somos__caixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1.5rem;
+    background: rgba(248, 250, 253, 0.7);
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .chamada-quem-somos__texto {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagina-index .chamada-quem-somos .ex-card__titulo {
+    margin: 0;
+}
+
+.pagina-index .chamada-quem-somos .ex-nota {
+    max-width: 42rem;
+    margin: 0.25rem 0 0;
+}
+
+.pagina-index .chamada-quem-somos__botao {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. NOSSOS SERVIÇOS
+   ========================================================================== */
+
+.pagina-index .servicos .grade-3 {
+    margin-top: 3rem;
+}
+
+/* Card do serviço: o link "Veja mais" cobre o card inteiro (::after) */
+.pagina-index .servico {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .servico .icone-caixa {
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+/* No hover a caixa do ícone fica azul-marinho e o ícone ciano */
+.pagina-index .servico:hover .icone-caixa {
+    background: rgb(6, 21, 45);
+}
+
+.pagina-index .servico:hover .icone-caixa .material-symbols-outlined {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-index .servico h3 {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.pagina-index .servico__texto p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .servico__rodape {
+    padding-top: 1rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .servico__link {
+    margin-top: 1.5rem;
+}
+
+.pagina-index .servico__link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 1.5rem;
+}
+
+/* ==========================================================================
+   4. NOTÍCIAS & ARTIGOS
+   ========================================================================== */
+
+.pagina-index .noticias__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2.5rem;
+}
+
+/* Card de notícia: foto em cima (ou do lado) e texto */
+.pagina-index .noticia {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .noticia__foto {
+    position: relative;
+    height: 18rem;
+    overflow: hidden;
+}
+
+.pagina-index .noticia__foto img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    transition: transform 0.7s;
+}
+
+.pagina-index .noticia:hover .noticia__foto img {
+    transform: scale(1.05);
+}
+
+/* Película escura em baixo da foto do destaque */
+.pagina-index .noticia--destaque .noticia__foto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(6, 21, 45, 0.8), transparent, transparent);
+}
+
+.pagina-index .noticia__categoria {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    border-radius: 0.375rem;
+}
+
+/* Data, tempo de leitura e etiqueta em cima da foto (texto branco) */
+.pagina-index .noticia__meta {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.pagina-index .noticia__datas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.pagina-index .noticia__datas .ex-sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .noticia__meta .ex-etiqueta--escura {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+    background: rgba(6, 21, 45, 0.6);
+}
+
+.pagina-index .noticia__corpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.pagina-index .noticia h3 {
+    margin: 0 0 0.375rem;
+}
+
+.pagina-index .noticia__corpo p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .noticia__pontos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgb(241, 245, 249);
+    list-style: none;
+}
+
+.pagina-index .noticia__pontos li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagina-index .noticia__rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .noticia__aviso {
+    display: none;
+    margin: 0;
+}
+
+/* Duas notícias menores na coluna da direita */
+.pagina-index .noticias__lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pagina-index .noticia--lateral .noticia__foto {
+    flex-shrink: 0;
+    height: 12rem;
+}
+
+.pagina-index .noticia--lateral .noticia__categoria {
+    top: 0.75rem;
+    left: 0.75rem;
+}
+
+.pagina-index .noticia--lateral .noticia__corpo {
+    padding: 1rem;
+}
+
+.pagina-index .noticia__linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-index .noticia__linha .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .noticia__tempo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pagina-index .noticia--lateral .noticia__corpo p {
+    margin: 0 0 0.75rem;
+}
+
+/* ==========================================================================
+   5. PROJETOS (cases)
+   ========================================================================== */
+
+.pagina-index .caso {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0;
+}
+
+.pagina-index .caso__corpo {
+    padding: 1.5rem 1.5rem 0;
+}
+
+.pagina-index .caso__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pagina-index .caso__topo .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .caso h3 {
+    margin: 0;
+}
+
+.pagina-index .caso__corpo p {
+    margin: 0 0 1rem;
+}
+
+/* Faixa do resultado, no pé do card */
+.pagina-index .caso__resultado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+    background: rgba(248, 250, 253, 0.7);
+}
+
+.pagina-index .caso__resultado .ex-sobretitulo,
+.pagina-index .caso__resultado .ex-card__titulo {
+    margin: 0;
+}
+
+/* No hover do card, o botão redondo fica azul-marinho com a seta ciano */
+.pagina-index .caso:hover .botao-redondo {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+}
+
+/* ==========================================================================
+   6. CLIENTES & DEPOIMENTOS
+   ========================================================================== */
+
+.pagina-index .cliente {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Nome do cliente sobre o lugar da foto (etiqueta escura: texto branco,
+   segunda palavra em ciano) */
+.pagina-index .cliente__nome {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 0.375rem;
+    background: rgba(6, 21, 45, 0.9);
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .cliente__nome span {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-index .cliente__corpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+.pagina-index .cliente blockquote {
+    flex: 1;
+    margin: 0.5rem 0 0;
+}
+
+.pagina-index .cliente .ex-citacao {
+    margin: 0;
+}
+
+.pagina-index .cliente__autor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .cliente__autor .ex-nota {
+    display: block;
+}
+
+/* Lugar da foto da pessoa (redondo) */
+.pagina-index .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: rgb(226, 232, 240);
+}
+
+/* ==========================================================================
+   7. PERGUNTAS FREQUENTES
+   ========================================================================== */
+
+.pagina-index .faq__topo {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Botões de filtro (o ativo tem aria-pressed="true") */
+.pagina-index .faq__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.pagina-index .faq__filtro {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+}
+
+.pagina-index .faq__filtro:hover {
+    border-color: rgb(6, 21, 45);
+}
+
+.pagina-index .faq__filtro[aria-pressed="true"] {
+    border-color: rgb(6, 21, 45);
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+/* Perguntas (8 partes) e card de suporte (4 partes) */
+.pagina-index .faq__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.pagina-index .faq__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Cada pergunta é um <details> (abre e fecha sem JavaScript) */
+.pagina-index .faq__item {
+    padding: 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+    transition: border-color 0.2s;
+}
+
+.pagina-index .faq__item:hover {
+    border-color: rgba(0, 188, 212, 0.5);
+}
+
+/* Escondida pelo filtro (js/home.js usa o atributo hidden) */
+.pagina-index .faq__item[hidden] {
+    display: none;
+}
+
+.pagina-index .faq__item summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Tira o triângulo padrão do navegador (o nosso é o ícone da seta) */
+.pagina-index .faq__item summary::-webkit-details-marker {
+    display: none;
+}
+
+.pagina-index .faq__item summary .ex-card__titulo {
+    flex: 1;
+    margin: 0;
+}
+
+.pagina-index .faq__seta {
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.pagina-index .faq__item[open] .faq__seta {
+    transform: rotate(180deg);
+}
+
+.pagina-index .faq__resposta {
+    margin-top: 1rem;
+    padding: 1rem 0 0 2.75rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .faq__resposta p {
+    margin: 0 0 0.5rem;
+}
+
+.pagina-index .faq__resposta p:last-child {
+    margin-bottom: 0;
+}
+
+.pagina-index .faq__resposta ul {
+    margin: 0 0 0.5rem;
+    padding-left: 1.25rem;
+}
+
+.pagina-index .faq__resposta li {
+    margin-bottom: 0.375rem;
+}
+
+/* Card de suporte direto */
+.pagina-index .suporte {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: 2px solid rgba(0, 188, 212, 0.4);
+    box-shadow: 0 16px 40px rgba(6, 21, 45, 0.06);
+}
+
+.pagina-index .suporte .icone-caixa {
+    margin-bottom: 1rem;
+}
+
+.pagina-index .suporte h3 {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.pagina-index .suporte p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .suporte__lista {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    background: rgb(248, 250, 253);
+}
+
+.pagina-index .suporte__acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .suporte__acoes .ex-botao {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   8. COBERTURA REGIONAL
+   ========================================================================== */
+
+.pagina-index .cobertura__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pagina-index .cobertura__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pagina-index .cobertura__texto .ex-etiqueta {
+    align-self: flex-start;
+}
+
+.pagina-index .cobertura__texto h2,
+.pagina-index .cobertura__texto p {
+    margin: 0;
+}
+
+/* Aqui cada vantagem fica numa caixinha cinza-clara */
+.pagina-index .cobertura .vantagem {
+    padding: 0.75rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    background: rgb(248, 250, 253);
+}
+
+.pagina-index .cobertura__enderecos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Card de endereço */
+.pagina-index .endereco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(248, 250, 253);
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .endereco__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .endereco__topo .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .endereco .icone-caixa {
+    margin-bottom: 1rem;
+}
+
+.pagina-index .endereco h3 {
+    margin: 0 0 0.25rem;
+}
+
+.pagina-index .endereco p {
+    margin: 0;
+}
+
+.pagina-index .endereco__rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .endereco__rodape .ex-sobretitulo {
+    margin: 0;
+}
+
+/* ==========================================================================
+   TAMANHOS DE TELA
+   ========================================================================== */
+
+/* ---- A partir de 640px -------------------------------------------------- */
+@media (min-width: 640px) {
+    .pagina-index .secao-topo {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .pagina-index .secao-topo .ex-botao {
+        align-self: auto;
+    }
+
+    .pagina-index .metricas {
+        gap: 1rem;
+    }
+
+    .pagina-index .metrica {
+        padding: 1rem;
+    }
+
+    .pagina-index .painel {
+        padding: 1.5rem;
+    }
+
+    .pagina-index .carrossel {
+        height: 16rem;
+    }
+
+    .pagina-index .painel__widgets {
+        gap: 0.5rem;
+    }
+
+    .pagina-index .chamada-quem-somos__caixa {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .chamada-quem-somos__botao {
+        width: auto;
+    }
+
+    .pagina-index .noticia--destaque .noticia__foto {
+        height: 20rem;
+    }
+
+    .pagina-index .noticia--destaque .noticia__corpo {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .noticia__aviso {
+        display: inline;
+    }
+
+    /* Notícias menores: foto do lado esquerdo */
+    .pagina-index .noticia--lateral {
+        flex-direction: row;
+    }
+
+    .pagina-index .noticia--lateral .noticia__foto {
+        width: 41.666%;
+        height: auto;
+    }
+
+    .pagina-index .noticia--lateral .noticia__corpo {
+        padding: 1.5rem;
+    }
+
+    .pagina-index .faq__item {
+        padding: 1.5rem;
+    }
+
+    .pagina-index .suporte {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .cobertura__enderecos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---- A partir de 768px -------------------------------------------------- */
+@media (min-width: 768px) {
+    .pagina-index .inicio__selos {
+        display: flex;
+    }
+
+    .pagina-index .chamada-quem-somos__caixa {
+        flex-direction: row;
+    }
+
+    .pagina-index .grade-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* ---- A partir de 1024px: colunas lado a lado ---------------------------- */
+@media (min-width: 1024px) {
+    .pagina-index .inicio__grade,
+    .pagina-index .noticias__grade {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+
+    .pagina-index .inicio__painel {
+        margin-top: 0;
+    }
+
+    .pagina-index .faq__grade {
+        grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    }
+
+    .pagina-index .cobertura__grade {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+}

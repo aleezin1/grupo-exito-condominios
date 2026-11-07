@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Hospedagem | Grupo Êxito Condomínios</title>
+    <meta name="description"
+        content="Comparação de hospedagens e domínios para publicar o site do Grupo Êxito Condomínios.">
+    <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#06152d">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
+    <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/acessibilidade.js"></script>
+</head>
+
+<body class="pagina-orcamento-hospedagem">
+    <!-- HEADER COMPARTILHADO (igual ao da home) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:1125649963">
+                        <span class="material-symbols-outlined">call</span>
+                        <span>(11) 2564-9963</span>
+                    </a>
+                    <span class="ex-topo__separador">•</span>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>contato@grupoexitocondominios.com.br</span>
+                    </a>
+                </div>
+                <div class="ex-topo__grupo ex-topo__grupo--direita">
+                    <div class="ex-topo__status">
+                        <span class="ex-topo__ponto"></span>
+                        <span>Operação Digital Conectada</span>
+                    </div>
+                    <div class="ex-topo__redes">
+                        <a class="ex-topo__rede" aria-label="Instagram"
+                            href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </a>
+                        <a class="ex-topo__rede" aria-label="Facebook"
+                            href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined">public</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="../index.html">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                </a>
+                <nav class="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="contato.html">Contato</a>
+                </nav>
+                <div class="ex-acoes">
+                    <a class="ex-cta" href="contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false"
+                        aria-label="Abrir menu" data-menu-toggle>
+                        <span class="material-symbols-outlined ex-icone-abrir">menu</span>
+                        <span class="material-symbols-outlined ex-icone-fechar">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
+            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
+                <div class="ex-conteudo">
+                    <a class="ex-menu__link" href="../index.html">Início</a>
+                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="contato.html">Contato</a>
+                    <a class="ex-cta" href="contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- TOPO sem foto (componente .ex-hero): fica o fundo azul-marinho -->
+        <section class="ex-hero">
+            <div class="ex-hero__pelicula"></div>
+            <div class="ex-hero__conteudo">
+                <span class="ex-hero__rotulo">Orçamento</span>
+                <h1 class="ex-hero__titulo">
+                    Hospedagem e domínio
+                    <strong>para o site do grupo.</strong>
+                </h1>
+                <p class="ex-hero__texto">
+                    Quanto custa colocar o site no ar: três hospedagens e três domínios lado a lado.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
+        <div class="ex-container">
+
+            <!-- CABEÇALHO da página -->
+            <section class="orcamento-intro" aria-labelledby="titulo-orcamento">
+                <div class="ex-cabecalho">
+                    <span class="ex-sobretitulo">Orçamento</span>
+                    <h2 id="titulo-orcamento">Onde publicar o site do Grupo Êxito Condomínios</h2>
+                    <p class="ex-subtitulo">Comparação de três hospedagens e três domínios para o site do projeto, que
+                        é feito só com HTML, CSS e JavaScript.</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO 1: um card (article) para cada hospedagem -->
+            <section class="hospedagens" aria-labelledby="titulo-hospedagens">
+                <h2 id="titulo-hospedagens">Hospedagens comparadas</h2>
+
+                <!-- Card 1: HostGator -->
+                <article class="ex-card provedor">
+                    <span class="ex-etiqueta">Plano P, o mais barato</span>
+                    <h3>HostGator</h3>
+                    <div class="provedor__grade">
+                        <img class="provedor__print" src="../img/orcamento-hospedagem/print-hostgator.png"
+                            width="1224" height="833"
+                            alt="Print da página de planos da HostGator, consultada em 14/10/2026">
+                        <div class="tabela-rolagem" tabindex="0" role="region"
+                            aria-label="Recursos do Plano P da HostGator">
+                            <table>
+                                <caption>Recursos do Plano P</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Recurso</th>
+                                        <th scope="col">Plano P</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Preço</th>
+                                        <td>R$ 10,09/mês no ciclo de 3 anos (total R$ 361,61 pago de uma vez)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sites</th>
+                                        <td>1 site</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Espaço</th>
+                                        <td>100 GB NVMe</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Largura de banda</th>
+                                        <td>Não informada no site; o plano indica até 80 mil visitas por mês</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">SSL</th>
+                                        <td>Grátis em todos os planos</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Suporte</th>
+                                        <td>24 horas, todos os dias, por chat e ticket</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Domínio grátis no 1º ano</th>
+                                        <td>Sim</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Contrato</th>
+                                        <td>3 anos</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="provedor__outros"><strong>Outros planos:</strong></p>
+                    <ul>
+                        <li>Plano M: R$ 11,49/mês, 100 GB, até 120 mil visitas, +60 sites.</li>
+                        <li>Plano Turbo: R$ 18,69/mês, 150 GB, até 400 mil visitas, +150 sites.</li>
+                    </ul>
+                </article>
+
+                <!-- Card 2: Hostinger -->
+                <article class="ex-card provedor">
+                    <span class="ex-etiqueta">Single e Premium</span>
+                    <h3>Hostinger</h3>
+                    <div class="provedor__grade">
+                        <img class="provedor__print" src="../img/orcamento-hospedagem/print-hostinger.png"
+                            width="1582" height="817"
+                            alt="Print da página de planos da Hostinger, consultada em 14/10/2026">
+                        <div class="tabela-rolagem" tabindex="0" role="region"
+                            aria-label="Recursos dos planos Single e Premium da Hostinger">
+                            <table>
+                                <caption>Recursos dos planos Single e Premium</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Recurso</th>
+                                        <th scope="col">Single</th>
+                                        <th scope="col">Premium</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Preço</th>
+                                        <td>R$ 5,99/mês</td>
+                                        <td>R$ 10,99/mês</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Contrato</th>
+                                        <td>48 meses (total R$ 287,52)</td>
+                                        <td>48 meses (total R$ 527,52)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Renovação</th>
+                                        <td>R$ 23,99/mês</td>
+                                        <td>R$ 38,99/mês</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sites</th>
+                                        <td>1 site</td>
+                                        <td>3 sites</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Espaço</th>
+                                        <td>10 GB SSD</td>
+                                        <td>20 GB SSD</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Largura de banda</th>
+                                        <td>100 GB</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">SSL</th>
+                                        <td colspan="2">Grátis e ilimitado em todos os planos</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Suporte</th>
+                                        <td colspan="2">24 horas, todos os dias, por chat em português</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Domínio grátis</th>
+                                        <td>Não incluso</td>
+                                        <td>Sim, por 1 ano</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="provedor__outros"><strong>Outros planos:</strong></p>
+                    <ul>
+                        <li>Unlimited: R$ 13,99/mês, 50 GB NVMe; é a partir dele que o suporte passa a ser
+                            prioritário.</li>
+                        <li>Cloud Startup: R$ 39,99/mês, 100 GB NVMe.</li>
+                    </ul>
+                </article>
+
+                <!-- Card 3: Umbler -->
+                <article class="ex-card provedor">
+                    <span class="ex-etiqueta">Plano elástico, cobrado por mês</span>
+                    <h3>Umbler</h3>
+                    <div class="provedor__grade">
+                        <img class="provedor__print" src="../img/orcamento-hospedagem/print-umbler.png"
+                            width="1371" height="647"
+                            alt="Print da página de planos da Umbler, consultada em 14/10/2026">
+                        <div class="tabela-rolagem" tabindex="0" role="region"
+                            aria-label="Recursos do plano elástico da Umbler">
+                            <table>
+                                <caption>Recursos do plano elástico</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Recurso</th>
+                                        <th scope="col">Plano elástico</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Preço</th>
+                                        <td>5 opções, de R$ 29 a R$ 275/mês; a mais vendida custa R$ 39/mês</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Espaço</th>
+                                        <td>10 GB de disco SSD e 1 GB de RAM na opção de R$ 39; 1 GB de disco na
+                                            opção de R$ 29</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Largura de banda</th>
+                                        <td>Não informada no site</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">SSL</th>
+                                        <td>Grátis (Let's Encrypt)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Suporte</th>
+                                        <td>Pelo painel do cliente (chamado)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Domínio grátis</th>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Contrato</th>
+                                        <td>Mensal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="ex-nota provedor__aviso">Os nomes "Elástico 29", "Elástico 39"... foram dados pelo grupo
+                        a partir do preço; não são nomes oficiais.</p>
+                </article>
+            </section>
+
+            <!-- SEÇÃO 2: custo do primeiro ano de cada plano -->
+            <section class="comparativo" aria-labelledby="titulo-comparativo">
+                <h2 id="titulo-comparativo">Tabela comparativa do primeiro ano</h2>
+                <p>Conta de 12 meses. Quando o plano não tem domínio grátis, somamos um domínio .com.br, que custa
+                    R$ 40,00 por ano.</p>
+
+                <div class="tabela-rolagem" tabindex="0" role="region"
+                    aria-label="Tabela comparativa do primeiro ano">
+                    <table class="tabela-larga">
+                        <caption>Custo de cada plano nos primeiros 12 meses (valores em R$)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Empresa</th>
+                                <th scope="col">Plano</th>
+                                <th scope="col">Preço/mês</th>
+                                <th scope="col">Domínio grátis no 1º ano</th>
+                                <th scope="col">Hospedagem em 12 meses</th>
+                                <th scope="col">Domínio em 12 meses</th>
+                                <th scope="col">Total em 12 meses</th>
+                                <th scope="col">Contrato</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">HostGator</th>
+                                <td>Plano P</td>
+                                <td>10,09</td>
+                                <td>Sim</td>
+                                <td>121,08</td>
+                                <td>0,00</td>
+                                <td>121,08</td>
+                                <td>3 anos</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HostGator</th>
+                                <td>Plano M</td>
+                                <td>11,49</td>
+                                <td>Sim</td>
+                                <td>137,88</td>
+                                <td>0,00</td>
+                                <td>137,88</td>
+                                <td>3 anos</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HostGator</th>
+                                <td>Plano Turbo</td>
+                                <td>18,69</td>
+                                <td>Sim</td>
+                                <td>224,28</td>
+                                <td>0,00</td>
+                                <td>224,28</td>
+                                <td>3 anos</td>
+                            </tr>
+                            <!-- Linha de menor custo, destacada -->
+                            <tr class="linha-destaque">
+                                <th scope="row">Hostinger</th>
+                                <td>Single</td>
+                                <td>5,99</td>
+                                <td>Não</td>
+                                <td>71,88</td>
+                                <td>40,00</td>
+                                <td><strong>111,88</strong> <span class="ex-etiqueta">Menor custo</span></td>
+                                <td>48 meses</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hostinger</th>
+                                <td>Premium</td>
+                                <td>10,99</td>
+                                <td>Sim</td>
+                                <td>131,88</td>
+                                <td>0,00</td>
+                                <td>131,88</td>
+                                <td>48 meses</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hostinger</th>
+                                <td>Unlimited</td>
+                                <td>13,99</td>
+                                <td>Sim</td>
+                                <td>167,88</td>
+                                <td>0,00</td>
+                                <td>167,88</td>
+                                <td>48 meses</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hostinger</th>
+                                <td>Cloud Startup</td>
+                                <td>39,99</td>
+                                <td>Sim</td>
+                                <td>479,88</td>
+                                <td>0,00</td>
+                                <td>479,88</td>
+                                <td>48 meses</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Umbler</th>
+                                <td>Elástico 29</td>
+                                <td>29,00</td>
+                                <td>Não</td>
+                                <td>348,00</td>
+                                <td>40,00</td>
+                                <td>388,00</td>
+                                <td>Mensal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Umbler</th>
+                                <td>Elástico 39</td>
+                                <td>39,00</td>
+                                <td>Não</td>
+                                <td>468,00</td>
+                                <td>40,00</td>
+                                <td>508,00</td>
+                                <td>Mensal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Umbler</th>
+                                <td>Elástico 60</td>
+                                <td>60,00</td>
+                                <td>Não</td>
+                                <td>720,00</td>
+                                <td>40,00</td>
+                                <td>760,00</td>
+                                <td>Mensal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Umbler</th>
+                                <td>Elástico 195</td>
+                                <td>195,00</td>
+                                <td>Não</td>
+                                <td>2.340,00</td>
+                                <td>40,00</td>
+                                <td>2.380,00</td>
+                                <td>Mensal</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Umbler</th>
+                                <td>Elástico 275</td>
+                                <td>275,00</td>
+                                <td>Não</td>
+                                <td>3.300,00</td>
+                                <td>40,00</td>
+                                <td>3.340,00</td>
+                                <td>Mensal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="comparativo__resumo">Menor custo no primeiro ano: <strong>Hostinger Single, R$ 111,88</strong>
+                    (linha destacada).</p>
+            </section>
+
+            <!-- SEÇÃO 3: três opções de domínio -->
+            <section class="dominios" aria-labelledby="titulo-dominios">
+                <h2 id="titulo-dominios">Domínios</h2>
+
+                <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de domínios">
+                    <table class="tabela-media">
+                        <caption>Três extensões de domínio e onde registrar cada uma</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Extensão</th>
+                                <th scope="col">Onde registrar</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">.com.br</th>
+                                <td>Registro.br</td>
+                                <td>R$ 40,00 por ano</td>
+                                <td>Domínio brasileiro; o mesmo preço na renovação.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">.net.br</th>
+                                <td>Registro.br</td>
+                                <td>R$ 40,00 por ano</td>
+                                <td>Outra categoria .br, com o mesmo preço.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">.com</th>
+                                <td>Hostinger</td>
+                                <td>R$ 0,01 no 1º ano; renovação R$ 94,99 por ano</td>
+                                <td>O Registro.br não registra domínios internacionais.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Nos planos com domínio grátis, o primeiro ano do domínio sai de graça; a partir do segundo ano ele é
+                    pago à parte.</p>
+            </section>
+
+            <!-- SEÇÃO 4: conclusão do grupo -->
+            <section class="conclusao" aria-labelledby="titulo-conclusao">
+                <h2 id="titulo-conclusao">Conclusão do grupo</h2>
+                <p>Nosso site é feito só com HTML, CSS e JavaScript, então não precisa de servidor em nuvem nem de banco
+                    de dados. Os planos da Umbler são mais do que precisamos.</p>
+                <p>O Hostinger Single é o escolhido.</p>
+                <p><strong>Custo-benefício:</strong> é o plano de menor custo no primeiro ano. São R$ 71,88 de
+                    hospedagem (R$ 5,99 por mês) mais R$ 40,00 do domínio, num total de R$ 111,88. Ele traz o que o
+                    site precisa: 10 GB de espaço SSD (o site inteiro tem cerca de 20 MB), 100 GB de largura de banda,
+                    SSL grátis e suporte 24 horas, por chat em português.</p>
+                <p><strong>Domínio:</strong> como o Single não inclui domínio, escolhemos o <strong>.com.br</strong>
+                    no Registro.br, por R$ 40,00 por ano. É a extensão de empresa brasileira e mantém o mesmo preço na
+                    renovação.</p>
+                <p><strong>Escalabilidade:</strong> se o site crescer, dá para mudar de plano sem trocar de empresa.
+                    O Premium (R$ 10,99 por mês) aceita 3 sites e tem 20 GB, e o Unlimited (R$ 13,99 por mês) tem 50 GB,
+                    CDN e suporte prioritário. Para muito acesso, existe o Cloud Startup, com 100 GB.</p>
+                <p class="conclusao__atencao"><strong>Atenção:</strong> o preço promocional vale para o contrato de 48 meses, pago de uma vez
+                    (R$ 287,52). Depois disso, o plano renova a R$ 23,99 por mês.</p>
+            </section>
+
+            <!-- Fonte das imagens -->
+            <p class="ex-nota nota-fonte">Imagens: prints das páginas de planos da HostGator, da Hostinger e da
+                Umbler, feitos pelo grupo em 14/10/2026.</p>
+
+        </div>
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="../img/logo-grupo-exito-header.png"
+                        srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x"
+                        width="144" height="52" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e
+                        soluções sob medida para síndicos e condôminos.</p>
+                    <div class="ex-rodape__selos">
+                        <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
+                        <span class="ex-rodape__selo">ROZENDO ADM</span>
+                    </div>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <div class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined">domain</span>
+                            <span>MATRIZ MOGI</span>
+                        </div>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </div>
+                    <div class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined">location_city</span>
+                            <span>FILIAL SÃO PAULO</span>
+                        </div>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </div>
+                </div>
+                <!-- Coluna 3: páginas internas e documentação -->
+                <div class="ex-rodape__coluna">
+                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                        <span class="ex-rodape__rotulo">Páginas Internas</span>
+                        <div class="ex-rodape__links">
+                            <a href="quem-somos.html">Quem Somos</a>
+                            <a href="servicos.html">Serviços Vitrine</a>
+                            <a href="clientes.html">Clientes</a>
+                            <a href="projetos.html">Projetos &amp; Cases</a>
+                            <a href="noticias.html">Notícias &amp; Blog</a>
+                            <a href="faq.html">FAQ &amp; Dúvidas</a>
+                            <a href="contato.html">Fale Conosco</a>
+                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                        </div>
+                    </nav>
+                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+                        <span class="ex-rodape__rotulo">Docs</span>
+                        <div class="ex-rodape__links">
+                            <a href="../docs/paginas.html">Painel do projeto</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="ex-rodape__base">
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+                <p class="ex-rodape__assinatura">EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
+    <script src="../js/cookies.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Página: servicos-1.html (Gestão Administrativa)
+   Só vale com <body class="pagina-servicos-1">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e da tabela vêm
+   do padrão das tags no global.css, iguais em todo o site. Esta página não
+   muda a tipografia. O topo é o componente .ex-hero, o primeiro título usa
+   o .ex-cabecalho, os botões são o .ex-botao e a nota do fim é o .ex-nota. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/page/ até img/). Enquanto a
+   foto não existir, o fundo fica azul-marinho. A foto da reunião continua
+   no conteúdo porque é pequena demais para o topo (663px de largura). */
+.pagina-servicos-1 .ex-hero {
+    background-image: url("../../img/servicos-1/hero-servicos-1.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px).
+   Os 50px de cima vêm do componente .ex-hero; aqui fica só o espaço de baixo. */
+.pagina-servicos-1 main .ex-container {
+    padding-bottom: 40px;
+}
+
+/* Caixa principal azul-marinho (cor da paleta) com texto branco */
+.pagina-servicos-1 .retangulo {
+    background-color: rgb(14, 56, 103);
+    color: rgb(255, 255, 255);
+    padding: 45px;
+    border-radius: 15px;
+}
+
+/* Títulos dentro da caixa azul ficam brancos (o padrão é escuro) */
+.pagina-servicos-1 .retangulo h2 {
+    color: rgb(255, 255, 255);
+}
+
+/* Títulos "Benefícios", "Como Funciona" e "O que está incluso?"
+   (o título do .ex-cabecalho fica com as margens do componente) */
+.pagina-servicos-1 .retangulo h2,
+.pagina-servicos-1 .titulo-incluso {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Título "O que está incluso?" centralizado
+   (antes era o atributo align="center" no HTML) */
+.pagina-servicos-1 .titulo-incluso {
+    text-align: center;
+}
+
+/* Foto da reunião, centralizada dentro da caixa */
+.pagina-servicos-1 main img {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 8px;
+}
+
+/* Tabela (bordas e espaçamento vêm do padrão; aqui só as cores da página) */
+.pagina-servicos-1 main table {
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Legenda da tabela alinhada à esquerda, com espaço até a tabela */
+.pagina-servicos-1 main caption {
+    text-align: left;
+    padding-bottom: 0.75rem;
+}
+
+/* Cabeçalho da tabela em azul-marinho, com texto branco */
+.pagina-servicos-1 main th {
+    background-color: rgb(14, 56, 103);
+    color: rgb(255, 255, 255);
+}
+
+/* Linhas pares com fundo cinza-claro (zebrado) */
+.pagina-servicos-1 main tbody tr:nth-child(even) {
+    background-color: rgb(241, 245, 249);
+}
+
+/* Botões do fim (componente .ex-botao): só o espaço em cima */
+.pagina-servicos-1 main .ex-botao {
+    margin-top: 10px;
+}
+
+/* Fonte da foto: nota discreta no fim da página (texto: componente .ex-nota) */
+.pagina-servicos-1 .nota-fonte {
+    padding: 20px 5% 0;
+    text-align: center;
+}
+
+/* Celular: menos espaço dentro da caixa azul */
+@media (max-width: 640px) {
+    .pagina-servicos-1 .retangulo {
+        padding: 24px;
+    }
+}

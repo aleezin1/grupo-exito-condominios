@@ -1,0 +1,431 @@
+/* ==========================================================================
+   Loading da home (montado por js/loading.js)
+   --------------------------------------------------------------------------
+   "Prédio inteligente + portão": as janelas acendem andar por andar e, no fim,
+   o portão se abre ao meio (dividindo prédio e logo) com parallax de fundo.
+   Aparece só na primeira visita da sessão. Pode ser pulado (clique, botão ou Esc).
+
+   Cores só da paleta (rgb/rgba). Os atrasos de cada janela, laje e status e a
+   duração da barra são escritos pelo js/loading.js direto no elemento
+   (animation-delay e animation-duration), sem variáveis.
+   ========================================================================== */
+
+/* Cobre a página enquanto o loading ainda não foi montado (evita "piscar") */
+html.ld-ativo body {
+    overflow: hidden;
+}
+
+html.ld-ativo:not(.ld-montado)::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgb(6, 21, 45);
+}
+
+.ld {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    cursor: pointer;
+}
+
+.ld *,
+.ld *::before,
+.ld *::after {
+    box-sizing: border-box;
+}
+
+.ld .ld-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---- Camadas de fundo (parallax): ficam atrás do portão ---------------- */
+.ld-camada {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.ld-ceu {
+    background:
+        radial-gradient(ellipse at 50% 110%, rgba(0, 188, 212, 0.28), transparent 55%),
+        rgb(6, 21, 45);
+}
+
+.ld-skyline-longe,
+.ld-skyline-perto {
+    top: auto;
+    height: 55%;
+}
+
+.ld-camada svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---- Portão: duas folhas, cada uma mostra metade da mesma cena ---------- */
+.ld-folha {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px) 0 0 / 32px 32px,
+        rgb(6, 21, 45);
+}
+
+.ld-folha--esq {
+    left: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 188, 212, 0.35);
+}
+
+.ld-folha--dir {
+    right: 0;
+    box-shadow: inset 1px 0 0 rgba(0, 188, 212, 0.35);
+}
+
+/* a cena tem a largura da tela; a folha direita mostra a metade direita */
+.ld-cena {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.ld-folha--esq .ld-cena {
+    left: 0;
+}
+
+.ld-folha--dir .ld-cena {
+    left: -50vw;
+}
+
+/* ---- Botão pular --------------------------------------------------------- */
+.ld-pular {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgb(226, 232, 240);
+    font: 600 12px "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.ld-pular:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+.ld-pular:focus-visible {
+    outline: 3px solid rgb(0, 188, 212);
+    outline-offset: 2px;
+}
+
+/* ---- Prédio: janelas acendem andar por andar ---------------------------- */
+.ld-predio {
+    width: min(240px, 46vw);
+    max-height: 38vh;
+    height: auto;
+    overflow: visible;
+}
+
+.ld-predio .estrutura {
+    fill: rgb(10, 30, 59);
+    stroke: rgba(0, 188, 212, 0.35);
+    stroke-width: 1.2;
+}
+
+.ld-predio .chao {
+    stroke: rgba(0, 188, 212, 0.5);
+    stroke-width: 1.5;
+}
+
+.ld-predio .antena {
+    stroke: rgba(0, 188, 212, 0.6);
+    stroke-width: 2;
+}
+
+.ld-predio .luz-antena {
+    fill: rgb(239, 68, 68);
+    animation: ld-piscar 1s steps(2) infinite;
+}
+
+.ld-janela {
+    fill: rgb(10, 30, 59);
+}
+
+/* o atraso de cada janela vem do js/loading.js (animation-delay) */
+.ld--rodando .ld-janela {
+    animation: ld-acender .45s ease-out forwards;
+}
+
+.ld--pulso .ld-janelas {
+    animation: ld-pulso .5s ease;
+}
+
+/* ---- Logo + nome --------------------------------------------------------- */
+.ld-marca {
+    margin-top: 18px;
+    text-align: center;
+    opacity: 0;
+}
+
+.ld--rodando .ld-marca {
+    animation: ld-aparece .5s .25s ease forwards;
+}
+
+.ld-emblema {
+    display: block;
+    width: 58px;
+    height: auto;
+    margin: 0 auto 10px;
+    overflow: visible;
+}
+
+.ld-emblema .laje {
+    transform-box: fill-box;
+}
+
+.ld--rodando .ld-emblema .laje {
+    opacity: 0;
+    transform: translateY(-14px);
+    animation: ld-laje .55s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+
+.ld-marca strong {
+    display: block;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1.1;
+}
+
+.ld-marca span {
+    display: block;
+    margin-top: 4px;
+    font: 500 12px "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: .5em;
+    color: rgb(148, 163, 184);
+}
+
+/* ---- Painel: andar, barra e status -------------------------------------- */
+.ld-painel {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.ld-andar {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    color: rgb(0, 188, 212);
+}
+
+.ld-andar b {
+    color: rgb(255, 255, 255);
+}
+
+.ld-barra {
+    width: 220px;
+    height: 2px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ld-barra i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, rgb(0, 104, 118), rgb(0, 188, 212));
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+/* 3.2s = tempo das janelas acendendo; o js/loading.js escreve o valor exato */
+.ld--rodando .ld-barra i {
+    animation: ld-barra 3.2s linear forwards;
+}
+
+.ld-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
+    font-size: 10px;
+    letter-spacing: .14em;
+    color: rgb(226, 232, 240);
+}
+
+.ld-status span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+}
+
+.ld-status span::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(16, 185, 129);
+    box-shadow: 0 0 8px rgb(16, 185, 129);
+}
+
+.ld--rodando .ld-status span {
+    animation: ld-aparece .3s ease forwards;
+}
+
+/* ---- Saída: portão abrindo + parallax ------------------------------------ */
+.ld--abrir {
+    pointer-events: none;
+}
+
+.ld--abrir .ld-folha--esq {
+    animation: ld-folha-esq .95s cubic-bezier(.77, 0, .18, 1) forwards;
+}
+
+.ld--abrir .ld-folha--dir {
+    animation: ld-folha-dir .95s cubic-bezier(.77, 0, .18, 1) forwards;
+}
+
+.ld--abrir .ld-skyline-longe {
+    animation: ld-longe 1.15s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.ld--abrir .ld-skyline-perto {
+    animation: ld-perto 1.05s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.ld--abrir .ld-ceu {
+    animation: ld-some .9s .35s ease forwards;
+}
+
+.ld--abrir .ld-pular {
+    opacity: 0;
+}
+
+/* a home "entra" com um leve zoom enquanto o portão abre */
+.ld-pagina-entrando {
+    animation: ld-pagina-entra 1.2s cubic-bezier(.2, .7, .2, 1) both;
+    transform-origin: 50% 0;
+}
+
+/* ---- Animações ------------------------------------------------------------ */
+@keyframes ld-acender {
+    0% { fill: rgb(10, 30, 59); }
+    30% { fill: rgb(0, 188, 212); }
+    45% { fill: rgb(14, 56, 103); }
+    100% { fill: rgb(214, 247, 255); }
+}
+
+@keyframes ld-pulso {
+    50% { filter: url(#ld-brilho) brightness(1.5); }
+}
+
+@keyframes ld-piscar {
+    50% { opacity: .15; }
+}
+
+@keyframes ld-aparece {
+    to { opacity: 1; }
+}
+
+@keyframes ld-laje {
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes ld-barra {
+    to { transform: scaleX(1); }
+}
+
+@keyframes ld-folha-esq {
+    to { transform: translateX(-101%); }
+}
+
+@keyframes ld-folha-dir {
+    to { transform: translateX(101%); }
+}
+
+@keyframes ld-longe {
+    to { transform: translateY(-6%) scale(1.12); opacity: 0; }
+}
+
+@keyframes ld-perto {
+    to { transform: translateY(18%) scale(1.3); opacity: 0; }
+}
+
+@keyframes ld-some {
+    to { opacity: 0; }
+}
+
+@keyframes ld-pagina-entra {
+    from { transform: scale(1.04); filter: brightness(.75); }
+    to { transform: none; filter: none; }
+}
+
+/* ---- Menos movimento (sistema ou menu de acessibilidade) ----------------- */
+.ld--reduzido *,
+.ld--reduzido *::before {
+    animation: none !important;
+    transition: none !important;
+}
+
+.ld--reduzido .ld-marca,
+.ld--reduzido .ld-status span {
+    opacity: 1;
+}
+
+.ld--reduzido .ld-janela {
+    fill: rgb(214, 247, 255);
+}
+
+.ld--reduzido .ld-barra i {
+    transform: none;
+}
+
+.ld--reduzido.ld--abrir {
+    animation: ld-some .3s ease forwards !important;
+}
+
+/* ---- Telas baixas (celular deitado) --------------------------------------- */
+@media (max-height: 560px) {
+    .ld-predio {
+        max-height: 30vh;
+    }
+
+    .ld-emblema {
+        display: none;
+    }
+
+    .ld-marca strong {
+        font-size: 22px;
+    }
+}

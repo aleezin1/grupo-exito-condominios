@@ -1,0 +1,749 @@
+/* ==========================================================================
+   CSS GLOBAL — Grupo Êxito Condomínios (projeto acadêmico)
+   --------------------------------------------------------------------------
+   Tudo o que é compartilhado pelo site inteiro, nesta ordem:
+
+     1. Fontes (@font-face) e a classe dos ícones
+     2. Paleta (lista das cores e fontes, só como comentário)
+     3. Padrão das tags (body, h1–h3, p, a, strong, img, listas, tabelas)
+     4. Componentes prontos (botões, cards, etiquetas...) — classes .ex-*
+
+   O header e o footer ficam em arquivos próprios: css/layout/header.css e
+   css/layout/footer.css.
+
+   Como usar (dentro de /pages), nesta ordem:
+
+     <link rel="stylesheet" href="../css/global.css">
+     <link rel="stylesheet" href="../css/layout/header.css">
+     <link rel="stylesheet" href="../css/layout/footer.css">
+     <link rel="stylesheet" href="../css/components/recurso.css">  (se usar)
+     <link rel="stylesheet" href="../css/page/sua-pagina.css">
+
+   E antes de </body>:
+
+     <script src="../js/menu.js"></script>
+
+   Licenças das fontes (arquivos em css/fonts/):
+     - Plus Jakarta Sans e Space Grotesk: SIL Open Font License 1.1 (OFL)
+       https://openfontlicense.org
+     - Material Symbols Outlined (Google): Apache License 2.0
+       https://www.apache.org/licenses/LICENSE-2.0
+   ========================================================================== */
+
+/* ==========================================================================
+   1. FONTES (arquivos em css/fonts/, sem depender do Google)
+   --------------------------------------------------------------------------
+   O caminho do url() é relativo a ESTE arquivo (css/global.css).
+   ========================================================================== */
+
+/* Plus Jakarta Sans: um arquivo "variável" que cobre os pesos 300 a 800 */
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("fonts/plus-jakarta-sans.woff2") format("woff2");
+}
+
+/* Space Grotesk: um arquivo "variável" que cobre os pesos 500 a 700 */
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url("fonts/space-grotesk.woff2") format("woff2");
+}
+
+/* Material Symbols Outlined (ícones): versão fixa, tamanho óptico 24,
+   peso 400, sem preenchimento (FILL 0) */
+@font-face {
+    font-family: "Material Symbols Outlined";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("fonts/material-symbols-outlined.woff2") format("woff2");
+}
+
+/* Classe dos ícones: <span class="material-symbols-outlined">home</span> */
+.material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. PALETA — cores, fontes, raios e sombras
+   --------------------------------------------------------------------------
+   O CSS do site NÃO usa variáveis: cada cor é escrita direto em
+   rgb(...), e a transparência em rgba(...). Copie os valores desta lista
+   (é a mesma tabela "Paleta de cores" do docs/README.md). Nunca invente cor.
+
+     Navy profundo        rgb(6, 21, 45)       header, rodapé, botões principais
+     Navy superfície      rgb(10, 30, 59)      cards sobre fundo escuro
+     Navy claro           rgb(14, 56, 103)     hover e variações
+     Ciano elétrico       rgb(0, 188, 212)     ícones, links ativos, detalhes
+     Teal                 rgb(0, 104, 118)     títulos de seção, links em fundo claro
+     Teal vibrante        rgb(24, 168, 182)    gradientes e ilustrações
+     Ciano suave          rgb(214, 247, 255)   fundo de etiquetas e badges
+     Fundo                rgb(248, 250, 253)   fundo da página
+     Superfície           rgb(255, 255, 255)   cards, formulários
+     Superfície variante  rgb(241, 245, 249)   blocos secundários, inputs
+     Borda                rgb(226, 232, 240)   bordas e divisórias
+     Texto                rgb(6, 21, 45)       títulos e texto forte
+     Texto corpo          rgb(71, 85, 105)     parágrafos
+     Texto secundário     rgb(82, 96, 113)     legendas, textos de apoio
+     Texto suave          rgb(148, 163, 184)   placeholders, metadados
+     Texto invertido      rgb(255, 255, 255)   texto sobre fundo navy
+     Sucesso              rgb(16, 185, 129)    confirmação, WhatsApp
+     Alerta               rgb(245, 158, 11)    avisos
+     Erro                 rgb(239, 68, 68)     erros de formulário
+
+   Transparência: rgba(0, 188, 212, 0.15) = Ciano elétrico com 15%.
+
+   Fontes (arquivos em css/fonts/):
+     Textos e títulos:            "Plus Jakarta Sans", system-ui, sans-serif
+     Etiquetas, números, badges:  "Space Grotesk", system-ui, sans-serif
+
+   Raios usados: 0.75rem (botões e inputs), 1.5rem (cards), 9999px (etiquetas).
+   Sombras: Navy profundo com transparência, por exemplo
+     0 16px 36px rgba(6, 21, 45, 0.08)   (cards)
+     0 10px 24px rgba(6, 21, 45, 0.18)   (botões)
+   ========================================================================== */
+
+/* ==========================================================================
+   3. PADRÃO DAS TAGS — a identidade visual do site
+   --------------------------------------------------------------------------
+   Estas regras valem para TODAS as páginas. Elas definem a fonte, a cor e o
+   tamanho de body, títulos, parágrafos, links, imagens, listas e tabelas.
+   h1, h2, h3, a, p, span e strong têm SEMPRE este mesmo padrão. O CSS de
+   cada página (css/page/) não muda a tipografia de nada (fonte, tamanho,
+   peso, altura da linha, espaçamento de letras, maiúsculas). A única
+   exceção é a COR, e só quando o texto está sobre fundo escuro
+   (ex.: .diferenciais h2 { color: rgb(255, 255, 255); }).
+   As variações (rótulo, nota, texto de depoimento...) são componentes .ex-*
+   da seção 4, iguais em todas as páginas.
+
+   O header e o rodapé não mudam com estas regras: eles têm proteção própria
+   em css/layout/header.css e css/layout/footer.css.
+   ========================================================================== */
+
+/* ---- Página: fonte, cor e fundo do site inteiro ------------------------
+   Tira a margem padrão do navegador para o header/footer encostarem nas
+   bordas. Parágrafos, listas e tabelas herdam fonte, cor e tamanho daqui. */
+body {
+    margin: 0;
+    background-color: rgb(248, 250, 253);
+    color: rgb(71, 85, 105);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 1rem;              /* 16px */
+    line-height: 1.6;             /* linhas espaçadas, leitura confortável */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Títulos: mesma fonte do texto, cor escura e escala de tamanhos ----
+   Os mesmos pesos e o mesmo "aperto" de letras dos componentes .ex-titulo
+   (seção 4), para que títulos e componentes pareçam da mesma família.
+   A margem fica a padrão do navegador (cada página ajusta a sua). */
+h1,
+h2,
+h3 {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    color: rgb(6, 21, 45);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.75rem;           /* 44px */
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    font-size: 2rem;              /* 32px */
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h3 {
+    font-size: 1.25rem;           /* 20px */
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* ---- Parágrafos ---------------------------------------------------------
+   A fonte, a cor e o tamanho vêm do body. A cor NÃO é repetida aqui de
+   propósito: assim um parágrafo dentro de uma caixa escura continua com a
+   cor clara que a caixa definir. A regra abaixo só quebra palavras muito
+   longas (e-mails, links) para não estourar a tela do celular. */
+p {
+    overflow-wrap: break-word;
+}
+
+/* ---- Links (em fundo claro) ---------------------------------------------
+   Teal da paleta, sublinhado discreto. No hover fica azul-marinho.
+   O ":where(:hover)" deixa o hover com a força de um seletor de tag: assim
+   qualquer classe da página (.botao, .ex-botao...) ganha dele e o botão não
+   muda de cor por engano. */
+a {
+    color: rgb(0, 104, 118);
+    text-underline-offset: 0.15em;
+}
+
+a:where(:hover) {
+    color: rgb(14, 56, 103);
+}
+
+/* ---- Destaques dentro do texto: strong e span ----------------------------
+   O <strong> fica em negrito (700) e herda o resto (fonte, tamanho e cor)
+   de quem está em volta. O <span> não tem regra de propósito: ele herda
+   tudo do elemento em volta. Para um texto diferente (rótulo, nota...), use
+   um componente da seção 4, nunca uma regra na página. */
+strong {
+    font-weight: 700;
+}
+
+/* ---- Imagens: nunca passam da largura da caixa e não distorcem ---------- */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---- Listas: recuo menor que o do navegador ----------------------------- */
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+/* ---- Tabelas: bordas finas da paleta e cabeçalho destacado -------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-weight: 700;
+}
+
+/* ---- Celular (até 640px): títulos menores para caber na tela ------------ */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;          /* 32px */
+    }
+
+    h2 {
+        font-size: 1.625rem;      /* 26px */
+    }
+}
+
+/* ---- Rolagem suave em links para seções (#...) ---------------------------
+   E desconto da altura do header fixo, para a seção não ficar escondida. */
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 132px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ==========================================================================
+   4. COMPONENTES — botões, cards, etiquetas e campos prontos (opcional)
+   --------------------------------------------------------------------------
+   Todas as classes começam com "ex-" para não conflitar com as classes da
+   sua página. Nada aqui é aplicado sozinho: só vale onde você usar a classe.
+   ========================================================================== */
+
+/* ---- Base da página (aplique no <body>) -------------------------------- */
+.ex-pagina {
+    margin: 0;
+    background: rgb(248, 250, 253);
+    color: rgb(71, 85, 105);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Layout ------------------------------------------------------------ */
+/* Container-base do site: largura-base de 1200px.
+   Header (.ex-header .ex-conteudo) e footer (.ex-rodape .ex-conteudo) usam
+   os mesmos valores, então o texto começa na mesma linha nos três.
+   Seção "vazada": o fundo fica na <section> (ponta a ponta da tela) e o
+   conteúdo vai dentro de um <div class="ex-container">. */
+.ex-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.ex-secao {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.ex-secao--branca {
+    background: rgb(255, 255, 255);
+}
+
+/* ---- Títulos de seção -------------------------------------------------- */
+.ex-sobretitulo {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(0, 104, 118);
+}
+
+.ex-titulo {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: rgb(6, 21, 45);
+}
+
+.ex-titulo--hero {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.ex-titulo__destaque {
+    background: linear-gradient(90deg, rgb(6, 21, 45), rgb(0, 104, 118), rgb(0, 188, 212));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ex-subtitulo {
+    margin: 0.5rem 0 0;
+    font-size: 15px;
+    color: rgb(71, 85, 105);
+}
+
+/* Cabeçalho de seção: rótulo (.ex-sobretitulo) + título (<h2>) + texto de
+   apoio (.ex-subtitulo), num bloco só. É o primeiro bloco de conteúdo logo
+   abaixo do topo (.ex-hero) de cada página. Exemplo em pages/faq.html.
+   As regras usam duas classes (".ex-container .ex-cabecalho",
+   ".ex-cabecalho .ex-subtitulo"...) de propósito: assim o componente ganha
+   de resets de página como "main * { margin: 0; padding: 0 }" e fica igual
+   em todas as páginas. */
+.ex-container .ex-cabecalho {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.ex-cabecalho .ex-sobretitulo {
+    margin: 0 0 0.25rem;
+}
+
+.ex-cabecalho h2 {
+    margin: 0;
+}
+
+.ex-cabecalho .ex-subtitulo {
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 640px) {
+    .ex-titulo { font-size: 28px; }
+    .ex-titulo--hero { font-size: 36px; }
+}
+
+/* ---- Variações de texto ------------------------------------------------
+   Textos que não seguem o padrão das tags. São iguais em todas as páginas:
+   a página só pode mudar a margem, o alinhamento e, em fundo escuro, a cor.
+
+   .ex-sobretitulo (acima)  rótulo pequeno em maiúsculas: tipo do card,
+                            nome de uma faixa ("Depoimentos")
+   .ex-subtitulo   (acima)  texto de apoio logo abaixo de um título
+   .ex-nota                 texto pequeno cinza: nota no fim da página,
+                            legenda de vídeo ou foto, cargo de uma pessoa
+   .ex-aspas                aspas grandes decorativas de um depoimento
+   .ex-citacao              texto de um depoimento
+   .ex-autor                nome de quem deu o depoimento
+
+   Exemplo de depoimento:
+   <figure>
+       <div class="ex-aspas" aria-hidden="true">“</div>
+       <blockquote><p class="ex-citacao">Texto do depoimento.</p></blockquote>
+       <figcaption>
+           <strong class="ex-autor">Nome</strong>
+           <span class="ex-nota">Cargo</span>
+       </figcaption>
+   </figure> */
+
+/* Texto pequeno de apoio (12px, cinza). Fica no fluxo do texto: se
+   precisar de linha própria ou centralizado, a página ajusta isso. */
+.ex-nota {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgb(82, 96, 113);
+}
+
+/* Aspas grandes em ciano, só decoração (use aria-hidden="true") */
+.ex-aspas {
+    height: 45px;
+    color: rgb(0, 188, 212);
+    font-size: 50px;
+    font-weight: 700;
+}
+
+/* Texto do depoimento: um pouco menor e com linhas mais espaçadas */
+.ex-citacao {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Nome de quem deu o depoimento: negrito, azul-marinho, linha própria */
+.ex-autor {
+    display: block;
+    color: rgb(6, 21, 45);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Número em destaque (indicadores: "99.8%", "24/7", "+15 Anos").
+   Fonte das etiquetas e números (Space Grotesk), grande e azul-marinho. */
+.ex-numero {
+    display: block;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: rgb(6, 21, 45);
+}
+
+@media (max-width: 640px) {
+    .ex-numero { font-size: 26px; }
+}
+
+/* Variação grande do número: número decorativo de uma lista ("01", "02"...),
+   como na lista de serviços da página Serviços. Usar junto com .ex-numero:
+   <span class="ex-numero ex-numero--grande" aria-hidden="true">01</span>
+   Fica em teal, com 88px no computador e 64px no celular. */
+.ex-numero--grande {
+    font-size: 88px;
+    line-height: 1;
+    color: rgb(0, 104, 118);
+}
+
+@media (max-width: 640px) {
+    .ex-numero--grande { font-size: 64px; }
+}
+
+/* ---- Ícones (Material Symbols): tamanho e cor ---------------------------
+   O ícone padrão tem 24px e a cor do texto em volta. Use junto com a
+   classe do ícone:
+   <span class="material-symbols-outlined ex-icone--pequeno ex-icone--ciano"
+         aria-hidden="true">check_circle</span> */
+.ex-icone--pequeno {
+    font-size: 16px;
+}
+
+.ex-icone--grande {
+    font-size: 32px;
+}
+
+.ex-icone--ciano {
+    color: rgb(0, 188, 212);
+}
+
+.ex-icone--teal {
+    color: rgb(0, 104, 118);
+}
+
+.ex-icone--navy {
+    color: rgb(6, 21, 45);
+}
+
+/* ---- Botões ------------------------------------------------------------ */
+.ex-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.ex-botao--primario {
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 10px 24px rgba(6, 21, 45, 0.18);
+}
+
+.ex-botao--primario:hover {
+    background: rgb(14, 56, 103);
+}
+
+.ex-botao--secundario {
+    background: rgb(255, 255, 255);
+    color: rgb(6, 21, 45);
+    border-color: rgb(226, 232, 240);
+}
+
+.ex-botao--secundario:hover {
+    background: rgb(241, 245, 249);
+}
+
+.ex-botao--whatsapp {
+    background: rgb(16, 185, 129);
+    color: rgb(255, 255, 255);
+}
+
+.ex-botao--whatsapp:hover {
+    filter: brightness(0.92);
+}
+
+/* ---- Card -------------------------------------------------------------- */
+.ex-card {
+    padding: 2.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ex-card:hover {
+    border-color: rgba(0, 188, 212, 0.6);
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+.ex-card__titulo {
+    margin: 0 0 0.5rem;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(6, 21, 45);
+}
+
+/* ---- Etiqueta / badge -------------------------------------------------- */
+.ex-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(214, 247, 255, 0.6);
+    color: rgb(0, 104, 118);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.ex-etiqueta--escura {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+}
+
+/* ---- Campos de formulário ---------------------------------------------- */
+.ex-campo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.625rem 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 0.75rem;
+    background: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.ex-campo::placeholder {
+    color: rgb(148, 163, 184);
+}
+
+.ex-campo:focus {
+    outline: none;
+    background: rgb(255, 255, 255);
+    border-color: rgb(0, 188, 212);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.35);
+}
+
+.ex-rotulo {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(82, 96, 113);
+}
+
+/* ---- Topo de página com foto (hero) -----------------------------------
+   Faixa do topo com foto de fundo, película azul-marinho por cima, um
+   rótulo ciano, o título (h1) e um texto curto. Exemplo para copiar:
+
+   <section class="ex-hero">
+       <div class="ex-hero__pelicula"></div>
+       <div class="ex-hero__conteudo">
+           <span class="ex-hero__rotulo">Nossos clientes</span>
+           <h1 class="ex-hero__titulo">
+               Empresas e condomínios
+               <strong>que confiam no nosso trabalho.</strong>
+           </h1>
+           <p class="ex-hero__texto">Um texto curto sobre a página.</p>
+       </div>
+   </section>
+
+   A FOTO DE FUNDO NÃO FICA AQUI: cada página coloca a sua no próprio CSS
+   (css/page/<pagina>.css), numa regra ".pagina-<nome> .ex-hero" com
+   background-image. O caminho começa com ../../img/ (veja o exemplo em
+   css/page/clientes.css). Sem foto, o fundo fica azul-marinho.
+
+   Os filhos usam ".ex-hero .ex-hero__..." (duas classes) de propósito:
+   assim o componente ganha de resets de página como "main * { margin: 0 }"
+   e funciona igual em qualquer página. */
+.ex-hero {
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(6, 21, 45);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Película escura em gradiente sobre a foto (navy da paleta) */
+.ex-hero .ex-hero__pelicula {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(6, 21, 45, 0.98),
+        rgba(10, 30, 59, 0.85),
+        rgba(14, 56, 103, 0.45)
+    );
+}
+
+/* Caixa do texto: mesma largura e respiro do .ex-container (1200px), para o
+   texto começar na mesma linha do logo e das seções. O título e o texto
+   continuam limitados por dentro (800px e 620px). Fica acima da película. */
+.ex-hero .ex-hero__conteudo {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+/* Rótulo ciano em maiúsculas acima do título */
+.ex-hero .ex-hero__rotulo {
+    display: block;
+    margin: 0 0 15px;
+    padding: 0;
+    color: rgb(0, 188, 212);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+/* Título branco; o <strong> vai para a linha de baixo, em ciano */
+.ex-hero .ex-hero__titulo {
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    color: rgb(255, 255, 255);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.ex-hero .ex-hero__titulo strong {
+    display: block;
+    color: rgb(0, 188, 212);
+}
+
+/* Texto claro abaixo do título */
+.ex-hero .ex-hero__texto {
+    margin: 20px 0 0;
+    padding: 0;
+    max-width: 620px;
+    color: rgb(241, 245, 249);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Espaço padrão abaixo do topo: 50px entre o fim do .ex-hero e o primeiro
+   conteúdo, em toda página (no celular também). O espaço fica DENTRO do
+   elemento que vem logo depois do topo (o "+ *"), então o fundo dele vai
+   até encostar no topo, sem faixa de outra cor no meio.
+   O "main > section" deixa a regra um pouco mais forte, para ganhar de
+   resets de página como "main * { padding: 0 }". */
+main > section.ex-hero + * {
+    padding-top: 50px;
+}
+
+/* Primeiro título logo depois do topo: sem margem em cima (o espaço fica só
+   nos 50px acima) e 15px até o texto. O "section.ex-hero +" deixa a regra
+   mais forte que as regras de título das páginas. Se o título estiver dentro
+   de uma seção, a página faz o mesmo com a regra dela. */
+main > section.ex-hero + .ex-container > h2:first-child {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Celular: título menor e topo um pouco mais alto */
+@media (max-width: 600px) {
+    .ex-hero {
+        min-height: 400px;
+    }
+
+    .ex-hero .ex-hero__titulo {
+        font-size: 28px;
+    }
+}

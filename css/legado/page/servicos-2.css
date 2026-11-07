@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Página: servicos-2.html (Gestão Financeira)
+   Só vale com <body class="pagina-servicos-2">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong vêm do padrão
+   das tags no global.css, iguais em todo o site. Esta página não muda a
+   tipografia. Ela tem fundo azul-marinho: os textos que ficam direto sobre
+   ele ficam brancos (classe .texto-branco e o .ex-cabecalho da página).
+   O topo é o componente .ex-hero e a nota do fim é o .ex-nota. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/page/ até img/). Sem a foto,
+   o fundo fica azul-marinho. */
+.pagina-servicos-2 .ex-hero {
+    background-image: url("../../img/servicos-2/analise-financeira.jpg");
+}
+
+/* Fundo azul-marinho de todo o conteúdo da página */
+.pagina-servicos-2 main {
+    background-color: rgb(6, 21, 45);
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px).
+   Os 50px de cima vêm do componente .ex-hero; aqui fica só o espaço de baixo. */
+.pagina-servicos-2 main .ex-container {
+    padding-bottom: 40px;
+}
+
+/* Títulos e faixas centralizados */
+.pagina-servicos-2 .texto-centralizado {
+    text-align: center;
+}
+
+/* Títulos brancos sobre o fundo azul */
+.pagina-servicos-2 .texto-branco {
+    color: rgb(255, 255, 255);
+}
+
+/* ---- Cabeçalho "Da análise à decisão" (componente .ex-cabecalho) -------
+   Título e texto brancos sobre o fundo azul-marinho */
+.pagina-servicos-2 .secao-analise h2,
+.pagina-servicos-2 .secao-analise .ex-subtitulo {
+    color: rgb(255, 255, 255);
+}
+
+/* ---- Cards dos serviços ------------------------------------------------ */
+.pagina-servicos-2 .cards {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+
+/* Três cards por linha dentro dos 1200px (no celular, um embaixo do outro) */
+.pagina-servicos-2 .card {
+    flex: 0 1 360px;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 250px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
+    box-sizing: border-box;
+}
+
+.pagina-servicos-2 .card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Marcador quadrado nas listas (antes era o atributo type="square") */
+.pagina-servicos-2 .lista-quadrado {
+    list-style-type: square;
+}
+
+/* ---- Formulário --------------------------------------------------------
+   Os campos usam o componente .ex-campo (fonte, fundo e foco do site);
+   aqui ficam só o tamanho, o espaço e a borda que a página já tinha. */
+.pagina-servicos-2 .formulario {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto 0;
+    padding: 35px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
+    box-sizing: border-box;
+}
+
+.pagina-servicos-2 .formulario h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.pagina-servicos-2 .formulario label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pagina-servicos-2 .formulario input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.pagina-servicos-2 .formulario input:focus {
+    border-color: rgb(6, 21, 45);
+    outline: none;
+}
+
+/* Botão "Enviar" (componente .ex-botao) centralizado, cresce no hover */
+.pagina-servicos-2 .formulario .botao {
+    display: block;
+    margin: 10px auto 0;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.pagina-servicos-2 .formulario .botao:hover {
+    transform: scale(1.05);
+}
+
+/* Fonte da foto: nota no fim da página, em branco por causa do fundo escuro */
+.pagina-servicos-2 .nota-fonte {
+    padding: 20px 5% 0;
+    text-align: center;
+    color: rgb(241, 245, 249);
+}

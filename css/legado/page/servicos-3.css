@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Página: servicos-3.html (Gestão Operacional)
+   Só vale com <body class="pagina-servicos-3">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e da tabela vêm
+   do padrão das tags no global.css, iguais em todo o site. Esta página não
+   muda a tipografia. O topo é o componente .ex-hero, os títulos das seções
+   usam o .ex-cabecalho, os botões do fim são o .ex-botao e a nota do fim é
+   o .ex-nota. Aqui ficam só a foto do topo, os espaços e as caixas. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/page/ até img/). Sem a foto,
+   o fundo fica azul-marinho. */
+.pagina-servicos-3 .ex-hero {
+    background-image: url("../../img/servicos-3/gestor-orientando-equipe.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px);
+   o texto fica numa coluna mais estreita (767px), centralizada.
+   Em cima não há espaço: os 50px abaixo do topo vêm do componente. */
+.pagina-servicos-3 main > .ex-container > article {
+    margin: auto;
+    max-width: 767px;
+    padding: 0 20px 20px;
+}
+
+/* Espaço entre as seções */
+.pagina-servicos-3 main section {
+    margin-bottom: 30px;
+}
+
+/* ---- Tabela "O que está incluso" ---------------------------------------
+   Caixa branca com cantos arredondados */
+.pagina-servicos-3 main table {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.pagina-servicos-3 main caption {
+    text-align: left;
+    padding-bottom: 0.75rem;
+}
+
+.pagina-servicos-3 main th,
+.pagina-servicos-3 main td {
+    border: 1px solid rgb(226, 232, 240);
+    padding: 10px;
+    text-align: left;
+}
+
+/* ---- Os 4 cards de "O que fazemos" --------------------------------------
+   Caixa branca com borda fina e texto centralizado. Dois cards por linha. */
+.pagina-servicos-3 .conteiner-flex {
+    display: flex;
+    gap: 10px;
+}
+
+.pagina-servicos-3 .card {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.pagina-servicos-3 .card h3 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.pagina-servicos-3 .card p {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+/* ---- Botões do fim (componente .ex-botao), lado a lado no centro ------- */
+.pagina-servicos-3 .conteiner-link-flex {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Fonte da foto: nota discreta no fim da página (texto: componente .ex-nota) */
+.pagina-servicos-3 .nota-fonte {
+    padding: 20px 5% 0;
+    text-align: center;
+}
+
+/* Celular: um card embaixo do outro e botões mais próximos */
+@media (max-width: 640px) {
+    .pagina-servicos-3 .conteiner-flex {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .pagina-servicos-3 .conteiner-link-flex {
+        gap: 16px;
+    }
+}

@@ -1,0 +1,5730 @@
+/* ==========================================================================
+   STYLE.CSS — arquivo único de CSS do site Grupo Êxito Condomínios
+   --------------------------------------------------------------------------
+   Todas as páginas carregam só este arquivo:
+
+     <link rel="stylesheet" href="css/style.css">      (index.html)
+     <link rel="stylesheet" href="../css/style.css">   (páginas em /pages)
+
+   O arquivo está dividido em blocos, nesta ordem:
+
+     1. GLOBAL       fontes, paleta, padrão das tags e componentes .ex-*
+     2. HEADER       menu, igual em todas as páginas
+     3. FOOTER       rodapé, igual em todas as páginas
+     4. COMPONENTES  acessibilidade e aviso de cookies
+     5. PÁGINAS      um bloco por página; toda regra começa com
+                     .pagina-<nome> (a classe do <body> da página)
+
+   Regras para editar:
+     - Cores só da paleta (bloco GLOBAL, parte 2), escritas em rgb(...).
+       Sem var() e sem variáveis.
+     - O bloco de uma página não muda a tipografia (fonte, tamanho, peso,
+       altura da linha, espaçamento de letras, maiúsculas): só a cor, e só
+       sobre fundo escuro. Texto diferente usa um componente .ex-*.
+     - Regra nova de página vai no bloco da própria página, sempre com o
+       prefixo .pagina-<nome>.
+     - Um url() é relativo a este arquivo: a pasta de imagens é ../img/.
+   ========================================================================== */
+
+
+/* ##########################################################################
+   BLOCO GLOBAL: fontes, paleta, padrão das tags e componentes .ex-*
+   ########################################################################## */
+
+/* ==========================================================================
+   CSS GLOBAL — Grupo Êxito Condomínios (projeto acadêmico)
+   --------------------------------------------------------------------------
+   Tudo o que é compartilhado pelo site inteiro, nesta ordem:
+
+     1. Fontes (@font-face) e a classe dos ícones
+     2. Paleta (lista das cores e fontes, só como comentário)
+     3. Padrão das tags (body, h1–h3, p, a, strong, img, listas, tabelas)
+     4. Componentes prontos (botões, cards, etiquetas...) — classes .ex-*
+
+   O header e o footer vêm logo depois deste bloco.
+
+   Toda página carrega só o css/style.css. E antes de </body>:
+
+     <script src="../js/menu.js"></script>
+
+   Licenças das fontes (arquivos em css/fonts/):
+     - Plus Jakarta Sans e Space Grotesk: SIL Open Font License 1.1 (OFL)
+       https://openfontlicense.org
+     - Material Symbols Outlined (Google): Apache License 2.0
+       https://www.apache.org/licenses/LICENSE-2.0
+   ========================================================================== */
+
+/* ==========================================================================
+   1. FONTES (arquivos em css/fonts/, sem depender do Google)
+   --------------------------------------------------------------------------
+   O caminho do url() é relativo a este arquivo (css/style.css).
+   ========================================================================== */
+
+/* Plus Jakarta Sans: um arquivo "variável" que cobre os pesos 300 a 800 */
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("fonts/plus-jakarta-sans.woff2") format("woff2");
+}
+
+/* Space Grotesk: um arquivo "variável" que cobre os pesos 500 a 700 */
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url("fonts/space-grotesk.woff2") format("woff2");
+}
+
+/* Material Symbols Outlined (ícones): versão fixa, tamanho óptico 24,
+   peso 400, sem preenchimento (FILL 0) */
+@font-face {
+    font-family: "Material Symbols Outlined";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("fonts/material-symbols-outlined.woff2") format("woff2");
+}
+
+/* Classe dos ícones: <span class="material-symbols-outlined">home</span> */
+.material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. PALETA — cores, fontes, raios e sombras
+   --------------------------------------------------------------------------
+   O CSS do site NÃO usa variáveis: cada cor é escrita direto em
+   rgb(...), e a transparência em rgba(...). Copie os valores desta lista
+   (é a mesma tabela "Paleta de cores" do docs/README.md). Nunca invente cor.
+
+     Navy profundo        rgb(6, 21, 45)       header, rodapé, botões principais
+     Navy superfície      rgb(10, 30, 59)      cards sobre fundo escuro
+     Navy claro           rgb(14, 56, 103)     hover e variações
+     Ciano elétrico       rgb(0, 188, 212)     ícones, links ativos, detalhes
+     Teal                 rgb(0, 104, 118)     títulos de seção, links em fundo claro
+     Teal vibrante        rgb(24, 168, 182)    gradientes e ilustrações
+     Ciano suave          rgb(214, 247, 255)   fundo de etiquetas e badges
+     Fundo                rgb(248, 250, 253)   fundo da página
+     Superfície           rgb(255, 255, 255)   cards, formulários
+     Superfície variante  rgb(241, 245, 249)   blocos secundários, inputs
+     Borda                rgb(226, 232, 240)   bordas e divisórias
+     Texto                rgb(6, 21, 45)       títulos e texto forte
+     Texto corpo          rgb(71, 85, 105)     parágrafos
+     Texto secundário     rgb(82, 96, 113)     legendas, textos de apoio
+     Texto suave          rgb(148, 163, 184)   placeholders, metadados
+     Texto invertido      rgb(255, 255, 255)   texto sobre fundo navy
+     Sucesso              rgb(16, 185, 129)    confirmação, WhatsApp
+     Alerta               rgb(245, 158, 11)    avisos
+     Erro                 rgb(239, 68, 68)     erros de formulário
+
+   Transparência: rgba(0, 188, 212, 0.15) = Ciano elétrico com 15%.
+
+   Fontes (arquivos em css/fonts/):
+     Textos e títulos:            "Plus Jakarta Sans", system-ui, sans-serif
+     Etiquetas, números, badges:  "Space Grotesk", system-ui, sans-serif
+
+   Raios usados: 0.75rem (botões e inputs), 1.5rem (cards), 9999px (etiquetas).
+   Sombras: Navy profundo com transparência, por exemplo
+     0 16px 36px rgba(6, 21, 45, 0.08)   (cards)
+     0 10px 24px rgba(6, 21, 45, 0.18)   (botões)
+   ========================================================================== */
+
+/* ==========================================================================
+   3. PADRÃO DAS TAGS — a identidade visual do site
+   --------------------------------------------------------------------------
+   Estas regras valem para TODAS as páginas. Elas definem a fonte, a cor e o
+   tamanho de body, títulos, parágrafos, links, imagens, listas e tabelas.
+   h1, h2, h3, a, p, span e strong têm SEMPRE este mesmo padrão. O CSS de
+   cada página (blocos PÁGINA) não muda a tipografia de nada (fonte, tamanho,
+   peso, altura da linha, espaçamento de letras, maiúsculas). A única
+   exceção é a COR, e só quando o texto está sobre fundo escuro
+   (ex.: .diferenciais h2 { color: rgb(255, 255, 255); }).
+   As variações (rótulo, nota, texto de depoimento...) são componentes .ex-*
+   da seção 4, iguais em todas as páginas.
+
+   O header e o rodapé não mudam com estas regras: eles têm proteção própria
+   nos blocos HEADER e FOOTER.
+   ========================================================================== */
+
+/* ---- Página: fonte, cor e fundo do site inteiro ------------------------
+   Tira a margem padrão do navegador para o header/footer encostarem nas
+   bordas. Parágrafos, listas e tabelas herdam fonte, cor e tamanho daqui. */
+body {
+    margin: 0;
+    background-color: rgb(248, 250, 253);
+    color: rgb(71, 85, 105);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 1rem;              /* 16px */
+    line-height: 1.6;             /* linhas espaçadas, leitura confortável */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Títulos: mesma fonte do texto, cor escura e escala de tamanhos ----
+   Os mesmos pesos e o mesmo "aperto" de letras dos componentes .ex-titulo
+   (seção 4), para que títulos e componentes pareçam da mesma família.
+   A margem fica a padrão do navegador (cada página ajusta a sua). */
+h1,
+h2,
+h3 {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    color: rgb(6, 21, 45);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.75rem;           /* 44px */
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    font-size: 2rem;              /* 32px */
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h3 {
+    font-size: 1.25rem;           /* 20px */
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* ---- Parágrafos ---------------------------------------------------------
+   A fonte, a cor e o tamanho vêm do body. A cor NÃO é repetida aqui de
+   propósito: assim um parágrafo dentro de uma caixa escura continua com a
+   cor clara que a caixa definir. A regra abaixo só quebra palavras muito
+   longas (e-mails, links) para não estourar a tela do celular. */
+p {
+    overflow-wrap: break-word;
+}
+
+/* ---- Links (em fundo claro) ---------------------------------------------
+   Teal da paleta, sublinhado discreto. No hover fica azul-marinho.
+   O ":where(:hover)" deixa o hover com a força de um seletor de tag: assim
+   qualquer classe da página (.botao, .ex-botao...) ganha dele e o botão não
+   muda de cor por engano. */
+a {
+    color: rgb(0, 104, 118);
+    text-underline-offset: 0.15em;
+}
+
+a:where(:hover) {
+    color: rgb(14, 56, 103);
+}
+
+/* ---- Destaques dentro do texto: strong e span ----------------------------
+   O <strong> fica em negrito (700) e herda o resto (fonte, tamanho e cor)
+   de quem está em volta. O <span> não tem regra de propósito: ele herda
+   tudo do elemento em volta. Para um texto diferente (rótulo, nota...), use
+   um componente da seção 4, nunca uma regra na página. */
+strong {
+    font-weight: 700;
+}
+
+/* ---- Imagens: nunca passam da largura da caixa e não distorcem ---------- */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---- Listas: recuo menor que o do navegador ----------------------------- */
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+/* ---- Tabelas: bordas finas da paleta e cabeçalho destacado -------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-weight: 700;
+}
+
+/* ---- Celular (até 640px): títulos menores para caber na tela ------------ */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;          /* 32px */
+    }
+
+    h2 {
+        font-size: 1.625rem;      /* 26px */
+    }
+}
+
+/* ---- Rolagem suave em links para seções (#...) ---------------------------
+   E desconto da altura do header fixo, para a seção não ficar escondida. */
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 132px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ==========================================================================
+   4. COMPONENTES — botões, cards, etiquetas e campos prontos (opcional)
+   --------------------------------------------------------------------------
+   Todas as classes começam com "ex-" para não conflitar com as classes da
+   sua página. Nada aqui é aplicado sozinho: só vale onde você usar a classe.
+   ========================================================================== */
+
+/* ---- Base da página (aplique no <body>) -------------------------------- */
+.ex-pagina {
+    margin: 0;
+    background: rgb(248, 250, 253);
+    color: rgb(71, 85, 105);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Layout ------------------------------------------------------------ */
+/* Container-base do site: largura-base de 1200px.
+   Header (.ex-header .ex-conteudo) e footer (.ex-rodape .ex-conteudo) usam
+   os mesmos valores, então o texto começa na mesma linha nos três.
+   Seção "vazada": o fundo fica na <section> (ponta a ponta da tela) e o
+   conteúdo vai dentro de um <div class="ex-container">. */
+.ex-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.ex-secao {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.ex-secao--branca {
+    background: rgb(255, 255, 255);
+}
+
+/* ---- Títulos de seção -------------------------------------------------- */
+.ex-sobretitulo {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(0, 104, 118);
+}
+
+.ex-titulo {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: rgb(6, 21, 45);
+}
+
+.ex-titulo--hero {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.ex-titulo__destaque {
+    background: linear-gradient(90deg, rgb(6, 21, 45), rgb(0, 104, 118), rgb(0, 188, 212));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.ex-subtitulo {
+    margin: 0.5rem 0 0;
+    font-size: 15px;
+    color: rgb(71, 85, 105);
+}
+
+/* Cabeçalho de seção: rótulo (.ex-sobretitulo) + título (<h2>) + texto de
+   apoio (.ex-subtitulo), num bloco só. É o primeiro bloco de conteúdo logo
+   abaixo do topo (.ex-hero) de cada página. Exemplo em pages/faq.html.
+   As regras usam duas classes (".ex-container .ex-cabecalho",
+   ".ex-cabecalho .ex-subtitulo"...) de propósito: assim o componente ganha
+   de resets de página como "main * { margin: 0; padding: 0 }" e fica igual
+   em todas as páginas. */
+.ex-container .ex-cabecalho {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.ex-cabecalho .ex-sobretitulo {
+    margin: 0 0 0.25rem;
+}
+
+.ex-cabecalho h2 {
+    margin: 0;
+}
+
+.ex-cabecalho .ex-subtitulo {
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 640px) {
+    .ex-titulo { font-size: 28px; }
+    .ex-titulo--hero { font-size: 36px; }
+}
+
+/* ---- Variações de texto ------------------------------------------------
+   Textos que não seguem o padrão das tags. São iguais em todas as páginas:
+   a página só pode mudar a margem, o alinhamento e, em fundo escuro, a cor.
+
+   .ex-sobretitulo (acima)  rótulo pequeno em maiúsculas: tipo do card,
+                            nome de uma faixa ("Depoimentos")
+   .ex-subtitulo   (acima)  texto de apoio logo abaixo de um título
+   .ex-nota                 texto pequeno cinza: nota no fim da página,
+                            legenda de vídeo ou foto, cargo de uma pessoa
+   .ex-aspas                aspas grandes decorativas de um depoimento
+   .ex-citacao              texto de um depoimento
+   .ex-autor                nome de quem deu o depoimento
+
+   Exemplo de depoimento:
+   <figure>
+       <div class="ex-aspas" aria-hidden="true">“</div>
+       <blockquote><p class="ex-citacao">Texto do depoimento.</p></blockquote>
+       <figcaption>
+           <strong class="ex-autor">Nome</strong>
+           <span class="ex-nota">Cargo</span>
+       </figcaption>
+   </figure> */
+
+/* Texto pequeno de apoio (12px, cinza). Fica no fluxo do texto: se
+   precisar de linha própria ou centralizado, a página ajusta isso. */
+.ex-nota {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgb(82, 96, 113);
+}
+
+/* Aspas grandes em ciano, só decoração (use aria-hidden="true") */
+.ex-aspas {
+    height: 45px;
+    color: rgb(0, 188, 212);
+    font-size: 50px;
+    font-weight: 700;
+}
+
+/* Texto do depoimento: um pouco menor e com linhas mais espaçadas */
+.ex-citacao {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Nome de quem deu o depoimento: negrito, azul-marinho, linha própria */
+.ex-autor {
+    display: block;
+    color: rgb(6, 21, 45);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Número em destaque (indicadores: "99.8%", "24/7", "+15 Anos").
+   Fonte das etiquetas e números (Space Grotesk), grande e azul-marinho. */
+.ex-numero {
+    display: block;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: rgb(6, 21, 45);
+}
+
+@media (max-width: 640px) {
+    .ex-numero { font-size: 26px; }
+}
+
+/* Variação grande do número: número decorativo de uma lista ("01", "02"...),
+   como na lista de serviços da página Serviços. Usar junto com .ex-numero:
+   <span class="ex-numero ex-numero--grande" aria-hidden="true">01</span>
+   Fica em teal, com 88px no computador e 64px no celular. */
+.ex-numero--grande {
+    font-size: 88px;
+    line-height: 1;
+    color: rgb(0, 104, 118);
+}
+
+@media (max-width: 640px) {
+    .ex-numero--grande { font-size: 64px; }
+}
+
+/* ---- Ícones (Material Symbols): tamanho e cor ---------------------------
+   O ícone padrão tem 24px e a cor do texto em volta. Use junto com a
+   classe do ícone:
+   <span class="material-symbols-outlined ex-icone--pequeno ex-icone--ciano"
+         aria-hidden="true">check_circle</span> */
+.ex-icone--pequeno {
+    font-size: 16px;
+}
+
+.ex-icone--grande {
+    font-size: 32px;
+}
+
+.ex-icone--ciano {
+    color: rgb(0, 188, 212);
+}
+
+.ex-icone--teal {
+    color: rgb(0, 104, 118);
+}
+
+.ex-icone--navy {
+    color: rgb(6, 21, 45);
+}
+
+/* ---- Botões ------------------------------------------------------------ */
+.ex-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.ex-botao--primario {
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 10px 24px rgba(6, 21, 45, 0.18);
+}
+
+.ex-botao--primario:hover {
+    background: rgb(14, 56, 103);
+}
+
+.ex-botao--secundario {
+    background: rgb(255, 255, 255);
+    color: rgb(6, 21, 45);
+    border-color: rgb(226, 232, 240);
+}
+
+.ex-botao--secundario:hover {
+    background: rgb(241, 245, 249);
+}
+
+.ex-botao--whatsapp {
+    background: rgb(16, 185, 129);
+    color: rgb(255, 255, 255);
+}
+
+.ex-botao--whatsapp:hover {
+    filter: brightness(0.92);
+}
+
+/* ---- Card -------------------------------------------------------------- */
+.ex-card {
+    padding: 2.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ex-card:hover {
+    border-color: rgba(0, 188, 212, 0.6);
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+.ex-card__titulo {
+    margin: 0 0 0.5rem;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(6, 21, 45);
+}
+
+/* ---- Etiqueta / badge -------------------------------------------------- */
+.ex-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(214, 247, 255, 0.6);
+    color: rgb(0, 104, 118);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.ex-etiqueta--escura {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+}
+
+/* ---- Campos de formulário ---------------------------------------------- */
+.ex-campo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.625rem 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 0.75rem;
+    background: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.ex-campo::placeholder {
+    color: rgb(148, 163, 184);
+}
+
+.ex-campo:focus {
+    outline: none;
+    background: rgb(255, 255, 255);
+    border-color: rgb(0, 188, 212);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.35);
+}
+
+.ex-rotulo {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(82, 96, 113);
+}
+
+/* ---- Topo de página com foto (hero) -----------------------------------
+   Faixa do topo com foto de fundo, película azul-marinho por cima, um
+   rótulo ciano, o título (h1) e um texto curto. Exemplo para copiar:
+
+   <section class="ex-hero">
+       <div class="ex-hero__pelicula"></div>
+       <div class="ex-hero__conteudo">
+           <span class="ex-hero__rotulo">Nossos clientes</span>
+           <h1 class="ex-hero__titulo">
+               Empresas e condomínios
+               <strong>que confiam no nosso trabalho.</strong>
+           </h1>
+           <p class="ex-hero__texto">Um texto curto sobre a página.</p>
+       </div>
+   </section>
+
+   A FOTO DE FUNDO NÃO FICA AQUI: cada página coloca a sua no próprio CSS
+   (no bloco PÁGINA dela), numa regra ".pagina-<nome> .ex-hero" com
+   background-image. O caminho começa com ../img/ (veja o exemplo no bloco
+   da Clientes). Sem foto, o fundo fica azul-marinho.
+
+   Os filhos usam ".ex-hero .ex-hero__..." (duas classes) de propósito:
+   assim o componente ganha de resets de página como "main * { margin: 0 }"
+   e funciona igual em qualquer página. */
+.ex-hero {
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(6, 21, 45);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Película escura em gradiente sobre a foto (navy da paleta) */
+.ex-hero .ex-hero__pelicula {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(6, 21, 45, 0.98),
+        rgba(10, 30, 59, 0.85),
+        rgba(14, 56, 103, 0.45)
+    );
+}
+
+/* Caixa do texto: mesma largura e respiro do .ex-container (1200px), para o
+   texto começar na mesma linha do logo e das seções. O título e o texto
+   continuam limitados por dentro (800px e 620px). Fica acima da película. */
+.ex-hero .ex-hero__conteudo {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+/* Rótulo ciano em maiúsculas acima do título */
+.ex-hero .ex-hero__rotulo {
+    display: block;
+    margin: 0 0 15px;
+    padding: 0;
+    color: rgb(0, 188, 212);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+/* Título branco; o <strong> vai para a linha de baixo, em ciano */
+.ex-hero .ex-hero__titulo {
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    color: rgb(255, 255, 255);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.ex-hero .ex-hero__titulo strong {
+    display: block;
+    color: rgb(0, 188, 212);
+}
+
+/* Texto claro abaixo do título */
+.ex-hero .ex-hero__texto {
+    margin: 20px 0 0;
+    padding: 0;
+    max-width: 620px;
+    color: rgb(241, 245, 249);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Espaço padrão abaixo do topo: 50px entre o fim do .ex-hero e o primeiro
+   conteúdo, em toda página (no celular também). O espaço fica DENTRO do
+   elemento que vem logo depois do topo (o "+ *"), então o fundo dele vai
+   até encostar no topo, sem faixa de outra cor no meio.
+   O "main > section" deixa a regra um pouco mais forte, para ganhar de
+   resets de página como "main * { padding: 0 }". */
+main > section.ex-hero + * {
+    padding-top: 50px;
+}
+
+/* Primeiro título logo depois do topo: sem margem em cima (o espaço fica só
+   nos 50px acima) e 15px até o texto. O "section.ex-hero +" deixa a regra
+   mais forte que as regras de título das páginas. Se o título estiver dentro
+   de uma seção, a página faz o mesmo com a regra dela. */
+main > section.ex-hero + .ex-container > h2:first-child {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Celular: título menor e topo um pouco mais alto */
+@media (max-width: 600px) {
+    .ex-hero {
+        min-height: 400px;
+    }
+
+    .ex-hero .ex-hero__titulo {
+        font-size: 28px;
+    }
+}
+
+
+/* ##########################################################################
+   BLOCO HEADER (compartilhado)
+   ########################################################################## */
+
+/* ==========================================================================
+   LAYOUT — HEADER (menu), igual em todas as páginas
+   --------------------------------------------------------------------------
+   Faixa superior (telefone, e-mail, redes), barra com o logo, menu desktop,
+   botão "Falar com Consultor", botão hambúrguer e menu mobile.
+   O menu vira botão "hambúrguer" abaixo de 1024px (controlado por js/menu.js).
+
+   Todos os seletores começam com .ex-header para que o CSS de cada página
+   (h1, p, img, a, button...) e o padrão das tags do bloco GLOBAL não alterem
+   o menu.
+   ========================================================================== */
+
+/* ---- Proteção: zera margens e fixa a fonte dentro do header ------------
+   (o rodapé tem um bloco igual em footer.css; assim cada arquivo funciona
+   sozinho) */
+.ex-header,
+.ex-header * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.ex-header {
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ex-header a {
+    text-decoration: none;
+}
+
+/* Caixa central: largura-base de 1200px, mesmos valores do .ex-container
+   do bloco GLOBAL e do rodapé (box-sizing border-box vem da proteção acima) */
+.ex-header .ex-conteudo {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Ícones (Material Symbols) — reaplica a fonte, que a regra acima sobrescreveria */
+.ex-header .material-symbols-outlined {
+    display: inline-block;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Posição: o header fica grudado no topo ao rolar ------------------- */
+.ex-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* ---- Faixa superior (telefone, e-mail, status, redes) ----------------- */
+.ex-header .ex-topo {
+    background: rgb(6, 21, 45);
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.ex-header .ex-topo > .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+}
+
+.ex-header .ex-topo__grupo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.ex-header .ex-topo__grupo--direita {
+    gap: 1rem;
+}
+
+.ex-header .ex-topo__link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgb(226, 232, 240);
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__link:hover {
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__link .material-symbols-outlined {
+    font-size: 15px;
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__separador {
+    display: none;
+    color: #475569;
+}
+
+.ex-header .ex-topo__email {
+    display: none;
+}
+
+.ex-header .ex-topo__status {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 1rem;
+    border-right: 1px solid rgb(71, 85, 105);
+    color: rgb(226, 232, 240);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ex-header .ex-topo__ponto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgb(16, 185, 129);
+    animation: ex-pulsar 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ex-pulsar {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.ex-header .ex-topo__redes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-topo__rede {
+    display: flex;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__rede:hover {
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__rede .material-symbols-outlined {
+    font-size: 16px;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-topo__separador {
+        display: inline;
+    }
+
+    .ex-header .ex-topo__email {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .ex-header .ex-topo__status {
+        display: flex;
+    }
+}
+
+/* ---- Barra principal -------------------------------------------------- */
+.ex-header .ex-barra {
+    position: relative;
+    background: rgb(255 255 255 / 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgb(226 232 240 / 0.8);
+    box-shadow: 0 2px 18px rgba(6, 21, 45, 0.04);
+}
+
+.ex-header .ex-barra > .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.ex-header .ex-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-logo img {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: 46px;
+    border-radius: 0;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+/* Celular (até 640px): logo maior e centralizado na barra, botão ☰ à direita.
+   Centralizamos com margin auto (e não com transform) para o logo não cair
+   em meio pixel e ficar borrado. */
+@media (max-width: 639px) {
+    .ex-header .ex-logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .ex-header .ex-logo img {
+        height: 52px;
+    }
+
+    .ex-header .ex-acoes {
+        margin-left: auto;
+    }
+}
+
+.ex-header .ex-logo:hover img {
+    transform: scale(1.02);
+}
+
+/* ---- Menu (desktop) --------------------------------------------------- */
+.ex-header .ex-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1280px) {
+    .ex-header .ex-menu {
+        gap: 2.5rem;
+    }
+}
+
+.ex-header .ex-menu__link {
+    position: relative;
+    color: rgb(82, 96, 113);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-menu__link:hover {
+    color: rgb(6, 21, 45);
+}
+
+.ex-header .ex-menu__link[aria-current="page"] {
+    color: rgb(6, 21, 45);
+    font-weight: 600;
+}
+
+.ex-header .ex-menu__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: rgb(0, 188, 212);
+}
+
+/* ---- Ações da direita: botão consultor + hambúrguer ------------------- */
+.ex-header .ex-acoes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    background: rgb(6, 21, 45);
+    color: #fff;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+    transition: background-color 0.2s;
+}
+
+.ex-header .ex-cta:hover {
+    background: rgb(10, 30, 59);
+    color: #fff;
+}
+
+.ex-header .ex-cta .material-symbols-outlined {
+    font-size: 16px;
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-acoes .ex-cta {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-acoes .ex-cta {
+        display: inline-flex;
+    }
+}
+
+/* ---- Botão hambúrguer ------------------------------------------------- */
+.ex-header .ex-menu-botao {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: #fff;
+    color: rgb(6, 21, 45);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ex-header .ex-menu-botao:hover {
+    background: rgb(248, 250, 253);
+}
+
+.ex-header .ex-menu-botao:focus-visible {
+    outline: 3px solid rgba(0, 188, 212, 0.5);
+    outline-offset: 2px;
+}
+
+.ex-header .ex-menu-botao .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.ex-header .ex-menu-botao .ex-icone-fechar,
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-abrir {
+    display: none;
+}
+
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-fechar {
+    display: inline-block;
+}
+
+/* ---- Menu mobile (painel) --------------------------------------------- */
+.ex-header .ex-menu-mobile {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .ex-header .ex-menu {
+        display: none;
+    }
+
+    .ex-header .ex-menu-botao {
+        display: inline-flex;
+    }
+
+    .ex-header .ex-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 116px);
+        overflow-y: auto;
+        background: #fff;
+        border-top: 1px solid rgb(226 232 240 / 0.8);
+        box-shadow: 0 16px 32px rgba(6, 21, 45, 0.1);
+    }
+
+    .ex-header .ex-menu-mobile.is-open {
+        display: block;
+    }
+
+    .ex-header .ex-menu-mobile .ex-conteudo {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link {
+        padding: 0.875rem 0;
+        border-bottom: 1px solid rgb(226 232 240 / 0.8);
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"] {
+        color: rgb(0, 104, 118);
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"]::after {
+        display: none;
+    }
+
+    .ex-header .ex-menu-mobile .ex-cta {
+        margin: 1rem 0 0.5rem;
+        padding: 0.875rem 1rem;
+    }
+}
+
+
+/* ##########################################################################
+   BLOCO FOOTER (compartilhado)
+   ########################################################################## */
+
+/* ==========================================================================
+   LAYOUT — FOOTER (rodapé), igual em todas as páginas
+   --------------------------------------------------------------------------
+   Coluna da marca, unidades (endereços), links das páginas e copyright.
+
+   Todos os seletores começam com .ex-rodape para que o CSS de cada página
+   e o padrão das tags do bloco GLOBAL não alterem o rodapé.
+   ========================================================================== */
+
+/* ---- Proteção: zera margens e fixa a fonte dentro do rodapé ------------
+   (o header tem um bloco igual em header.css; assim cada arquivo funciona
+   sozinho) */
+.ex-rodape,
+.ex-rodape * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.ex-rodape {
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ex-rodape a {
+    text-decoration: none;
+}
+
+/* O padrão das tags (bloco GLOBAL) quebra palavras longas nos parágrafos;
+   no rodapé mantemos o comportamento normal do navegador */
+.ex-rodape p {
+    overflow-wrap: normal;
+}
+
+/* Caixa central: largura-base de 1200px, mesmos valores do .ex-container
+   do bloco GLOBAL e do header (box-sizing border-box vem da proteção acima) */
+.ex-rodape .ex-conteudo {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Ícones (Material Symbols) — reaplica a fonte, que a regra acima sobrescreveria */
+.ex-rodape .material-symbols-outlined {
+    display: inline-block;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Fundo, espaçamento e textos do rodapé ----------------------------- */
+.ex-rodape {
+    position: relative;
+    padding: 4rem 0 2.5rem;
+    background: rgb(6, 21, 45);
+    color: rgb(248, 250, 253);
+    border-top: 1px solid rgb(10, 30, 59);
+}
+
+.ex-rodape p {
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    color: #94a3b8;
+}
+
+.ex-rodape .ex-rodape__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .ex-rodape .ex-rodape__grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ex-rodape .ex-rodape__grade {
+        grid-template-columns: 4fr 5fr 3fr;
+    }
+}
+
+/* ---- Coluna 1: marca -------------------------------------------------- */
+.ex-rodape .ex-rodape__marca {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ex-rodape .ex-rodape__marca img {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: 36px;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: left;
+    filter: brightness(0) invert(1);
+}
+
+.ex-rodape .ex-rodape__marca p {
+    max-width: 24rem;
+    line-height: 1.625;
+}
+
+.ex-rodape .ex-rodape__selos {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+}
+
+.ex-rodape .ex-rodape__selo {
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    background: rgb(10, 30, 59);
+    color: rgb(226, 232, 240);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+}
+
+.ex-rodape .ex-rodape__selo--destaque {
+    color: rgb(0, 188, 212);
+}
+
+/* ---- Coluna 2: unidades ----------------------------------------------- */
+.ex-rodape .ex-rodape__unidades {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .ex-rodape .ex-rodape__unidades {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.ex-rodape .ex-rodape__unidade {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    border: 1px solid rgb(10, 30, 59);
+    border-radius: 0.75rem;
+    background: rgba(6, 21, 45, 0.8);
+}
+
+.ex-rodape .ex-rodape__unidade-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgb(0, 188, 212);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+}
+
+.ex-rodape .ex-rodape__unidade-titulo .material-symbols-outlined {
+    font-size: 16px;
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__endereco {
+    padding-top: 0.25rem;
+    color: #fff;
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__detalhe {
+    font-size: 12px;
+}
+
+.ex-rodape .ex-rodape__unidade .ex-rodape__fone {
+    margin-top: 0.25rem;
+    color: rgb(0, 188, 212);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+}
+
+/* ---- Coluna 3: navegação ---------------------------------------------- */
+/* Junta "Páginas Internas" e "Docs" na mesma coluna, um embaixo do outro */
+.ex-rodape .ex-rodape__coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ex-rodape .ex-rodape__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ex-rodape .ex-rodape__rotulo {
+    color: rgb(0, 188, 212);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.ex-rodape .ex-rodape__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    padding-top: 0.5rem;
+}
+
+.ex-rodape .ex-rodape__links a {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 20px;
+    transition: color 0.2s;
+}
+
+.ex-rodape .ex-rodape__links a:hover {
+    color: #fff;
+}
+
+.ex-rodape .ex-rodape__links .ex-rodape__cta {
+    grid-column: 1 / -1;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgb(10, 30, 59);
+}
+
+/* ---- Linha final (copyright) ------------------------------------------ */
+.ex-rodape .ex-rodape__base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(10, 30, 59);
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .ex-rodape .ex-rodape__base {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.ex-rodape .ex-rodape__base p {
+    font-size: 12px;
+    color: rgb(82, 96, 113);
+}
+
+/* Link "Política de Privacidade" ao lado do copyright */
+.ex-rodape .ex-rodape__base a {
+    margin-left: 0.5rem;
+    color: rgb(148, 163, 184);
+}
+
+.ex-rodape .ex-rodape__base a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.ex-rodape .ex-rodape__base .ex-rodape__assinatura {
+    color: #94a3b8;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+/* ##########################################################################
+   COMPONENTE: acessibilidade
+   ########################################################################## */
+
+/* ==========================================================================
+   Menu de acessibilidade (montado por js/acessibilidade.js)
+   --------------------------------------------------------------------------
+   As opções ligam classes no <html>:
+     ac-zoom-1 / ac-zoom-2   texto maior
+     ac-contraste            alto contraste (fundo azul-marinho bem escuro, texto branco, links âmbar)
+     ac-cinza                escala de cinza
+     ac-links                destaca links
+     ac-fonte                fonte mais legível e espaçada
+     ac-pausar               pausa animações e transições
+     ac-cursor               cursor grande
+     ac-guia                 guia de leitura (faixa que acompanha o mouse)
+   O widget fica dentro de .ac-raiz; os seletores começam por ela para o CSS
+   das páginas (button, p, h2...) não alterar o menu.
+   ========================================================================== */
+
+/* ---- Efeitos das opções ------------------------------------------------- */
+html.ac-zoom-1 body {
+    zoom: 1.15;
+}
+
+html.ac-zoom-2 body {
+    zoom: 1.3;
+}
+
+html.ac-cinza {
+    filter: grayscale(1);
+}
+
+/* Alto contraste: página azul-marinho profundo, texto branco, links âmbar
+   (cores da paleta: navy profundo, branco e "alerta").
+   O resto fica transparente para camadas sobre fotos não esconderem a
+   imagem; só o que é fixo/flutuante ganha o fundo azul-marinho. */
+html.ac-contraste,
+html.ac-contraste body {
+    background: rgb(6, 21, 45) !important;
+}
+
+html.ac-contraste :where(*:not(.ac-guia-faixa)) {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(255, 255, 255) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.ac-contraste header,
+html.ac-contraste footer,
+html.ac-contraste .ex-menu-mobile,
+html.ac-contraste .ac-painel,
+html.ac-contraste .ac-botao,
+html.ac-contraste .ac-pular,
+html.ac-contraste input,
+html.ac-contraste select,
+html.ac-contraste textarea,
+html.ac-contraste option {
+    background-color: rgb(6, 21, 45) !important;
+}
+
+/* logo (azul-marinho) fica branco para aparecer no preto */
+html.ac-contraste img[src*="logo"] {
+    filter: brightness(0) invert(1) !important;
+}
+
+html.ac-contraste a,
+html.ac-contraste a * {
+    color: rgb(245, 158, 11) !important;
+}
+
+html.ac-contraste img:not([src*="logo"]),
+html.ac-contraste video,
+html.ac-contraste iframe {
+    filter: contrast(1.1);
+}
+
+html.ac-contraste ::placeholder {
+    color: rgb(226, 232, 240) !important;
+}
+
+html.ac-links a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 3px !important;
+}
+
+html.ac-links a:focus,
+html.ac-links a:hover {
+    outline: 3px solid rgb(245, 158, 11) !important;
+    outline-offset: 2px !important;
+}
+
+html.ac-fonte body *:not(.material-symbols-outlined) {
+    font-family: Verdana, Tahoma, Arial, sans-serif !important;
+    letter-spacing: 0.03em !important;
+    word-spacing: 0.1em !important;
+}
+
+html.ac-pausar *,
+html.ac-pausar *::before,
+html.ac-pausar *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+}
+
+html.ac-cursor,
+html.ac-cursor * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l14 11-6.5 1 3.8 7.2-2.6 1.3-3.8-7.3L4 19z' fill='%2306152d' stroke='%23ffffff' stroke-width='1.4'/%3E%3C/svg%3E") 6 3, auto !important;
+}
+
+/* Faixa do guia de leitura */
+.ac-guia-faixa {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2147483000;
+    height: 3rem;
+    margin-top: -1.5rem;
+    pointer-events: none;
+    background: rgba(245, 158, 11, 0.18);
+    border-top: 3px solid rgb(245, 158, 11);
+    border-bottom: 3px solid rgb(245, 158, 11);
+    display: none;
+}
+
+html.ac-guia .ac-guia-faixa {
+    display: block;
+}
+
+/* ---- Link "Pular para o conteúdo" (aparece ao navegar pelo teclado) ---- */
+.ac-raiz .ac-pular {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2147483001;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    font: 600 14px/1.2 "Plus Jakarta Sans", system-ui, sans-serif;
+    text-decoration: none;
+    translate: 0 -200%;
+    transition: translate 0.2s;
+}
+
+.ac-raiz .ac-pular:focus {
+    translate: none;
+    outline: 3px solid rgb(0, 188, 212);
+    outline-offset: 2px;
+}
+
+/* ---- Botão flutuante ---------------------------------------------------- */
+.ac-raiz,
+.ac-raiz * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.ac-raiz .ac-botao {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(6, 21, 45, 0.35);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.ac-raiz .ac-botao:hover {
+    transform: scale(1.06);
+    background: rgb(14, 56, 103);
+}
+
+.ac-raiz .ac-botao:focus-visible,
+.ac-raiz .ac-painel button:focus-visible,
+.ac-raiz .ac-painel a:focus-visible {
+    outline: 3px solid rgb(0, 188, 212);
+    outline-offset: 2px;
+}
+
+.ac-raiz .ac-botao svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* ---- Painel ------------------------------------------------------------- */
+.ac-raiz .ac-painel {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 5.5rem;
+    z-index: 61;
+    width: min(340px, calc(100vw - 2rem));
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    padding: 1.25rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+    color: rgb(6, 21, 45);
+    box-shadow: 0 24px 48px rgba(6, 21, 45, 0.22);
+}
+
+.ac-raiz .ac-painel[hidden] {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .ac-raiz .ac-botao {
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .ac-raiz .ac-painel {
+        left: 1rem;
+        bottom: 4.75rem;
+    }
+}
+
+.ac-raiz .ac-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ac-raiz .ac-titulo {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(6, 21, 45);
+}
+
+.ac-raiz .ac-fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 0.5rem;
+    background: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.ac-raiz .ac-rotulo {
+    display: block;
+    margin: 0.75rem 0 0.5rem;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(82, 96, 113);
+}
+
+/* Tamanho do texto: A- A A+ */
+.ac-raiz .ac-tamanhos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+/* Opções liga/desliga */
+.ac-raiz .ac-opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-opcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-height: 76px;
+    padding: 0.625rem 0.5rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 0.75rem;
+    background: rgb(241, 245, 249);
+    color: rgb(6, 21, 45);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.ac-raiz .ac-opcao:hover {
+    border-color: rgb(6, 21, 45);
+}
+
+.ac-raiz .ac-opcao[aria-pressed="true"] {
+    border-color: rgb(6, 21, 45);
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+}
+
+.ac-raiz .ac-opcao svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.ac-raiz .ac-tamanhos .ac-opcao {
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.ac-raiz .ac-restaurar {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 0.75rem;
+    background: rgb(255, 255, 255);
+    color: rgb(6, 21, 45);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ac-raiz .ac-restaurar:hover {
+    background: rgb(241, 245, 249);
+}
+
+/* No alto contraste, a opção ligada ganha contorno âmbar (o fundo fica todo azul-marinho) */
+html.ac-contraste .ac-raiz .ac-opcao[aria-pressed="true"] {
+    outline: 3px solid rgb(245, 158, 11) !important;
+    outline-offset: -3px;
+}
+
+/* ---- Ouvir esta página -------------------------------------------------- */
+.ac-raiz .ac-leitor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-ouvir {
+    flex-direction: row;
+    min-height: 52px;
+    gap: 0.5rem;
+    font-size: 14px;
+}
+
+.ac-raiz .ac-velocidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.ac-raiz .ac-velocidades .ac-opcao {
+    min-height: 36px;
+    font-size: 12px;
+}
+
+.ac-raiz .ac-dica {
+    font-size: 11px;
+    color: rgb(82, 96, 113);
+}
+
+/* trecho sendo lido */
+.ac-lendo {
+    outline: 3px solid rgb(245, 158, 11) !important;
+    outline-offset: 3px !important;
+    background-color: rgba(245, 158, 11, 0.28) !important;
+    border-radius: 4px;
+    scroll-margin: 140px;
+}
+
+/* controle flutuante enquanto lê */
+.ac-raiz .ac-player {
+    position: fixed;
+    left: 5.25rem;
+    bottom: 1.5rem;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 52px;
+    padding: 0 0.5rem 0 1rem;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 9999px;
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 8px 24px rgba(6, 21, 45, 0.35);
+}
+
+.ac-raiz .ac-player[hidden] {
+    display: none;
+}
+
+.ac-raiz .ac-player > svg {
+    width: 20px;
+    height: 20px;
+    fill: rgb(0, 188, 212);
+}
+
+.ac-raiz .ac-player__status {
+    min-width: 92px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}
+
+.ac-raiz .ac-player__botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.ac-raiz .ac-player__botao:hover {
+    background: rgba(255, 255, 255, 0.24);
+}
+
+.ac-raiz .ac-player__botao:focus-visible {
+    outline: 3px solid rgb(0, 188, 212);
+    outline-offset: 2px;
+}
+
+.ac-raiz .ac-player__botao svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 480px) {
+    .ac-raiz .ac-player {
+        left: 4.5rem;
+        bottom: 1rem;
+    }
+}
+
+html.ac-contraste .ac-player {
+    background-color: rgb(6, 21, 45) !important;
+}
+
+
+/* ##########################################################################
+   COMPONENTE: cookies
+   ########################################################################## */
+
+/* ==========================================================================
+   Aviso de cookies (montado por js/cookies.js em todas as páginas)
+   Faixa azul-marinho presa no rodapé da tela, com o texto à esquerda e os
+   botões "Recusar" e "Aceitar" à direita (no celular, embaixo do texto).
+   Os seletores começam por .ck-raiz para o CSS das páginas não alterar a faixa.
+   ========================================================================== */
+
+.ck-raiz {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 59;                      /* abaixo do botão e do painel da acessibilidade (60 e 61) */
+    background: rgb(6, 21, 45);
+    border-top: 1px solid rgb(14, 56, 103);
+    box-shadow: 0 -10px 30px rgba(6, 21, 45, 0.25);
+}
+
+/* Mesma largura e respiro do .ex-container (1200px) */
+.ck-raiz .ck-conteudo {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+}
+
+/* Texto claro e um pouco menor que o padrão */
+.ck-raiz .ck-texto {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgb(241, 245, 249);
+}
+
+/* Link da política em ciano (fundo escuro) */
+.ck-raiz .ck-texto a {
+    color: rgb(0, 188, 212);
+}
+
+.ck-raiz .ck-texto a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.ck-raiz .ck-acoes {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.75rem;
+}
+
+/* "Aceitar" (botão primário): em ciano, para aparecer sobre o fundo navy */
+.ck-raiz .ck-botao--aceitar {
+    background: rgb(0, 188, 212);
+    color: rgb(6, 21, 45);
+    box-shadow: none;
+}
+
+.ck-raiz .ck-botao--aceitar:hover {
+    background: rgb(24, 168, 182);
+}
+
+/* "Recusar" (botão secundário): vazado, só com a borda clara */
+.ck-raiz .ck-botao--recusar {
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.ck-raiz .ck-botao--recusar:hover {
+    background: rgb(10, 30, 59);
+}
+
+/* Foco visível ao navegar pelo teclado (links e botões da faixa) */
+.ck-raiz a:focus-visible,
+.ck-raiz .ck-botao:focus-visible {
+    outline: 3px solid rgb(245, 158, 11);
+    outline-offset: 2px;
+}
+
+/* ---- Enquanto a faixa está aberta (classe ck-aberto no <body>) ----------
+   1) espaço no fim da página, para a faixa não esconder o rodapé;
+   2) os botões flutuantes da acessibilidade sobem para ficar acima da
+      faixa (e o painel da acessibilidade sobe junto). */
+body.ck-aberto {
+    padding-bottom: 5rem;          /* mais ou menos a altura da faixa */
+}
+
+.ck-aberto .ac-raiz .ac-botao,
+.ck-aberto .ac-raiz .ac-player {
+    bottom: 7rem;
+}
+
+.ck-aberto .ac-raiz .ac-painel {
+    bottom: 11rem;
+    max-height: calc(100vh - 12.5rem);
+}
+
+/* Celular: o texto fica em cima e os botões embaixo, dividindo a largura */
+@media (max-width: 767px) {
+    .ck-raiz .ck-conteudo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .ck-raiz .ck-acoes .ck-botao {
+        flex: 1;
+    }
+
+    body.ck-aberto {
+        padding-bottom: 10rem;
+    }
+
+    .ck-aberto .ac-raiz .ac-botao,
+    .ck-aberto .ac-raiz .ac-player {
+        bottom: 13rem;
+    }
+
+    .ck-aberto .ac-raiz .ac-painel {
+        bottom: 16.5rem;
+        max-height: calc(100vh - 18rem);
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: quem-somos.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: quem-somos.html
+   Só vale para esta página: toda regra começa com .pagina-quem-somos
+   (classe do <body>). Assim ela não mexe nas outras páginas quando todo o
+   CSS fica junto no css/style.css.
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia: só a cor, quando o texto está sobre fundo escuro. As
+   variações (nota pequena...) usam os componentes .ex-* do bloco GLOBAL.
+   Aqui ficam só o alinhamento, os espaços, as caixas e as cores de fundo. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL, de ponta a ponta da tela.
+   Aqui fica só a foto de fundo desta página (o caminho sai de css/ até img/). */
+.pagina-quem-somos .ex-hero {
+    background-image: url("../img/quem-somos/hero-reuniao-condominio.jpg");
+}
+
+/* O conteúdo abaixo do topo usa o container-base do site (.ex-container,
+   1200px, com o mesmo respiro lateral do header e do footer). Aqui fica só
+   o espaço de baixo do conteúdo. O espaço de cima (50px abaixo do topo)
+   vem do componente .ex-hero. */
+.pagina-quem-somos main > .ex-container {
+    padding-bottom: 60px;
+}
+
+/* Títulos das seções (Missão, Visão, Valores) com mais espaço acima.
+   O primeiro (Nossa Missão) fica sem margem em cima pela regra do topo
+   (.ex-hero) no padrão do site. */
+.pagina-quem-somos main > .ex-container > h2 {
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.pagina-quem-somos .valores {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagina-quem-somos .valor {
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    flex: 1;
+    text-align: center;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina-quem-somos .valor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(6, 21, 45, 0.12);
+    border-color: rgb(0, 188, 212);
+}
+
+/* Vídeo: um especialista explica */
+.pagina-quem-somos .video-especialista {
+    margin-top: 60px;
+}
+
+.pagina-quem-somos .video-especialista h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.pagina-quem-somos .video-especialista figure {
+    max-width: 100%;
+    margin: 25px auto 0;
+}
+
+/* Vídeo responsivo: ocupa a largura toda e mantém o formato 16:9.
+   O fundo azul-marinho aparece enquanto o vídeo carrega. */
+.pagina-quem-somos .video-especialista video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-color: rgb(6, 21, 45);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.06);
+}
+
+/* Legenda com o aviso e o crédito do vídeo (texto: componente .ex-nota) */
+.pagina-quem-somos .video-especialista figcaption {
+    margin-top: 12px;
+}
+
+/* Diferenciais da empresa: caixa azul-marinho. Os textos direto sobre o
+   fundo escuro (título e descrição) ficam claros; os cards de dentro são
+   brancos e usam o padrão. */
+.pagina-quem-somos .diferenciais {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(
+        135deg,
+        rgb(6, 21, 45),
+        rgb(10, 30, 59)
+    );
+    border-radius: 12px;
+}
+
+.pagina-quem-somos .diferenciais h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-quem-somos .descricao-diferenciais {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgb(214, 247, 255);
+}
+
+.pagina-quem-somos .lista-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagina-quem-somos .diferencial {
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid rgb(0, 188, 212);
+    border-left: 1px solid rgb(226, 232, 240);
+    border-right: 1px solid rgb(226, 232, 240);
+    border-bottom: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.08);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina-quem-somos .diferencial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+    border-top-color: rgb(24, 168, 182);
+}
+
+.pagina-quem-somos .diferencial h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.pagina-quem-somos .diferencial p {
+    margin-bottom: 0;
+}
+
+/* Fonte da foto do topo: nota discreta no fim da página (texto: componente
+   .ex-nota; aqui só o espaço e o alinhamento, iguais aos da Clientes) */
+.pagina-quem-somos .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .pagina-quem-somos .valores,
+    .pagina-quem-somos .lista-diferenciais {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .pagina-quem-somos main > .ex-container {
+        padding-bottom: 40px;
+    }
+
+    .pagina-quem-somos .diferenciais {
+        padding: 30px 20px;
+    }
+
+    .pagina-quem-somos .video-especialista {
+        margin-top: 40px;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: clientes.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: clientes.html
+   Só vale com <body class="pagina-clientes">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia: só a cor, quando o texto está sobre fundo escuro. As
+   variações (rótulo, subtítulo, nota, depoimento) usam os componentes .ex-*
+   do bloco GLOBAL. Aqui ficam só o alinhamento, os espaços e as caixas. */
+
+/* Zera margens e recuos só no conteúdo desta página (dentro do <main>).
+   Os títulos e parágrafos da página contam com isso; o header e o footer
+   ficam de fora. */
+.pagina-clientes main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* O conteúdo das seções usa o container-base do site (.ex-container, no
+   bloco GLOBAL). O fundo fica na <section>, de ponta a ponta da tela.
+   O reset acima zera o respiro de tudo dentro do <main>, inclusive do
+   .ex-container; esta regra devolve os mesmos valores do container-base. */
+.pagina-clientes main .ex-container {
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/ até img/). */
+.pagina-clientes .ex-hero {
+    background-image: url("../img/clientes/background-cond.jpg");
+}
+
+/* ---- Seção Clientes ----------------------------------------------------
+   É a primeira seção depois do topo: o espaço de cima (50px, dentro do
+   fundo branco) vem do componente .ex-hero. Aqui fica só o de baixo. */
+.pagina-clientes .clientes {
+    padding-bottom: 60px;
+    background: rgb(255, 255, 255);
+}
+
+/* Texto abaixo do título (componente .ex-subtitulo) */
+.pagina-clientes .clientes-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.pagina-clientes .cliente-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.pagina-clientes .cliente-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+
+.pagina-clientes .cliente-card {
+    background: rgb(248, 250, 253);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgb(226, 232, 240);
+    padding-bottom: 20px;
+}
+
+.pagina-clientes .cliente-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(6, 21, 45, 0.10);
+}
+
+/* Tipo do cliente (Condomínio, Edifício, Empresarial): componente
+   .ex-sobretitulo. O nome do cliente é um h3 no padrão do site. */
+.pagina-clientes .cliente-card .ex-sobretitulo {
+    margin-top: 15px;
+}
+
+.pagina-clientes .cliente-card h3 {
+    margin-top: 4px;
+}
+
+/* ---- Seção Depoimentos ------------------------------------------------- */
+.pagina-clientes .depoimentos {
+    background: rgb(241, 245, 249);
+    padding: 70px 0;
+}
+
+.pagina-clientes .depoimentos-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Cada depoimento é um <figure>: texto no <blockquote>, pessoa no <figcaption> */
+.pagina-clientes .depoimento-card {
+    background: rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 30px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.04);
+}
+
+/* O <blockquote> ocupa a sobra do card: assim a pessoa fica sempre embaixo */
+.pagina-clientes .depoimento-card blockquote {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+/* Aspas (.ex-aspas) e texto (.ex-citacao) vêm dos componentes */
+.pagina-clientes .depoimento-card .ex-citacao {
+    margin-top: 15px;
+}
+
+.pagina-clientes .cliente-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.pagina-clientes .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.pagina-clientes .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nome (.ex-autor) e cargo (.ex-nota) de quem deu o depoimento.
+   O cargo vai para a linha de baixo do nome. */
+.pagina-clientes .cliente-info .ex-nota {
+    display: block;
+    margin-top: 3px;
+}
+
+/* ---- Nota de conteúdo fictício (fim da página) -------------------------
+   Texto: componente .ex-nota. Aqui só o espaço e o alinhamento, iguais aos
+   da nota da Quem Somos. */
+.pagina-clientes .nota-ficticio {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ---- Tablet: 2 cards de clientes por linha, depoimentos em 1 coluna ----- */
+@media (max-width: 900px) {
+    .pagina-clientes .clientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pagina-clientes .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Celular: 1 card por linha ----------------------------------------- */
+@media (max-width: 600px) {
+    .pagina-clientes .clientes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: servicos.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: servicos.html
+   Só vale com <body class="pagina-servicos">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e da tabela vêm
+   do padrão das tags no bloco GLOBAL, iguais em todo o site. Esta página não
+   muda a tipografia. Aqui ficam só o alinhamento, os espaços e as caixas. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
+   fundo fica azul-marinho. */
+.pagina-servicos .ex-hero {
+    background-image: url("../img/servicos/hero-servicos.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
+   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
+   fica só o espaço de baixo. */
+.pagina-servicos main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links do conteúdo (teal da paleta) */
+.pagina-servicos main a:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* ---- Resumo dos serviços: 3 cards -----------------------------------------
+   Grade automática: cabem quantos cards a largura deixar (cada um com no
+   mínimo 16rem). No computador ficam 3 lado a lado; no celular, um embaixo
+   do outro. Cada card tem uma linha de destaque teal em cima. */
+.pagina-servicos .servicos-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+}
+
+.pagina-servicos .servico {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-top: 3px solid rgb(0, 104, 118);
+    border-radius: 0.75rem;
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+/* Cartaz vertical: ocupa a largura do card com altura limitada.
+   O object-fit: cover corta sem distorcer e o object-position: top
+   mostra a parte de cima do cartaz. */
+.pagina-servicos .servico img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.pagina-servicos .servico h3 {
+    margin: 0 0 0.5rem;
+}
+
+.pagina-servicos .servico p {
+    margin: 0 0 1.25rem;
+}
+
+/* O link "Ver ..." fica sempre no pé do card, mesmo com textos de
+   tamanhos diferentes */
+.pagina-servicos .servico a {
+    margin-top: auto;
+}
+
+/* ---- Comparação: tabela ------------------------------------------------
+   Bordas e cabeçalho vêm do padrão das tags (bloco GLOBAL). */
+
+/* Espaço entre os cards e a tabela (o mesmo das seções da home) */
+.pagina-servicos .servicos-comparacao {
+    margin-top: 4rem;
+}
+
+.pagina-servicos .servicos-comparacao h2 {
+    margin-top: 0;
+}
+
+/* No celular a tabela rola para o lado dentro desta caixa */
+.pagina-servicos .tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+/* Largura mínima para as colunas não ficarem espremidas */
+.pagina-servicos .tabela-wrapper table {
+    min-width: 36rem;
+}
+
+.pagina-servicos caption {
+    text-align: left;
+    padding-bottom: 0.75rem;
+}
+
+/* ---- Chamada final ------------------------------------------------------ */
+.pagina-servicos .chamada {
+    margin-top: 2.5rem;
+}
+
+/* Fonte da foto do topo: nota discreta no fim da página (texto: componente
+   .ex-nota; aqui só o espaço e o alinhamento, iguais aos da Quem Somos) */
+.pagina-servicos .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+
+/* ##########################################################################
+   PÁGINA: projetos.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: projetos.html
+   Só vale com <body class="pagina-projetos">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL. Esta página não muda a tipografia: os rótulos
+   dos cards usam o .ex-sobretitulo, o "Resultado" usa o .ex-etiqueta e a
+   nota do fim usa o .ex-nota. */
+
+/* Foto do topo (componente .ex-hero). O espaço de 50px abaixo do topo vem
+   do próprio componente. */
+.pagina-projetos .ex-hero {
+    background-image: url("../img/projetos/hero.jpg");
+}
+
+/* ---- Áreas (Financeira, Operacional, Administrativa) -------------------- */
+
+/* Espaço entre as áreas e desconto do header fixo ao clicar num atalho */
+.pagina-projetos .area {
+    margin-bottom: 60px;
+    scroll-margin-top: 140px;
+}
+
+.pagina-projetos .area h2 {
+    margin: 0 0 24px;
+}
+
+/* Grade dos cards: 1 coluna no celular (3 no computador, lá embaixo) */
+.pagina-projetos .grade-projetos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* ---- Card de projeto ---------------------------------------------------- */
+.pagina-projetos .projeto {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+/* Foto do card: largura toda e altura fixa, cortando o que sobrar */
+.pagina-projetos .projeto img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+/* Textos do card. O flex deixa o "Resultado" sempre no pé do card. */
+.pagina-projetos .projeto__texto {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 24px;
+}
+
+.pagina-projetos .projeto__texto h3 {
+    margin: 0 0 16px;
+}
+
+.pagina-projetos .projeto__texto p {
+    margin: 0 0 16px;
+}
+
+/* Resultado em destaque: caixa clara com faixa teal à esquerda */
+.pagina-projetos .projeto__texto .projeto__resultado {
+    margin: auto 0 0;
+    padding: 14px 16px;
+    background: rgb(241, 245, 249);
+    border-left: 4px solid rgb(0, 104, 118);
+    border-radius: 0.75rem;
+}
+
+/* A etiqueta "Resultado" fica numa linha só, acima do texto */
+.pagina-projetos .projeto__resultado .ex-etiqueta {
+    margin-bottom: 8px;
+}
+
+.pagina-projetos .projeto__resultado strong {
+    display: block;
+}
+
+/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
+   alinhamento, iguais aos da FAQ) */
+.pagina-projetos .nota-fonte {
+    margin: 60px 0 0;
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ---- Tamanhos de tela --------------------------------------------------- */
+
+/* A partir de 900px: três cards lado a lado */
+@media (min-width: 900px) {
+    .pagina-projetos .grade-projetos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: index.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: index.html (home)
+   Fica depois do bloco GLOBAL. Só vale para esta página: toda regra
+   começa com .pagina-index (a classe do <body>).
+   --------------------------------------------------------------------------
+   Fonte, cor e tamanho dos textos vêm do padrão das tags e dos componentes
+   .ex-* do bloco GLOBAL (.ex-titulo, .ex-sobretitulo, .ex-nota, .ex-botao,
+   .ex-card, .ex-etiqueta...). Aqui ficam só o layout, os espaços, os fundos,
+   as bordas e as sombras. Cor de texto só muda em fundo escuro.
+
+   Tamanhos de tela usados (iguais em toda a página):
+     640px   celular deitado / tablet pequeno
+     768px   tablet
+     1024px  computador (as colunas lado a lado começam aqui)
+   ========================================================================== */
+
+/* ---- Página inteira ------------------------------------------------------
+   Sem rolagem para os lados: o fundo decorativo do topo (pontinhos e
+   brilho) não pode empurrar a página para fora da tela. */
+.pagina-index {
+    overflow-x: hidden;
+    overscroll-behavior: none;
+}
+
+/* Foco do teclado sempre visível no conteúdo (contorno teal + halo branco) */
+.pagina-index main a:focus-visible,
+.pagina-index main button:focus-visible,
+.pagina-index main summary:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255);
+    border-radius: 6px;
+}
+
+/* Texto só para leitor de tela (fica invisível na tela) */
+.pagina-index .visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   PEÇAS REPETIDAS NA PÁGINA
+   ========================================================================== */
+
+/* Bolinha colorida (status) */
+.pagina-index .ponto {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+}
+
+.pagina-index .ponto--ciano {
+    background: rgb(0, 188, 212);
+}
+
+.pagina-index .ponto--verde {
+    background: rgb(16, 185, 129);
+}
+
+/* Tracinho ciano antes de um rótulo */
+.pagina-index .traco {
+    display: inline-block;
+    width: 1rem;
+    height: 2px;
+    background: rgb(0, 188, 212);
+}
+
+/* Rótulo com bolinha ou tracinho na frente */
+.pagina-index .com-ponto,
+.pagina-index .inicio__sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Caixa quadrada com um ícone no meio */
+.pagina-index .icone-caixa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 1rem;
+}
+
+.pagina-index .icone-caixa--grande {
+    width: 56px;
+    height: 56px;
+}
+
+.pagina-index .icone-caixa--media {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+}
+
+.pagina-index .icone-caixa--pequena {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.75rem;
+}
+
+/* Fundo escuro: o ícone fica ciano */
+.pagina-index .icone-caixa--navy {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .icone-caixa--clara {
+    background: rgb(241, 245, 249);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .icone-caixa--ciano-suave {
+    background: rgba(214, 247, 255, 0.4);
+}
+
+/* Lista com ícone de "check" na frente de cada item */
+.pagina-index .lista-check {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-index .lista-check li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Link de texto com seta (ex.: "Veja mais", "Ler artigo", "Ver Mapa") */
+.pagina-index .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    text-decoration: none;
+}
+
+.pagina-index .link-seta .ex-sobretitulo {
+    margin: 0;
+}
+
+/* Seta dos botões e links anda um pouquinho no hover */
+.pagina-index .botao-seta .material-symbols-outlined:last-child,
+.pagina-index .link-seta .material-symbols-outlined {
+    transition: transform 0.2s;
+}
+
+.pagina-index .botao-seta:hover .material-symbols-outlined:last-child,
+.pagina-index .link-seta:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+/* Botão com fundo ciano suave (texto teal dos links); no hover fica teal */
+.pagina-index .botao-claro {
+    padding: 0.5rem 0.875rem;
+    background: rgba(214, 247, 255, 0.4);
+}
+
+.pagina-index .botao-claro:hover {
+    background: rgb(0, 104, 118);
+    color: rgb(255, 255, 255);
+}
+
+/* Botão secundário cinza-claro; no hover fica azul-marinho */
+.pagina-index .botao-cinza {
+    background: rgb(241, 245, 249);
+    border-color: transparent;
+}
+
+.pagina-index .botao-cinza:hover {
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+}
+
+/* Etiqueta com fundo teal (fica sobre foto) */
+.pagina-index .etiqueta-teal {
+    background: rgb(0, 104, 118);
+    color: rgb(255, 255, 255);
+}
+
+/* Foto do topo dos cards de projetos e clientes: caixa 16:9
+   (fundo cinza aparece se a foto não carregar) */
+.pagina-index .foto-card {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: rgb(226, 232, 240);
+}
+
+/* A foto preenche a caixa toda, cortando as sobras */
+.pagina-index .foto-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botão redondo só com a seta */
+.pagina-index .botao-redondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 9999px;
+    background: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Cabeçalho das seções: texto à esquerda e botão à direita */
+.pagina-index .secao-topo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .secao-topo__texto {
+    max-width: 42rem;
+}
+
+.pagina-index .secao-topo .ex-botao {
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/* Grade de 3 cards (um embaixo do outro no celular) */
+.pagina-index .grade-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.pagina-index .grade-3--espaco {
+    padding-top: 2.5rem;
+}
+
+/* Cards que ficam com borda azul-marinho no hover */
+.pagina-index .servico:hover,
+.pagina-index .caso:hover,
+.pagina-index .cliente:hover,
+.pagina-index .endereco:hover {
+    border-color: rgb(6, 21, 45);
+}
+
+/* Lista de vantagens (ícone + título + texto curto) */
+.pagina-index .vantagens {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    list-style: none;
+}
+
+.pagina-index .vantagem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pagina-index .vantagem .ex-card__titulo {
+    display: block;
+    margin: 0;
+}
+
+.pagina-index .vantagem .ex-nota {
+    display: block;
+}
+
+/* ==========================================================================
+   1. TOPO DA HOME
+   ========================================================================== */
+
+.pagina-index .inicio {
+    position: relative;
+    overflow: hidden;
+    padding: 2.5rem 0 4rem;
+    background: linear-gradient(rgb(241, 245, 249), rgb(248, 250, 253), rgb(255, 255, 255));
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+/* Fundo de pontinhos ciano (passa um pouco da seção em cima e embaixo) */
+.pagina-index .inicio__pontos {
+    position: absolute;
+    top: -10rem;
+    right: 0;
+    bottom: -10rem;
+    left: 0;
+    background-image: radial-gradient(rgb(0, 188, 212) 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Brilho ciano redondo e desfocado */
+.pagina-index .inicio__brilho {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    width: 500px;
+    height: 500px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), transparent);
+    filter: blur(64px);
+    pointer-events: none;
+}
+
+/* O conteúdo fica na frente do fundo decorativo */
+.pagina-index .inicio__conteudo {
+    position: relative;
+    z-index: 10;
+}
+
+/* Faixa de selos acima do título */
+.pagina-index .inicio__faixa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.pagina-index .inicio__etiqueta {
+    gap: 0.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+/* Selos (só aparecem do tablet para cima) */
+.pagina-index .inicio__selos {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-index .inicio__selos li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+/* Duas colunas: texto (7 partes) e foto (5 partes) */
+.pagina-index .inicio__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pagina-index .inicio__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pagina-index .inicio__sobretitulo {
+    margin-bottom: 0.5rem;
+}
+
+.pagina-index .inicio__resumo {
+    max-width: 36rem;
+    margin: 0;
+}
+
+.pagina-index .inicio__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.25rem;
+}
+
+/* Três indicadores em cards brancos */
+.pagina-index .metricas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.pagina-index .metrica {
+    display: flex;
+    flex-direction: column;
+    padding: 0.875rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-index .metrica .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .metrica .ex-numero {
+    margin-top: 0.125rem;
+}
+
+/* ---- Foto da coluna da direita ------------------------------------------ */
+.pagina-index .inicio__painel {
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+/* A foto ocupa a coluna toda, com cantos arredondados e sombra navy */
+.pagina-index .inicio__foto {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 50px rgba(6, 21, 45, 0.08);
+}
+
+/* ==========================================================================
+   2. CHAMADA PARA QUEM SOMOS
+   ========================================================================== */
+
+.pagina-index .chamada-quem-somos {
+    padding: 1.5rem 0;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.pagina-index .chamada-quem-somos__caixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 1.5rem;
+    background: rgba(248, 250, 253, 0.7);
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .chamada-quem-somos__texto {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagina-index .chamada-quem-somos .ex-card__titulo {
+    margin: 0;
+}
+
+.pagina-index .chamada-quem-somos .ex-nota {
+    max-width: 42rem;
+    margin: 0.25rem 0 0;
+}
+
+.pagina-index .chamada-quem-somos__botao {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. NOSSOS SERVIÇOS
+   ========================================================================== */
+
+.pagina-index .servicos .grade-3 {
+    margin-top: 3rem;
+}
+
+/* Card do serviço: o link "Veja mais" cobre o card inteiro (::after) */
+.pagina-index .servico {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .servico .icone-caixa {
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+/* No hover a caixa do ícone fica azul-marinho e o ícone ciano */
+.pagina-index .servico:hover .icone-caixa {
+    background: rgb(6, 21, 45);
+}
+
+.pagina-index .servico:hover .icone-caixa .material-symbols-outlined {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-index .servico h3 {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.pagina-index .servico__texto p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .servico__rodape {
+    padding-top: 1rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .servico__link {
+    margin-top: 1.5rem;
+}
+
+.pagina-index .servico__link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 1.5rem;
+}
+
+/* ==========================================================================
+   4. NOTÍCIAS & ARTIGOS
+   ========================================================================== */
+
+.pagina-index .noticias__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2.5rem;
+}
+
+/* Card de notícia: foto em cima (ou do lado) e texto */
+.pagina-index .noticia {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .noticia__foto {
+    position: relative;
+    height: 18rem;
+    overflow: hidden;
+}
+
+.pagina-index .noticia__foto img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    transition: transform 0.7s;
+}
+
+.pagina-index .noticia:hover .noticia__foto img {
+    transform: scale(1.05);
+}
+
+/* Película escura em baixo da foto do destaque */
+.pagina-index .noticia--destaque .noticia__foto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(6, 21, 45, 0.8), transparent, transparent);
+}
+
+.pagina-index .noticia__categoria {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    border-radius: 0.375rem;
+}
+
+/* Data, tempo de leitura e etiqueta em cima da foto (texto branco) */
+.pagina-index .noticia__meta {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.pagina-index .noticia__datas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.pagina-index .noticia__datas .ex-sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .noticia__meta .ex-etiqueta--escura {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+    background: rgba(6, 21, 45, 0.6);
+}
+
+.pagina-index .noticia__corpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.pagina-index .noticia h3 {
+    margin: 0 0 0.375rem;
+}
+
+.pagina-index .noticia__corpo p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .noticia__pontos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgb(241, 245, 249);
+    list-style: none;
+}
+
+.pagina-index .noticia__pontos li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagina-index .noticia__rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .noticia__aviso {
+    display: none;
+    margin: 0;
+}
+
+/* Duas notícias menores na coluna da direita */
+.pagina-index .noticias__lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pagina-index .noticia--lateral .noticia__foto {
+    flex-shrink: 0;
+    height: 12rem;
+}
+
+.pagina-index .noticia--lateral .noticia__categoria {
+    top: 0.75rem;
+    left: 0.75rem;
+}
+
+.pagina-index .noticia--lateral .noticia__corpo {
+    padding: 1rem;
+}
+
+.pagina-index .noticia__linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.pagina-index .noticia__linha .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .noticia__tempo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pagina-index .noticia--lateral .noticia__corpo p {
+    margin: 0 0 0.75rem;
+}
+
+/* ==========================================================================
+   5. PROJETOS (cases)
+   ========================================================================== */
+
+.pagina-index .caso {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0;
+}
+
+.pagina-index .caso__corpo {
+    padding: 1.5rem 1.5rem 0;
+}
+
+.pagina-index .caso__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pagina-index .caso__topo .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .caso h3 {
+    margin: 0;
+}
+
+.pagina-index .caso__corpo p {
+    margin: 0 0 1rem;
+}
+
+/* Faixa do resultado, no pé do card */
+.pagina-index .caso__resultado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+    background: rgba(248, 250, 253, 0.7);
+}
+
+.pagina-index .caso__resultado .ex-sobretitulo,
+.pagina-index .caso__resultado .ex-card__titulo {
+    margin: 0;
+}
+
+/* No hover do card, o botão redondo fica azul-marinho com a seta ciano */
+.pagina-index .caso:hover .botao-redondo {
+    background: rgb(6, 21, 45);
+    color: rgb(0, 188, 212);
+}
+
+/* ==========================================================================
+   6. CLIENTES & DEPOIMENTOS
+   ========================================================================== */
+
+.pagina-index .cliente {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Nome do cliente sobre o lugar da foto (etiqueta escura: texto branco,
+   segunda palavra em ciano) */
+.pagina-index .cliente__nome {
+    position: absolute;
+    margin: 0;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 0.375rem;
+    background: rgba(6, 21, 45, 0.9);
+    color: rgb(255, 255, 255);
+}
+
+.pagina-index .cliente__nome span {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-index .cliente__corpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0;
+    padding: 1.5rem;
+}
+
+.pagina-index .cliente blockquote {
+    flex: 1;
+    margin: 0.5rem 0 0;
+}
+
+.pagina-index .cliente .ex-citacao {
+    margin: 0;
+}
+
+.pagina-index .cliente__autor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .cliente__autor .ex-nota {
+    display: block;
+}
+
+/* Foto da pessoa (redonda, 44px) */
+.pagina-index .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: rgb(226, 232, 240);
+}
+
+.pagina-index .avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   7. PERGUNTAS FREQUENTES
+   ========================================================================== */
+
+.pagina-index .faq__topo {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Botões de filtro (o ativo tem aria-pressed="true") */
+.pagina-index .faq__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.pagina-index .faq__filtro {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+}
+
+.pagina-index .faq__filtro:hover {
+    border-color: rgb(6, 21, 45);
+}
+
+.pagina-index .faq__filtro[aria-pressed="true"] {
+    border-color: rgb(6, 21, 45);
+    background: rgb(6, 21, 45);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+/* Perguntas (8 partes) e card de suporte (4 partes) */
+.pagina-index .faq__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.pagina-index .faq__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Cada pergunta é um <details> (abre e fecha sem JavaScript) */
+.pagina-index .faq__item {
+    padding: 1rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+    transition: border-color 0.2s;
+}
+
+.pagina-index .faq__item:hover {
+    border-color: rgba(0, 188, 212, 0.5);
+}
+
+/* Escondida pelo filtro (js/home.js usa o atributo hidden) */
+.pagina-index .faq__item[hidden] {
+    display: none;
+}
+
+.pagina-index .faq__item summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Tira o triângulo padrão do navegador (o nosso é o ícone da seta) */
+.pagina-index .faq__item summary::-webkit-details-marker {
+    display: none;
+}
+
+.pagina-index .faq__item summary .ex-card__titulo {
+    flex: 1;
+    margin: 0;
+}
+
+.pagina-index .faq__seta {
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.pagina-index .faq__item[open] .faq__seta {
+    transform: rotate(180deg);
+}
+
+.pagina-index .faq__resposta {
+    margin-top: 1rem;
+    padding: 1rem 0 0 2.75rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .faq__resposta p {
+    margin: 0 0 0.5rem;
+}
+
+.pagina-index .faq__resposta p:last-child {
+    margin-bottom: 0;
+}
+
+.pagina-index .faq__resposta ul {
+    margin: 0 0 0.5rem;
+    padding-left: 1.25rem;
+}
+
+.pagina-index .faq__resposta li {
+    margin-bottom: 0.375rem;
+}
+
+/* Card de suporte direto */
+.pagina-index .suporte {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: 2px solid rgba(0, 188, 212, 0.4);
+    box-shadow: 0 16px 40px rgba(6, 21, 45, 0.06);
+}
+
+.pagina-index .suporte .icone-caixa {
+    margin-bottom: 1rem;
+}
+
+.pagina-index .suporte h3 {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.pagina-index .suporte p {
+    margin: 0 0 1rem;
+}
+
+.pagina-index .suporte__lista {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    background: rgb(248, 250, 253);
+}
+
+.pagina-index .suporte__acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-index .suporte__acoes .ex-botao {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   8. COBERTURA REGIONAL
+   ========================================================================== */
+
+.pagina-index .cobertura__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pagina-index .cobertura__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pagina-index .cobertura__texto .ex-etiqueta {
+    align-self: flex-start;
+}
+
+.pagina-index .cobertura__texto h2,
+.pagina-index .cobertura__texto p {
+    margin: 0;
+}
+
+/* Aqui cada vantagem fica numa caixinha cinza-clara */
+.pagina-index .cobertura .vantagem {
+    padding: 0.75rem;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    background: rgb(248, 250, 253);
+}
+
+.pagina-index .cobertura__enderecos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Card de endereço */
+.pagina-index .endereco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(248, 250, 253);
+    box-shadow: 0 1px 3px rgba(6, 21, 45, 0.1), 0 1px 2px -1px rgba(6, 21, 45, 0.1);
+}
+
+.pagina-index .endereco__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .endereco__topo .ex-sobretitulo {
+    margin: 0;
+}
+
+.pagina-index .endereco .icone-caixa {
+    margin-bottom: 1rem;
+}
+
+.pagina-index .endereco h3 {
+    margin: 0 0 0.25rem;
+}
+
+.pagina-index .endereco p {
+    margin: 0;
+}
+
+/* Mapa do Google dentro do card de endereço */
+.pagina-index .endereco__mapa {
+    margin-top: 1rem;
+    overflow: hidden;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    background: rgb(226, 232, 240);
+}
+
+.pagina-index .endereco__mapa iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 0;
+}
+
+.pagina-index .endereco__rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-index .endereco__rodape .ex-sobretitulo {
+    margin: 0;
+}
+
+/* ==========================================================================
+   9. NOTA DE FONTE (fim da página)
+   ========================================================================== */
+
+.pagina-index .nota-fonte {
+    margin: 0;
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ==========================================================================
+   TAMANHOS DE TELA
+   ========================================================================== */
+
+/* ---- A partir de 640px -------------------------------------------------- */
+@media (min-width: 640px) {
+    .pagina-index .secao-topo {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .pagina-index .secao-topo .ex-botao {
+        align-self: auto;
+    }
+
+    .pagina-index .metricas {
+        gap: 1rem;
+    }
+
+    .pagina-index .metrica {
+        padding: 1rem;
+    }
+
+    .pagina-index .chamada-quem-somos__caixa {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .chamada-quem-somos__botao {
+        width: auto;
+    }
+
+    .pagina-index .noticia--destaque .noticia__foto {
+        height: 20rem;
+    }
+
+    .pagina-index .noticia--destaque .noticia__corpo {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .noticia__aviso {
+        display: inline;
+    }
+
+    /* Notícias menores: foto do lado esquerdo */
+    .pagina-index .noticia--lateral {
+        flex-direction: row;
+    }
+
+    .pagina-index .noticia--lateral .noticia__foto {
+        width: 41.666%;
+        height: auto;
+    }
+
+    .pagina-index .noticia--lateral .noticia__corpo {
+        padding: 1.5rem;
+    }
+
+    .pagina-index .faq__item {
+        padding: 1.5rem;
+    }
+
+    .pagina-index .suporte {
+        padding: 2.5rem;
+    }
+
+    .pagina-index .cobertura__enderecos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---- A partir de 768px -------------------------------------------------- */
+@media (min-width: 768px) {
+    .pagina-index .inicio__selos {
+        display: flex;
+    }
+
+    .pagina-index .chamada-quem-somos__caixa {
+        flex-direction: row;
+    }
+
+    .pagina-index .grade-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* ---- A partir de 1024px: colunas lado a lado ---------------------------- */
+@media (min-width: 1024px) {
+    .pagina-index .inicio__grade,
+    .pagina-index .noticias__grade {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+
+    .pagina-index .inicio__painel {
+        margin-top: 0;
+    }
+
+    .pagina-index .faq__grade {
+        grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    }
+
+    .pagina-index .cobertura__grade {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: noticias.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: noticias.html
+   Só vale com <body class="pagina-noticias">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia. A categoria usa o componente .ex-etiqueta, a data usa o
+   .ex-nota e os links usam o .ex-sobretitulo. Aqui ficam só o alinhamento,
+   os espaços e as caixas. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
+   fundo fica azul-marinho. */
+.pagina-noticias .ex-hero {
+    background-image: url("../img/noticias/hero-noticias.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
+   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
+   fica só o espaço de baixo. */
+.pagina-noticias main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links do conteúdo (teal da paleta) */
+.pagina-noticias main a:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* ---- Partes repetidas nos cards e nas matérias -------------------------- */
+
+/* Capa: caixa da ilustração. O fundo claro aparece enquanto a imagem carrega. */
+.pagina-noticias .capa {
+    overflow: hidden;
+    background: linear-gradient(135deg, rgb(214, 247, 255), rgb(241, 245, 249));
+}
+
+/* A ilustração preenche a capa inteira, sem distorcer */
+.pagina-noticias .capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Linha da categoria (.ex-etiqueta) e da data (.ex-nota) */
+.pagina-noticias .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Link de texto com seta ("Leia mais", "Voltar para notícias"), igual ao
+   da página Serviços */
+.pagina-noticias .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    text-decoration: none;
+}
+
+.pagina-noticias .link-seta .ex-sobretitulo {
+    margin: 0;
+}
+
+/* A seta anda um pouquinho no hover */
+.pagina-noticias .link-seta .material-symbols-outlined {
+    transition: transform 0.2s;
+}
+
+.pagina-noticias .link-seta:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+/* No "Voltar" a seta aponta para a esquerda e anda para a esquerda */
+.pagina-noticias .link-voltar:hover .material-symbols-outlined {
+    transform: translateX(-4px);
+}
+
+/* ---- Lista de notícias -------------------------------------------------- */
+
+/* Notícia em destaque: ilustração à esquerda e texto à direita */
+.pagina-noticias .destaque {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+}
+
+.pagina-noticias .destaque .capa {
+    min-height: 340px;
+}
+
+.pagina-noticias .destaque .texto {
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+}
+
+.pagina-noticias .destaque h2 {
+    margin: 18px 0 14px;
+}
+
+.pagina-noticias .destaque p {
+    margin: 0;
+}
+
+/* Cards: grade de 6 trilhas para não sobrar card sozinho na última linha.
+   Os 2 primeiros ocupam 3 trilhas cada (linha de 2 cards) e os 3 seguintes
+   ocupam 2 trilhas cada (linha de 3 cards). */
+.pagina-noticias .lista {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+}
+
+.pagina-noticias .lista > .card {
+    grid-column: span 2;
+}
+
+.pagina-noticias .lista > .card:nth-child(1),
+.pagina-noticias .lista > .card:nth-child(2) {
+    grid-column: span 3;
+}
+
+.pagina-noticias .card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* No hover, a borda fica ciano e aparece uma sombra leve (igual ao .ex-card) */
+.pagina-noticias .card:hover,
+.pagina-noticias .destaque:hover {
+    border-color: rgba(0, 188, 212, 0.6);
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+.pagina-noticias .card .capa {
+    height: 180px;
+}
+
+/* O texto ocupa o resto do card; o "Leia mais" fica sempre embaixo */
+.pagina-noticias .card .texto {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+}
+
+.pagina-noticias .card h3 {
+    margin: 16px 0 10px;
+}
+
+.pagina-noticias .card p {
+    margin: 0;
+}
+
+.pagina-noticias .lista-view .link-seta {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+/* ---- Matéria aberta ----------------------------------------------------- */
+
+/* Escondida até o endereço apontar para ela (#materia-1, #materia-2...) */
+.pagina-noticias .materia-view {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* :target é a matéria do endereço: ela aparece... */
+.pagina-noticias .materia-view:target {
+    display: block;
+}
+
+/* ...e a lista some enquanto uma matéria está aberta */
+.pagina-noticias .noticias-pagina:has(.materia-view:target) .lista-view {
+    display: none;
+}
+
+/* Ao abrir a matéria ou voltar para a lista, o navegador rola até ela.
+   Este espaço deixa o começo dela abaixo do menu fixo do topo. */
+.pagina-noticias .materia-view,
+.pagina-noticias .lista-view {
+    scroll-margin-top: 140px;
+}
+
+.pagina-noticias .link-voltar {
+    margin-bottom: 24px;
+}
+
+.pagina-noticias .materia {
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+}
+
+.pagina-noticias .materia .capa {
+    height: 340px;
+}
+
+.pagina-noticias .materia .texto {
+    padding: 36px;
+}
+
+.pagina-noticias .materia h2 {
+    margin: 18px 0 22px;
+}
+
+.pagina-noticias .materia p {
+    margin: 0 0 18px;
+}
+
+/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
+   alinhamento, iguais aos da Clientes e da Quem Somos) */
+.pagina-noticias .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ---- Tablet: cards em 2 colunas ----------------------------------------
+   O 1º card (a notícia mais recente) ocupa a linha inteira e os outros 4
+   ficam em 2 linhas de 2, sem card sozinho. */
+@media (max-width: 900px) {
+    .pagina-noticias .lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pagina-noticias .lista > .card,
+    .pagina-noticias .lista > .card:nth-child(2) {
+        grid-column: span 1;
+    }
+
+    .pagina-noticias .lista > .card:nth-child(1) {
+        grid-column: span 2;
+    }
+}
+
+/* ---- Celular: cards um embaixo do outro --------------------------------- */
+@media (max-width: 640px) {
+    .pagina-noticias .lista {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-noticias .lista > .card:nth-child(1) {
+        grid-column: auto;
+    }
+}
+
+/* ---- Celular e tablet --------------------------------------------------- */
+@media (max-width: 800px) {
+    /* Destaque em uma coluna: ilustração em cima, texto embaixo */
+    .pagina-noticias .destaque {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-noticias .destaque .capa {
+        min-height: 220px;
+    }
+
+    .pagina-noticias .materia .capa {
+        height: 220px;
+    }
+
+    .pagina-noticias .destaque .texto,
+    .pagina-noticias .materia .texto {
+        padding: 24px;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: faq.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: faq.html
+   Só vale com <body class="pagina-faq">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia. O número da pergunta usa o componente .ex-etiqueta, o texto
+   abaixo do título usa o .ex-subtitulo, o link do WhatsApp usa o botão
+   .ex-botao--whatsapp e a nota do fim usa o .ex-nota. Aqui ficam só o
+   alinhamento, os espaços e as caixas. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
+   fundo fica azul-marinho. */
+.pagina-faq .ex-hero {
+    background-image: url("../img/faq/hero-faq.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
+   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
+   fica só o espaço de baixo. */
+.pagina-faq main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links e perguntas (teal da paleta) */
+.pagina-faq main a:focus-visible,
+.pagina-faq main summary:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* ---- Perguntas (cada uma é um <details>) -------------------------------- */
+
+/* Uma pergunta embaixo da outra, com um espaço entre elas */
+.pagina-faq .lista-perguntas {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Caixa branca com borda e cantos arredondados */
+.pagina-faq .pergunta {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Borda ciano ao passar o mouse e quando a pergunta está aberta */
+.pagina-faq .pergunta:hover,
+.pagina-faq .pergunta[open] {
+    border-color: rgba(0, 188, 212, 0.6);
+}
+
+.pagina-faq .pergunta[open] {
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+/* Linha clicável: número, pergunta e o sinal de abrir/fechar */
+.pagina-faq .pergunta summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Tira o triângulo padrão do navegador (o nosso sinal é o ícone "+") */
+.pagina-faq .pergunta summary::-webkit-details-marker {
+    display: none;
+}
+
+/* O número não encolhe quando a pergunta é comprida */
+.pagina-faq .pergunta summary .ex-etiqueta {
+    flex-shrink: 0;
+}
+
+/* A pergunta ocupa o espaço do meio */
+.pagina-faq .pergunta summary h3 {
+    flex: 1;
+    margin: 0;
+}
+
+/* Sinal "+" num círculo ciano-claro; aberto, ele gira e vira um "x" */
+.pagina-faq .pergunta .sinal {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(214, 247, 255);
+    transition: transform 0.3s;
+}
+
+.pagina-faq .pergunta[open] .sinal {
+    transform: rotate(45deg);
+}
+
+/* Resposta: separada da pergunta por uma linha fina */
+.pagina-faq .resposta {
+    margin: 0 24px;
+    padding: 16px 0 20px;
+    border-top: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-faq .resposta p {
+    margin: 0 0 10px;
+}
+
+.pagina-faq .resposta p:last-child {
+    margin-bottom: 0;
+}
+
+.pagina-faq .resposta ul {
+    margin: 0 0 10px;
+}
+
+.pagina-faq .resposta li {
+    margin-bottom: 6px;
+}
+
+/* ---- Caixa "Qualquer dúvida?" ------------------------------------------- */
+
+/* Faixa azul-marinho com o texto à esquerda e o botão à direita */
+.pagina-faq .duvida {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 32px 36px;
+    background: rgb(6, 21, 45);
+    border: 1px solid rgba(0, 188, 212, 0.4);
+    border-radius: 1.5rem;
+}
+
+/* Sobre o fundo escuro, o título fica branco e o texto, cinza bem claro */
+.pagina-faq .duvida h2 {
+    margin: 0 0 6px;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-faq .duvida p {
+    margin: 0;
+    color: rgb(241, 245, 249);
+}
+
+/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
+   alinhamento, iguais aos da Notícias) */
+.pagina-faq .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ---- Celular ------------------------------------------------------------ */
+@media (max-width: 640px) {
+
+    /* Menos espaço dentro das caixas */
+    .pagina-faq .pergunta summary {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .pagina-faq .resposta {
+        margin: 0 16px;
+    }
+
+    .pagina-faq .duvida {
+        padding: 24px;
+    }
+
+    /* Botão do WhatsApp na largura toda */
+    .pagina-faq .duvida .ex-botao {
+        width: 100%;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: contato.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: contato.html
+   Só vale com <body class="pagina-contato">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia. Os cards usam o .ex-card, o formulário usa o .ex-rotulo e o
+   .ex-campo, os botões usam o .ex-botao e a nota do fim usa o .ex-nota.
+   Aqui ficam só o alinhamento, os espaços, as caixas e os fundos.
+
+   Tamanhos de tela usados:
+     640px   celular deitado / tablet pequeno
+     1024px  computador (as colunas lado a lado começam aqui) */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
+   fundo fica azul-marinho. */
+.pagina-contato .ex-hero {
+    background-image: url("../img/contato/hero-contato.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
+   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
+   fica só o espaço de baixo. */
+.pagina-contato main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links e botões (teal da paleta) */
+.pagina-contato main a:focus-visible,
+.pagina-contato main button:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* Texto só para leitor de tela (fica invisível na tela) */
+.pagina-contato .visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   1. CANAIS DE ATENDIMENTO (cards)
+   ========================================================================== */
+
+/* Cards em 1 coluna no celular, 2 a partir de 640px e 3 no computador */
+.pagina-contato .canais__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* Card mais baixo que o padrão do .ex-card, com os itens um embaixo do outro */
+.pagina-contato .canal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 24px;
+}
+
+/* Caixinha ciano-clara com o ícone do canal */
+.pagina-contato .canal__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 0.75rem;
+    background: rgb(214, 247, 255);
+}
+
+.pagina-contato .canal h3,
+.pagina-contato .canal p {
+    margin: 0;
+}
+
+/* E-mail comprido: quebra a linha em vez de sair do card */
+.pagina-contato .canal a {
+    overflow-wrap: anywhere;
+}
+
+/* Links das redes sociais lado a lado, sem bolinha */
+.pagina-contato .canal__redes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* ==========================================================================
+   2. PROPOSTA (vantagens + formulário)
+   Regras copiadas da antiga seção da home, com o prefixo desta página.
+   ========================================================================== */
+
+/* Bolinha verde da etiqueta */
+.pagina-contato .ponto {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+}
+
+.pagina-contato .ponto--verde {
+    background: rgb(16, 185, 129);
+}
+
+/* Caixa quadrada com um ícone no meio */
+.pagina-contato .icone-caixa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 1rem;
+}
+
+.pagina-contato .icone-caixa--media {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+}
+
+.pagina-contato .icone-caixa--clara {
+    background: rgb(241, 245, 249);
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+}
+
+.pagina-contato .icone-caixa--ciano-suave {
+    background: rgba(214, 247, 255, 0.4);
+}
+
+/* Link de texto com seta (WhatsApp) */
+.pagina-contato .link-seta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    text-decoration: none;
+}
+
+/* Seta do botão e do link anda um pouquinho no hover */
+.pagina-contato .botao-seta .material-symbols-outlined:last-child,
+.pagina-contato .link-seta .material-symbols-outlined {
+    transition: transform 0.2s;
+}
+
+.pagina-contato .botao-seta:hover .material-symbols-outlined:last-child,
+.pagina-contato .link-seta:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+/* Seção com os brilhos presos dentro dela */
+.pagina-contato .proposta {
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+    padding: 50px 0;
+    border-top: 1px solid rgb(226, 232, 240);
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+/* Brilhos redondos e desfocados no fundo */
+.pagina-contato .proposta__brilho {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(64px);
+    pointer-events: none;
+}
+
+.pagina-contato .proposta__brilho--ciano {
+    top: -6rem;
+    left: -6rem;
+    width: 420px;
+    height: 420px;
+    background: rgba(0, 188, 212, 0.1);
+}
+
+.pagina-contato .proposta__brilho--navy {
+    right: 0;
+    bottom: -8rem;
+    width: 520px;
+    height: 520px;
+    background: rgba(6, 21, 45, 0.06);
+}
+
+/* Texto e formulário: um embaixo do outro; lado a lado a partir de 1024px */
+.pagina-contato .proposta__grade {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pagina-contato .proposta__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pagina-contato .proposta__texto .ex-etiqueta {
+    gap: 0.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+}
+
+.pagina-contato .proposta__texto h2 {
+    margin: 0.5rem 0;
+}
+
+.pagina-contato .proposta__texto p {
+    margin: 0;
+}
+
+/* Lista de vantagens: ícone alinhado ao topo + título + texto curto */
+.pagina-contato .vantagens {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-contato .vantagem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.pagina-contato .vantagem .icone-caixa {
+    margin-top: 0.125rem;
+}
+
+.pagina-contato .vantagem .ex-card__titulo {
+    display: block;
+    margin: 0;
+}
+
+.pagina-contato .vantagem .ex-nota {
+    display: block;
+}
+
+.pagina-contato .proposta__whatsapp:hover {
+    text-decoration: underline;
+}
+
+/* Card do formulário com borda ciano */
+.pagina-contato .proposta__cartao {
+    padding: 1.5rem;
+    border: 2px solid rgba(0, 188, 212, 0.3);
+    box-shadow: 0 20px 60px rgba(6, 21, 45, 0.08);
+}
+
+.pagina-contato .proposta__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.pagina-contato .proposta__topo h3,
+.pagina-contato .proposta__topo p {
+    margin: 0;
+}
+
+.pagina-contato .proposta__topo .ex-etiqueta {
+    flex-shrink: 0;
+}
+
+/* Campos em 1 coluna no celular e 2 colunas a partir de 640px.
+   Quem chega pelo botão "Falar com Consultor" (#proposta-form) para um
+   pouco acima do formulário, para ver também o título do card. */
+.pagina-contato .proposta__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    scroll-margin-top: 240px;
+}
+
+.pagina-contato .proposta__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.pagina-contato .proposta__campo .ex-rotulo {
+    margin: 0;
+}
+
+/* Caixa da mensagem: a pessoa só aumenta a altura */
+.pagina-contato .proposta__campo textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.pagina-contato .proposta__envio {
+    padding-top: 0.25rem;
+}
+
+.pagina-contato .proposta__envio .ex-botao {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.pagina-contato .proposta__envio .ex-sobretitulo {
+    margin: 0.5rem 0 0;
+    text-align: center;
+}
+
+/* ==========================================================================
+   3. EQUIPE DO PROJETO
+   ========================================================================== */
+.pagina-contato .equipe {
+    padding-top: 50px;
+}
+
+.pagina-contato .equipe h2 {
+    margin: 0 0 10px;
+}
+
+.pagina-contato .equipe p {
+    margin: 0 0 20px;
+}
+
+/* Integrantes em caixinhas brancas: 1 coluna no celular, até 4 no computador */
+.pagina-contato .equipe__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-contato .equipe__lista li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+}
+
+/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
+   alinhamento, iguais aos da FAQ e da Notícias) */
+.pagina-contato .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ==========================================================================
+   TAMANHOS DE TELA
+   ========================================================================== */
+
+/* ---- A partir de 640px -------------------------------------------------- */
+@media (min-width: 640px) {
+    .pagina-contato .canais__grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pagina-contato .proposta__cartao {
+        padding: 2.5rem;
+    }
+
+    .pagina-contato .proposta__form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mensagem e botão ocupam as duas colunas */
+    .pagina-contato .proposta__campo--largo,
+    .pagina-contato .proposta__envio {
+        grid-column: span 2;
+    }
+}
+
+/* ---- A partir de 1024px: colunas lado a lado ---------------------------- */
+@media (min-width: 1024px) {
+    .pagina-contato .canais__grade {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pagina-contato .proposta__grade {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: servicos-1.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: servicos-1.html (Gestão Administrativa)
+   Só vale com <body class="pagina-servicos-1">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e da tabela vêm
+   do padrão das tags no bloco GLOBAL, iguais em todo o site. Esta página não
+   muda a tipografia. O topo é o componente .ex-hero, o primeiro título usa
+   o .ex-cabecalho, os botões são o .ex-botao e a nota do fim é o .ex-nota. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/ até img/): a foto da
+   reunião, em img/servicos-1/. Se a imagem não carregar, o fundo fica
+   azul-marinho, a cor do componente. */
+.pagina-servicos-1 .ex-hero {
+    background-image: url("../img/servicos-1/hero-servicos-1.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px).
+   Os 50px de cima vêm do componente .ex-hero; aqui fica só o espaço de baixo. */
+.pagina-servicos-1 main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links do conteúdo (teal da paleta) */
+.pagina-servicos-1 main a:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* ---- Detalhes do serviço: 2 cards ---------------------------------------
+   Grade automática: cada card tem no mínimo 16rem. No computador ficam 2
+   lado a lado; no celular, um embaixo do outro. Cada card tem uma linha de
+   destaque teal em cima (a mesma dos cards da página Serviços). */
+.pagina-servicos-1 .servicos-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pagina-servicos-1 .servico {
+    padding: 1.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-top: 3px solid rgb(0, 104, 118);
+    border-radius: 0.75rem;
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+.pagina-servicos-1 .servico h3 {
+    margin: 0 0 0.5rem;
+}
+
+/* Listas dos cards: sem espaço sobrando embaixo */
+.pagina-servicos-1 .servico ul,
+.pagina-servicos-1 .servico ol {
+    margin: 0;
+}
+
+/* ---- O que está incluso: tabela -----------------------------------------
+   Bordas e cabeçalho vêm do padrão das tags (bloco GLOBAL). */
+
+/* Espaço entre os cards e a tabela */
+.pagina-servicos-1 .incluso {
+    margin-top: 4rem;
+}
+
+.pagina-servicos-1 .incluso h2 {
+    margin-top: 0;
+}
+
+/* No celular a tabela rola para o lado dentro desta caixa */
+.pagina-servicos-1 .tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+/* Largura mínima para as colunas não ficarem espremidas */
+.pagina-servicos-1 .tabela-wrapper table {
+    min-width: 20rem;
+}
+
+/* Legenda da tabela alinhada à esquerda, com espaço até a tabela */
+.pagina-servicos-1 caption {
+    text-align: left;
+    padding-bottom: 0.75rem;
+}
+
+/* ---- Botões do fim (componente .ex-botao), lado a lado no centro -------
+   Iguais aos da Serviços 3. O flex-wrap deixa um botão ir para baixo do
+   outro quando falta espaço; o margin-top separa da tabela acima. */
+.pagina-servicos-1 .conteiner-link-flex {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 2.5rem;
+}
+
+/* Fonte das fotos: nota discreta no fim da página (texto: componente
+   .ex-nota; aqui só o espaço e o alinhamento, iguais aos da Serviços) */
+.pagina-servicos-1 .nota-fonte {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* Celular: botões mais próximos */
+@media (max-width: 640px) {
+    .pagina-servicos-1 .conteiner-link-flex {
+        gap: 16px;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: servicos-2.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: servicos-2.html (Gestão Financeira)
+   Só vale com <body class="pagina-servicos-2">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia. O topo é o componente .ex-hero, o título da seção é o
+   .ex-cabecalho, os botões do fim são o .ex-botao e a nota do fim é o
+   .ex-nota. Aqui ficam só a foto do topo, os espaços e os cards. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/ até img/). Sem a foto,
+   o fundo fica azul-marinho. */
+.pagina-servicos-2 .ex-hero {
+    background-image: url("../img/servicos-2/analise-financeira.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px).
+   Os 50px de cima vêm do componente .ex-hero; aqui fica só o espaço de baixo. */
+.pagina-servicos-2 main .ex-container {
+    padding-bottom: 40px;
+}
+
+/* ---- Cards dos serviços ------------------------------------------------ */
+.pagina-servicos-2 .cards {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+
+/* Três cards por linha dentro dos 1200px (no celular, um embaixo do outro) */
+.pagina-servicos-2 .card {
+    flex: 0 1 360px;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 250px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
+    box-sizing: border-box;
+}
+
+.pagina-servicos-2 .card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Marcador quadrado nas listas (antes era o atributo type="square") */
+.pagina-servicos-2 .lista-quadrado {
+    list-style-type: square;
+}
+
+/* ---- Botões do fim (componente .ex-botao), lado a lado no centro -------
+   Iguais aos da Serviços 3. */
+.pagina-servicos-2 .conteiner-link-flex {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Fonte da foto: nota discreta no fim da página (texto e cor: componente
+   .ex-nota), igual à da Serviços 3 */
+.pagina-servicos-2 .nota-fonte {
+    padding: 20px 5% 0;
+    text-align: center;
+}
+
+/* Celular: botões mais próximos */
+@media (max-width: 640px) {
+    .pagina-servicos-2 .conteiner-link-flex {
+        gap: 16px;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: servicos-3.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: servicos-3.html (Gestão Operacional)
+   Só vale com <body class="pagina-servicos-3">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e da tabela vêm
+   do padrão das tags no bloco GLOBAL, iguais em todo o site. Esta página não
+   muda a tipografia. O topo é o componente .ex-hero, os títulos das seções
+   usam o .ex-cabecalho, os botões do fim são o .ex-botao e a nota do fim é
+   o .ex-nota. Aqui ficam só a foto do topo, os espaços e as caixas. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Foto de fundo do topo (o caminho sai de css/ até img/). Sem a foto,
+   o fundo fica azul-marinho. */
+.pagina-servicos-3 .ex-hero {
+    background-image: url("../img/servicos-3/gestor-orientando-equipe.jpg");
+}
+
+/* O conteúdo usa o container-base do site (.ex-container, 1200px);
+   o texto ocupa a largura toda do conteúdo.
+   Em cima não há espaço: os 50px abaixo do topo vêm do componente. */
+.pagina-servicos-3 .conteudo {
+    margin: auto;
+    padding: 0 20px 20px;
+}
+
+/* Espaço entre as seções */
+.pagina-servicos-3 main section {
+    margin-bottom: 30px;
+}
+
+/* ---- Tabela "O que está incluso" ---------------------------------------
+   Caixa branca com cantos arredondados */
+.pagina-servicos-3 main table {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.pagina-servicos-3 main caption {
+    text-align: left;
+    padding-bottom: 0.75rem;
+}
+
+.pagina-servicos-3 main th,
+.pagina-servicos-3 main td {
+    border: 1px solid rgb(226, 232, 240);
+    padding: 10px;
+    text-align: left;
+}
+
+/* ---- Os 4 cards de "O que fazemos" --------------------------------------
+   Caixa branca com borda fina e texto centralizado. Dois cards por linha. */
+.pagina-servicos-3 .conteiner-flex {
+    display: flex;
+    gap: 10px;
+}
+
+.pagina-servicos-3 .card {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.pagina-servicos-3 .card h3 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.pagina-servicos-3 .card p {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+/* ---- Botões do fim (componente .ex-botao), lado a lado no centro ------- */
+.pagina-servicos-3 .conteiner-link-flex {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Fonte da foto: nota discreta no fim da página (texto: componente .ex-nota) */
+.pagina-servicos-3 .nota-fonte {
+    padding: 20px 5% 0;
+    text-align: center;
+}
+
+/* Celular: um card embaixo do outro e botões mais próximos */
+@media (max-width: 640px) {
+    .pagina-servicos-3 .conteiner-flex {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .pagina-servicos-3 .conteiner-link-flex {
+        gap: 16px;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: confirmacao.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: confirmacao.html
+   Só vale com <body class="pagina-confirmacao">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL, iguais em todo o site. Esta página não muda a
+   tipografia. O título usa o .ex-titulo, o número do protocolo usa o
+   .ex-numero, o número e o prazo de cada etapa usam a .ex-etiqueta, os
+   rótulos do resumo usam o .ex-sobretitulo e as descrições, o contato e o
+   aviso usam o .ex-nota. Aqui ficam só o alinhamento, os espaços, as caixas
+   e, no fundo azul-marinho, a cor do texto (branco ou ciano). */
+
+/* Fundo da página: um brilho ciano no canto de cima sobre o fundo claro */
+.pagina-confirmacao main {
+    padding: 4rem 0 5rem;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(0, 188, 212, 0.12), transparent 45%),
+        rgb(248, 250, 253);
+}
+
+/* Duas colunas no computador (cartão + próximos passos), uma no celular */
+.pagina-confirmacao .confirmacao__grade {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+    .pagina-confirmacao .confirmacao__grade {
+        grid-template-columns: 7fr 5fr;
+        align-items: start;
+    }
+}
+
+/* ---- Cartão principal -------------------------------------------------- */
+.pagina-confirmacao .confirmacao__cartao {
+    padding: 2.5rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+@media (max-width: 640px) {
+    .pagina-confirmacao .confirmacao__cartao {
+        padding: 1.5rem;
+    }
+}
+
+/* Check animado (círculo e "visto" desenhados aos poucos) */
+.pagina-confirmacao .confirmacao__check {
+    display: block;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.5rem;
+}
+
+.pagina-confirmacao .confirmacao__check circle {
+    fill: rgba(16, 185, 129, 0.12);
+    stroke: rgb(16, 185, 129);
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: confirmacao-traco 0.6s ease-out forwards;
+}
+
+.pagina-confirmacao .confirmacao__check path {
+    fill: none;
+    stroke: rgb(16, 185, 129);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: confirmacao-traco 0.4s 0.5s ease-out forwards;
+}
+
+/* O nome começa com "confirmacao" para não colidir com outra página */
+@keyframes confirmacao-traco {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Espaço entre a etiqueta e o título do cartão.
+   Duas classes juntas para ganhar do "margin: 0" do .ex-titulo do bloco GLOBAL */
+.pagina-confirmacao .ex-titulo.confirmacao__titulo {
+    margin-top: 0.75rem;
+}
+
+.pagina-confirmacao .confirmacao__texto {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+}
+
+/* Protocolo (caixa tracejada) */
+.pagina-confirmacao .confirmacao__protocolo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed rgba(0, 104, 118, 0.45);
+    border-radius: 1rem;
+    background: rgba(214, 247, 255, 0.45);
+}
+
+/* Número do protocolo (texto: componente .ex-numero) */
+.pagina-confirmacao .confirmacao__protocolo-numero {
+    margin-top: 0.25rem;
+}
+
+/* Botão "Copiar" um pouco mais baixo que os outros botões */
+.pagina-confirmacao .confirmacao__copiar {
+    padding: 0.625rem 1rem;
+}
+
+/* Resumo dos dados enviados (rótulos: componente .ex-sobretitulo) */
+.pagina-confirmacao .confirmacao__resumo {
+    margin-top: 2rem;
+}
+
+.pagina-confirmacao .confirmacao__lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0.75rem 0 0;
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .pagina-confirmacao .confirmacao__lista {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.pagina-confirmacao .confirmacao__item {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid rgb(226, 232, 240);
+    background: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__item dd {
+    margin: 0.125rem 0 0;
+    overflow-wrap: anywhere;      /* e-mail ou texto longo quebra em vez de vazar */
+}
+
+/* Campo com texto longo (ex.: mensagem) ocupa a linha inteira */
+.pagina-confirmacao .confirmacao__item--largo {
+    grid-column: 1 / -1;
+}
+
+/* Botões */
+.pagina-confirmacao .confirmacao__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* Aviso do fim do cartão (texto: componente .ex-nota) */
+.pagina-confirmacao .confirmacao__aviso {
+    margin: 1.5rem 0 0;
+}
+
+/* ---- Coluna lateral: próximos passos (fundo azul-marinho) -------------- */
+.pagina-confirmacao .confirmacao__passos {
+    padding: 2rem;
+    background: rgb(6, 21, 45);
+    border-radius: 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__passos .ex-sobretitulo {
+    color: rgb(0, 188, 212);
+}
+
+.pagina-confirmacao .confirmacao__passos-titulo {
+    margin: 0 0 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__linha {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagina-confirmacao .confirmacao__passo {
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+}
+
+.pagina-confirmacao .confirmacao__passo:last-child {
+    padding-bottom: 0;
+}
+
+/* Linha vertical ligando os passos */
+.pagina-confirmacao .confirmacao__passo:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 34px;
+    bottom: 2px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Número da etapa: componente .ex-etiqueta, aqui só a bolinha */
+.pagina-confirmacao .confirmacao__passo-numero {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgb(0, 188, 212);
+}
+
+/* Etapa já feita: bolinha verde com o "visto" branco */
+.pagina-confirmacao .confirmacao__passo--feito .confirmacao__passo-numero {
+    background: rgb(16, 185, 129);
+    border-color: rgb(16, 185, 129);
+    color: rgb(255, 255, 255);
+}
+
+.pagina-confirmacao .confirmacao__passo strong {
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+/* Descrição da etapa (texto: componente .ex-nota), branco mais suave */
+.pagina-confirmacao .confirmacao__passo .confirmacao__passo-descricao {
+    display: block;
+    margin-top: 0.125rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Prazo da etapa (texto: componente .ex-etiqueta), em ciano */
+.pagina-confirmacao .confirmacao__passo .confirmacao__prazo {
+    display: inline-block;
+    margin-top: 0.375rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    background: rgba(0, 188, 212, 0.15);
+    color: rgb(0, 188, 212);
+}
+
+/* Telefone e e-mail no fim da coluna (texto: componente .ex-nota) */
+.pagina-confirmacao .confirmacao__contato {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pagina-confirmacao .confirmacao__contato a {
+    color: rgb(0, 188, 212);
+    text-decoration: none;
+}
+
+/* Estado "sem dados" (página aberta direto, sem enviar formulário):
+   o !important garante que o "hidden" esconda até os botões .ex-botao */
+.pagina-confirmacao [hidden] {
+    display: none !important;
+}
+
+/* ---- Impressão: "Salvar comprovante" ------------------------------------
+   Esconde o menu, o rodapé, os botões e o recurso flutuante da
+   acessibilidade só nesta página, e imprime tudo em azul-marinho. */
+@media print {
+    .pagina-confirmacao .ex-header,
+    .pagina-confirmacao .ex-rodape,
+    .pagina-confirmacao .confirmacao__acoes,
+    .pagina-confirmacao .confirmacao__copiar,
+    .pagina-confirmacao .ac-botao,
+    .pagina-confirmacao .ac-painel {
+        display: none !important;
+    }
+
+    .pagina-confirmacao main {
+        padding: 0;
+        background: none;
+    }
+
+    .pagina-confirmacao .confirmacao__cartao,
+    .pagina-confirmacao .confirmacao__passos {
+        box-shadow: none;
+        border: 1px solid rgb(226, 232, 240);
+        background: rgb(255, 255, 255);
+        color: rgb(6, 21, 45);
+    }
+
+    .pagina-confirmacao .confirmacao__passos * {
+        color: rgb(6, 21, 45) !important;
+    }
+}
+
+
+/* ##########################################################################
+   PÁGINA: politica-privacidade.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: politica-privacidade.html
+   Só vale com <body class="pagina-politica-privacidade">: toda regra começa
+   com esse prefixo, para não vazar para outras páginas.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no bloco GLOBAL. Esta página não muda a tipografia: aqui ficam
+   só a largura da coluna de leitura, os espaços e as linhas divisórias. */
+
+/* ---- Topo (hero) --------------------------------------------------------
+   Componente .ex-hero do bloco GLOBAL; aqui só a foto de fundo. Sem a foto,
+   o fundo fica azul-marinho. */
+.pagina-politica-privacidade .ex-hero {
+    background-image: url("../img/politica-privacidade/hero-politica-privacidade.jpg");
+}
+
+/* ---- Documento: texto na largura do conteúdo (1200px) ------------------ */
+.pagina-politica-privacidade .documento {
+    /* max-width: 760px; */
+    margin: 0 auto;
+}
+
+/* Espaço entre as seções do documento */
+.pagina-politica-privacidade .documento section + section {
+    margin-top: 40px;
+}
+
+/* Títulos das seções 2 e 3 com uma linha embaixo (como o cabeçalho da 1) */
+.pagina-politica-privacidade .documento section > h2 {
+    margin: 0 0 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+/* Subtítulos 1.1 e 1.2: um pouco de espaço acima */
+.pagina-politica-privacidade .documento h3 {
+    margin: 28px 0 8px;
+}
+
+.pagina-politica-privacidade .documento h3 + p {
+    margin-top: 0;
+}
+
+/* ---- Lista de contato: caixa clara com borda, um item por linha --------- */
+.pagina-politica-privacidade .contatos {
+    margin: 20px 0 0;
+    padding: 20px 24px;
+    list-style: none;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-left: 4px solid rgb(0, 104, 118);
+    border-radius: 0.75rem;
+}
+
+.pagina-politica-privacidade .contatos li + li {
+    margin-top: 10px;
+}
+
+/* ---- Nota do fim (fonte da foto) --------------------------------------- */
+.pagina-politica-privacidade .nota-fonte {
+    /* max-width: 760px; */
+    margin: 50px auto 60px;
+}
+
+
+/* ##########################################################################
+   PÁGINA: orcamento-hospedagem.html
+   ########################################################################## */
+
+/* ==========================================================================
+   Página: orcamento-hospedagem.html
+   Só vale com <body class="pagina-orcamento-hospedagem">: toda regra começa
+   com esse prefixo, para não vazar para outras páginas.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span, strong e das tabelas
+   vêm do padrão das tags no bloco GLOBAL. Esta página não muda a
+   tipografia: aqui ficam só os espaços, as caixas e a rolagem das tabelas.
+   O topo (.ex-hero) não tem foto: fica o fundo azul-marinho do componente. */
+
+/* Espaço de baixo do conteúdo (o de cima, 50px, vem do componente .ex-hero) */
+.pagina-orcamento-hospedagem main .ex-container {
+    padding-bottom: 1.5rem;
+}
+
+/* Contorno do foco do teclado nos links e nas caixas das tabelas */
+.pagina-orcamento-hospedagem main a:focus-visible,
+.pagina-orcamento-hospedagem .tabela-rolagem:focus-visible {
+    outline: 3px solid rgb(0, 104, 118);
+    outline-offset: 2px;
+}
+
+/* Espaço entre as seções da página */
+.pagina-orcamento-hospedagem .hospedagens,
+.pagina-orcamento-hospedagem .comparativo,
+.pagina-orcamento-hospedagem .dominios,
+.pagina-orcamento-hospedagem .conclusao {
+    margin-top: 3rem;
+}
+
+/* A primeira seção vem logo depois do cabeçalho (que já tem 30px embaixo) */
+.pagina-orcamento-hospedagem .orcamento-intro + .hospedagens {
+    margin-top: 0;
+}
+
+.pagina-orcamento-hospedagem main section > h2 {
+    margin: 0 0 1rem;
+}
+
+/* ---- Tabelas: rolam para o lado dentro da caixa no celular -------------- */
+.pagina-orcamento-hospedagem .tabela-rolagem {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.pagina-orcamento-hospedagem caption {
+    padding-bottom: 0.75rem;
+    text-align: left;
+}
+
+/* Largura mínima para as colunas não ficarem espremidas */
+.pagina-orcamento-hospedagem .tabela-larga {
+    min-width: 56rem;
+}
+
+.pagina-orcamento-hospedagem .tabela-media {
+    min-width: 36rem;
+}
+
+/* ---- Cards das hospedagens: um embaixo do outro ------------------------- */
+.pagina-orcamento-hospedagem .provedor {
+    margin-top: 1.5rem;
+    border-top: 3px solid rgb(0, 104, 118);
+    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
+}
+
+.pagina-orcamento-hospedagem .provedor h3 {
+    margin: 0.75rem 0 1rem;
+}
+
+/* No computador: print à esquerda e tabela à direita */
+.pagina-orcamento-hospedagem .provedor__grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.pagina-orcamento-hospedagem .provedor__grade .tabela-rolagem {
+    margin-top: 0;
+}
+
+/* Print da página de preços com borda fina */
+.pagina-orcamento-hospedagem .provedor__print {
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 0.75rem;
+}
+
+.pagina-orcamento-hospedagem .provedor__outros {
+    margin: 1.5rem 0 0.5rem;
+}
+
+.pagina-orcamento-hospedagem .provedor ul {
+    margin: 0;
+}
+
+.pagina-orcamento-hospedagem .provedor__aviso {
+    display: block;
+    margin: 1.5rem 0 0;
+}
+
+/* ---- Tabela comparativa: linha de menor custo em destaque --------------- */
+.pagina-orcamento-hospedagem .linha-destaque th,
+.pagina-orcamento-hospedagem .linha-destaque td {
+    background-color: rgb(214, 247, 255);
+}
+
+.pagina-orcamento-hospedagem .linha-destaque .ex-etiqueta {
+    margin-left: 0.25rem;
+    background: rgb(255, 255, 255);
+}
+
+.pagina-orcamento-hospedagem .comparativo__resumo {
+    margin-top: 1rem;
+}
+
+/* ---- Conclusão: aviso dos contratos numa caixa com borda de alerta ------ */
+.pagina-orcamento-hospedagem .conclusao__atencao {
+    padding: 1rem 1.25rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-left: 4px solid rgb(245, 158, 11);
+    border-radius: 0.75rem;
+}
+
+/* ---- Nota do fim (fonte dos dados) -------------------------------------- */
+.pagina-orcamento-hospedagem .nota-fonte {
+    display: block;
+    margin: 50px 0 40px;
+    text-align: center;
+}
+
+/* ---- Celular: print em cima da tabela e card com menos espaço por dentro */
+@media (max-width: 800px) {
+    .pagina-orcamento-hospedagem .provedor__grade {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-orcamento-hospedagem .provedor {
+        padding: 1.25rem;
+    }
+}

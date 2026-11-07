@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Página: clientes.html
+   Só vale com <body class="pagina-clientes">: toda regra começa com esse
+   prefixo, para não vazar para outras páginas dentro do css/style.css.
+   As cores são da paleta do README, escritas direto em rgb(...).
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de h1, h2, h3, a, p, span e strong vêm do padrão
+   das tags no global.css, iguais em todo o site. Esta página não muda a
+   tipografia: só a cor, quando o texto está sobre fundo escuro. As
+   variações (rótulo, subtítulo, nota, depoimento) usam os componentes .ex-*
+   do global.css. Aqui ficam só o alinhamento, os espaços e as caixas. */
+
+/* Zera margens e recuos só no conteúdo desta página (dentro do <main>).
+   Os títulos e parágrafos da página contam com isso; o header e o footer
+   ficam de fora. */
+.pagina-clientes main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* O conteúdo das seções usa o container-base do site (.ex-container, no
+   global.css). O fundo fica na <section>, de ponta a ponta da tela.
+   O reset acima zera o respiro de tudo dentro do <main>, inclusive do
+   .ex-container; esta regra devolve os mesmos valores do container-base. */
+.pagina-clientes main .ex-container {
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ---- Topo (hero) --------------------------------------------------------
+   O topo usa o componente .ex-hero do global.css. Aqui fica só a foto de
+   fundo desta página (o caminho sai de css/page/ até img/). */
+.pagina-clientes .ex-hero {
+    background-image: url("../../img/clientes/background-cond.jpg");
+}
+
+/* ---- Seção Clientes ----------------------------------------------------
+   É a primeira seção depois do topo: o espaço de cima (50px, dentro do
+   fundo branco) vem do componente .ex-hero. Aqui fica só o de baixo. */
+.pagina-clientes .clientes {
+    padding-bottom: 60px;
+    background: rgb(255, 255, 255);
+}
+
+/* Texto abaixo do título (componente .ex-subtitulo) */
+.pagina-clientes .clientes-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.pagina-clientes .cliente-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.pagina-clientes .cliente-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+
+.pagina-clientes .cliente-card {
+    background: rgb(248, 250, 253);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgb(226, 232, 240);
+    padding-bottom: 20px;
+}
+
+.pagina-clientes .cliente-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(6, 21, 45, 0.10);
+}
+
+/* Tipo do cliente (Condomínio, Edifício, Empresarial): componente
+   .ex-sobretitulo. O nome do cliente é um h3 no padrão do site. */
+.pagina-clientes .cliente-card .ex-sobretitulo {
+    margin-top: 15px;
+}
+
+.pagina-clientes .cliente-card h3 {
+    margin-top: 4px;
+}
+
+/* ---- Seção Depoimentos ------------------------------------------------- */
+.pagina-clientes .depoimentos {
+    background: rgb(241, 245, 249);
+    padding: 70px 0;
+}
+
+.pagina-clientes .depoimentos-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Cada depoimento é um <figure>: texto no <blockquote>, pessoa no <figcaption> */
+.pagina-clientes .depoimento-card {
+    background: rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 30px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(6, 21, 45, 0.04);
+}
+
+/* O <blockquote> ocupa a sobra do card: assim a pessoa fica sempre embaixo */
+.pagina-clientes .depoimento-card blockquote {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+/* Aspas (.ex-aspas) e texto (.ex-citacao) vêm dos componentes */
+.pagina-clientes .depoimento-card .ex-citacao {
+    margin-top: 15px;
+}
+
+.pagina-clientes .cliente-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.pagina-clientes .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.pagina-clientes .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nome (.ex-autor) e cargo (.ex-nota) de quem deu o depoimento.
+   O cargo vai para a linha de baixo do nome. */
+.pagina-clientes .cliente-info .ex-nota {
+    display: block;
+    margin-top: 3px;
+}
+
+/* ---- Nota de conteúdo fictício (fim da página) -------------------------
+   Texto: componente .ex-nota. Aqui só o espaço e o alinhamento, iguais aos
+   da nota da Quem Somos. */
+.pagina-clientes .nota-ficticio {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* ---- Tablet: 2 cards de clientes por linha, depoimentos em 1 coluna ----- */
+@media (max-width: 900px) {
+    .pagina-clientes .clientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pagina-clientes .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Celular: 1 card por linha ----------------------------------------- */
+@media (max-width: 600px) {
+    .pagina-clientes .clientes-grid {
+        grid-template-columns: 1fr;
+    }
+}

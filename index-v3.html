@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Êxito Condomínios | Administração de Condomínios em Mogi das Cruzes e São Paulo</title>
+    <meta name="description" content="Administração condominial com transparência, tecnologia e atendimento humano. Gestão administrativa, financeira e operacional para condomínios em Mogi das Cruzes e São Paulo.">
+    <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#06152d">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <!-- CSS: primeiro o global (fontes, cores, header e footer), depois o da página -->
+    <link rel="stylesheet" href="css/legado/global.css">
+    <link rel="stylesheet" href="css/legado/layout/header.css">
+    <link rel="stylesheet" href="css/legado/layout/footer.css">
+    <!-- Versão simplificada da home (index.html): mesmo conteúdo, CSS simples em css/legado/page/index-v3.css -->
+    <link rel="stylesheet" href="css/legado/page/index-v3.css">
+</head>
+<body>
+    <!-- HEADER COMPARTILHADO (igual ao das páginas internas) -->
+    <header class="ex-header">
+        <div class="ex-topo">
+            <div class="ex-conteudo">
+                <div class="ex-topo__grupo">
+                    <a class="ex-topo__link" href="tel:1125649963">
+                        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                        <span>(11) 2564-9963</span>
+                    </a>
+                    <span class="ex-topo__separador" aria-hidden="true">•</span>
+                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
+                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        <span>contato@grupoexitocondominios.com.br</span>
+                    </a>
+                </div>
+                <div class="ex-topo__grupo ex-topo__grupo--direita">
+                    <div class="ex-topo__redes">
+                        <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                        </a>
+                        <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
+                            <span class="material-symbols-outlined" aria-hidden="true">public</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-barra">
+            <div class="ex-conteudo">
+                <a class="ex-logo" href="index.html">
+                    <img src="img/logo-grupo-exito-header.png" srcset="img/logo-grupo-exito-header.png 1x, img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
+                </a>
+                <nav class="ex-menu" aria-label="Navegação principal">
+                    <a class="ex-menu__link" href="index.html" aria-current="page">Início</a>
+                    <a class="ex-menu__link" href="pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="pages/contato.html">Contato</a>
+                </nav>
+                <div class="ex-acoes">
+                    <a class="ex-cta" href="pages/contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
+                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
+                        <span class="material-symbols-outlined ex-icone-abrir" aria-hidden="true">menu</span>
+                        <span class="material-symbols-outlined ex-icone-fechar" aria-hidden="true">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
+            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
+                <div class="ex-conteudo">
+                    <a class="ex-menu__link" href="index-v2.html" aria-current="page">Início</a>
+                    <a class="ex-menu__link" href="pages/quem-somos.html">Quem Somos</a>
+                    <a class="ex-menu__link" href="pages/servicos.html">Serviços</a>
+                    <a class="ex-menu__link" href="pages/clientes.html">Clientes</a>
+                    <a class="ex-menu__link" href="pages/projetos.html">Projetos</a>
+                    <a class="ex-menu__link" href="pages/noticias.html">Notícias</a>
+                    <a class="ex-menu__link" href="pages/faq.html">FAQ</a>
+                    <a class="ex-menu__link" href="pages/contato.html">Contato</a>
+                    <a class="ex-cta" href="pages/contato.html#proposta-form">
+                        <span>Falar com Consultor</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-inicio">
+            <h1 id="titulo-inicio">Inovando a forma de se viver em condomínio</h1>
+            <p>
+                Administração condominial moderna com governança executiva, tecnologia de ponta e
+                suporte humanizado diário para transformar o patrimônio e a rotina do seu condomínio.
+            </p>
+            <p><a class="botao" href="pages/contato.html#proposta-form">Solicitar proposta sob medida</a></p>
+            <dl class="grade">
+                <div>
+                    <dt>99.8%</dt>
+                    <dd>Precisão no rateio e leitura</dd>
+                </div>
+                <div>
+                    <dt>24/7</dt>
+                    <dd>App do Morador e do Síndico</dd>
+                </div>
+                <div>
+                    <dt>+15 anos</dt>
+                    <dd>De excelência e solidez</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section id="quem-somos" aria-labelledby="titulo-quem-somos">
+            <h2 id="titulo-quem-somos">Mais de 15 anos de excelência com constante inovação</h2>
+            <p>
+                Conheça nossa trajetória, corpo executivo, metodologia de auditoria e os valores que
+                protegem seu patrimônio condominial diariamente.
+            </p>
+            <p><a href="pages/quem-somos.html">Conheça a história e liderança</a></p>
+        </section>
+
+        <section id="servicos" aria-labelledby="titulo-servicos">
+            <h2 id="titulo-servicos">Nossos serviços</h2>
+            <p>Tecnologia descomplicada e gestão rigorosa para elevar a governança e diminuir conflitos.</p>
+            <div class="grade">
+                <article>
+                    <h3>Gestão Administrativa</h3>
+                    <p>Cadastros digitais, atendimento a moradores, organização de arquivos fiscais e suporte permanente ao síndico.</p>
+                    <ul>
+                        <li>Digitalização e guarda documental</li>
+                        <li>Cadastros e circulares em tempo real</li>
+                        <li>Assessoria para convenções e regimentos</li>
+                        <li>Controle de correspondências e encomendas</li>
+                    </ul>
+                    <a href="pages/servicos-1.html">Veja mais</a>
+                </article>
+                <article>
+                    <h3>Gestão Financeira</h3>
+                    <p>Previsão orçamentária, contas a pagar, conciliação bancária diária, cobrança de inadimplentes e balancetes transparentes.</p>
+                    <ul>
+                        <li>Prestação de contas via Superlógica Hub</li>
+                        <li>Cobrança amigável de inadimplentes</li>
+                        <li>Planejamento financeiro para obras</li>
+                        <li>2ª via com Pix Copia e Cola</li>
+                    </ul>
+                    <a href="pages/servicos-2.html">Veja mais</a>
+                </article>
+                <article>
+                    <h3>Gestão Operacional</h3>
+                    <p>Auditoria de fornecedores, manutenção preventiva predial, controle de portaria e rotinas de segurança.</p>
+                    <ul>
+                        <li>Qualificação de terceirizados</li>
+                        <li>Vistorias técnicas periódicas</li>
+                        <li>Compliance trabalhista</li>
+                        <li>Laudos e renovação de AVCB</li>
+                    </ul>
+                    <a href="pages/servicos-3.html">Veja mais</a>
+                </article>
+            </div>
+            <p><a href="pages/servicos.html">Ver todos os serviços</a></p>
+        </section>
+
+        <section id="noticias" aria-labelledby="titulo-noticias">
+            <h2 id="titulo-noticias">Notícias &amp; Artigos</h2>
+            <p>Conteúdo técnico atualizado para orientar síndicos, conselheiros e moradores.</p>
+            <div class="grade">
+                <article>
+                    <h3>Novas regras e tendências para Assembleias Virtuais em 2026</h3>
+                    <p><time datetime="2026-05-08">08 mai 2026</time> • 5 min de leitura</p>
+                    <p>Critérios de validade jurídica, quóruns qualificados e auditoria de votos para assembleias híbridas e virtuais.</p>
+                    <a href="pages/noticias.html">Ler matéria</a>
+                </article>
+                <article>
+                    <h3>Eficiência energética e redução de taxas com telemetria</h3>
+                    <p><time datetime="2026-04-24">24 abr 2026</time> • 3 min de leitura</p>
+                    <p>Medição digital de água e gás evita desperdícios e otimiza o rateio condominial.</p>
+                    <a href="pages/noticias.html">Ler artigo</a>
+                </article>
+                <article>
+                    <h3>Segurança jurídica na terceirização predial</h3>
+                    <p><time datetime="2026-04-16">16 abr 2026</time> • 4 min de leitura</p>
+                    <p>Auditoria sistemática de guias, certidões e encargos sindicais para reduzir riscos trabalhistas.</p>
+                    <a href="pages/noticias.html">Ler artigo</a>
+                </article>
+            </div>
+            <p><a href="pages/noticias.html">Ver todas as notícias</a></p>
+        </section>
+
+        <section id="projetos" aria-labelledby="titulo-projetos">
+            <h2 id="titulo-projetos">Projetos &amp; Condomínios Atendidos</h2>
+            <p>Alguns dos empreendimentos administrados pelo Grupo Êxito.</p>
+            <div class="grade">
+                <article>
+                    <h3>Edifício Horizonte Residencial</h3>
+                    <p>Mogi das Cruzes / SP • 142 unidades</p>
+                    <p>Reestruturação de contas a pagar, modernização da portaria e telemetria individual de água.</p>
+                    <p><strong>Resultado: redução de 18% em custos</strong></p>
+                </article>
+                <article>
+                    <h3>Parque dos Ipês Corporativo</h3>
+                    <p>São Paulo / SP • 88 salas</p>
+                    <p>Adequação à LGPD, auditoria de fornecedores e portal de deliberações com atas automatizadas.</p>
+                    <p><strong>Resultado: assembleia 100% digital</strong></p>
+                </article>
+                <article>
+                    <h3>Residencial Vila Nova Mogi</h3>
+                    <p>Mogi das Cruzes / SP • 210 lotes</p>
+                    <p>Acordo amigável com inadimplentes e plano contínuo de conservação das áreas comuns.</p>
+                    <p><strong>Resultado: inadimplência de 14% para 2,1%</strong></p>
+                </article>
+            </div>
+            <p><a href="pages/projetos.html">Ver todos os projetos</a></p>
+        </section>
+
+        <section id="clientes" aria-labelledby="titulo-clientes">
+            <h2 id="titulo-clientes">Quem confia no nosso trabalho</h2>
+            <p>Condomínios e empresas com parcerias de longo prazo com o Grupo Êxito.</p>
+            <div class="grade">
+                <figure>
+                    <blockquote>
+                        <p>"O atendimento é rápido, profissional e nos passa muita segurança. Recomendo sem dúvidas!"</p>
+                    </blockquote>
+                    <figcaption><strong>Mariana Santos</strong>, síndica do Condomínio Jardins</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>
+                        <p>"A gestão financeira melhorou muito depois que contratamos o Grupo Êxito. Equipe atenciosa e sempre disponível!"</p>
+                    </blockquote>
+                    <figcaption><strong>João Pedro</strong>, síndico do Ed. Aurora</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>
+                        <p>"Desde o primeiro contato até a execução, tudo foi muito bem organizado. A equipe é excelente!"</p>
+                    </blockquote>
+                    <figcaption><strong>Carlos Lima</strong>, gerente do Empresarial Pinheiros</figcaption>
+                </figure>
+            </div>
+            <p><a href="pages/clientes.html">Ver todos os clientes</a></p>
+        </section>
+
+        <section id="faq" aria-labelledby="titulo-faq">
+            <h2 id="titulo-faq">Perguntas Frequentes</h2>
+            <details>
+                <summary>Como funciona a transição de administradora para o condomínio?</summary>
+                <p>Nossa equipe jurídica e contábil assume todo o processo de migração:</p>
+                <ul>
+                    <li>Auditoria da pasta contábil e dos contratos em vigor;</li>
+                    <li>Cadastro do condomínio no Superlógica Hub em até 48 horas;</li>
+                    <li>Primeiro mês de boletos sem atrasos nem duplicidades;</li>
+                    <li>Comunicado oficial e treinamento para moradores e conselho.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>O síndico ou o conselho perdem o controle da conta bancária?</summary>
+                <p>
+                    Não. Trabalhamos com conta vinculada ao CNPJ do condomínio ou com subcontas auditadas.
+                    Nenhum pagamento é feito sem a autorização digital do síndico, e as conciliações são diárias.
+                </p>
+            </details>
+            <details>
+                <summary>Como os moradores acessam o aplicativo, boletos e reservas?</summary>
+                <p>Pelo aplicativo (iOS e Android) ou pelo portal web, com login individual para:</p>
+                <ul>
+                    <li>Segunda via de boleto e Pix Copia e Cola;</li>
+                    <li>Reserva de salão de festas e áreas comuns;</li>
+                    <li>Autorização de visitantes e encomendas;</li>
+                    <li>Atas, convenção e prestação de contas mensal.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>As assembleias virtuais e híbridas têm validade jurídica?</summary>
+                <p>
+                    Sim. Conforme a Lei nº 14.309/2022 e o Código Civil, garantimos credenciamento seguro,
+                    registro de quórum, votação gravada e ata com assinatura digital.
+                </p>
+            </details>
+            <details>
+                <summary>Qual é o tempo médio de resposta (SLA)?</summary>
+                <p>
+                    Retorno em até 2 horas úteis pelo WhatsApp e e-mail do gerente da sua conta,
+                    além de plantão 24h para emergências.
+                </p>
+            </details>
+            <p><a href="pages/faq.html">Ver todas as perguntas</a> ou <a href="https://wa.me/551125649963" target="_blank" rel="noopener">fale no WhatsApp</a>.</p>
+        </section>
+
+        <section id="unidades" aria-labelledby="titulo-unidades">
+            <h2 id="titulo-unidades">Mais proximidade para uma gestão melhor</h2>
+            <p>Matriz no Alto Tietê e unidade na capital paulista, com atendimento presencial no seu condomínio.</p>
+            <div class="grade">
+                <article>
+                    <h3>Mogi das Cruzes (Matriz)</h3>
+                    <address>
+                        R. Gonçalo Ferreira, 164, Sala 3<br>
+                        Mogi das Cruzes - SP<br>
+                        <a href="tel:1125649963">(11) 2564-9963</a>
+                    </address>
+                    <p><a href="https://maps.google.com/?q=Rua+Goncalo+Ferreira+164+Mogi+das+Cruzes" target="_blank" rel="noopener">Ver mapa</a></p>
+                </article>
+                <article>
+                    <h3>São Paulo (Filial)</h3>
+                    <address>
+                        Av. Rio das Pedras, 3.409<br>
+                        São Paulo - SP
+                    </address>
+                    <p><a href="https://maps.google.com/?q=Av+Rio+das+Pedras+3409+Sao+Paulo" target="_blank" rel="noopener">Ver mapa</a></p>
+                </article>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- FOOTER COMPARTILHADO (igual ao das páginas internas) -->
+    <footer class="ex-rodape">
+        <div class="ex-conteudo">
+            <div class="ex-rodape__grade">
+                <div class="ex-rodape__marca">
+                    <img src="img/logo-grupo-exito-header.png" srcset="img/logo-grupo-exito-header.png 1x, img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
+                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
+                </div>
+                <div class="ex-rodape__unidades">
+                    <address class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined" aria-hidden="true">domain</span>
+                            <span>MATRIZ MOGI</span>
+                        </div>
+                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+                    </address>
+                    <address class="ex-rodape__unidade">
+                        <div class="ex-rodape__unidade-titulo">
+                            <span class="material-symbols-outlined" aria-hidden="true">location_city</span>
+                            <span>FILIAL SÃO PAULO</span>
+                        </div>
+                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
+                        <p class="ex-rodape__fone">Atendimento Regional</p>
+                    </address>
+                </div>
+                <nav class="ex-rodape__nav" aria-label="Páginas do site">
+                    <span class="ex-rodape__rotulo">Páginas Internas</span>
+                    <div class="ex-rodape__links">
+                        <a href="pages/quem-somos.html">Quem Somos</a>
+                        <a href="pages/servicos.html">Serviços</a>
+                        <a href="pages/clientes.html">Clientes</a>
+                        <a href="pages/projetos.html">Projetos &amp; Cases</a>
+                        <a href="pages/noticias.html">Notícias &amp; Blog</a>
+                        <a href="pages/faq.html">FAQ &amp; Dúvidas</a>
+                        <a href="pages/contato.html">Fale Conosco</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="ex-rodape__base">
+                <p><small>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados.</small></p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/formulario.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

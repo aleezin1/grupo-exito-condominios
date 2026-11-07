@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Página: index-v3.html (versão simples antiga da home, só referência)
+   Carregado depois de css/global.css. Só vale para esta página.
+   (veio do <style> que ficava dentro de index.html)
+   ========================================================================== */
+
+/* Fonte, cores e tamanhos de body, h1, h2, h3, p e a vêm do padrão das
+   tags no global.css. Aqui ficam só os ajustes de espaço desta página. */
+main > section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+/* Título da seção colado no texto de apoio logo abaixo */
+main > section > h2 {
+    margin-bottom: 5px;
+}
+/* Links do conteúdo em negrito (a cor vem do padrão) */
+main a {
+    font-weight: bold;
+}
+.botao {
+    display: inline-block;
+    background-color: #06152d;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+.grade {
+    display: flex;
+    gap: 20px;
+}
+.grade > * {
+    flex: 1;
+    background-color: white;
+    padding: 20px 25px;
+    margin: 0;
+    border-radius: 8px;
+}
+dl.grade dt {
+    font-size: 30px;
+    font-weight: bold;
+    color: #06152d;
+}
+dl.grade dd {
+    margin: 0;
+    color: #777;
+}
+blockquote {
+    margin: 0;
+    font-style: italic;
+}
+details {
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+summary {
+    font-weight: bold;
+    color: #06152d;
+    cursor: pointer;
+}
+address {
+    font-style: normal;
+}
+form {
+    max-width: 600px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+}
+input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 15px;
+    border: 1px solid #ccd3dc;
+    border-radius: 6px;
+}
+form .botao {
+    margin-top: 15px;
+}
+@media (max-width: 800px) {
+    .grade {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,430 @@
+/* ==========================================================================
+   LAYOUT — HEADER (menu), igual em todas as páginas
+   --------------------------------------------------------------------------
+   Faixa superior (telefone, e-mail, redes), barra com o logo, menu desktop,
+   botão "Falar com Consultor", botão hambúrguer e menu mobile.
+   O menu vira botão "hambúrguer" abaixo de 1024px (controlado por js/menu.js).
+
+   Carregue logo depois do global.css (dentro de /pages):
+     <link rel="stylesheet" href="../css/global.css">
+     <link rel="stylesheet" href="../css/layout/header.css">
+
+   Todos os seletores começam com .ex-header para que o CSS de cada página
+   (h1, p, img, a, button...) e o padrão das tags do global.css não alterem
+   o menu.
+   ========================================================================== */
+
+/* ---- Proteção: zera margens e fixa a fonte dentro do header ------------
+   (o rodapé tem um bloco igual em footer.css; assim cada arquivo funciona
+   sozinho) */
+.ex-header,
+.ex-header * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.ex-header {
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ex-header a {
+    text-decoration: none;
+}
+
+/* Caixa central: largura-base de 1200px, mesmos valores do .ex-container
+   do global.css e do rodapé (box-sizing border-box vem da proteção acima) */
+.ex-header .ex-conteudo {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Ícones (Material Symbols) — reaplica a fonte, que a regra acima sobrescreveria */
+.ex-header .material-symbols-outlined {
+    display: inline-block;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Posição: o header fica grudado no topo ao rolar ------------------- */
+.ex-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* ---- Faixa superior (telefone, e-mail, status, redes) ----------------- */
+.ex-header .ex-topo {
+    background: rgb(6, 21, 45);
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.ex-header .ex-topo > .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+}
+
+.ex-header .ex-topo__grupo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.ex-header .ex-topo__grupo--direita {
+    gap: 1rem;
+}
+
+.ex-header .ex-topo__link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: rgb(226, 232, 240);
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__link:hover {
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__link .material-symbols-outlined {
+    font-size: 15px;
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__separador {
+    display: none;
+    color: #475569;
+}
+
+.ex-header .ex-topo__email {
+    display: none;
+}
+
+.ex-header .ex-topo__status {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 1rem;
+    border-right: 1px solid rgb(71, 85, 105);
+    color: rgb(226, 232, 240);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ex-header .ex-topo__ponto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgb(16, 185, 129);
+    animation: ex-pulsar 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ex-pulsar {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.ex-header .ex-topo__redes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-topo__rede {
+    display: flex;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-topo__rede:hover {
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-topo__rede .material-symbols-outlined {
+    font-size: 16px;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-topo__separador {
+        display: inline;
+    }
+
+    .ex-header .ex-topo__email {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .ex-header .ex-topo__status {
+        display: flex;
+    }
+}
+
+/* ---- Barra principal -------------------------------------------------- */
+.ex-header .ex-barra {
+    position: relative;
+    background: rgb(255 255 255 / 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgb(226 232 240 / 0.8);
+    box-shadow: 0 2px 18px rgba(6, 21, 45, 0.04);
+}
+
+.ex-header .ex-barra > .ex-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.ex-header .ex-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-logo img {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: 46px;
+    border-radius: 0;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+/* Celular (até 640px): logo maior e centralizado na barra, botão ☰ à direita.
+   Centralizamos com margin auto (e não com transform) para o logo não cair
+   em meio pixel e ficar borrado. */
+@media (max-width: 639px) {
+    .ex-header .ex-logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .ex-header .ex-logo img {
+        height: 52px;
+    }
+
+    .ex-header .ex-acoes {
+        margin-left: auto;
+    }
+}
+
+.ex-header .ex-logo:hover img {
+    transform: scale(1.02);
+}
+
+/* ---- Menu (desktop) --------------------------------------------------- */
+.ex-header .ex-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1280px) {
+    .ex-header .ex-menu {
+        gap: 2.5rem;
+    }
+}
+
+.ex-header .ex-menu__link {
+    position: relative;
+    color: rgb(82, 96, 113);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    transition: color 0.2s;
+}
+
+.ex-header .ex-menu__link:hover {
+    color: rgb(6, 21, 45);
+}
+
+.ex-header .ex-menu__link[aria-current="page"] {
+    color: rgb(6, 21, 45);
+    font-weight: 600;
+}
+
+.ex-header .ex-menu__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: rgb(0, 188, 212);
+}
+
+/* ---- Ações da direita: botão consultor + hambúrguer ------------------- */
+.ex-header .ex-acoes {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ex-header .ex-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    background: rgb(6, 21, 45);
+    color: #fff;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
+    transition: background-color 0.2s;
+}
+
+.ex-header .ex-cta:hover {
+    background: rgb(10, 30, 59);
+    color: #fff;
+}
+
+.ex-header .ex-cta .material-symbols-outlined {
+    font-size: 16px;
+    color: rgb(0, 188, 212);
+}
+
+.ex-header .ex-acoes .ex-cta {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .ex-header .ex-acoes .ex-cta {
+        display: inline-flex;
+    }
+}
+
+/* ---- Botão hambúrguer ------------------------------------------------- */
+.ex-header .ex-menu-botao {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: #fff;
+    color: rgb(6, 21, 45);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ex-header .ex-menu-botao:hover {
+    background: rgb(248, 250, 253);
+}
+
+.ex-header .ex-menu-botao:focus-visible {
+    outline: 3px solid rgba(0, 188, 212, 0.5);
+    outline-offset: 2px;
+}
+
+.ex-header .ex-menu-botao .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.ex-header .ex-menu-botao .ex-icone-fechar,
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-abrir {
+    display: none;
+}
+
+.ex-header .ex-menu-botao[aria-expanded="true"] .ex-icone-fechar {
+    display: inline-block;
+}
+
+/* ---- Menu mobile (painel) --------------------------------------------- */
+.ex-header .ex-menu-mobile {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .ex-header .ex-menu {
+        display: none;
+    }
+
+    .ex-header .ex-menu-botao {
+        display: inline-flex;
+    }
+
+    .ex-header .ex-menu-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 116px);
+        overflow-y: auto;
+        background: #fff;
+        border-top: 1px solid rgb(226 232 240 / 0.8);
+        box-shadow: 0 16px 32px rgba(6, 21, 45, 0.1);
+    }
+
+    .ex-header .ex-menu-mobile.is-open {
+        display: block;
+    }
+
+    .ex-header .ex-menu-mobile .ex-conteudo {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link {
+        padding: 0.875rem 0;
+        border-bottom: 1px solid rgb(226 232 240 / 0.8);
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"] {
+        color: rgb(0, 104, 118);
+    }
+
+    .ex-header .ex-menu-mobile .ex-menu__link[aria-current="page"]::after {
+        display: none;
+    }
+
+    .ex-header .ex-menu-mobile .ex-cta {
+        margin: 1rem 0 0.5rem;
+        padding: 0.875rem 1rem;
+    }
+}
