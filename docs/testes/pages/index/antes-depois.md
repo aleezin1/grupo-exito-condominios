@@ -60,7 +60,7 @@ A home completa (`index-v2.html`) carregava muito mais coisa no `<head>`: `css/p
 | Unidades em `<address>` | Unidades em `<div>`, com os mesmos dados |
 | "Páginas Internas" com 7 links | 8 links (entrou "Orçamento de Hospedagem") e o botão "Solicitar Estudo Condominial →" |
 | — | Menu "Docs" com o link "Painel do projeto" |
-| `<p><small>© 2026…</small></p>` | © com os links "Política de Privacidade" e "Orçamento de Hospedagem", e a assinatura "EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT" |
+| `<p><small>© 2026…</small></p>` | © com os links "Política de Privacidade" e "Orçamento de Hospedagem", e a assinatura "Projeto acadêmico." |
 
 ### Scripts no fim da página
 

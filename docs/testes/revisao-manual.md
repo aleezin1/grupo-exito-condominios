@@ -84,13 +84,13 @@ Passo a passo:
 
 ## 4. Antes de enviar
 
-- [ ] **Notas finais** (06/11): registradas nos relatórios e no painel para 11 páginas (Quem Somos 7, Serviços 5, Serviços 1 7, Serviços 2 7, Serviços 3 9, Clientes 7, Projetos 6, Notícias 4, FAQ 6, Contato 6, Política de Privacidade 5). Falta a nota da Home e lançar as notas no ClickUp.
+- [ ] **Notas finais** (06/11): registradas nos relatórios e no painel para 11 páginas (Quem Somos 7, Serviços 5, Serviços 1 7, Serviços 2 7, Serviços 3 9, Clientes 7, Projetos 6, Notícias 4, FAQ 6, Contato 7, Política de Privacidade 5). A Home fica sem nota, porque foi feita pelo líder. Falta lançar as notas no ClickUp.
 - [x] **Fechar cada página** (06/11): as 14 páginas têm o relatório final e o `antes-depois.md` em `docs/testes/pages/<pagina>/`.
-- [ ] **Alinhar os nomes das páginas:** a tabela de equipe do README chama a página do Pablo de "Contatos", a do Felipe Gabriel de "Clientes — Projetos" e a do Evandro de "Perguntas Frequentes — FAQ"; o menu e os `<title>` usam "Contato", "Projetos" e "FAQ" / "Perguntas Frequentes". A Confirmação tem o `<title>` "Solicitação recebida".
+- [x] **Alinhar os nomes das páginas** (07/11): o README usa os mesmos nomes do menu e do painel.
 - [ ] **Guia completo do CSS:** um documento só sobre o `css/style.css`: a ordem dos blocos, as fontes (`css/fonts/`), a paleta em `rgb(...)`, os ícones do Material Symbols (`.ex-icone--*`), os componentes `.ex-*` e a regra do prefixo `.pagina-<nome>`.
 - [ ] **Protótipo do site:** todas as páginas num canvas ou no Figma, com o fluxo de navegação (menu, links e formulário → confirmação).
 - [ ] **O que vai no `.zip`:** decidir sobre o `index-v3.html` (home antiga, só referência), `css/legado/` e `js/legado/`.
-- [ ] **Diário e README:** última conferência, com o fechamento do projeto.
+- [x] **Diário e README** (07/11): diário unificado com o diário de cada página, e README reescrito como documento final.
 - [x] Conferir que nenhum requisito ficou sem atender (06/11): só o áudio, por decisão do líder.
 - [ ] Fazer o commit.
 - [ ] Compactar a pasta (sem `.git/`) como `nome_da_equipe.zip`, descompactar em outra pasta e abrir o `index.html` para ter certeza de que nada quebrou (9.1).

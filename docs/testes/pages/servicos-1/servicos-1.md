@@ -3,7 +3,7 @@
 | | |
 | --- | --- |
 | **Responsável** | Arthur |
-| **Entregou para a 2ª fase?** | **Não** (nenhuma versão enviada pelo ClickUp) |
+| **Entregou para a 2ª fase?** | **Sim** |
 | **Avaliação do líder (2ª entrega)** | **7 / 10** |
 | **Situação** | **Fechada em 06/11/2026.** |
 | **Arquivos finais** | `pages/servicos-1.html` + bloco `PÁGINA: servicos-1.html` do `css/style.css` (linhas 4869 a 4987) |

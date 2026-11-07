@@ -1500,7 +1500,7 @@ main > section.ex-hero + .ex-container > h2:first-child {
     font-weight: 700;
     line-height: 16px;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 

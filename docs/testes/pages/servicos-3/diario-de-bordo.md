@@ -60,7 +60,7 @@ O primeiro card novo ficou diferente das tabelas antigas. Resolvi:
 |---|---|---|
 | Faltava `<h3>` | Títulos dos cards estavam em `<th>` | Cards refeitos com `<h3>` + `<p>` |
 | Card novo diferente dos outros | Margens padrão de `h3` e `p`, sem padding | `margin: 0`, `padding`, `font-size: 1rem` |
-| Segundo retângulo dentro do card | `border` completo copiado do `td` | Removida a borda do `<p>` |
+| Segundo retângulo dentro do card | `border` completo que veio do `td` | Removida a borda do `<p>` |
 | Logos do header e do footer afetadas | Seletor `img` genérico | `article img` |
 | Cores fora do padrão | Cores escolhidas por mim | Valores da paleta do README |
 | Atributos colados no `<link>` | Espaço ausente | Espaço entre `rel` e `href` |

@@ -4,7 +4,7 @@
 | --- | --- |
 | **Responsável** | Pablo |
 | **Entregou para a 2ª fase?** | **Sim** |
-| **Avaliação do líder (2ª entrega)** | **6 / 10** |
+| **Avaliação do líder (2ª entrega)** | **7 / 10** |
 | **Situação** | **Fechada em 06/11/2026.** |
 | **Arquivos finais** | `pages/contato.html` + bloco `PÁGINA: contato.html` do `css/style.css` (linhas 4458 a 4867) + `js/formulario.js` (envio, data e máscara do telefone) + foto do topo `img/contato/hero-contato.jpg` |
 | **Antes e depois** | [antes-depois.md](antes-depois.md) |

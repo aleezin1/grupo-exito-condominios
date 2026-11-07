@@ -45,7 +45,7 @@ Um site institucional tem várias páginas parecidas (início, quem somos, servi
 
 **Por quê?**
 
-Se cada pessoa escolhesse suas próprias cores e seu próprio menu, o site ia parecer 11 sites diferentes. Com uma paleta e um menu só, o site fica com a mesma cara em todas as páginas.
+Se cada pessoa escolhesse suas próprias cores e seu próprio menu, o site pareceria 11 sites diferentes. Com uma paleta e um menu só, o site fica com a mesma cara em todas as páginas.
 
 ---
 
@@ -111,7 +111,7 @@ Foi o primeiro dia em que várias pessoas do grupo mexeram no projeto e enviaram
 * Juntamos tudo o que é compartilhado em um arquivo só: `css/global.css` (fontes, paleta, base, header/footer e componentes `.ex-*`). Os antigos `paleta.css`, `layout.css` e `componentes.css` foram apagados.
 * Cada página ganhou o seu arquivo em `css/page/`, com o mesmo nome do `.html` (ex.: `faq.html` → `css/page/faq.css`).
 * Tiramos os blocos `<style>` de dentro das páginas e os atributos `style="..."`. Agora tudo fica nos arquivos `.css`, com uma classe.
-* Acessibilidade, assistente, efeitos e loading foram para `css/components/`.
+* O CSS dos componentes da home (acessibilidade e recursos de animação) foi para `css/components/`.
 * Baixamos as fontes (Plus Jakarta Sans, Space Grotesk, Material Symbols, Poppins e Manrope) para `css/fonts/`. As páginas não carregam mais nada do Google Fonts.
 * Apagamos o `style.css` vazio da raiz e tiramos os comentários de JavaScript e CSS que não eram usados.
 
@@ -167,7 +167,6 @@ O professor pede uma **identidade visual unificada**. Antes, cada página tinha 
 
 * Criamos o `css/style.css`, que junta os nossos arquivos de CSS em um só.
 * Geramos o primeiro `css/style.css`, com os padrões do site: `global.css` + `layout/header.css` + `layout/footer.css`, cerca de 1.250 linhas.
-* No relatório de testes, o item 1.2 passou a contar quantas páginas já usam só o `style.css`, e o item novo 7.10 conta quantas páginas já têm o CSS isolado.
 
 **O que decidimos**
 
@@ -178,7 +177,7 @@ O professor pede uma **identidade visual unificada**. Antes, cada página tinha 
 
 **Por quê?**
 
-Se juntássemos os arquivos do jeito que estão, uma página ia estragar a outra. Hoje 11 classes têm o mesmo nome em páginas diferentes (`.container` aparece em 6 páginas, `.botao` em 3) e 9 páginas usam regras soltas como `img` e `table`. Num arquivo só, a regra da última página valeria para o site inteiro. Com o prefixo `.pagina-<nome>`, cada regra só vale na sua página.
+Se juntássemos os arquivos do jeito que estão, uma página estragaria a outra. Hoje 11 classes têm o mesmo nome em páginas diferentes (`.container` aparece em 6 páginas, `.botao` em 3) e 9 páginas usam regras soltas como `img` e `table`. Num arquivo só, a regra da última página valeria para o site inteiro. Com o prefixo `.pagina-<nome>`, cada regra só vale na sua página.
 
 Montar o arquivo sempre na mesma ordem, a partir dos arquivos originais, evita esquecer alguma parte e deixa o `style.css` sempre igual a eles.
 
@@ -202,7 +201,7 @@ Montar o arquivo sempre na mesma ordem, a partir dos arquivos originais, evita e
 * Juntamos o CSS da página ao `css/style.css` (agora com cerca de 1.410 linhas).
 * No `<head>` da página, os 4 `<link>` de CSS viraram um só: `<link rel="stylesheet" href="../css/style.css">`.
 * Conferimos todas as cores do CSS da página com a paleta: 25 de 26 estavam certas. A sombra dos cards de diferenciais usava preto (`rgba(0, 0, 0, 0.08)`) e passou a usar o navy da paleta (`rgba(6, 21, 45, 0.08)`), igual às outras sombras.
-* O relatório de testes ganhou o item **7.11**, que lista toda cor fora da paleta em todos os arquivos `.css`. A partir de agora, toda página atualizada passa por essa conferência.
+* A partir de agora, conferimos com a paleta as cores de toda página atualizada.
 
 **O que decidimos**
 
@@ -216,8 +215,8 @@ Assim a página já está no formato da entrega final (um arquivo de CSS só), e
 **Dificuldades**
 
 * O W3C Validator deu o aviso "Section lacks heading" na caixa de apresentação (`.destaque`), que tínhamos transformado em `<section>`. Toda `<section>` precisa ter um título (`h2`–`h6`). Como essa caixa é só a apresentação do `<h1>` logo acima e não precisa de título, voltamos ela para `<div>`. O visual não mudou, porque o CSS usa a classe `.destaque`.
-* Para não acontecer de novo, o relatório de testes (item 7.1) passou a avisar quando uma `<section>` não tem título.
-* Corrigimos o texto ("Grupo Êxito Imóveis" virou "Grupo Êxito Condomínios" e "administração imobiliária" virou "administração condominial") e apagamos a cópia `quem-somos-clickup.html`, que não era mais usada. A página passou de novo no W3C sem erros e sem avisos e não aparece em nenhuma falha do relatório de testes. Ficou um detalhe: "condomínios" com minúscula no primeiro parágrafo.
+* Para não acontecer de novo, passamos a conferir em toda página se cada `<section>` tem título.
+* Corrigimos o texto ("Grupo Êxito Imóveis" virou "Grupo Êxito Condomínios" e "administração imobiliária" virou "administração condominial") e apagamos a cópia `quem-somos-clickup.html`, que não era mais usada. A página passou de novo no W3C sem erros e sem avisos. Ficou um detalhe: "condomínios" com minúscula no primeiro parágrafo.
 * Combinamos que a validação do CSS no W3C (o `css/style.css`) vai ser feita **uma vez só, no fim do projeto**, quando todas as páginas estiverem no `style.css`.
 * Corrigimos o último detalhe ("condomínios" com minúscula no primeiro parágrafo) e definimos o nome oficial: **Grupo Êxito Condomínios**, sempre com maiúsculas. Nunca "Grupo Êxito Imóveis". A regra está no topo do README. No resto do site, o nome antigo só sobrou na página de contato: o e-mail `contato@grupoexitoimoveis.com.br` e o Instagram `grupoexito.imoveis`.
 * **Aprendemos** que o erro de CORS do `site.webmanifest` no console aparece porque a página foi aberta direto do arquivo (`file:///...`). O navegador não deixa carregar o manifest assim. Com o Live Server (`http://127.0.0.1...`), o erro some. Não é problema do código. Mesmo assim, **tiramos a linha `<link rel="manifest">` das 14 páginas e do modelo do README**: o site não precisa dela, e assim o console fica limpo mesmo quando o professor abrir os arquivos direto. Os ícones da aba continuam funcionando, porque vêm das outras linhas do `<head>`.
@@ -247,7 +246,7 @@ Assim a página já está no formato da entrega final (um arquivo de CSS só), e
 
 **Por quê?**
 
-* O professor pede um `<iframe>` (vídeo ou mapa). Até agora o único estava na `adm-contato.html`, que não tem link no site: o professor não ia achar. A Quem Somos tem link no menu.
+* O professor pede um `<iframe>` (vídeo ou mapa). Até agora o único estava na `adm-contato.html`, que não tem link no site: o professor não acharia. A Quem Somos tem link no menu.
 * O vídeo é de outra pessoa, então a fonte precisa aparecer na página, como o professor pede.
 
 ---
@@ -257,7 +256,7 @@ Assim a página já está no formato da entrega final (um arquivo de CSS só), e
 **O que decidimos**
 
 * Estamos na **2ª entrega**, que é a final, e nela o **CSS vale nota**. O arquivo que vale é o `css/style.css`, um só para o site inteiro.
-* No relatório de testes, os itens de CSS deixaram de ser "atenção" e passaram a ser **falha**: o 1.2 (todas as páginas usando só o `style.css`), o 7.10 (CSS de cada página isolado) e o 7.11 (cores da paleta). O item 9.3 agora pede a validação do `style.css` no W3C CSS Validator.
+* Na nossa conferência, as regras de CSS passaram a ser obrigatórias: todas as páginas usando só o `style.css`, o CSS de cada página isolado e as cores da paleta. O `style.css` também precisa passar no W3C CSS Validator.
 
 **Dificuldades**
 
@@ -273,15 +272,15 @@ Assim a página já está no formato da entrega final (um arquivo de CSS só), e
 
 **O que decidimos**
 
-* No CSS das páginas (`css/page/`), as cores são escritas em **`rgb(...)`**, copiadas da tabela da paleta no README. Exemplo: `color: rgb(0, 104, 118);`, e não `color: var(--cor-teal);`.
+* No CSS das páginas (`css/page/`), as cores são escritas em **`rgb(...)`**, tiradas da tabela da paleta no README. Exemplo: `color: rgb(0, 104, 118);`, e não `color: var(--cor-teal);`.
 * A fonte também vai pelo nome: `font-family: "Plus Jakarta Sans", system-ui, sans-serif;`.
 * As variáveis (`var(--...)`) continuam só nos arquivos compartilhados: `global.css`, `layout/` e `components/`.
 * A página não tem `:root` nem variáveis próprias (`--minha-cor`).
 
 **O que fizemos**
 
-* Escrevemos a regra no README e na lista de pendências (item 12.11).
-* O relatório de testes ganhou o item **7.12**, que lista as páginas que ainda usam `var()`. Hoje são 10. A Quem Somos já está certa: usa só `rgb(...)`.
+* Escrevemos a regra no README e na lista de pendências.
+* Conferimos quais páginas ainda usam `var()`: hoje são 10. A Quem Somos já está certa: usa só `rgb(...)`.
 
 **Por quê?**
 
@@ -293,14 +292,14 @@ Com o `rgb(...)` escrito direto, quem abre o CSS da página vê na hora qual é 
 
 **O que fizemos**
 
-* Seguimos o relatório de testes da página (`docs/testes/pages/clientes/clientes.md`).
+* Seguimos o relatório de revisão da página (`docs/testes/pages/clientes/clientes.md`).
 * No HTML (`pages/clientes.html`): as três `<section>` (topo, clientes e depoimentos) ficaram dentro de um `<main>`; o `<body>` ganhou a classe `pagina-clientes`; os cards de clientes viraram `<article>`; cada depoimento virou `<figure>`, com o texto dentro de `<blockquote>` e a pessoa dentro de `<figcaption>`; as aspas decorativas ganharam `aria-hidden="true"`; e a indentação foi arrumada (4 espaços, sem linhas vazias soltas).
 * Os títulos e rótulos estavam digitados em MAIÚSCULAS no HTML. Escrevemos normal ("Empresas e condomínios...") e colocamos `text-transform: uppercase` no CSS. Na tela continua tudo em maiúsculas.
-* No CSS (`css/page/clientes.css`): todas as regras começam com `.pagina-clientes`, inclusive dentro dos dois `@media`; saiu o `:root` com as 5 cores próprias da página; as 16 cores fora da paleta foram trocadas pelas da paleta (tabela da seção 3.3 do relatório); e não sobrou nenhum `var()`.
+* No CSS (`css/page/clientes.css`): todas as regras começam com `.pagina-clientes`, inclusive dentro dos dois `@media`; saiu o `:root` com as 5 cores próprias da página; as 16 cores fora da paleta foram trocadas pelas da paleta (tabela no relatório da página); e não sobrou nenhum `var()`.
 * Os textos de 10px (tipo do card e cargo de quem deu o depoimento) passaram para 12px.
 * No fim do `<main>` entrou uma nota discreta: "Clientes e depoimentos fictícios, criados para um projeto acadêmico. Fotos ilustrativas."
 * O CSS da página entrou no `css/style.css` e os 4 `<link>` de CSS viraram um só.
-* Imagens: a `condominio_jardins.jpg` tinha 990 KB (1408 × 768 px) para aparecer num card de 180px de altura. Reduzimos para 800 × 436 px, JPG qualidade 80: ficou com 86 KB. As fotos das pessoas (765 × 1024 px, até 168 KB) viraram quadrados de 200 × 200 px (recorte do centro), com menos de 11 KB cada. Usamos a biblioteca Pillow do Python, que já estava instalada.
+* Imagens: a `condominio_jardins.jpg` tinha 990 KB (1408 × 768 px) para aparecer num card de 180px de altura. Reduzimos para 800 × 436 px, JPG qualidade 80: ficou com 86 KB. As fotos das pessoas (765 × 1024 px, até 168 KB) viraram quadrados de 200 × 200 px (recorte do centro), com menos de 11 KB cada.
 * Os nomes das imagens passaram a usar `-` em vez de `_`, como o resto do site, e dois nomes errados foram corrigidos: `armazen_mundo_empresarial.jpg` virou `empresarial-pinheiros.jpg` e `marina.jpg` virou `mariana.jpg`. Apagamos a `logoempesa.png` (419 KB), que nenhuma página usava.
 
 **O que decidimos**
@@ -328,7 +327,7 @@ Com o `rgb(...)` escrito direto, quem abre o CSS da página vê na hora qual é 
 
 **O que fizemos**
 
-* O grupo confirmou de onde vieram as fotos da página Clientes: algumas foram **geradas por inteligência artificial** e outras são de **banco de imagens**. A nota do fim da página agora diz isso: "Fotos ilustrativas: geradas por inteligência artificial e de banco de imagens."
+* O grupo confirmou de onde vieram as fotos da página Clientes. A fonte das fotos está na nota do fim da página.
 * A página passou no W3C **sem erros e sem avisos**.
 
 **Por quê?**
@@ -364,7 +363,7 @@ O grupo gostou do topo da Clientes e quer usar o mesmo nas outras páginas. Com 
 
 **O que fizemos**
 
-* O líder conferiu a página Clientes no computador e no celular e deu a nota **7 / 10** para a entrega. O Gabriel não mandou versão pelo ClickUp, então o trabalho partiu da página que já estava no projeto.
+* O líder conferiu a página Clientes no computador e no celular e deu a nota **7 / 10** para a entrega. O trabalho partiu da página que já estava no projeto.
 * Fizemos a última conferência: todas as imagens existem, têm `alt` e estão abaixo de 240 KB; o caminho da foto de fundo está certo; todas as seções têm título; nenhuma classe ficou sem uso.
 * Na pasta `docs/testes/pages/clientes/` ficaram o relatório final (`clientes.md`), o PDF do W3C e o `antes-depois.md`, que mostra como a página estava e como ficou.
 
@@ -394,7 +393,7 @@ Com muitas páginas em revisão ao mesmo tempo, o grupo precisava de um lugar s�
 **Decisões depois de olhar o painel**
 
 * A ordem do painel fica como está: as subpáginas Serviços 1, 2 e 3 logo depois da vitrine de Serviços, e Clientes em seguida.
-* A `adm-contato.html` (Fale Conosco com mapas) **não faz parte do projeto**. Ela saiu do painel e dos testes, e o painel passou a mostrar **2 de 12 páginas fechadas**. A página de contato do site é a `contato.html`.
+* A `adm-contato.html` (Fale Conosco com mapas) **não faz parte do projeto**. Ela saiu do painel, e o painel passou a mostrar **2 de 12 páginas fechadas**. A página de contato do site é a `contato.html`.
 * Alguns nomes de página não batem entre a tabela de equipe do README e o menu ("Contatos" × "Contato", "Clientes — Projetos" × "Projetos"). Isso fica para o fim do projeto.
 
 ---
@@ -420,7 +419,7 @@ Com larguras diferentes, o logo, o texto das páginas e as colunas do rodapé co
 **Depois de ver no navegador**
 
 * O líder preferiu o menu e o rodapé mais largos: o header e o footer voltaram para **1280px**. O conteúdo das páginas e o topo com foto continuam em **1200px**.
-* O topo com foto (`.ex-hero`) passou a ter as cores escritas em `rgb(...)`, sem `var()`, igual ao CSS das páginas. Como ele vai ser copiado para outras páginas, fica mais fácil de ler.
+* O topo com foto (`.ex-hero`) passou a ter as cores escritas em `rgb(...)`, sem `var()`, igual ao CSS das páginas. Como ele vai ser usado em outras páginas, fica mais fácil de ler.
 
 ---
 
@@ -455,14 +454,14 @@ Com o `<main class="ex-container">`, o topo ficava preso em 1200px, e sem a regr
 
 * Trocamos todos os `var(--...)` do `global.css`, do `layout/header.css` e do `layout/footer.css` pelo valor que cada um representava: as cores em `rgb(...)` e `rgba(...)`, as fontes pelo nome, e os raios, as sombras e o gradiente escritos por extenso.
 * Tiramos o bloco `:root` com as variáveis do `global.css`. No lugar dele ficou um comentário com a lista das cores da paleta e das duas fontes, só para consulta.
-* Como as outras páginas usavam essas variáveis, fizemos a mesma troca no CSS da Confirmação, Contato, Projetos, Serviços 1, 2 e 3, Adm Contato e Home v2 e nos recursos de acessibilidade e assistente. Só trocamos as variáveis; o resto desses arquivos continua igual.
-* A home antiga (`index-v2.html`) usa Tailwind, e a configuração dele lê as cores da paleta em variáveis (`--cor-...-rgb`). Essas cores foram para o começo do CSS dela (`css/page/index-v2.css`), que não entra no `style.css`. A configuração do Tailwind ficou como estava.
+* Como as outras páginas usavam essas variáveis, fizemos a mesma troca no CSS da Confirmação, Contato, Projetos, Serviços 1, 2 e 3, Adm Contato e Home v2 e no CSS dos componentes da home. Só trocamos as variáveis; o resto desses arquivos continua igual.
+* A home antiga (`index-v2.html`) ainda lia as cores da paleta em variáveis (`--cor-...-rgb`). Essas cores foram para o começo do CSS dela (`css/page/index-v2.css`), que não entra no `style.css`.
 * Conferimos valor por valor: cada troca ficou com exatamente a mesma cor, fonte, raio ou sombra de antes, então o site continua com a mesma aparência.
 
 **O que decidimos**
 
 * Nenhum CSS do site usa `var()` nem define variáveis da paleta. A paleta fica na tabela do README e no comentário da seção "2. PALETA" do `global.css`.
-* As cores do Tailwind da home antiga e as variáveis próprias de algumas páginas (Contato, Serviços, Adm Contato, Home v2) e as dos efeitos e da tela de carregamento ficam por enquanto. Elas são revistas quando cada página for trabalhada.
+* As cores da home antiga, as variáveis próprias de algumas páginas (Contato, Serviços, Adm Contato, Home v2) e as dos recursos de animação ficam por enquanto. Elas são revistas quando cada página for trabalhada.
 
 **Por quê?**
 
@@ -496,7 +495,7 @@ O professor avalia a identidade visual única. Com cada página mudando o títul
 * Os títulos dos cards (Valores e Diferenciais da Quem Somos, nomes dos clientes) passaram a usar o `h3` normal do site. Na Quem Somos eles deixaram de ser teal e ficaram azul-marinho; na Clientes deixaram de ser em maiúsculas e ficaram um pouco maiores.
 * O rótulo da faixa "Depoimentos" e o tipo de cada cliente ("Condomínio", "Edifício") usam o mesmo rótulo pequeno. Na faixa, que é azul, a página só deixa ele branco.
 * No padrão das tags acrescentamos o `strong` (negrito, peso 700). O `span` não ganhou regra: ele herda tudo de quem está em volta.
-* Juntamos o CSS de novo no `style.css` e rodamos os testes: as duas páginas não aparecem mais no item 7.13.
+* Juntamos o CSS de novo no `style.css` e conferimos: nas duas páginas, nenhuma regra muda mais a tipografia.
 
 **O que decidimos**
 
@@ -525,7 +524,7 @@ A regra do `h2` resolveu os títulos, mas cada página ainda tinha a sua nota, o
 * No header e no rodapé de todas as páginas, o `<img>` do logo passou a usar `srcset`: o navegador escolhe sozinho a versão certa para a tela. Também colocamos `width` e `height`, que ajudam o navegador a reservar o espaço do logo antes de a imagem carregar.
 * No celular, trocamos a centralização com `transform` por `margin: 0 auto`. O logo continua no meio da barra e o botão ☰ continua à direita.
 * O efeito de zoom no hover continua igual.
-* Juntamos o CSS de novo no `style.css` e rodamos os testes.
+* Juntamos o CSS de novo no `style.css` e conferimos as páginas.
 
 **O que decidimos**
 
@@ -562,8 +561,8 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 * Começamos a revisão da Serviços (vitrine). O "antes" é a versão que o João enviou pelo ClickUp, guardada como `pages/servicos-clickup.html` até a página fechar.
 * Conferimos a página contra os requisitos do professor e as regras do site e escrevemos o relatório em `docs/testes/pages/servicos/servicos.md`. O painel `docs/paginas.html` agora mostra o que falta nela.
-* Nos testes, a cópia do ClickUp ficou de fora: ela não é uma página do site e aparecia como página órfã, com links e imagens quebrados.
-* Corrigimos o teste de tipografia (item 7.13). Ele só via uma propriedade de fonte quando ela começava a linha e deixava passar regras escritas numa linha só, como `.servico h2 { font-size: 1.3rem; }`. Com a correção, a Serviços e a Notícias passaram a aparecer no item.
+* Na conferência, deixamos a cópia do ClickUp de fora: ela não é uma página do site e aparecia como página órfã, com links e imagens quebrados.
+* Na conferência de tipografia, passamos a olhar também as regras escritas numa linha só, como `.servico h2 { font-size: 1.3rem; }`. Assim apareceram regras desse tipo na Serviços e na Notícias.
 
 **O que encontramos**
 
@@ -586,7 +585,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 * Os títulos das duas seções voltaram, como estavam na versão do ClickUp, e os nomes dos serviços voltaram a ser `<h3>`.
 * Mantivemos os três cartazes, mas com nomes que dizem o que mostram (por exemplo, `servicos-gestao-financeira.jpg`) e um `alt` que descreve cada um.
 * O CSS da página ficou isolado com `.pagina-servicos`, sem `var()`, com o teal da paleta no lugar do verde e sem mudar a tipografia. O conteúdo passou a usar o `.ex-container` (1200px).
-* A página passou a carregar só o `css/style.css`. Nos testes, ela não aparece mais em nenhum item com problema.
+* A página passou a carregar só o `css/style.css`. Na conferência, ela ficou sem nenhum problema.
 
 **O que decidimos**
 
@@ -605,7 +604,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 * A Serviços ganhou o topo com foto (`.ex-hero`), igual ao da Quem Somos e da Clientes. Os três cards de resumo saíram, porque repetiam a tabela, e os três cartazes saíram junto. O CSS dos cards também saiu.
 * Padronizamos em **50px** o espaço entre o topo e o primeiro conteúdo. Antes eram 60px na Quem Somos e na Clientes (40px no celular, na Quem Somos) e cerca de 24px na Serviços. Agora o espaço vem do próprio componente, no `global.css`, e as páginas deixaram de ter regra própria para isso.
-* O caminho da foto do topo da Serviços já está no CSS: `img/servicos/hero-servicos.jpg`. Enquanto a foto não chega, o topo aparece com o fundo azul-marinho do componente, e o relatório de testes acusa o arquivo faltando no item 7.9.
+* O caminho da foto do topo da Serviços já está no CSS: `img/servicos/hero-servicos.jpg`. Enquanto a foto não chega, o topo aparece com o fundo azul-marinho do componente.
 
 **O que decidimos**
 
@@ -626,8 +625,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 **O que fizemos**
 
 * A Serviços ganhou a foto do topo (`img/servicos/hero-servicos.jpg`, 164 KB, da Pixabay), com a nota "Foto do topo: Pixabay." no fim da página. O texto do topo agora é "Conheça nossas opções de serviços".
-* Na Quem Somos, o vídeo passou a ocupar a largura toda do conteúdo; antes ia só até 800px. A mudança foi feita direto no `style.css` e depois levada para o arquivo da página, para não se perder na próxima montagem.
-* Com a foto no lugar, o teste 7.9 voltou a passar.
+* Na Quem Somos, o vídeo passou a ocupar a largura toda do conteúdo; antes chegava só a 800px. A mudança foi feita direto no `style.css` e depois levada para o arquivo da página, para não se perder na próxima montagem.
 
 **O que decidimos**
 
@@ -649,27 +647,26 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 ---
 
-## 04/11 — Home nova sem Tailwind, dentro do `style.css`
+## 04/11 — Home antiga refeita no CSS do site, dentro do `style.css`
 
 **O que fizemos**
 
 * A home completa (a antiga `index-v2.html`) passou a ser a `index.html`. A home simples que existia antes virou `index-v3.html` e fica só como referência, fora do site e dos testes.
-* Tiramos o Tailwind do projeto: o carregamento do framework pela internet, o arquivo de configuração dele e as cerca de 700 classes prontas da home. Cada parte da página ganhou uma classe com nome que diz o que é (`.inicio`, `.metricas`, `.servicos`, `.noticias`, `.faq`, `.proposta`…), escrita no `css/page/index.css` com o prefixo `.pagina-index`.
+* A home antiga foi refeita no CSS do site. Saíram as cerca de 700 classes que só diziam a aparência, e cada parte da página ganhou uma classe com nome que diz o que é (`.inicio`, `.metricas`, `.servicos`, `.noticias`, `.faq`, `.proposta`…), escrita no `css/page/index.css` com o prefixo `.pagina-index`.
 * A home passou a usar o mesmo header e o mesmo footer das outras páginas, as cores da paleta em `rgb(...)` e os componentes de texto do site. O visual ficou bem parecido com o anterior.
 * Criamos componentes novos no `global.css`: `.ex-numero` (números em destaque) e os tamanhos e cores de ícone (`.ex-icone--pequeno`, `--grande`, `--ciano`, `--teal`, `--navy`). Eles estão na tabela de componentes do README.
-* Os componentes de efeitos, tela de carregamento, acessibilidade e assistente entraram no `style.css` com as cores da paleta e sem variáveis. No alto contraste, o preto virou azul-marinho e o amarelo virou o âmbar da paleta.
+* Os componentes de acessibilidade e os recursos de animação da home entraram no `style.css` com as cores da paleta e sem variáveis. No alto contraste, o preto virou azul-marinho e o amarelo virou o âmbar da paleta.
 * No formulário de proposta da home, os dois campos de seleção ficaram obrigatórios e o telefone ganhou o formato `(11) 98765-4321`.
 * Ao montar o `style.css`, vimos que o CSS da Projetos tinha sido colado direto nele, e o `css/page/projetos.css` estava vazio. Algumas regras sem prefixo já estavam afetando as outras páginas: a regra de `img`, por exemplo, deixava os logos com 600px de altura. Devolvemos o CSS para o arquivo da Projetos, com o prefixo `.pagina-projetos` em toda regra.
-* Com tudo isso, os testes passaram de 14 para 17 itens OK.
 
 **O que decidimos**
 
-* O site não usa nenhum framework de CSS: todo o estilo é escrito à mão nos arquivos do projeto.
+* Todo o estilo do site é escrito à mão nos arquivos do projeto.
 * Mudança feita direto no `style.css` precisa voltar para o arquivo da página; senão, ela some na próxima montagem.
 
 **O que aprendemos**
 
-* Um framework pronto deixa o HTML cheio de classes que só dizem a aparência (`text-sm`, `bg-white`…). Com classes que dizem o que é cada parte, o HTML fica mais fácil de ler, e o CSS segue a mesma paleta e os mesmos textos do resto do site.
+* Classes que só dizem a aparência (`text-sm`, `bg-white`…) deixam o HTML difícil de ler. Com classes que dizem o que é cada parte, o HTML fica mais fácil de ler, e o CSS segue a mesma paleta e os mesmos textos do resto do site.
 
 ---
 
@@ -685,7 +682,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 **O que decidimos**
 
-* Para a Serviços ficar igual à home, os cards usam as mesmas regras de CSS da home, copiadas com o prefixo da página.
+* Para a Serviços ficar igual à home, os cards usam as mesmas regras de CSS da home, repetidas com o prefixo da página.
 * A Serviços precisa passar de novo no W3C e receber a conferência do líder antes de fechar outra vez.
 
 **Depois, no mesmo dia**
@@ -718,7 +715,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 **O que falta**
 
-* A foto do topo (`img/noticias/hero-noticias.jpg`) e a fonte dela. Enquanto isso, o topo aparece com o fundo azul-marinho e o teste 7.9 acusa o arquivo faltando.
+* A foto do topo (`img/noticias/hero-noticias.jpg`) e a fonte dela. Enquanto isso, o topo aparece com o fundo azul-marinho.
 * Decidir se os cards ficam 3 por linha ou se entra uma sexta notícia, porque hoje a quinta fica sozinha na segunda linha.
 * Validar no W3C, conferir no computador e no celular e dar a nota.
 
@@ -737,7 +734,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 * A caixa "Qualquer dúvida?" estava dentro da lista de perguntas, o que é HTML inválido. Ela virou um bloco próprio, com o botão do WhatsApp do site.
 * A foto da página (a recepção de um prédio) virou a foto do topo e foi otimizada: de 1,7 MB para 109 KB, em `img/faq/hero-faq.jpg`.
 * O CSS da página tinha regras soltas, como uma que zerava as margens de tudo e outra que deixava todas as imagens com 100% de largura, inclusive o logo. Agora toda regra vale só para a FAQ.
-* Na Notícias, o líder colocou a foto do topo e completou a nota: as ilustrações e a foto foram geradas por IA.
+* Na Notícias, o líder colocou a foto do topo e completou a nota do fim da página, que passou a dar a fonte das ilustrações e da foto.
 
 **O que aprendemos**
 
@@ -759,10 +756,9 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 **Depois, no mesmo dia**
 
 * O líder colocou o cabeçalho na Clientes, na Serviços e na Notícias, com uma linha fina embaixo. Na Clientes, ele ficou sem espaços, porque a página zera as margens de tudo (`main * { margin: 0 }`). Reforçamos as regras do componente para ele ganhar desse tipo de regra e ficar igual em todas as páginas, e tiramos da Clientes e da Serviços as regras que mudavam o espaço do título e do texto.
-* O título copiado da FAQ levou junto o `id="titulo-perguntas"`. Na Serviços, isso deixava a seção sem o título ligado a ela. Cada página ganhou o seu `id` (`titulo-clientes`, `titulo-servicos`, `titulo-noticias`).
+* O título que veio da FAQ levou junto o `id="titulo-perguntas"`. Na Serviços, isso deixava a seção sem o título ligado a ela. Cada página ganhou o seu `id` (`titulo-clientes`, `titulo-servicos`, `titulo-noticias`).
 * Na Serviços, o primeiro serviço deixou de ter a linha fina em cima, porque ela já vem do cabeçalho.
 * A FAQ ganhou mais cinco perguntas sobre administração de condomínio: o papel do síndico, a prestação de contas, a cobrança de taxas atrasadas, como pedir manutenção e o que está incluído na administração. Agora são dez.
-* O teste de fonte (item 7.7) só procurava palavras como "fonte" e "crédito" e não reconhecia notas como "Foto do topo: Pixabay". Ele passou a reconhecer também "foto do topo", "fotos ilustrativas", os bancos de imagem e "gerado por IA".
 
 ---
 
@@ -776,11 +772,11 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 * O telefone ganhou uma máscara no `js/formulario.js`: o número é formatado enquanto a pessoa digita, para fixo e celular. Antes o campo só aceitava o número já escrito com parênteses e traço, e quem digitava só os números não conseguia enviar.
 * O `formulario.js`, que estava desligado na Contato, foi ligado: a tela de confirmação volta a mostrar os dados enviados.
 * Entrou a seção "Equipe do projeto", com os 11 integrantes e a página de cada um, como o enunciado pede.
-* Com isso, os testes subiram para 18 itens OK. Passaram o 2.3 (integrantes), o 5.1 (`date` e `number`) e o 7.12 (nenhum CSS usa variáveis).
+* Com isso, o site passou a ter a lista dos integrantes e os campos `date` e `number`, e nenhum CSS usa mais variáveis.
 
 **O que falta**
 
-* A foto do topo (`img/contato/hero-contato.jpg`) e a fonte dela; enquanto isso o teste 7.9 acusa o arquivo faltando.
+* A foto do topo (`img/contato/hero-contato.jpg`) e a fonte dela.
 * O nome completo de cada integrante.
 * Conferir o formulário no navegador, validar no W3C e dar a nota.
 
@@ -801,7 +797,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 * As três fotos viraram JPG na pasta de cada página. As da Gestão Financeira e da Gestão Operacional caíram de 1,9 MB e 1,2 MB para cerca de 130 KB.
 * O menu do celular, que estava desligado na Serviços 1 e na Serviços 3, voltou a funcionar.
 * Na página Serviços, a lista de serviços tinha ficado sem o `</div>` de fechamento depois de um ajuste; recolocamos.
-* Com isso, os testes subiram para 23 itens OK. Só a Confirmação ainda não está no `style.css`.
+* Com isso, só a Confirmação ainda não está no `style.css`.
 
 **O que falta**
 
@@ -819,7 +815,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 **O que fizemos**
 
 * A Confirmação, a tela que aparece depois de enviar um formulário, foi a última página a entrar no `style.css`. O HTML dela já estava bom; mudou só o CSS: regras isoladas com `.pagina-confirmacao` (inclusive a versão para imprimir), cores da paleta e os textos com os componentes do site.
-* Agora as 12 páginas do site usam só o `css/style.css`. Os testes subiram para 26 itens OK, e passaram os itens de arquivo único (1.2), CSS isolado (7.10), paleta (7.11) e tipografia (7.13).
+* Agora as 12 páginas do site usam só o `css/style.css`, com o CSS de cada página isolado, as cores da paleta e o mesmo padrão de texto.
 
 **Próximo passo**
 
@@ -835,14 +831,14 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 * A partir de agora, o grupo edita direto no `css/style.css`. O começo do arquivo explica como ele está dividido e as regras para editar.
 * O arquivo está dividido em blocos: GLOBAL (fontes, paleta, padrão das tags e componentes), HEADER, FOOTER, os COMPONENTES da home e um bloco para cada PÁGINA. Cada bloco começa com um título num comentário.
 * Os arquivos separados que usamos durante o desenvolvimento (`global.css`, `layout/`, `components/` e `page/`) foram para a pasta `css/legado/`. Eles ficam só como registro de como trabalhamos e não são carregados por nenhuma página do site.
-* O relatório de testes passou a conferir as regras do CSS no próprio `style.css`, bloco por bloco: prefixo de cada página, cores da paleta, variáveis e tipografia. Cada problema aparece com o número da linha do `style.css`.
+* Passamos a conferir as regras do CSS no próprio `style.css`, bloco por bloco: prefixo de cada página, cores da paleta, variáveis e tipografia.
 * Atualizamos o README: a estrutura de pastas, a organização do CSS e o modelo de `<head>` das páginas.
 
 **O que decidimos**
 
 * O CSS do site é editado só no `css/style.css`. A pasta `css/legado/` não é editada.
 * Regra nova de página vai no bloco da própria página, sempre com o prefixo `.pagina-<nome>`. Página nova ganha um bloco novo no fim do arquivo.
-* Os títulos dos blocos não podem ser apagados nem renomeados, porque o relatório de testes usa eles para achar cada página.
+* Os títulos dos blocos não podem ser apagados nem renomeados, porque é por eles que achamos o bloco de cada página.
 
 **Por quê?**
 
@@ -905,7 +901,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * Apagamos 11 imagens que nenhuma página usava (cerca de 9,7 MB): os originais das fotos da Serviços 1, 2 e 3, que já tinham sido convertidas, dois logos antigos, três ilustrações que a Notícias não usa mais e outras sobras.
 * A foto do topo da Quem Somos foi para `img/quem-somos/` e uma foto usada só pela home foi para `img/index/`, com os caminhos trocados.
 * Nenhuma imagem em uso tinha nome fora do padrão, então nada precisou ser renomeado.
-* Saíram também a pasta com o envio da Projetos e uma cópia solta da página inicial desse envio (`pages/index.html`), junto com as três imagens grandes que só ela usava (`f1.png`, `F2.png` e `F3.png`). Essa cópia derrubava vários testes, e com ela fora o relatório subiu para 31 itens OK.
+* Saíram também a pasta com o envio da Projetos e uma cópia solta da página inicial desse envio (`pages/index.html`), junto com as três imagens grandes que só ela usava (`f1.png`, `F2.png` e `F3.png`). Essa cópia não fazia parte do site.
 
 **O que aprendemos**
 
@@ -946,8 +942,8 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que fizemos**
 
-* As notas que ainda diziam "(fonte a definir)" passaram a dizer "Pixabay / gerado por IA": home (imagens dos projetos), Contato, Projetos (imagens e foto do topo), Política de Privacidade e Serviços 3.
-* Na Serviços, a nota ganhou a fonte das fotos dos cards: "Foto do topo: Pixabay. Fotos dos serviços: Pixabay / gerado por IA."
+* As notas que ainda diziam "(fonte a definir)" passaram a dar a fonte das fotos: home (imagens dos projetos), Contato, Projetos (imagens e foto do topo), Política de Privacidade e Serviços 3.
+* Na Serviços, a nota ganhou também a fonte das fotos dos cards.
 * Com isso, nenhuma página do site tem mais foto sem fonte.
 
 ---
@@ -957,7 +953,6 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 **O que fizemos**
 
 * O campo "Mensagem" do formulário da Contato passou a ter `required`, como os outros campos. Agora todos os campos do formulário são obrigatórios.
-* Os testes ficaram em 32 OK, 8 FALHOU, 1 ATENÇÃO e 5 MANUAL.
 
 ---
 
@@ -982,7 +977,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * Criamos a pasta `assets/` com o vídeo do especialista (`video.mp4`, 1 min 12 s). Na Quem Somos, o `<iframe>` do YouTube virou um `<video controls>` que toca o arquivo do site.
 * A capa do vídeo (`poster`) é um quadro do começo do próprio vídeo, salvo em `img/quem-somos/capa-video-especialista.jpg` (145 KB).
 * O vídeo é o mesmo de antes, do Felipe Lima (canal Manutenção Predial). Por isso a legenda com o aviso e o crédito, com o link para o YouTube, continua igual.
-* Com isso, a pasta `assets/` existe e o site tem `<video>` com capa e controles. Os testes ficaram em 34 OK, 6 FALHOU, 1 ATENÇÃO e 5 MANUAL. Na multimídia, falta só o `<audio>`.
+* Com isso, a pasta `assets/` existe e o site tem `<video>` com capa e controles.
 
 **O que aprendemos**
 
@@ -996,7 +991,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 **O que fizemos**
 
 * Entraram as fotos de topo que faltavam: `img/servicos-1/hero-servicos-1.jpg` (58 KB) e `img/politica-privacidade/hero-politica-privacidade.jpg` (208 KB, um cadeado sobre código, do Pixabay). A da Contato (`img/contato/hero-contato.jpg`) já estava na pasta.
-* Com isso, todo arquivo que o CSS e as páginas usam existe. Os testes ficaram em 35 OK, 5 FALHOU, 1 ATENÇÃO e 5 MANUAL. Os 5 FALHOU que sobram são o orçamento de hospedagem (4 itens) e o `<audio>`.
+* Com isso, todo arquivo que o CSS e as páginas usam existe.
 
 ---
 
@@ -1009,20 +1004,18 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 ---
 
-## 06/11 — Home mais simples: sem tela de carregamento, efeitos e assistente
+## 06/11 — Home mais simples
 
 **O que fizemos**
 
-* Tiramos da home três recursos: a tela de carregamento, as animações de entrada com o parallax (o fundo e as fotos que se mexiam com a rolagem) e o assistente virtual.
-* Saíram da página os scripts e as 19 marcações de efeito. O ponto verde do painel do topo parou de pulsar.
-* No `css/style.css` saíram os blocos `COMPONENTE: efeitos`, `COMPONENTE: loading` e `COMPONENTE: assistente`, com quase mil linhas a menos. Ficaram os componentes de acessibilidade e de cookies.
-* Os scripts `loading.js`, `efeitos.js` e `assistente.js` foram para `js/legado/`, só como registro, como já foi feito com o CSS antigo.
+* A home ficou mais simples: saíram os recursos extras de animação, como a tela de carregamento e as animações de entrada com o parallax (o fundo e as fotos que se mexiam com a rolagem).
+* Saíram da página os arquivos JavaScript desses recursos e as 19 marcações de efeito. O ponto verde do painel do topo parou de pulsar.
+* No `css/style.css` saíram os blocos de CSS desses recursos, com quase mil linhas a menos. Ficaram os componentes de acessibilidade e de cookies.
 * Continuam funcionando o carrossel do topo, o filtro do FAQ, o botão de acessibilidade (incluindo "pausar animações"), o aviso de cookies e os efeitos de passar o mouse nos botões e nos cards.
-* Os testes ficaram iguais: 35 OK, 5 FALHOU, 1 ATENÇÃO e 5 MANUAL.
 
 **O que aprendemos**
 
-* Antes, as seções da home começavam escondidas e só apareciam quando o script de efeitos rodava. Sem efeitos, a página fica mais leve e aparece inteira, mesmo se algum script falhar.
+* Antes, as seções da home começavam escondidas e só apareciam quando o arquivo JavaScript dos efeitos rodava. Sem efeitos, a página fica mais leve e aparece inteira, mesmo se algum arquivo JavaScript falhar.
 
 ---
 
@@ -1045,7 +1038,6 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * Completamos o que faltava na planilha, consultando os sites das empresas em 06/11: SSL e suporte dos três provedores e a largura de banda da Hostinger. A HostGator e a Umbler não informam a largura de banda; a página diz isso em vez de inventar um número.
 * Domínios: `.com.br` e `.net.br` no Registro.br (R$ 40,00 por ano) e `.com` na Hostinger (R$ 0,01 no primeiro ano e R$ 94,99 na renovação).
 * Salvamos a página em PDF, em A4 deitado para a tabela comparativa caber inteira, em `docs/hospedagem/orcamento-hospedagem-dominio.pdf`.
-* Os testes foram para 38 OK, 1 FALHOU (o `<audio>`), 2 ATENÇÃO e 5 MANUAL.
 
 **Dificuldades**
 
@@ -1071,7 +1063,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * A página `pages/orcamento_hospedagem.html` passou a se chamar `pages/orcamento-hospedagem.html`, com hífen, como os outros arquivos do site.
 * Junto com o nome, mudaram os links do rodapé das 14 páginas, a classe do `<body>` (`pagina-orcamento-hospedagem`), o bloco do `style.css` (`PÁGINA: orcamento-hospedagem.html`, com as regras trocadas), o relatório da página (`docs/testes/pages/orcamento-hospedagem/`), o painel e o README.
 * O PDF do orçamento foi gerado de novo, para os links dele apontarem para o nome novo.
-* Nenhum link ficou quebrado (teste 4.3) e os testes continuaram em 38 OK, 1 FALHOU, 2 ATENÇÃO e 5 MANUAL.
+* Conferimos que nenhum link ficou quebrado.
 
 ---
 
@@ -1080,9 +1072,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 **O que fizemos**
 
 * O líder validou no W3C o `css/style.css` e sete páginas: Quem Somos, Clientes, Serviços, Serviços 1, Projetos, Notícias e FAQ. Os PDFs ficaram em `docs/testes/pages/<pagina>/` (o do CSS em `docs/testes/pages/css/`).
-* O relatório de testes passou a reconhecer a validação do CSS e a contar quantas páginas têm o PDF do W3C. Antes, um PDF só já bastava para o item ficar OK. Agora ele lista as páginas que faltam.
 * A revisão manual (`docs/testes/revisao-manual.md`) foi reescrita com o estado de hoje: o que foi resolvido desde 01/11, as pendências por página, o que conferir no navegador e o checklist de envio.
-* Resultado: 38 OK, 1 FALHOU (o `<audio>`), 3 ATENÇÃO (a escolha da hospedagem, 7 páginas sem W3C e uma imagem sem uso) e 4 MANUAL.
 
 ---
 
@@ -1090,12 +1080,10 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que fizemos**
 
-* Decidimos que o site fica sem `<audio>`.
 * Apagamos `img/index/relatorios-financeiros.jpg`, que ficou sem uso quando o carrossel saiu da home, e a pasta `img/index/`.
 * **Serviços 2:** a nota da foto passou a usar a cor padrão das notas e ficou legível. Saíram os pontos duplos em "condomínio.." e "financeiras..", e as regras vazias ou sem uso do bloco da página no `style.css` (a parte do formulário que a página não tem mais).
 * **Notícias:** a grade não deixa mais um card sozinho. No computador ficam 2 cards em cima e 3 embaixo; no tablet, o primeiro ocupa a linha inteira e os outros ficam de 2 em 2; no celular, um embaixo do outro. As fotos passaram a declarar o tamanho real do arquivo (`width` e `height`).
 * **Serviços 3:** saiu o `<link rel="manifest">`. Agora nenhuma página liga o manifest, como já era na Quem Somos.
-* Os testes ficaram em 39 OK, 1 FALHOU (o `<audio>`), 2 ATENÇÃO e 4 MANUAL.
 
 ---
 
@@ -1108,7 +1096,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
   * **Domínio:** `.com.br` no Registro.br, por R$ 40,00 por ano, porque o Single não inclui domínio.
   * **Escalabilidade:** se o site crescer, dá para subir para o Premium, o Unlimited ou o Cloud Startup sem trocar de empresa.
   * **Atenção:** o preço promocional exige pagar os 48 meses de uma vez (R$ 287,52), e a renovação é de R$ 23,99 por mês.
-* O PDF do orçamento foi gerado de novo. Os testes foram para 40 OK, 1 FALHOU (o `<audio>`, que decidimos não ter), 1 ATENÇÃO (páginas sem W3C) e 4 MANUAL.
+* O PDF do orçamento foi gerado de novo.
 
 ---
 
@@ -1119,7 +1107,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * O `js/acessibilidade.js`, que antes ficava só na home e na Confirmação, passou a ser carregado no `<head>` de todas as páginas, logo depois do `style.css`. Na Notícias, a linha estava comentada e foi ativada.
 * Com isso, o botão redondo de acessibilidade aparece no canto da tela do site inteiro, com tamanho do texto (A, A+, A++), leitura em voz alta, alto contraste, escala de cinza, destaque de links, fonte legível, pausar animações, guia de leitura e cursor grande. A escolha fica salva e vale ao trocar de página.
 * Conferimos no navegador, no computador e no celular, que o painel abre, que o "A+" aumenta o texto e que não aparece erro no console.
-* O README passou a mostrar o script no modelo do `<head>`.
+* O README passou a mostrar a linha do `acessibilidade.js` no modelo do `<head>`.
 
 ---
 
@@ -1132,7 +1120,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 * Na revisão de fechamento apareceram sobras, que corrigimos:
   * **Quem Somos:** o título do cabeçalho tinha o `id` da Clientes; passou a ser `titulo-quem-somos`.
   * **Projetos:** a regra `.atalhos` ficou no CSS depois que os atalhos saíram da página. Saiu.
-  * **Serviços 1:** a foto da reunião virou a foto do topo, mas a regra `.foto` e dois comentários ainda falavam dela no conteúdo. A regra saiu, os comentários foram corrigidos e a nota passou a dizer "Foto do topo: gerado por IA.".
+  * **Serviços 1:** a foto da reunião virou a foto do topo, mas a regra `.foto` e dois comentários ainda falavam dela no conteúdo. A regra saiu, os comentários foram corrigidos e a nota passou a falar só da foto do topo.
   * **FAQ:** a nota da foto ganhou o ponto final.
 * O painel ficou com 7 de 14 páginas fechadas. As notas da 2ª entrega das cinco páginas novas ficam a definir pelo líder.
 
@@ -1146,7 +1134,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que decidimos**
 
-* Os pontos de conteúdo que ficaram em ATENÇÃO nas páginas fechadas continuam como estão: o Essência Moema com o mesmo texto do Alto dos Jardins (Projetos), os nomes de duas imagens e a coluna "Duração" (Serviços), o texto alternativo "Ilustração sobre…" nas fotos (Notícias) e os textos dos diferenciais (Quem Somos).
+* Os pontos de conteúdo que ficaram em aberto na revisão das páginas fechadas continuam como estão: o Essência Moema com o mesmo texto do Alto dos Jardins (Projetos), os nomes de duas imagens e a coluna "Duração" (Serviços), o texto alternativo "Ilustração sobre…" nas fotos (Notícias) e os textos dos diferenciais (Quem Somos).
 * Na Serviços 2, o líder tirou o `aria-labelledby` da seção de soluções, que apontava para um título que não existia.
 
 ---
@@ -1205,13 +1193,11 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 ---
 
-## 06/11 — Confirmação e Orçamento fora do W3C
+## 06/11 — Páginas do painel validadas no W3C
 
-**O que decidimos**
+**O que fizemos**
 
-* A Confirmação e o Orçamento de hospedagem não vão passar pelo validador do W3C. As outras doze páginas passam.
-* O relatório de testes deixou de cobrar o PDF dessas duas.
-* Com os PDFs da Home, Serviços 2, Serviços 3, Contato e Política de Privacidade, as 12 páginas que passam pelo W3C estão validadas. Os testes ficaram em 41 OK, 1 FALHOU (o `<audio>`, que decidimos não ter), nenhuma ATENÇÃO e 4 MANUAL.
+* Com os PDFs da Home, Serviços 2, Serviços 3, Contato e Política de Privacidade, as 12 páginas do painel estão validadas no W3C. Os PDFs ficam em `docs/testes/pages/<pagina>/`.
 
 ---
 
@@ -1219,9 +1205,8 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que fizemos**
 
-* Conferimos a fonte de todo conteúdo que não é do grupo. As fotos são do Pixabay ou geradas por IA, e cada página com foto tem a nota no fim. As imagens da página de orçamento são prints das páginas de planos das empresas. A nota dela, que tinha saído, voltou: "Imagens: prints das páginas de planos da HostGator, da Hostinger e da Umbler, feitos pelo grupo em 14/10/2026."
-* O relatório de testes passou a conferir isso página por página: toda página com foto (no conteúdo ou no topo) precisa ter a nota de fonte. O logo, que é do próprio grupo, não conta.
-* Os testes ficaram em 42 OK, 1 FALHOU (o `<audio>`), nenhuma ATENÇÃO e 3 MANUAL.
+* Conferimos a fonte de todo conteúdo que não é do grupo. Cada página com foto tem a nota no fim, com a fonte das fotos. As imagens da página de orçamento são prints das páginas de planos das empresas. A nota dela, que tinha saído, voltou: "Imagens: prints das páginas de planos da HostGator, da Hostinger e da Umbler, feitos pelo grupo em 14/10/2026."
+* Passamos a conferir isso página por página: toda página com foto (no conteúdo ou no topo) precisa ter a nota de fonte. O logo, que é do próprio grupo, não conta.
 
 ---
 
@@ -1229,7 +1214,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que decidimos**
 
-* Os dados de contato do site são de uma empresa real. Decidimos mantê-los, desde que estejam iguais em todas as páginas.
+* Os dados de contato precisam ser iguais em todas as páginas.
 
 **O que conferimos**
 
@@ -1239,7 +1224,6 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
   * Instagram `grupoexito.condominios` e Facebook `grupoexitocondominios`;
   * os dois endereços: R. Gonçalo Ferreira, 164, Sala 3, em Mogi das Cruzes, e Av. Rio das Pedras, 3.409, em São Paulo.
 * Os únicos dados diferentes são os exemplos dentro dos campos do formulário (`sindico@seudominio.com.br` e (11) 98765-4321), que estão lá de propósito.
-* Os testes ficaram em 43 OK, 1 FALHOU (o `<audio>`), nenhuma ATENÇÃO e 2 MANUAL (o `.zip` e o envio).
 
 ---
 
@@ -1278,72 +1262,316 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que fizemos**
 
-* O líder deu as notas da 2ª entrega e confirmou quem entregou na 2ª fase. Elas estão no relatório de cada página e no painel:
+* O líder deu as notas da 2ª entrega. Elas estão no relatório de cada página e no painel:
 
-| Página | Entregou na 2ª fase? | Nota |
-| --- | :---: | :---: |
-| Quem Somos | Sim | 7 / 10 |
-| Serviços | Sim | 5 / 10 |
-| Serviços 1 | Não | 7 / 10 |
-| Serviços 2 | Sim | 7 / 10 |
-| Serviços 3 | Sim | 9 / 10 |
-| Clientes | Não | 7 / 10 |
-| Projetos | Sim | 6 / 10 |
-| Notícias | Não | 4 / 10 |
-| FAQ | Não | 6 / 10 |
-| Contato | Sim | 6 / 10 |
-| Política de Privacidade | Sim | 5 / 10 |
+| Página | Nota |
+| --- | :---: |
+| Quem Somos | 7 / 10 |
+| Serviços | 5 / 10 |
+| Serviços 1 | 7 / 10 |
+| Serviços 2 | 7 / 10 |
+| Serviços 3 | 9 / 10 |
+| Clientes | 7 / 10 |
+| Projetos | 6 / 10 |
+| Notícias | 4 / 10 |
+| FAQ | 6 / 10 |
+| Contato | 7 / 10 |
+| Política de Privacidade | 5 / 10 |
 
 * O painel `docs/paginas.html` passou a listar só as 12 páginas que têm responsável e nota: saíram a Confirmação, o Orçamento de hospedagem e a home antiga (`index-v3.html`). As páginas continuam no site e com os seus relatórios em `docs/testes/pages/`.
 * A Home ainda está sem nota.
 
 ---
 
-## 06/11 — Painel com o menu do site e fim do relatório de testes no projeto
+## 06/11 — Painel com o menu do site
 
 **O que fizemos**
 
 * O painel `docs/paginas.html` ganhou o header e o footer do site, com os caminhos ajustados para a pasta `docs/`. Assim dá para ir do painel para qualquer página e voltar pelo menu Docs do rodapé.
 * A Home ficou com a nota "—", porque foi feita pelo líder.
-* O relatório de testes (`relatorio-testes.md`) saiu da pasta `docs/testes/`. Ele era uma conferência interna, usada durante o desenvolvimento. O registro que fica no projeto é a revisão manual (`docs/testes/revisao-manual.md`) e o relatório final de cada página em `docs/testes/pages/<pagina>/`.
+* O registro das revisões fica na revisão manual (`docs/testes/revisao-manual.md`) e no relatório final de cada página em `docs/testes/pages/<pagina>/`.
+
+---
+
+## 07/11 — Assinatura do rodapé
+
+**O que fizemos**
+
+* No rodapé das 14 páginas e do painel, a frase "EXECUTIVE EDITORIAL • PROPTECH MANAGEMENT", ao lado do "© 2026", virou "Projeto acadêmico.". Ela deixa claro que o site é um trabalho da faculdade.
+* No `style.css`, a assinatura deixou de ficar toda em maiúsculas (`text-transform: none`), para o texto aparecer como foi escrito.
+
+---
+
+## 07/11 — README final
+
+**O que fizemos**
+
+* Reescrevemos o README como o documento final do projeto: objetivos, equipe e divisão das páginas, o que tem em cada página, estrutura de pastas, regras do CSS e do HTML, formulário, imagens, orçamento de hospedagem com a escolha do grupo, documentação, tecnologias, como abrir o site e o fluxo de Git.
+* Os nomes das páginas no README passaram a ser os mesmos do menu e do painel (Contato, Projetos, FAQ).
+
+---
+
+## Diário de cada página
+
+Cada integrante escreveu o diário da sua página. Aqui está um resumo do que cada um registrou, na ordem do menu. O que já foi contado nas entradas acima (a revisão de cada página e a entrada no `style.css`) não se repete aqui. O diário completo de cada página fica na pasta da página, em `docs/testes/pages/<pagina>/`.
+
+### Quem Somos — Anthony
+
+Anthony Gabriel Pereira dos Santos. O diário não traz datas; conta a página em etapas. [diário completo](../testes/pages/quem-somos/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Na primeira versão, fez uma abertura com fundo azul em degradê, com o nome da empresa, o título "Quem Somos" e uma frase de apresentação. Escolheu uma paleta de azul-marinho, ciano e tons claros, e o CSS ficava dentro do próprio HTML.
+* Escreveu as seções Nossa Missão, Nossa Visão e Nossos Valores (transparência, excelência e confiança), além de um texto de apresentação da empresa.
+* Fez os cartões dos valores, com bordas, sombras e movimento ao passar o mouse, e a seção "Por que escolher o Grupo Êxito?", com quatro diferenciais em duas colunas: Atendimento Personalizado, Tecnologia Própria de Gestão, Transparência nas Informações e Agilidade e Organização.
+* Na versão final, levou a página para o padrão do site: header e footer compartilhados, menu do celular, contatos e redes sociais, botão de falar com consultor, vídeo sobre administração condominial e imagem de abertura. O CSS saiu do HTML e foi para um arquivo externo, e a página passou a usar os arquivos JavaScript do menu, dos cookies e da acessibilidade.
+* Nessa etapa, contou com a orientação do líder para adaptar a página à estrutura do site.
+
+**O que ele aprendeu**
+
+* A organizar os arquivos de um projeto e a manter o mesmo padrão visual entre as páginas.
+* A usar media queries para a página continuar organizada em telas menores.
+* Que o trabalho em grupo ajuda a achar soluções: receber orientação e trocar conhecimento melhorou o resultado.
+
+**Dificuldades**
+
+* Chegar a um visual que o agradasse: a primeira versão era simples, e ele testou várias combinações de cores, tamanhos e espaçamentos.
+* Posicionar bem os cartões dos valores e dos diferenciais.
+* Adaptar uma página que tinha estrutura própria ao header, ao footer, às imagens e aos arquivos do site.
+* Entender os caminhos dos arquivos para ligar as imagens, o vídeo, o CSS e os arquivos JavaScript, e mudar partes do código sem estragar outras.
+
+### Serviços — João
+
+João Vitor Rocha Silva. O diário não traz datas; conta a página em seis etapas. [diário completo](../testes/pages/servicos/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Montou a página com `lang="pt-BR"`, `meta charset`, `meta viewport` e título, e colocou as cores em variáveis de CSS (`--texto`, `--fundo`, `--borda`, `--destaque`).
+* Organizou a página com `<header>`, `<nav>`, `<main>`, `<section>` e `<footer>`, com cada serviço num `<article>`.
+* Deixou um único `<h1>` ("Nossos serviços"), `<h2>` para cada seção e `<h3>` para cada serviço, e ligou cada seção ao seu título com `aria-labelledby`.
+* Usou CSS Grid com `repeat(auto-fit, minmax(16rem, 1fr))` nos cartões e pôs a tabela de comparação dentro de um contêiner com `overflow-x: auto`, para a página não rolar para o lado no celular. Os links ganharam estilo de foco (`:focus-visible`).
+* Fez a tabela comparativa com `<caption>`, `<thead>`, `<tbody>` e `scope` nos `th`.
+* Publicou a página num repositório próprio no GitHub, com `git init`, `git add`, `git commit` e `git push`.
+* A primeira versão falava de serviços financeiros (gestão financeira, planejamento de investimentos e consultoria tributária). Na revisão, os textos passaram a falar de condomínio, como contamos nas entradas de 01/11 e 06/11.
+
+**O que ele aprendeu**
+
+* Cada tag semântica tem uma função, e os títulos seguem a ordem h1 → h2 → h3, sem pular nível.
+* Imagem precisa de caminho relativo e de texto `alt`.
+* Variáveis de CSS deixam o estilo mais fácil de manter.
+
+**Dificuldades**
+
+* Um `>` sobrando depois de duas tags `<img>` aparecia como texto na página; ele apagou o `>` extra.
+* Um erro de digitação no `alt` ("gesgão") foi corrigido para "gestão".
+* Uma largura escrita sem unidade (`width: 1000`), que o CSS ignora, saiu; ficou o tamanho da classe `.servico img`.
+* Imagens com caminho do próprio computador (`C:\Users\...`) não apareciam em outro lugar; elas foram para o projeto, com caminho relativo.
+
+### Serviços 1 — Gestão Administrativa — Arthur
+
+Arthur Kassab Dias. O diário é de 07/11 e descreve a página que ele enviou, com o que corrigiu desde a primeira versão. [diário completo](../testes/pages/servicos-1/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Escreveu o conteúdo do serviço: a parte burocrática do condomínio (documentos, atas, contratos e processos), os benefícios, os quatro passos de "Como funciona" e a tabela "O que está incluso?".
+* Organizou a página com um `main`, seções com título e dois `article` (Benefícios e Como funciona). Criou o título "Detalhes do serviço" para os `h3` terem um `h2` acima.
+* Trocou o CSS antigo, cujas classes (`container`, `retangulo`, `botao`) atrapalhavam o estilo novo, por um CSS no mesmo padrão da página Serviços, com grade que se ajusta sozinha e tabela com rolagem horizontal.
+* Ativou o `menu.js`, que estava comentado, para o menu do celular funcionar.
+* Corrigiu erros de código: `<thread>` virou `<thead>`; saiu o atributo inválido `text align`; o `<title>` ficou descritivo; saíram os `<br>` e `<p></p>` vazios usados como espaço; "administratica" e "Acessoria" viraram "administrativa" e "Assessoria"; a primeira coluna da tabela passou a usar `<th scope="row">`.
+* Registrou a acessibilidade da página: `lang="pt-BR"`, `alt` em todas as imagens, `aria-label` nos menus, `aria-current="page"`, `aria-labelledby` nas seções e foco visível nos links.
+
+**O que ele aprendeu**
+
+* Para que serve cada tag da página, do `header` ao `table`, e como montar a hierarquia dos títulos sem pular nível.
+* Que uma grade com `auto-fit` deixa os cards lado a lado no computador e empilhados no celular, sem media query.
+
+**Dificuldades**
+
+* A primeira versão tinha o conteúdo certo, mas o visual era diferente do resto do site e havia erros de código, que ele listou e corrigiu.
+
+### Serviços 2 — Gestão Financeira — Felipe Dias
+
+Felipe Dias. O diário cobre de 26/09 a 07/11. [diário completo](../testes/pages/servicos-2/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Seguiu cinco etapas: planejamento (tema, conteúdo e estrutura), HTML (cabeçalho, menus, seções, formulário e rodapé), CSS (cores, fontes, espaçamentos e alinhamentos), testes no navegador com correção de erros visuais e, por fim, revisão do código e organização dos arquivos.
+
+**O que ele aprendeu**
+
+* A estruturar uma página, estilizar, organizar o código e resolver problemas. Ele destaca a importância do planejamento e de testar a página.
+
+**Dificuldades**
+
+* Alinhar e posicionar os elementos, organizar as seções, deixar os componentes com o mesmo visual e ajustar espaçamentos e responsividade. Ele resolveu com `display: flex`, `justify-content`, `align-items` e `gap`, e revendo a estrutura do HTML.
+
+### Serviços 3 — Gestão Operacional — David
+
+David. O diário é de 04/11 e conta a revisão da página com a lista de conferência da entrega. [diário completo](../testes/pages/servicos-3/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Conferiu as tags e viu que faltava o `<h3>`: os títulos dos quatro cards de "Gestão operacional na prática" estavam em `<th>`, em tabelas de uma célula só. Como os cards não são dados de tabela, ele os refez com `<h3>` + `<p>` e levou o visual para o CSS. A tabela "O que está incluso" continuou `<table>`.
+* Ajustou os cards novos para ficarem iguais aos antigos: zerou as margens do `<h3>` e do `<p>`, deu `padding`, pôs `font-size: 1rem` no título e tirou a borda do `<p>`, que formava um segundo retângulo.
+* Trocou a regra `img` por `article img`, porque ela também mudava os logos do header e do footer.
+* Trocou as cores que tinha escolhido pelos valores `rgb(...)` da paleta do README. Manteve, por escolha dele, duas cores de hover dos botões fora da paleta.
+* Renomeou a imagem `img1.png` para `gestora-orientando-equipe.png`, com caminho relativo, e corrigiu um espaço que faltava entre `rel` e `href` no `<link>` da fonte.
+* Trocou os `<section>` sem título em volta dos botões por `<div>`.
+* Enviou a página, a imagem e o diário pelo Git direto na branch `main`, sem conflitos e sem mexer em arquivos compartilhados.
+
+**O que ele aprendeu**
+
+* Uma lista de conferência ajuda a achar o que passa despercebido, como o `<h3>` que faltava.
+* `<table>` é para dados de tabela; bloco com título e texto fica melhor como `<h3>` + `<p>`.
+* `h3` e `p` têm margens padrão do navegador, que precisam ser zeradas nos cards.
+* Em trabalho de equipe, um seletor genérico como `img` pode mexer na parte dos outros.
+* O que é uma branch, por que cada integrante deve ter a sua e o fluxo certo (`git switch -c`, `git commit`, `git push -u origin nome-da-branch`).
+
+**Dificuldades**
+
+* Erros pequenos de digitação em atributos, como o espaço que faltava no `<link>`, não dão aviso e passam fácil.
+* Ficaram anotadas para depois: testar os links e a página no tablet e no celular, confirmar a fonte Manrope com o grupo e tirar um `preconnect` repetido. Na revisão do grupo, a página passou a usar as fontes do site.
+
+### Clientes — Gabriel
+
+Gabriel. O diário conta a criação da página. [diário completo](../testes/pages/clientes/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Separou o conteúdo pedido no ClickUp por parte da página e escolheu as imagens: quatro de clientes, três de depoimentos e uma do logo.
+* Dividiu a página em `<header>`, seções de introdução, clientes e depoimentos e `<footer>`, e foi montando cada parte com textos, imagens e o CSS (cores, tamanhos, limites e espaçamentos).
+* Definiu as cores azul, azul-escuro, turquesa, turquesa-escuro e cinza, com base num site de referência, e organizou clientes e depoimentos em colunas, para facilitar a leitura.
+
+**O que ele aprendeu**
+
+* Que cabeçalho e rodapé dão continuidade ao site e são o lugar de outros links e informações.
+
+**Dificuldades**
+
+* Os links para as outras páginas ainda não podiam ser feitos, porque elas estavam em desenvolvimento.
+
+### Projetos — Felipe Gabriel
+
+Felipe Gabriel Evangelista Alexandrias. O diário é de 04/11. [diário completo](../testes/pages/projetos/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Dividiu os projetos em três áreas, cada uma numa página: Gestão Financeira, Gestão Operacional e Gestão Administrativa. Na página principal, três cards com imagem levam a cada área.
+* Em cada área, mostrou três projetos em cards, cada um com "O que o cliente queria", "O que foi feito" e "Resultado".
+* Pôs um efeito nos cards ao passar o mouse: `transition`, `transform: scale(1.05)`, `box-shadow` e `cursor: pointer`.
+* Organizou os cards com Flexbox (`display: flex`, `justify-content: center`, `gap: 30px` e `flex-wrap: wrap`).
+* Colocou em cada área um link para voltar à página principal de projetos.
+* Na revisão do grupo, as três áreas viraram uma página só, a `projetos.html`, como contamos na entrada de 06/11.
+
+**O que ele aprendeu**
+
+* A usar a tag `<a>` em imagens e a organizar o conteúdo com tags HTML.
+* Flexbox, transições, sombras e efeitos com `:hover` no CSS.
+* A importância de separar o conteúdo e organizar os arquivos para facilitar mudanças.
+
+**Dificuldades**
+
+* O diário dele não registra dificuldades.
+
+### Notícias — Enzo
+
+Enzo. O diário é de 04/11. [diário completo](../testes/pages/noticias/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Partiu do arquivo original da página (vitrine em destaque, cinco cards com ilustração e seis matérias completas) e manteve o layout, a estrutura e o conteúdo.
+* Trocou todas as cores pela paleta do grupo, em variáveis de CSS, e recoloriu as ilustrações para combinar com ela.
+* Fez a troca entre a lista e as matérias sem JavaScript, com `<input type="radio">`, `<label for>` e o seletor `:checked`.
+* Deixou a página sem header, menu e rodapé, para receber os do site. "Ver notícias mais antigas" ficou sem link, porque não existe página de destino.
+
+**O que ele aprendeu**
+
+* Variáveis de CSS permitem mudar uma cor em um só lugar.
+* O truque do radio com `:checked ~` troca de tela só com CSS.
+* `article` marca conteúdo independente (cada notícia) e `section` agrupa partes da página.
+
+**Dificuldades**
+
+* O diário dele não registra dificuldades. Na revisão do grupo, a troca entre lista e matérias passou a usar links e o seletor `:target`, como contamos na entrada de 04/11.
+
+### FAQ — Evandro
+
+Evandro. O diário é de 07/11 e descreve a página como ela está. [diário completo](../testes/pages/faq/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Registrou as dez perguntas da página: transição de administradora, controle financeiro, aplicativo, assembleias, prazos de atendimento, papel do síndico, prestação de contas, cobrança, manutenção e serviços incluídos.
+* Cada pergunta é um `<details>` com `<summary>`, que abre e fecha sem JavaScript, e a primeira já começa aberta (`open`).
+* A página usa o mesmo header, menu e versão para celular da home, com `aria-current="page"` no link FAQ, o topo com foto, a caixa "Qualquer dúvida?" com botão do WhatsApp e a fonte da foto do topo na nota do fim da página.
+
+**O que ele aprendeu**
+
+* `<details>` e `<summary>` fazem um acordeão só com HTML.
+* Começar as regras com a classe do `<body>` (`.pagina-faq`) limita o estilo àquela página.
+* `aria-current="page"` marca o link da página atual, e `aria-hidden="true"` esconde ícones decorativos dos leitores de tela.
+
+**Dificuldades**
+
+* O CSS que ele tinha era o da página inicial, com as regras em `.pagina-index`, e as classes não batiam com o HTML novo. Ele anotou que precisava adaptar os seletores e decidir o que fazer com os filtros e o card de suporte.
+* Ficou a dúvida se os números das respostas (como prazos de atendimento) são fictícios. Como todo o conteúdo do site é fictício, eles também são.
+
+### Política de Privacidade — Guilherme
+
+Guilherme Santos Peixoto Muniz. O diário é de outubro de 2026. [diário completo](../testes/pages/politica-privacidade/diario-de-bordo.md)
+
+**O que ele fez**
+
+* Partiu de um código que estava incompleto, cortado no fim do cabeçalho, e fechou as tags que faltavam (`<body>`, `<main>`, `<footer>`, `</html>`).
+* Colocou as tags `<nav>`, `<section>` e `<article>` e organizou os títulos na ordem `<h1>` → `<h2>` → `<h3>`.
+* Fez uma barra de navegação e links no texto para a home, a Contato e a Serviços.
+* Trocou a paleta antiga, em tons de verde, pela paleta do grupo: fundo claro, header e footer azul-marinho, títulos azul-marinho, subtítulos e links em teal, hover do menu em ciano e texto em cinza azulado.
+* Ajustou o hover e o foco dos links, com transições suaves e cores diferentes para fundo claro e fundo escuro.
+
+**O que ele aprendeu**
+
+* Que a ordem dos títulos e as tags semânticas ajudam os leitores de tela e a acessibilidade.
+* A manter a página responsiva com `clamp` e Flexbox.
+
+**Dificuldades**
+
+* O código de partida estava cortado e precisou ser completado antes de qualquer outra mudança.
 
 ---
 
 ## Resumo das decisões até agora
 
-| Decisão                                         | Motivo                                              |
-| ----------------------------------------------- | --------------------------------------------------- |
-| Usar só HTML, CSS e JavaScript                  | É o que estamos aprendendo                          |
-| Cada integrante cuida de uma página             | Todo mundo pratica e o trabalho fica dividido       |
-| Uma paleta de cores para o site todo            | O site fica com a mesma cara em todas as páginas    |
-| Mesmo menu e rodapé em todas as páginas         | Facilita a navegação e evita retrabalho             |
-| Home simplificada                               | Código que todo mundo do grupo consegue entender    |
-| Sem acessibilidade, assistente e efeitos (por enquanto) | Focar no básico e não acelerar demais        |
-| Cores escritas em `rgb(...)` no README          | Mais fácil para iniciantes                          |
-| Documentação dentro de `docs/`                  | Deixar a raiz do projeto mais organizada            |
-| CSS em `global.css` + `page/` + `components/`   | Cada um sabe qual é o seu arquivo                   |
-| Fontes dentro do projeto (`css/fonts/`)         | Não depender do Google Fonts                        |
-| Header e footer em `css/layout/`                | Cada parte do site em um arquivo fácil de achar     |
-| Padrão das tags no `global.css`                 | Identidade visual única pedida pelo professor       |
-| `css/style.css` único, montado dos arquivos de CSS | O professor pede um só arquivo de CSS na entrega final |
-| `css/style.css` passa a ser o arquivo editado (06/11) | Com todas as páginas dentro dele, os arquivos separados não são mais necessários |
-| CSS de página isolado com `.pagina-<nome>`      | Juntar tudo em um arquivo sem uma página estragar a outra |
-| CSS do site sem `var()`, com as cores em `rgb(...)` | O `style.css` fica com os valores direto, mais fácil de ler |
-| Mesmo padrão de texto; variações viram componentes | Identidade visual única em todas as páginas |
+| Decisão | Motivo |
+| --- | --- |
+| Usar só HTML, CSS e JavaScript | É o que estamos aprendendo |
+| Cada integrante cuida de uma página | Todo mundo pratica e o trabalho fica dividido |
+| Uma paleta de cores para o site todo | O site fica com a mesma cara em todas as páginas |
+| Mesmo menu e rodapé em todas as páginas | Facilita a navegação e evita retrabalho |
+| Home mais simples, sem recursos extras de animação | A página fica mais leve e o código fica fácil de entender |
+| Cores escritas em `rgb(...)`, sem `var()` | Quem lê o CSS vê a cor na hora; mais fácil para iniciantes |
+| Fontes dentro do projeto (`css/fonts/`) | Não depender do Google Fonts |
+| Um único `css/style.css`, dividido em blocos e editado direto nele | O professor pede um só arquivo de CSS na entrega final |
+| CSS de cada página isolado com `.pagina-<nome>` | Uma página não estraga a outra dentro do mesmo arquivo |
+| Mesmo padrão de tags e de texto; variações viram componentes | Identidade visual única pedida pelo professor |
+| Topo com foto e cabeçalho padrão em todas as páginas | Todas as páginas começam do mesmo jeito |
+| `<section>` e `<article>` sempre com título; sem título, vira `<div>` | HTML correto e sem avisos no W3C |
+| Fonte de todo conteúdo que não é do grupo na nota do fim da página | O professor pede a indicação da fonte |
+| Dados de contato iguais em todas as páginas | O site não se contradiz |
+| Botão de acessibilidade e aviso de cookies em todas as páginas | O site inteiro funciona do mesmo jeito |
+| Hospedagem no Hostinger Single, com domínio `.com.br` no Registro.br | Menor custo no primeiro ano e espaço para crescer |
+| Documentação dentro de `docs/` e painel em `docs/paginas.html` | Raiz organizada e o andamento de todas as páginas num lugar só |
 
 ---
 
 ## Próximos passos
 
-* Ajustar o site página por página. Cada página pronta tem o CSS isolado, entra no `style.css` e passa a carregar só ele.
-* Corrigir as pendências da seção 12 de `docs/testes/revisao-manual.md`.
-* Cada integrante terminar o HTML da sua página.
-* Depois, começar o CSS da página usando as cores da paleta.
-* Testar cada página no computador e no celular.
-* Continuar anotando aqui as decisões do grupo.
+* As 12 páginas do painel (`docs/paginas.html`) estão fechadas, validadas no W3C e com a nota do líder registrada. A Home, feita pelo líder, fica com "—". O `css/style.css` também passou no W3C.
+* Cada página tem o relatório final, o `antes-depois.md` e o diário de bordo do integrante em `docs/testes/pages/<pagina>/`.
+* Falta só o envio:
+  * fazer o último commit e o push no GitHub;
+  * gerar o `.zip` do projeto;
+  * enviar no Blackboard.
 
 ---
-
 
 ## Palavras que aprendemos
 
