@@ -3058,100 +3058,85 @@ body.ck-aberto {
    dos cards usam o .ex-sobretitulo, o "Resultado" usa o .ex-etiqueta e a
    nota do fim usa o .ex-nota. */
 
-/* Foto do topo (componente .ex-hero). O espaço de 50px abaixo do topo vem
-   do próprio componente. */
-.pagina-projetos .ex-hero {
-    background-image: url("../img/projetos/hero.jpg");
-}
 
-/* ---- Áreas (Financeira, Operacional, Administrativa) -------------------- */
-
-/* Espaço entre as áreas e desconto do header fixo ao clicar num atalho */
-.pagina-projetos .area {
-    margin-bottom: 60px;
-    scroll-margin-top: 140px;
-}
-
-.pagina-projetos .area h2 {
-    margin: 0 0 24px;
-}
-
-/* Grade dos cards: 1 coluna no celular (3 no computador, lá embaixo) */
-.pagina-projetos .grade-projetos {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
-
-/* ---- Card de projeto ---------------------------------------------------- */
-.pagina-projetos .projeto {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-radius: 1.5rem;
-    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
-}
-
-/* Foto do card: largura toda e altura fixa, cortando o que sobrar */
-.pagina-projetos .projeto img {
-    display: block;
+.pagina-projetos .headerconteudo {
+    color: white;
+    padding: 0;
+    margin: 0;
+    background-color: #172b44;
     width: 100%;
-    height: 210px;
-    object-fit: cover;
-    border-bottom: 1px solid rgb(226, 232, 240);
-}
-
-/* Textos do card. O flex deixa o "Resultado" sempre no pé do card. */
-.pagina-projetos .projeto__texto {
+    height: 100px;
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 24px;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
 }
 
-.pagina-projetos .projeto__texto h3 {
-    margin: 0 0 16px;
+.pagina-projetos .headerconteudo>a:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    margin-left: 0;
 }
 
-.pagina-projetos .projeto__texto p {
-    margin: 0 0 16px;
+.pagina-projetos .headerconteudo h1 {
+    margin: 0;
+    margin-left: 600px;
+    font-size: 24px;
+    color: white;
+    line-height: 1;
 }
 
-/* Resultado em destaque: caixa clara com faixa teal à esquerda */
-.pagina-projetos .projeto__texto .projeto__resultado {
-    margin: auto 0 0;
-    padding: 14px 16px;
-    background: rgb(241, 245, 249);
-    border-left: 4px solid rgb(0, 104, 118);
-    border-radius: 0.75rem;
+.pagina-projetos .card {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* flex-wrap: wrap; */
+    padding: 30px 20px;
 }
 
-/* A etiqueta "Resultado" fica numa linha só, acima do texto */
-.pagina-projetos .projeto__resultado .ex-etiqueta {
-    margin-bottom: 8px;
+.pagina-projetos .projeto {
+    width: 550px;
+    height: 550px;
+    background: #f3f5f8;
+    border: 1px solid #dfe7f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
 }
 
-.pagina-projetos .projeto__resultado strong {
+.pagina-projetos .projeto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 22px rgba(23, 43, 68, 0.18);
+}
+
+.pagina-projetos .projeto img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     display: block;
 }
 
-/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
-   alinhamento, iguais aos da FAQ) */
-.pagina-projetos .nota-fonte {
-    margin: 60px 0 0;
-    padding: 20px 5%;
-    text-align: center;
+.pagina-projetos .projeto h3,
+.pagina-projetos .projeto p {
+    margin: 0;
+    padding: 12px 15px;
 }
 
-/* ---- Tamanhos de tela --------------------------------------------------- */
+.pagina-projetos .projeto h3 {
+    color: #172b44;
+    font-size: 20px;
+}
 
-/* A partir de 900px: três cards lado a lado */
-@media (min-width: 900px) {
-    .pagina-projetos .grade-projetos {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.pagina-projetos .projeto p {
+    color: #4a5563;
+    padding-top: 0;
+    padding-bottom: 18px;
 }
 
 
@@ -4427,9 +4412,7 @@ body.ck-aberto {
    os espaços e as caixas. */
 
 
-.pagina-noticias .noticias-pagina {
-
-}
+.pagina-noticias .noticias-pagina {}
 
 .pagina-noticias .noticias-pagina * {
     box-sizing: border-box;
@@ -4441,9 +4424,7 @@ body.ck-aberto {
     margin: 0 auto;
 }
 
-.pagina-noticias .noticias-topo h1 {
-
-}
+.pagina-noticias .noticias-topo h1 {}
 
 .pagina-noticias .noticias-intro {
     font-size: 20px;

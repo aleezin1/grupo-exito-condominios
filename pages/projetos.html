@@ -17,7 +17,6 @@
 </head>
 
 <body class="pagina-projetos">
-    <!-- HEADER COMPARTILHADO (igual ao da home) -->
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -98,213 +97,41 @@
             </nav>
         </div>
     </header>
-    <main>
-        <!-- TOPO com foto (componente .ex-hero) -->
-        <section class="ex-hero">
-            <div class="ex-hero__pelicula"></div>
-            <div class="ex-hero__conteudo">
-                <span class="ex-hero__rotulo">Projetos</span>
-                <h1 class="ex-hero__titulo">Projetos para
-                    <strong>administração de condomínios</strong>
-                </h1>
-                <p class="ex-hero__texto">
-                    Confira alguns projetos que realizamos
-                </p>
+
+    <main class="ex-container">
+        <h1>Aqui estão os projetos</h1>
+        <p>que fizemos para alguns clientes</p>
+
+        <section class="card">
+            <div class="projeto">
+                <a href="projeto-gestaofinanceira.html">
+                    <img src="../img/projetos/alto-dos-jardins.jpg" width="1200" height="675"
+                        alt="Card do Condomínio Alto dos Jardins: portaria com palmeiras e prédios ao fundo, resultado de 40% a menos de inadimplência em 6 meses e depoimento do síndico João Pedro.">
+                </a>
+                <h3>Gestão Financeira</h3>
+                <p>clique na imagem acima para ver os projetos de Gestão financeira</p>
+            </div>
+            <div class="projeto">
+                <a href="projeto-gestaooperacional.html">
+                    <img src="../img/projetos/alameda-das-quaresmeiras.jpg" alt="Projeto 2">
+                </a>
+                <h3>Gestão Operacional</h3>
+                <p>clique na imagem acima para ver os projetos de Gestão Operacional</p>
+            </div>
+            <div class="projeto">
+                <a href="projeto-gestaoadministrativa.html">
+                    <img src="../img/projetos/caminho-do-sol.jpg" alt="Projeto 3">
+                </a>
+                <h3>Gestão Administrativa</h3>
+                <p>clique na imagem acima para ver os projetos de Gestão Administrativa</p>
             </div>
         </section>
-
-        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
-        <div class="ex-container">
-
-            <!-- CABEÇALHO da página -->
-            <section class="projetos-intro" aria-labelledby="titulo-projetos">
-                <div class="ex-cabecalho">
-                    <h2 id="titulo-projetos">Aqui estão os projetos</h2>
-                    <p class="ex-subtitulo">que fizemos para alguns clientes</p>
-                </div>
-
-            </section>
-
-            <!-- ÁREA 1: GESTÃO FINANCEIRA -->
-            <section class="area" id="financeira" aria-labelledby="titulo-financeira">
-                <h2 id="titulo-financeira">Gestão Financeira</h2>
-
-                <div class="grade-projetos">
-                    <!-- Projeto: Alto dos Jardins -->
-                    <article class="projeto">
-                        <img src="../img/projetos/alto-dos-jardins.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Alto dos Jardins: portaria com palmeiras e prédios ao fundo, resultado de 40% a menos de inadimplência em 6 meses e depoimento do síndico João Pedro.">
-                        <div class="projeto__texto">
-                            <h3>Alto dos Jardins</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Reduzir a inadimplência dos moradores e recuperar o equilíbrio financeiro do
-                                condomínio.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implantação de uma nova política de cobrança, com acompanhamento próximo dos
-                                moradores.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 40% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Parque Villa-Lobos -->
-                    <article class="projeto">
-                        <img src="../img/projetos/parque-villa-lobos.jpg" width="1200" height="675"
-                            alt="Card do Parque Villa-Lobos: entrada com o letreiro do condomínio entre palmeiras, resultado de 45% a menos de inadimplência em 6 meses e depoimento da síndica Carla Menezes.">
-                        <div class="projeto__texto">
-                            <h3>Parque Villa-Lobos</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Melhorar o controle dos pagamentos e diminuir a quantidade de taxas condominiais em
-                                atraso.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implantação de um novo processo de cobrança e acompanhamento financeiro por meio da
-                                tecnologia.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 45% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Mirante de Pinheiros -->
-                    <article class="projeto">
-                        <img src="../img/projetos/mirante-de-pinheiros.jpg" width="1200" height="675"
-                            alt="Card do Mirante de Pinheiros: portaria do condomínio com a ponte estaiada ao fundo, resultado de 35% a menos de inadimplência em 6 meses e depoimento da síndica Luciana Andrade.">
-                        <div class="projeto__texto">
-                            <h3>Mirante de Pinheiros</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Ter maior controle sobre as taxas condominiais e melhorar a saúde financeira do
-                                condomínio.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implantação de uma gestão financeira mais ativa, com cobrança automatizada e maior
-                                transparência nas contas.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 35% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- ÁREA 2: GESTÃO OPERACIONAL -->
-            <section class="area" id="operacional" aria-labelledby="titulo-operacional">
-                <h2 id="titulo-operacional">Gestão Operacional</h2>
-
-                <div class="grade-projetos">
-                    <!-- Projeto: Essência Moema -->
-                    <article class="projeto">
-                        <img src="../img/projetos/essencia-moema.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Essência Moema: entrada envidraçada com o nome do condomínio no muro, resultado de 40% a menos de inadimplência em 6 meses e depoimento do síndico João Pedro.">
-                        <div class="projeto__texto">
-                            <h3>Essência Moema</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Reduzir a inadimplência dos moradores e melhorar a organização da gestão
-                                condominial.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implementação de novos processos de cobrança e acompanhamento financeiro mais
-                                próximo.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 40% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Alameda das Quaresmeiras -->
-                    <article class="projeto">
-                        <img src="../img/projetos/alameda-das-quaresmeiras.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Alameda das Quaresmeiras: portaria com jardim e prédios ao fundo, resultado de 60% a menos de ocorrências em 6 meses e depoimento da síndica Mariana Costa.">
-                        <div class="projeto__texto">
-                            <h3>Alameda das Quaresmeiras</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Melhorar a organização da equipe de portaria e diminuir as ocorrências no
-                                condomínio.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Reestruturação da equipe, revisão dos processos e implantação de um controle de
-                                acesso mais eficiente.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 60% nas ocorrências em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Pátio Itaim -->
-                    <article class="projeto">
-                        <img src="../img/projetos/patio-itaim.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Pátio Itaim: entrada moderna com o nome do condomínio no muro de pedra, resultado de 35% a menos de inadimplência em 6 meses e depoimento do síndico Ricardo Almeida.">
-                        <div class="projeto__texto">
-                            <h3>Pátio Itaim</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Reduzir a inadimplência e melhorar a organização dos processos de gestão.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implementação de processos de cobrança e acompanhamento financeiro mais próximo.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 35% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- ÁREA 3: GESTÃO ADMINISTRATIVA -->
-            <section class="area" id="administrativa" aria-labelledby="titulo-administrativa">
-                <h2 id="titulo-administrativa">Gestão Administrativa</h2>
-
-                <div class="grade-projetos">
-                    <!-- Projeto: Caminho do Sol -->
-                    <article class="projeto">
-                        <img src="../img/projetos/caminho-do-sol.jpg" width="1200" height="676"
-                            alt="Card do Condomínio Caminho do Sol: portaria com o desenho de um sol no muro, resultado de 40% a menos de inadimplência em 6 meses e depoimento da síndica Fernanda Lima.">
-                        <div class="projeto__texto">
-                            <h3>Caminho do Sol</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Melhorar a organização administrativa e solucionar dificuldades relacionadas ao
-                                controle financeiro.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Reestruturação dos processos administrativos e implantação de um acompanhamento
-                                financeiro mais eficiente.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 40% na inadimplência em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Reserva da Cantareira -->
-                    <article class="projeto">
-                        <img src="../img/projetos/reserva-da-cantareira.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Reserva da Cantareira: portaria com o desenho de uma serra no muro, resultado de 50% a menos de demandas administrativas em 6 meses e depoimento da síndica Camila Menezes.">
-                        <div class="projeto__texto">
-                            <h3>Reserva da Cantareira</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Reduzir os processos administrativos manuais e melhorar o acompanhamento
-                                financeiro.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Centralização da gestão, organização dos controles financeiros e suporte consultivo
-                                contínuo.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 50% nas demandas administrativas em 6 meses.</strong></p>
-                        </div>
-                    </article>
-
-                    <!-- Projeto: Vila das Hortênsias -->
-                    <article class="projeto">
-                        <img src="../img/projetos/vila-das-hortensias.jpg" width="1200" height="675"
-                            alt="Card do Condomínio Vila das Hortênsias: portaria cercada de hortênsias azuis, resultado de 45% a menos de demandas administrativas em 6 meses e depoimento da síndica Juliana Martins.">
-                        <div class="projeto__texto">
-                            <h3>Vila das Hortênsias</h3>
-                            <p><span class="ex-sobretitulo">O que o cliente queria:</span>
-                                Melhorar a organização dos processos administrativos e o controle financeiro.</p>
-                            <p><span class="ex-sobretitulo">O que foi feito:</span>
-                                Implementação de uma gestão administrativa com processos mais claros e
-                                acompanhamento contínuo.</p>
-                            <p class="projeto__resultado"><span class="ex-etiqueta">Resultado</span>
-                                <strong>Redução de 45% nas demandas administrativas em 6 meses.</strong></p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- Nota sobre os projetos e as imagens -->
-            <p class="ex-nota nota-fonte">
-                Projetos e resultados fictícios, criados para um projeto acadêmico. Imagens: Pixabay / gerado por IA.
-                Foto do topo: Pixabay / gerado por IA.
-            </p>
-        </div>
+        <p class="ex-nota nota-fonte">
+            Projetos e resultados fictícios, criados para um projeto acadêmico. Imagens: Pixabay / gerado por IA.
+            Foto do topo: Pixabay / gerado por IA.
+        </p>
     </main>
-
-    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
+    
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
@@ -352,7 +179,8 @@
                             <a href="faq.html">FAQ &amp; Dúvidas</a>
                             <a href="contato.html">Fale Conosco</a>
                             <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
-                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial
+                                →</a>
                         </div>
                     </nav>
                     <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
@@ -364,7 +192,9 @@
                 </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a
+                        href="politica-privacidade.html">Política de Privacidade</a> <a
+                        href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">Projeto acadêmico.</p>
             </div>
         </div>
@@ -372,5 +202,6 @@
     <script src="../js/menu.js"></script>
     <script src="../js/cookies.js"></script>
 </body>
+
 
 </html>
