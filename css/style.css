@@ -2990,6 +2990,54 @@ body.ck-aberto {
 }
 
 
+
+.pagina-servicos .servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.pagina-servicos .servico {
+    border-top: 3px solid var(--destaque);
+    padding-top: 1rem;
+}
+
+
+.pagina-servicos .tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.pagina-servicos table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 36rem;
+}
+
+.pagina-servicos caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-bottom: .75rem;
+}
+
+.pagina-servicos th,
+.pagina-servicos td {
+    border: 1px solid var(--borda);
+    padding: .6rem .75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pagina-servicos thead th {
+    background: #eef3ef;
+}
+
+.pagina-servicos .chamada {
+    margin-top: 2.5rem;
+}
+
 /* ##########################################################################
    PÁGINA: projetos.html
    ########################################################################## */
