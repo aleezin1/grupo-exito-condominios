@@ -5331,94 +5331,69 @@ body.ck-aberto {
     padding-bottom: 1.5rem;
 }
 
-/* Contorno do foco do teclado nos links do conteúdo (teal da paleta) */
-.pagina-servicos-1 main a:focus-visible {
-    outline: 3px solid rgb(0, 104, 118);
-    outline-offset: 2px;
+:root {
+    --texto: #1c2b26;
+    --fundo: #fbfaf7;
+    --borda: #d9d6cc;
+    --destaque: #06152d;
+    --destaque-suave: #e8edf5;
 }
 
-/* ---- Detalhes do serviço: 2 cards ---------------------------------------
-   Grade automática: cada card tem no mínimo 16rem. No computador ficam 2
-   lado a lado; no celular, um embaixo do outro. Cada card tem uma linha de
-   destaque teal em cima (a mesma dos cards da página Serviços). */
-.pagina-servicos-1 .servicos-grade {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 1.5rem;
+.pagina-servicos-1 .foto {
+    width: 100%;
+    max-height: 22rem;
+    object-fit: cover;
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.pagina-servicos-1 .detalhes {
     margin-top: 2rem;
 }
 
-.pagina-servicos-1 .servico {
-    padding: 1.5rem;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-top: 3px solid rgb(0, 104, 118);
-    border-radius: 0.75rem;
-    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
-}
-
-.pagina-servicos-1 .servico h3 {
-    margin: 0 0 0.5rem;
-}
-
-/* Listas dos cards: sem espaço sobrando embaixo */
-.pagina-servicos-1 .servico ul,
-.pagina-servicos-1 .servico ol {
-    margin: 0;
-}
-
-/* ---- O que está incluso: tabela -----------------------------------------
-   Bordas e cabeçalho vêm do padrão das tags (bloco GLOBAL). */
-
-/* Espaço entre os cards e a tabela */
-.pagina-servicos-1 .incluso {
-    margin-top: 4rem;
-}
-
-.pagina-servicos-1 .incluso h2 {
-    margin-top: 0;
-}
-
-/* No celular a tabela rola para o lado dentro desta caixa */
-.pagina-servicos-1 .tabela-wrapper {
-    overflow-x: auto;
+.pagina-servicos-1 .servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
     margin-top: 1rem;
 }
 
-/* Largura mínima para as colunas não ficarem espremidas */
-.pagina-servicos-1 .tabela-wrapper table {
+.pagina-servicos-1 .servico {
+    border-top: 3px solid var(--destaque);
+    padding-top: 1rem;
+}
+
+.pagina-servicos-1 .servico ul,
+.pagina-servicos-1 .servico ol {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.pagina-servicos-1 .tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.pagina-servicos-1 table {
+    border-collapse: collapse;
+    width: 100%;
     min-width: 20rem;
 }
 
-/* Legenda da tabela alinhada à esquerda, com espaço até a tabela */
-.pagina-servicos-1 caption {
+.pagina-servicos-1 th,
+.pagina-servicos-1 td {
+    border: 1px solid var(--borda);
+    padding: .6rem .75rem;
     text-align: left;
-    padding-bottom: 0.75rem;
+    vertical-align: top;
 }
 
-/* ---- Botões do fim (componente .ex-botao), lado a lado no centro -------
-   Iguais aos da Serviços 3. O flex-wrap deixa um botão ir para baixo do
-   outro quando falta espaço; o margin-top separa da tabela acima. */
-.pagina-servicos-1 .conteiner-link-flex {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+.pagina-servicos-1 thead th {
+    background: var(--destaque-suave);
+}
+
+.pagina-servicos-1 .chamada {
     margin-top: 2.5rem;
-}
-
-/* Fonte das fotos: nota discreta no fim da página (texto: componente
-   .ex-nota; aqui só o espaço e o alinhamento, iguais aos da Serviços) */
-.pagina-servicos-1 .nota-fonte {
-    padding: 20px 5%;
-    text-align: center;
-}
-
-/* Celular: botões mais próximos */
-@media (max-width: 640px) {
-    .pagina-servicos-1 .conteiner-link-flex {
-        gap: 16px;
-    }
 }
 
 
