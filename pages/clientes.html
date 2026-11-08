@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes | Grupo Êxito Condomínios</title>
-    <meta name="description"
-        content="Condomínios e empresas que confiam no trabalho do Grupo Êxito e o que eles dizem sobre nós.">
+
+    <title>Clientes - Grupo Êxito Condomínios</title>
+
     <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#06152d">
@@ -15,10 +15,15 @@
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/acessibilidade.js"></script>
+
+    <style>
+        
+
+    </style>
 </head>
 
 <body class="pagina-clientes">
-    <!-- HEADER COMPARTILHADO (igual ao da home) -->
+
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -100,165 +105,232 @@
         </div>
     </header>
 
-    <main>
-        <!-- TOPO com foto (componente .ex-hero) -->
-        <section class="ex-hero">
-            <div class="ex-hero__pelicula"></div>
-            <div class="ex-hero__conteudo">
-                <!-- Os títulos e rótulos aparecem em maiúsculas pelo CSS (text-transform) -->
-                <span class="ex-hero__rotulo">Clientes</span>
-                <h1 class="ex-hero__titulo">
-                    Empresas e condomínios
-                    <strong>que confiam no nosso trabalho.</strong>
-                </h1>
-                <p class="ex-hero__texto">
-                    Construímos parcerias de longo prazo.
-                </p>
-            </div>
-        </section>
+    <section class="ex-hero">
+        <div class="ex-hero__pelicula"></div>
+        <div class="ex-hero__conteudo">
+            <!-- Os títulos e rótulos aparecem em maiúsculas pelo CSS (text-transform) -->
+            <span class="ex-hero__rotulo">Clientes</span>
+            <h1 class="ex-hero__titulo">
+                Empresas e condomínios
+                <strong>que confiam no nosso trabalho.</strong>
+            </h1>
+            <p class="ex-hero__texto">
+                Construímos parcerias de longo prazo.
+            </p>
+        </div>
+    </section>
 
-        <!-- CLIENTES: um <article> para cada condomínio ou empresa -->
-        <section class="clientes" aria-labelledby="titulo-clientes">
-            <div class="ex-container">
 
-                <div class="ex-cabecalho">
-                    <h2 id="titulo-clientes">Fazem parte da nossa história.</h2>
-                    <p class="ex-subtitulo">Atendemos diversos condomínios e empresas com soluções
-                        personalizadas e eficientes.</p>
+
+
+    <section class="clientes">
+
+        <div class="container">
+
+            <h2 class="titulo">
+                CONDOMÍNIOS E EMPRESAS
+                <br>
+                QUE FAZEM PARTE DA NOSSA HISTÓRIA.
+            </h2>
+
+            <p class="subtitulo">
+                Atendemos diversos condomínios e empresas com soluções
+                personalizadas e eficientes.
+            </p>
+
+
+
+
+            <div class="clientes-grid">
+
+
+
+                <div class="cliente-card">
+
+                    <div class="cliente-img">
+                        <img src="../img/clientes/condominio-jardins.jpg" alt="Condomínio Jardins">
+                    </div>
+
+                    <span>CONDOMÍNIO</span>
+
+                    <h3>JARDINS</h3>
+
                 </div>
 
-                <div class="clientes-grid">
-                    <article class="cliente-card">
-                        <div class="cliente-img">
-                            <img src="../img/clientes/condominio-jardins.jpg" alt="Condomínio Jardins">
-                        </div>
-                        <span class="ex-sobretitulo">Condomínio</span>
-                        <h3>Jardins</h3>
-                    </article>
 
-                    <article class="cliente-card">
-                        <div class="cliente-img">
-                            <img src="../img/clientes/condominio-aurora.jpg" alt="Edifício Aurora">
-                        </div>
-                        <span class="ex-sobretitulo">Edifício</span>
-                        <h3>Aurora</h3>
-                    </article>
 
-                    <article class="cliente-card">
-                        <div class="cliente-img">
-                            <img src="../img/clientes/condominio-vila-verde.jpg" alt="Condomínio Vila Verde">
-                        </div>
-                        <span class="ex-sobretitulo">Condomínio</span>
-                        <h3>Vila Verde</h3>
-                    </article>
 
-                    <article class="cliente-card">
-                        <div class="cliente-img">
-                            <img src="../img/clientes/empresarial-pinheiros.jpg" alt="Empresarial Pinheiros">
-                        </div>
-                        <span class="ex-sobretitulo">Empresarial</span>
-                        <h3>Pinheiros</h3>
-                    </article>
+                <div class="cliente-card">
+
+                    <div class="cliente-img">
+                        <img src="../img/clientes/condominio-aurora.jpg" alt="Edifício Aurora">
+                    </div>
+
+                    <span>EDIFÍCIO</span>
+
+                    <h3>AURORA</h3>
+
                 </div>
-            </div>
-        </section>
-
-        <!-- DEPOIMENTOS: cada um é um <figure> com a citação (<blockquote>) e quem disse (<figcaption>) -->
-        <section class="depoimentos">
 
 
-            <div class="ex-container">
-                <h2>
-                    O que nossos clientes dizem<br>
-                    sobre o nosso trabalho.
-                </h2>
 
-                <div class="depoimentos-grid">
-                    <!-- DEPOIMENTO 1 -->
-                    <figure class="depoimento-card">
-                        <div class="ex-aspas" aria-hidden="true">
-                            “
-                        </div>
-                        <blockquote>
-                            <p class="ex-citacao">
-                                A gestão financeira melhorou muito depois
-                                que contratamos o Grupo Êxito. Equipe atenciosa
-                                e sempre disponível!
-                            </p>
-                        </blockquote>
-                        <figcaption class="cliente-info">
-                            <div class="avatar">
-                                <img src="../img/clientes/joao.jpg" alt="Foto de João Pedro">
-                            </div>
-                            <div>
-                                <strong class="ex-autor">João Pedro</strong>
-                                <span class="ex-nota">
-                                    Síndico do Ed. Aurora
-                                </span>
-                            </div>
-                        </figcaption>
-                    </figure>
 
-                    <!-- DEPOIMENTO 2 -->
-                    <figure class="depoimento-card">
-                        <div class="ex-aspas" aria-hidden="true">
-                            “
-                        </div>
-                        <blockquote>
-                            <p class="ex-citacao">
-                                O atendimento é rápido, profissional e
-                                nos passa muita segurança. Recomendo
-                                sem dúvidas!
-                            </p>
-                        </blockquote>
-                        <figcaption class="cliente-info">
-                            <div class="avatar">
-                                <img src="../img/clientes/mariana.jpg" alt="Foto de Mariana Santos">
-                            </div>
-                            <div>
-                                <strong class="ex-autor">Mariana Santos</strong>
-                                <span class="ex-nota">
-                                    Síndica do Condomínio Jardins
-                                </span>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="cliente-card">
 
-                    <!-- DEPOIMENTO 3 -->
-                    <figure class="depoimento-card">
-                        <div class="ex-aspas" aria-hidden="true">
-                            “
-                        </div>
-                        <blockquote>
-                            <p class="ex-citacao">
-                                Desde o primeiro contato até a execução,
-                                tudo foi muito bem organizado. A equipe
-                                é excelente!
-                            </p>
-                        </blockquote>
-                        <figcaption class="cliente-info">
-                            <div class="avatar">
-                                <img src="../img/clientes/carlos.jpg" alt="Foto de Carlos Lima">
-                            </div>
-                            <div>
-                                <strong class="ex-autor">Carlos Lima</strong>
-                                <span class="ex-nota">
-                                    Gerente – Empresarial Pinheiros
-                                </span>
-                            </div>
-                        </figcaption>
-                    </figure>
+                    <div class="cliente-img">
+                        <img src="../img/clientes/condominio-vila-verde.jpg" alt="Condomínio Vila Verde">
+                    </div>
+
+                    <span>CONDOMÍNIO</span>
+
+                    <h3>VILA VERDE</h3>
+
                 </div>
+
+
+
+
+                <div class="cliente-card">
+
+                    <div class="cliente-img">
+                        <img src="../img/clientes/empresarial-pinheiros.jpg" alt="Empresarial Pinheiros">
+                    </div>
+
+                    <span>EMPRESARIAL</span>
+
+                    <h3>PINHEIROS</h3>
+
+                </div>
+
             </div>
-        </section>
 
-        <p class="ex-nota nota-ficticio">
-            Clientes e depoimentos fictícios, criados para um projeto acadêmico.
-            Fotos ilustrativas: geradas por inteligência artificial e de banco de imagens.
-        </p>
-    </main>
+        </div>
 
-    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
+    </section>
+
+
+
+
+    <section class="depoimentos">
+
+        <div class="faixa-depoimentos">
+            <div class="container">
+                <span>DEPOIMENTOS</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="titulo">
+                O QUE NOSSOS CLIENTES DIZEM<br>
+                SOBRE O NOSSO TRABALHO.
+            </h2>
+            <div class="depoimentos-grid">
+
+                <!-- DEPOIMENTO 1 -->
+
+                <div class="depoimento-card">
+
+                    <div class="aspas">
+                        “
+                    </div>
+
+                    <p>
+                        A gestão financeira melhorou muito depois
+                        que contratamos o Grupo Êxito. Equipe atenciosa
+                        e sempre disponível!
+                    </p>
+
+                    <div class="cliente-info">
+
+                        <div class="avatar">
+                            <img src="../img/clientes/joao.jpg" alt="Foto de João Pedro">
+                        </div>
+
+                        <div>
+                            <strong>João Pedro</strong>
+
+                            <span>
+                                Síndico do Ed. Aurora
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="depoimento-card">
+
+                    <div class="aspas">
+                        “
+                    </div>
+
+                    <p>
+                        O atendimento é rápido, profissional e
+                        nos passa muita segurança. Recomendo
+                        sem dúvidas!
+                    </p>
+
+                    <div class="cliente-info">
+
+                        <div class="avatar">
+                            <img src="../img/clientes/mariana.jpg" alt="Foto de Mariana Santos">
+                        </div>
+
+                        <div>
+                            <strong>Mariana Santos</strong>
+
+                            <span>
+                                Síndica do Condomínio Jardins
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="depoimento-card">
+
+                    <div class="aspas">
+                        “
+                    </div>
+
+                    <p>
+                        Desde o primeiro contato até a execução,
+                        tudo foi muito bem organizado. A equipe
+                        é excelente!
+                    </p>
+
+                    <div class="cliente-info">
+
+                        <div class="avatar">
+                            <img src="../img/clientes/carlos.jpg" alt="Foto de Carlos Lima">
+                        </div>
+
+                        <div>
+                            <strong>Carlos Lima</strong>
+
+                            <span>
+                                Gerente – Empresarial Pinheiros
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <footer class="ex-rodape">
         <div class="ex-conteudo">
             <div class="ex-rodape__grade">
@@ -306,7 +378,8 @@
                             <a href="faq.html">FAQ &amp; Dúvidas</a>
                             <a href="contato.html">Fale Conosco</a>
                             <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
-                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial
+                                →</a>
                         </div>
                     </nav>
                     <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
@@ -318,13 +391,17 @@
                 </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a
+                        href="politica-privacidade.html">Política de Privacidade</a> <a
+                        href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">Projeto acadêmico.</p>
             </div>
         </div>
     </footer>
     <script src="../js/menu.js"></script>
     <script src="../js/cookies.js"></script>
+
+
 </body>
 
 </html>

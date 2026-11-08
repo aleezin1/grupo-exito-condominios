@@ -169,8 +169,10 @@ body {
     background-color: rgb(248, 250, 253);
     color: rgb(71, 85, 105);
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-    font-size: 1rem;              /* 16px */
-    line-height: 1.6;             /* linhas espaçadas, leitura confortável */
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.6;
+    /* linhas espaçadas, leitura confortável */
     -webkit-font-smoothing: antialiased;
 }
 
@@ -187,20 +189,23 @@ h3 {
 }
 
 h1 {
-    font-size: 2.75rem;           /* 44px */
+    font-size: 2.75rem;
+    /* 44px */
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
 }
 
 h2 {
-    font-size: 2rem;              /* 32px */
+    font-size: 2rem;
+    /* 32px */
     font-weight: 700;
     letter-spacing: -0.025em;
 }
 
 h3 {
-    font-size: 1.25rem;           /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
     font-weight: 700;
     letter-spacing: -0.01em;
 }
@@ -273,11 +278,13 @@ th {
 /* ---- Celular (até 640px): títulos menores para caber na tela ------------ */
 @media (max-width: 640px) {
     h1 {
-        font-size: 2rem;          /* 32px */
+        font-size: 2rem;
+        /* 32px */
     }
 
     h2 {
-        font-size: 1.625rem;      /* 26px */
+        font-size: 1.625rem;
+        /* 26px */
     }
 }
 
@@ -406,8 +413,13 @@ html {
 }
 
 @media (max-width: 640px) {
-    .ex-titulo { font-size: 28px; }
-    .ex-titulo--hero { font-size: 36px; }
+    .ex-titulo {
+        font-size: 28px;
+    }
+
+    .ex-titulo--hero {
+        font-size: 36px;
+    }
 }
 
 /* ---- Variações de texto ------------------------------------------------
@@ -476,7 +488,9 @@ html {
 }
 
 @media (max-width: 640px) {
-    .ex-numero { font-size: 26px; }
+    .ex-numero {
+        font-size: 26px;
+    }
 }
 
 /* Variação grande do número: número decorativo de uma lista ("01", "02"...),
@@ -490,7 +504,9 @@ html {
 }
 
 @media (max-width: 640px) {
-    .ex-numero--grande { font-size: 64px; }
+    .ex-numero--grande {
+        font-size: 64px;
+    }
 }
 
 /* ---- Ícones (Material Symbols): tamanho e cor ---------------------------
@@ -681,12 +697,10 @@ html {
 .ex-hero .ex-hero__pelicula {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(6, 21, 45, 0.98),
-        rgba(10, 30, 59, 0.85),
-        rgba(14, 56, 103, 0.45)
-    );
+    background: linear-gradient(90deg,
+            rgba(6, 21, 45, 0.98),
+            rgba(10, 30, 59, 0.85),
+            rgba(14, 56, 103, 0.45));
 }
 
 /* Caixa do texto: mesma largura e respiro do .ex-container (1200px), para o
@@ -748,7 +762,7 @@ html {
    até encostar no topo, sem faixa de outra cor no meio.
    O "main > section" deixa a regra um pouco mais forte, para ganhar de
    resets de página como "main * { padding: 0 }". */
-main > section.ex-hero + * {
+main>section.ex-hero+* {
     padding-top: 50px;
 }
 
@@ -756,10 +770,379 @@ main > section.ex-hero + * {
    nos 50px acima) e 15px até o texto. O "section.ex-hero +" deixa a regra
    mais forte que as regras de título das páginas. Se o título estiver dentro
    de uma seção, a página faz o mesmo com a regra dela. */
-main > section.ex-hero + .ex-container > h2:first-child {
+main>section.ex-hero+.ex-container>h2:first-child {
     margin-top: 0;
     margin-bottom: 15px;
 }
+
+
+.pagina-clientes .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+:root {
+    --azul-escuro: rgb(6, 21, 45);
+    --azul: #123e68;
+    --turquesa: #19c4d3;
+    --turquesa-escuro: #0da8b8;
+    --cinza: #607080;
+}
+
+
+.pagina-clientes .header {
+    height: 80px;
+    background: var(--azul-escuro);
+    color: white;
+}
+
+.pagina-clientes .header-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.pagina-clientes .brand {
+    margin-left: -10px;
+}
+
+
+.pagina-clientes .logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.pagina-clientes .pagina-clientes .btn-header {
+    background: var(--turquesa);
+
+    color: white;
+
+    padding: 13px 25px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.pagina-clientes .btn-header:hover {
+    background: var(--turquesa-escuro);
+}
+
+
+
+.pagina-clientes .hero {
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.pagina-clientes .hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(4, 40, 73, 0.98),
+            rgba(7, 50, 86, 0.85),
+            rgba(8, 55, 90, 0.45));
+}
+
+.pagina-clientes .hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    padding: 60px 0;
+
+    max-width: 850px;
+}
+
+.pagina-clientes .section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.pagina-clientes .section-label span {
+    display: block;
+    background: none;
+    color: var(--turquesa);
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.pagina-clientes .faixa-depoimentos {
+    width: 100%;
+    height: 45px;
+    background: var(--azul);
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.pagina-clientes .faixa-depoimentos span {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .8px;
+}
+
+
+.pagina-clientes .hero h1 {
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    max-width: 800px;
+}
+
+.pagina-clientes .hero h1 strong {
+    display: block;
+
+    color: var(--turquesa);
+}
+
+
+
+
+.pagina-clientes .hero p {
+    margin-top: 20px;
+
+    max-width: 620px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #f0f5f8;
+}
+
+
+
+.pagina-clientes .clientes {
+    padding: 70px 0;
+
+    background: white;
+}
+
+.pagina-clientes .titulo {
+    font-size: 30px;
+
+    line-height: 1.25;
+
+    font-weight: 700;
+
+    color: var(--azul-escuro);
+}
+
+.pagina-clientes .subtitulo {
+    margin-top: 15px;
+
+    color: var(--cinza);
+
+    font-size: 15px;
+
+    max-width: 650px;
+
+    line-height: 1.7;
+}
+
+
+.pagina-clientes .clientes-grid {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.pagina-clientes .cliente-img {
+    width: 100%;
+    height: 180px;
+
+    overflow: hidden;
+}
+
+.pagina-clientes .cliente-img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.3s;
+}
+
+.pagina-clientes .cliente-card {
+    background: #f5f9fc;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    border: 1px solid #edf2f6;
+
+    padding-bottom: 20px;
+}
+
+.pagina-clientes .cliente-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 30, 60, 0.10);
+}
+
+.pagina-clientes .cliente-card span {
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: var(--azul);
+}
+
+.pagina-clientes .cliente-card h3 {
+    margin-top: 4px;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    color: var(--azul-escuro);
+}
+
+.pagina-clientes .depoimentos {
+    background: #edf5fa;
+
+    padding: 70px 0;
+}
+
+.pagina-clientes .depoimentos-grid {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.pagina-clientes .depoimento-card {
+    background: white;
+
+    border-radius: 7px;
+
+    padding: 30px;
+
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow:
+        0 5px 20px rgba(0, 40, 80, 0.04);
+}
+
+.pagina-clientes .aspas {
+    color: var(--turquesa);
+
+    font-size: 50px;
+
+    font-weight: 700;
+
+    height: 45px;
+}
+
+.pagina-clientes .depoimento-card p {
+    color: #40566d;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-top: 15px;
+
+    flex: 1;
+}
+
+.pagina-clientes .cliente-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.pagina-clientes .avatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.pagina-clientes .avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.cliente-info strong {
+    display: block;
+
+    color: var(--azul-escuro);
+
+    font-size: 13px;
+}
+
+.cliente-info span {
+    display: block;
+
+    color: #718294;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
 
 /* Celular: título menor e topo um pouco mais alto */
 @media (max-width: 600px) {
@@ -850,7 +1233,7 @@ main > section.ex-hero + .ex-container > h2:first-child {
     border-bottom: 1px solid rgb(255 255 255 / 0.1);
 }
 
-.ex-header .ex-topo > .ex-conteudo {
+.ex-header .ex-topo>.ex-conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -973,7 +1356,7 @@ main > section.ex-hero + .ex-container > h2:first-child {
     box-shadow: 0 2px 18px rgba(6, 21, 45, 0.04);
 }
 
-.ex-header .ex-barra > .ex-conteudo {
+.ex-header .ex-barra>.ex-conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1921,7 +2304,7 @@ html.ac-contraste .ac-raiz .ac-opcao[aria-pressed="true"] {
     display: none;
 }
 
-.ac-raiz .ac-player > svg {
+.ac-raiz .ac-player>svg {
     width: 20px;
     height: 20px;
     fill: rgb(0, 188, 212);
@@ -1990,7 +2373,8 @@ html.ac-contraste .ac-player {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 59;                      /* abaixo do botão e do painel da acessibilidade (60 e 61) */
+    z-index: 59;
+    /* abaixo do botão e do painel da acessibilidade (60 e 61) */
     background: rgb(6, 21, 45);
     border-top: 1px solid rgb(14, 56, 103);
     box-shadow: 0 -10px 30px rgba(6, 21, 45, 0.25);
@@ -2065,7 +2449,8 @@ html.ac-contraste .ac-player {
    2) os botões flutuantes da acessibilidade sobem para ficar acima da
       faixa (e o painel da acessibilidade sobe junto). */
 body.ck-aberto {
-    padding-bottom: 5rem;          /* mais ou menos a altura da faixa */
+    padding-bottom: 5rem;
+    /* mais ou menos a altura da faixa */
 }
 
 .ck-aberto .ac-raiz .ac-botao,
@@ -2135,14 +2520,14 @@ body.ck-aberto {
    1200px, com o mesmo respiro lateral do header e do footer). Aqui fica só
    o espaço de baixo do conteúdo. O espaço de cima (50px abaixo do topo)
    vem do componente .ex-hero. */
-.pagina-quem-somos main > .ex-container {
+.pagina-quem-somos main>.ex-container {
     padding-bottom: 60px;
 }
 
 /* Títulos das seções (Missão, Visão, Valores) com mais espaço acima.
    O primeiro (Nossa Missão) fica sem margem em cima pela regra do topo
    (.ex-hero) no padrão do site. */
-.pagina-quem-somos main > .ex-container > h2 {
+.pagina-quem-somos main>.ex-container>h2 {
     margin-top: 50px;
     margin-bottom: 15px;
 }
@@ -2210,11 +2595,9 @@ body.ck-aberto {
     margin-top: 60px;
     text-align: center;
     padding: 40px 30px;
-    background: linear-gradient(
-        135deg,
-        rgb(6, 21, 45),
-        rgb(10, 30, 59)
-    );
+    background: linear-gradient(135deg,
+            rgb(6, 21, 45),
+            rgb(10, 30, 59));
     border-radius: 12px;
 }
 
@@ -2273,13 +2656,14 @@ body.ck-aberto {
 }
 
 @media (max-width: 700px) {
+
     .pagina-quem-somos .valores,
     .pagina-quem-somos .lista-diferenciais {
         grid-template-columns: 1fr;
         flex-direction: column;
     }
 
-    .pagina-quem-somos main > .ex-container {
+    .pagina-quem-somos main>.ex-container {
         padding-bottom: 40px;
     }
 
@@ -3953,6 +4337,7 @@ body.ck-aberto {
 
 /* ---- A partir de 1024px: colunas lado a lado ---------------------------- */
 @media (min-width: 1024px) {
+
     .pagina-index .inicio__grade,
     .pagina-index .noticias__grade {
         grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -4100,12 +4485,12 @@ body.ck-aberto {
     gap: 24px;
 }
 
-.pagina-noticias .lista > .card {
+.pagina-noticias .lista>.card {
     grid-column: span 2;
 }
 
-.pagina-noticias .lista > .card:nth-child(1),
-.pagina-noticias .lista > .card:nth-child(2) {
+.pagina-noticias .lista>.card:nth-child(1),
+.pagina-noticias .lista>.card:nth-child(2) {
     grid-column: span 3;
 }
 
@@ -4220,12 +4605,12 @@ body.ck-aberto {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .pagina-noticias .lista > .card,
-    .pagina-noticias .lista > .card:nth-child(2) {
+    .pagina-noticias .lista>.card,
+    .pagina-noticias .lista>.card:nth-child(2) {
         grid-column: span 1;
     }
 
-    .pagina-noticias .lista > .card:nth-child(1) {
+    .pagina-noticias .lista>.card:nth-child(1) {
         grid-column: span 2;
     }
 }
@@ -4236,13 +4621,14 @@ body.ck-aberto {
         grid-template-columns: 1fr;
     }
 
-    .pagina-noticias .lista > .card:nth-child(1) {
+    .pagina-noticias .lista>.card:nth-child(1) {
         grid-column: auto;
     }
 }
 
 /* ---- Celular e tablet --------------------------------------------------- */
 @media (max-width: 800px) {
+
     /* Destaque em uma coluna: ilustração em cima, texto embaixo */
     .pagina-noticias .destaque {
         grid-template-columns: 1fr;
@@ -5346,7 +5732,8 @@ body.ck-aberto {
 
 .pagina-confirmacao .confirmacao__item dd {
     margin: 0.125rem 0 0;
-    overflow-wrap: anywhere;      /* e-mail ou texto longo quebra em vez de vazar */
+    overflow-wrap: anywhere;
+    /* e-mail ou texto longo quebra em vez de vazar */
 }
 
 /* Campo com texto longo (ex.: mensagem) ocupa a linha inteira */
@@ -5481,6 +5868,7 @@ body.ck-aberto {
    Esconde o menu, o rodapé, os botões e o recurso flutuante da
    acessibilidade só nesta página, e imprime tudo em azul-marinho. */
 @media print {
+
     .pagina-confirmacao .ex-header,
     .pagina-confirmacao .ex-rodape,
     .pagina-confirmacao .confirmacao__acoes,
@@ -5538,12 +5926,12 @@ body.ck-aberto {
 }
 
 /* Espaço entre as seções do documento */
-.pagina-politica-privacidade .documento section + section {
+.pagina-politica-privacidade .documento section+section {
     margin-top: 40px;
 }
 
 /* Títulos das seções 2 e 3 com uma linha embaixo (como o cabeçalho da 1) */
-.pagina-politica-privacidade .documento section > h2 {
+.pagina-politica-privacidade .documento section>h2 {
     margin: 0 0 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid rgb(226, 232, 240);
@@ -5554,7 +5942,7 @@ body.ck-aberto {
     margin: 28px 0 8px;
 }
 
-.pagina-politica-privacidade .documento h3 + p {
+.pagina-politica-privacidade .documento h3+p {
     margin-top: 0;
 }
 
@@ -5569,7 +5957,7 @@ body.ck-aberto {
     border-radius: 0.75rem;
 }
 
-.pagina-politica-privacidade .contatos li + li {
+.pagina-politica-privacidade .contatos li+li {
     margin-top: 10px;
 }
 
@@ -5617,11 +6005,11 @@ body.ck-aberto {
 }
 
 /* A primeira seção vem logo depois do cabeçalho (que já tem 30px embaixo) */
-.pagina-orcamento-hospedagem .orcamento-intro + .hospedagens {
+.pagina-orcamento-hospedagem .orcamento-intro+.hospedagens {
     margin-top: 0;
 }
 
-.pagina-orcamento-hospedagem main section > h2 {
+.pagina-orcamento-hospedagem main section>h2 {
     margin: 0 0 1rem;
 }
 
