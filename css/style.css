@@ -275,7 +275,7 @@ th {
     font-weight: 700;
 }
 
-.nota-fonte{
+.nota-fonte {
     text-align: center;
 }
 
@@ -4426,280 +4426,271 @@ body.ck-aberto {
    .ex-nota e os links usam o .ex-sobretitulo. Aqui ficam só o alinhamento,
    os espaços e as caixas. */
 
-/* ---- Topo (hero) --------------------------------------------------------
-   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
-   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
-   fundo fica azul-marinho. */
-.pagina-noticias .ex-hero {
-    background-image: url("../img/noticias/hero-noticias.jpg");
+
+.pagina-noticias .noticias-pagina {
+    background-color: rgb(248, 250, 253);
+    color: rgb(71, 85, 105);
+    font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+    padding: 56px 20px 80px;
 }
 
-/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
-   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
-   fica só o espaço de baixo. */
-.pagina-noticias main .ex-container {
-    padding-bottom: 1.5rem;
+.pagina-noticias .noticias-pagina * {
+    box-sizing: border-box;
 }
 
-/* Contorno do foco do teclado nos links do conteúdo (teal da paleta) */
-.pagina-noticias main a:focus-visible {
-    outline: 3px solid rgb(0, 104, 118);
-    outline-offset: 2px;
+.pagina-noticias .noticias-topo,
+.pagina-noticias .noticias-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ---- Partes repetidas nos cards e nas matérias -------------------------- */
+.pagina-noticias .noticias-topo h1 {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 48px;
+    color: rgb(6, 21, 45);
+    margin: 0 0 12px;
+}
 
-/* Capa: caixa da ilustração. O fundo claro aparece enquanto a imagem carrega. */
-.pagina-noticias .capa {
+.pagina-noticias .noticias-intro {
+    font-size: 20px;
+    color: rgb(82, 96, 113);
+    margin: 0 0 40px;
+}
+
+/* Botões de troca de tela (sem JavaScript) */
+.pagina-noticias .noticias-container input[name="noticia"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pagina-noticias .noticias-capa {
+    background: linear-gradient(135deg, rgb(24, 168, 182), rgb(214, 247, 255));
     overflow: hidden;
-    background: linear-gradient(135deg, rgb(214, 247, 255), rgb(241, 245, 249));
 }
 
-/* A ilustração preenche a capa inteira, sem distorcer */
-.pagina-noticias .capa img {
+.pagina-noticias .noticias-capa img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Linha da categoria (.ex-etiqueta) e da data (.ex-nota) */
-.pagina-noticias .meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+.pagina-noticias .noticias-categoria {
+    display: inline-block;
+    background-color: rgb(214, 247, 255);
+    color: rgb(0, 104, 118);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
 }
 
-/* Link de texto com seta ("Leia mais", "Voltar para notícias"), igual ao
-   da página Serviços */
-.pagina-noticias .link-seta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    text-decoration: none;
+.pagina-noticias .noticias-data {
+    font-size: 14px;
+    color: rgb(82, 96, 113);
+    margin-left: 10px;
 }
 
-.pagina-noticias .link-seta .ex-sobretitulo {
-    margin: 0;
+.pagina-noticias .noticias-leia-mais {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    color: rgb(0, 104, 118);
 }
 
-/* A seta anda um pouquinho no hover */
-.pagina-noticias .link-seta .material-symbols-outlined {
-    transition: transform 0.2s;
+.pagina-noticias .noticias-leia-mais::before {
+    content: "+ ";
 }
 
-.pagina-noticias .link-seta:hover .material-symbols-outlined {
-    transform: translateX(4px);
+.pagina-noticias .noticias-leia-mais:hover {
+    color: rgb(14, 56, 103);
+    text-decoration: underline;
 }
 
-/* No "Voltar" a seta aponta para a esquerda e anda para a esquerda */
-.pagina-noticias .link-voltar:hover .material-symbols-outlined {
-    transform: translateX(-4px);
-}
-
-/* ---- Lista de notícias -------------------------------------------------- */
-
-/* Notícia em destaque: ilustração à esquerda e texto à direita */
-.pagina-noticias .destaque {
+/* Destaque */
+.pagina-noticias .noticias-destaque {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    margin-bottom: 30px;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(226, 232, 240);
-    border-radius: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
-.pagina-noticias .destaque .capa {
+.pagina-noticias .noticias-destaque .noticias-capa {
     min-height: 340px;
 }
 
-.pagina-noticias .destaque .texto {
+.pagina-noticias .noticias-destaque .noticias-texto {
+    padding: 36px;
     display: flex;
     flex-direction: column;
-    padding: 36px;
 }
 
-.pagina-noticias .destaque h2 {
+.pagina-noticias .noticias-destaque h2 {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 34px;
     margin: 18px 0 14px;
+    color: rgb(6, 21, 45);
 }
 
-.pagina-noticias .destaque p {
+.pagina-noticias .noticias-destaque p {
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
 }
 
-/* Cards: grade de 6 trilhas para não sobrar card sozinho na última linha.
-   Os 2 primeiros ocupam 3 trilhas cada (linha de 2 cards) e os 3 seguintes
-   ocupam 2 trilhas cada (linha de 3 cards). */
-.pagina-noticias .lista {
+/* Cards */
+.pagina-noticias .noticias-lista {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
 }
 
-.pagina-noticias .lista>.card {
-    grid-column: span 2;
-}
-
-.pagina-noticias .lista>.card:nth-child(1),
-.pagina-noticias .lista>.card:nth-child(2) {
-    grid-column: span 3;
-}
-
-.pagina-noticias .card {
+.pagina-noticias .noticias-card {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(226, 232, 240);
-    border-radius: 1.5rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border-top: 5px solid rgb(0, 188, 212);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-/* No hover, a borda fica ciano e aparece uma sombra leve (igual ao .ex-card) */
-.pagina-noticias .card:hover,
-.pagina-noticias .destaque:hover {
-    border-color: rgba(0, 188, 212, 0.6);
-    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
-}
-
-.pagina-noticias .card .capa {
+.pagina-noticias .noticias-card .noticias-capa {
     height: 180px;
 }
 
-/* O texto ocupa o resto do card; o "Leia mais" fica sempre embaixo */
-.pagina-noticias .card .texto {
+.pagina-noticias .noticias-card .noticias-texto {
+    padding: 22px;
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 22px;
 }
 
-.pagina-noticias .card h3 {
+.pagina-noticias .noticias-card h3 {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 20px;
     margin: 16px 0 10px;
+    color: rgb(6, 21, 45);
 }
 
-.pagina-noticias .card p {
+.pagina-noticias .noticias-card p {
+    font-size: 16px;
+    line-height: 1.5;
     margin: 0;
 }
 
-.pagina-noticias .lista-view .link-seta {
-    align-self: flex-start;
-    margin-top: auto;
-    padding-top: 14px;
-}
-
-/* ---- Matéria aberta ----------------------------------------------------- */
-
-/* Escondida até o endereço apontar para ela (#materia-1, #materia-2...) */
-.pagina-noticias .materia-view {
-    display: none;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* :target é a matéria do endereço: ela aparece... */
-.pagina-noticias .materia-view:target {
-    display: block;
-}
-
-/* ...e a lista some enquanto uma matéria está aberta */
-.pagina-noticias .noticias-pagina:has(.materia-view:target) .lista-view {
-    display: none;
-}
-
-/* Ao abrir a matéria ou voltar para a lista, o navegador rola até ela.
-   Este espaço deixa o começo dela abaixo do menu fixo do topo. */
-.pagina-noticias .materia-view,
-.pagina-noticias .lista-view {
-    scroll-margin-top: 140px;
-}
-
-.pagina-noticias .link-voltar {
-    margin-bottom: 24px;
-}
-
-.pagina-noticias .materia {
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-radius: 1.5rem;
-}
-
-.pagina-noticias .materia .capa {
-    height: 340px;
-}
-
-.pagina-noticias .materia .texto {
-    padding: 36px;
-}
-
-.pagina-noticias .materia h2 {
-    margin: 18px 0 22px;
-}
-
-.pagina-noticias .materia p {
-    margin: 0 0 18px;
-}
-
-/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
-   alinhamento, iguais aos da Clientes e da Quem Somos) */
-.pagina-noticias .nota-fonte {
-    padding: 20px 5%;
+.pagina-noticias .noticias-antigas {
+    margin: 40px 0 0;
     text-align: center;
 }
 
-/* ---- Tablet: cards em 2 colunas ----------------------------------------
-   O 1º card (a notícia mais recente) ocupa a linha inteira e os outros 4
-   ficam em 2 linhas de 2, sem card sozinho. */
-@media (max-width: 900px) {
-    .pagina-noticias .lista {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pagina-noticias .lista>.card,
-    .pagina-noticias .lista>.card:nth-child(2) {
-        grid-column: span 1;
-    }
-
-    .pagina-noticias .lista>.card:nth-child(1) {
-        grid-column: span 2;
-    }
+.pagina-noticias .noticias-antigas span {
+    font-size: 17px;
+    color: rgb(82, 96, 113);
+    border-bottom: 2px solid rgb(82, 96, 113);
+    padding-bottom: 2px;
 }
 
-/* ---- Celular: cards um embaixo do outro --------------------------------- */
-@media (max-width: 640px) {
-    .pagina-noticias .lista {
-        grid-template-columns: 1fr;
-    }
-
-    .pagina-noticias .lista>.card:nth-child(1) {
-        grid-column: auto;
-    }
+/* Matéria aberta */
+.pagina-noticias .noticias-materia-view {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ---- Celular e tablet --------------------------------------------------- */
+.pagina-noticias .noticias-voltar {
+    display: inline-block;
+    margin-bottom: 24px;
+    cursor: pointer;
+    font-size: 17px;
+    color: rgb(0, 104, 118);
+    border-bottom: 2px solid rgb(0, 104, 118);
+    padding-bottom: 2px;
+}
+
+.pagina-noticias .noticias-voltar:hover {
+    color: rgb(14, 56, 103);
+    border-color: rgb(14, 56, 103);
+}
+
+.pagina-noticias .noticias-materia {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 232, 240);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pagina-noticias .noticias-materia .noticias-capa {
+    height: 340px;
+}
+
+.pagina-noticias .noticias-materia .noticias-texto {
+    padding: 36px;
+}
+
+.pagina-noticias .noticias-materia h2 {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    font-size: 38px;
+    line-height: 1.2;
+    color: rgb(6, 21, 45);
+    margin: 18px 0 22px;
+}
+
+.pagina-noticias .noticias-materia p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+/* Troca de tela: a lista some e a matéria escolhida aparece */
+.pagina-noticias .noticias-container input[name="noticia"]:not(#v0):checked~.noticias-lista-view {
+    display: none;
+}
+
+.pagina-noticias .noticias-container #v1:checked~.m1,
+.pagina-noticias .noticias-container #v2:checked~.m2,
+.pagina-noticias .noticias-container #v3:checked~.m3,
+.pagina-noticias .noticias-container #v4:checked~.m4,
+.pagina-noticias .noticias-container #v5:checked~.m5,
+.pagina-noticias .noticias-container #v6:checked~.m6 {
+    display: block;
+}
+
 @media (max-width: 800px) {
+    .pagina-noticias .noticias-topo h1 {
+        font-size: 36px;
+    }
 
-    /* Destaque em uma coluna: ilustração em cima, texto embaixo */
-    .pagina-noticias .destaque {
+    .pagina-noticias .noticias-destaque {
         grid-template-columns: 1fr;
     }
 
-    .pagina-noticias .destaque .capa {
+    .pagina-noticias .noticias-destaque .noticias-capa {
         min-height: 220px;
     }
 
-    .pagina-noticias .materia .capa {
+    .pagina-noticias .noticias-destaque h2 {
+        font-size: 26px;
+    }
+
+    .pagina-noticias .noticias-materia h2 {
+        font-size: 28px;
+    }
+
+    .pagina-noticias .noticias-materia .noticias-capa {
         height: 220px;
     }
 
-    .pagina-noticias .destaque .texto,
-    .pagina-noticias .materia .texto {
+    .pagina-noticias .noticias-materia .noticias-texto {
         padding: 24px;
     }
 }
-
 
 /* ##########################################################################
    PÁGINA: faq.html
