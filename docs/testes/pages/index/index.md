@@ -18,7 +18,7 @@
 
 | Data | O que aconteceu |
 | --- | --- |
-| 04/11 | A home completa (a antiga `index-v2.html`) passou a ser a `index.html`. A home simples que existia antes virou `index-v3.html` e ficou só como referência, fora do site |
+| 04/11 | A home completa (a antiga `index-v2.html`) passou a ser a `index.html`. A home simples que existia antes ficou só como referência, fora do site, e saiu do projeto no fechamento |
 | 04/11 | Saiu o Tailwind: o carregamento do framework pela internet, o arquivo de configuração e as cerca de 700 classes prontas. Cada parte da página ganhou uma classe com nome que diz o que é (`.inicio`, `.metricas`, `.servicos`, `.noticias`, `.faq`…), com o prefixo `.pagina-index` |
 | 04/11 | A home passou a usar o header e o footer das outras páginas, as cores da paleta em `rgb(...)` e os componentes de texto do site. Entraram os componentes `.ex-numero` (números em destaque) e os tamanhos e cores de ícone (`.ex-icone--pequeno`, `--grande`, `--ciano`, `--teal`, `--navy`) |
 | 04/11 | O formulário "Solicitar Proposta Sob Medida" saiu da home e foi para a Contato. Os botões "Falar com Consultor" já levavam para lá |

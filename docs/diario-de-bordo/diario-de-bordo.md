@@ -37,7 +37,7 @@ Um site institucional tem várias páginas parecidas (início, quem somos, servi
 
 **O que decidimos**
 
-* Somos **11 integrantes** e cada um fica responsável por **uma página**.
+* Somos **12 integrantes** e cada um fica responsável por **uma página**.
 * As tarefas de cada página ficam no **ClickUp**.
 * A página inicial fica na raiz (`index.html`) e as outras páginas ficam dentro de `pages/`.
 * As cores ficam todas em um único arquivo: `css/paleta.css`.
@@ -651,7 +651,7 @@ Quando a imagem é muito maior que o espaço onde aparece, o navegador reduz e e
 
 **O que fizemos**
 
-* A home completa (a antiga `index-v2.html`) passou a ser a `index.html`. A home simples que existia antes virou `index-v3.html` e fica só como referência, fora do site e dos testes.
+* A home completa (a antiga `index-v2.html`) passou a ser a `index.html`. A home simples que existia antes ficou guardada só como referência, fora do site, e saiu do projeto no fechamento.
 * A home antiga foi refeita no CSS do site. Saíram as cerca de 700 classes que só diziam a aparência, e cada parte da página ganhou uma classe com nome que diz o que é (`.inicio`, `.metricas`, `.servicos`, `.noticias`, `.faq`, `.proposta`…), escrita no `css/page/index.css` com o prefixo `.pagina-index`.
 * A home passou a usar o mesmo header e o mesmo footer das outras páginas, as cores da paleta em `rgb(...)` e os componentes de texto do site. O visual ficou bem parecido com o anterior.
 * Criamos componentes novos no `global.css`: `.ex-numero` (números em destaque) e os tamanhos e cores de ícone (`.ex-icone--pequeno`, `--grande`, `--ciano`, `--teal`, `--navy`). Eles estão na tabela de componentes do README.
@@ -897,7 +897,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 **O que fizemos**
 
-* Conferimos as 58 imagens da pasta `img/`, uma por uma: onde cada uma é usada, o peso e se o nome e a pasta estão certos. O levantamento ficou em `docs/testes/imagens.md`.
+* Conferimos as 58 imagens da pasta `img/`, uma por uma: onde cada uma é usada, o peso e se o nome e a pasta estão certos.
 * Apagamos 11 imagens que nenhuma página usava (cerca de 9,7 MB): os originais das fotos da Serviços 1, 2 e 3, que já tinham sido convertidas, dois logos antigos, três ilustrações que a Notícias não usa mais e outras sobras.
 * A foto do topo da Quem Somos foi para `img/quem-somos/` e uma foto usada só pela home foi para `img/index/`, com os caminhos trocados.
 * Nenhuma imagem em uso tinha nome fora do padrão, então nada precisou ser renomeado.
@@ -1072,7 +1072,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 **O que fizemos**
 
 * O líder validou no W3C o `css/style.css` e sete páginas: Quem Somos, Clientes, Serviços, Serviços 1, Projetos, Notícias e FAQ. Os PDFs ficaram em `docs/testes/pages/<pagina>/` (o do CSS em `docs/testes/pages/css/`).
-* A revisão manual (`docs/testes/revisao-manual.md`) foi reescrita com o estado de hoje: o que foi resolvido desde 01/11, as pendências por página, o que conferir no navegador e o checklist de envio.
+* A revisão do site foi refeita com o estado de hoje: o que foi resolvido desde 01/11, as pendências por página, o que conferir no navegador e o checklist de envio.
 
 ---
 
@@ -1278,7 +1278,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 | Contato | 7 / 10 |
 | Política de Privacidade | 5 / 10 |
 
-* O painel `docs/paginas.html` passou a listar só as 12 páginas que têm responsável e nota: saíram a Confirmação, o Orçamento de hospedagem e a home antiga (`index-v3.html`). As páginas continuam no site e com os seus relatórios em `docs/testes/pages/`.
+* O painel `docs/paginas.html` passou a listar só as 12 páginas que têm responsável e nota: saíram a Confirmação, o Orçamento de hospedagem e a home antiga, que só servia de referência. As páginas continuam no site e com os seus relatórios em `docs/testes/pages/`.
 * A Home ainda está sem nota.
 
 ---
@@ -1289,7 +1289,7 @@ Enquanto as páginas estavam sendo ajustadas, os arquivos separados ajudavam cad
 
 * O painel `docs/paginas.html` ganhou o header e o footer do site, com os caminhos ajustados para a pasta `docs/`. Assim dá para ir do painel para qualquer página e voltar pelo menu Docs do rodapé.
 * A Home ficou com a nota "—", porque foi feita pelo líder.
-* O registro das revisões fica na revisão manual (`docs/testes/revisao-manual.md`) e no relatório final de cada página em `docs/testes/pages/<pagina>/`.
+* O registro das revisões fica no relatório final de cada página, em `docs/testes/pages/<pagina>/`.
 
 ---
 
@@ -1562,16 +1562,6 @@ Guilherme Santos Peixoto Muniz. O diário é de outubro de 2026. [diário comple
 
 ---
 
-## Próximos passos
-
-* As 12 páginas do painel (`docs/paginas.html`) estão fechadas, validadas no W3C e com a nota do líder registrada. A Home, feita pelo líder, fica com "—". O `css/style.css` também passou no W3C.
-* Cada página tem o relatório final, o `antes-depois.md` e o diário de bordo do integrante em `docs/testes/pages/<pagina>/`.
-* Falta só o envio:
-  * fazer o último commit e o push no GitHub;
-  * gerar o `.zip` do projeto;
-  * enviar no Blackboard.
-
----
 
 ## Palavras que aprendemos
 

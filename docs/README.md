@@ -22,22 +22,22 @@ O nome da empresa é escrito sempre do mesmo jeito: **Grupo Êxito Condomínios*
 
 O grupo tem 12 integrantes. Cada um ficou responsável por uma página. O Alexander, além da Home, fez a coordenação, a revisão das páginas e a organização do CSS.
 
-| Página | Arquivo | Responsável | Tarefa |
-| --- | --- | --- | --- |
-| Home | `index.html` | Alexander | [ClickUp](https://app.clickup.com/t/90171541460/86e39d6z7) |
-| Quem Somos | `pages/quem-somos.html` | Anthony | [ClickUp](https://app.clickup.com/t/90171541460/86e39d6z6) |
-| Serviços | `pages/servicos.html` | João | [ClickUp](https://app.clickup.com/t/90171541460/86e39dj5t) |
-| Gestão Administrativa (Serviços 1) | `pages/servicos-1.html` | Arthur | [ClickUp](https://app.clickup.com/t/90171541460/86e39djak) |
-| Gestão Financeira (Serviços 2) | `pages/servicos-2.html` | Felipe Dias | [ClickUp](https://app.clickup.com/t/90171541460/86e39djcu) |
-| Gestão Operacional (Serviços 3) | `pages/servicos-3.html` | David | [ClickUp](https://app.clickup.com/t/90171541460/86e39djf1) |
-| Clientes | `pages/clientes.html` | Gabriel | [ClickUp](https://app.clickup.com/t/90171541460/86e39dj32) |
-| Projetos | `pages/projetos.html` | Felipe Gabriel | [ClickUp](https://app.clickup.com/t/90171541460/86e39djva) |
-| Notícias | `pages/noticias.html` | Enzo | [ClickUp](https://app.clickup.com/t/90171541460/86e39dk07) |
-| FAQ | `pages/faq.html` | Evandro | [ClickUp](https://app.clickup.com/t/90171541460/86e39djn2) |
-| Contato | `pages/contato.html` | Pablo | [ClickUp](https://app.clickup.com/t/90171541460/86e39djrr) |
-| Política de Privacidade | `pages/politica-privacidade.html` | Guilherme | ClickUp |
+| Página | Arquivo | Integrante | RGM | Tarefa |
+| --- | --- | --- | --- | --- |
+| Home | `index.html` | Alexander Serafim | 049269569 | [ClickUp](https://app.clickup.com/t/90171541460/86e39d6z7) |
+| Quem Somos | `pages/quem-somos.html` | Anthony Gabriel Pereira dos Santos | 49353411 | [ClickUp](https://app.clickup.com/t/90171541460/86e39d6z6) |
+| Serviços | `pages/servicos.html` | João Vitor Rocha Silva | 47170867 | [ClickUp](https://app.clickup.com/t/90171541460/86e39dj5t) |
+| Gestão Administrativa (Serviços 1) | `pages/servicos-1.html` | Arthur Kassab Dias | 47137621 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djak) |
+| Gestão Financeira (Serviços 2) | `pages/servicos-2.html` | Felipe Dias Gomes | 48814342 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djcu) |
+| Gestão Operacional (Serviços 3) | `pages/servicos-3.html` | David Oliveira dos Santos | 47235179 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djf1) |
+| Clientes | `pages/clientes.html` | Gabriel da Silva | 47771526 | [ClickUp](https://app.clickup.com/t/90171541460/86e39dj32) |
+| Projetos | `pages/projetos.html` | Felipe Gabriel Evangelista Alexandrias | 47251735 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djva) |
+| Notícias | `pages/noticias.html` | Enzo Veríssimo | 47242493 | [ClickUp](https://app.clickup.com/t/90171541460/86e39dk07) |
+| FAQ | `pages/faq.html` | Evandro Araujo Costa | 47300761 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djn2) |
+| Contato | `pages/contato.html` | Pablo Soares Gomes | 49150308 | [ClickUp](https://app.clickup.com/t/90171541460/86e39djrr) |
+| Política de Privacidade | `pages/politica-privacidade.html` | Guilherme Santos Peixoto Muniz | 46924507 | ClickUp |
 
-O Guilherme (Guilherme Santos Peixoto Muniz, RGM 46924507) entrou no grupo na 2ª fase, com a Política de Privacidade. A lista completa da equipe também aparece na página Contato.
+O Guilherme entrou no grupo na 2ª fase, com a Política de Privacidade. A equipe também aparece na página Contato.
 
 Além dessas páginas, o site tem:
 
@@ -78,7 +78,6 @@ Recursos que aparecem em todas as páginas:
 ```text
 grupoexitocondominios/
 ├── index.html                  Home
-├── index-v3.html               Primeira versão da home, guardada como registro
 ├── favicon.ico
 ├── css/
 │   ├── style.css               CSS do site inteiro
@@ -102,7 +101,7 @@ grupoexitocondominios/
     ├── paginas.html            Painel do projeto
     ├── diario-de-bordo/        Diário do grupo e resumo do diário de cada página
     ├── hospedagem/             Planilha, prints e PDF do orçamento de hospedagem
-    ├── testes/                 Revisão do site e, em pages/<pagina>/, o relatório, o antes e depois, o diário do integrante e a validação W3C
+    ├── testes/                 Em pages/<pagina>/: relatório final, antes e depois, diário do integrante e validação W3C de cada página
     └── aula/                   Material de apoio sobre Git
 ```
 
@@ -313,7 +312,6 @@ A escolha foi o **Hostinger Single**, com o domínio **.com.br** no Registro.br,
 | `docs/README.md` | Este documento |
 | `docs/paginas.html` | Painel com todas as páginas: responsável, situação, nota e links para a documentação |
 | `docs/diario-de-bordo/diario-de-bordo.md` | Diário do grupo, com decisões, aprendizados e dificuldades, e o resumo do diário de cada integrante |
-| `docs/testes/revisao-manual.md` | Revisão do site inteiro |
 | `docs/testes/pages/<pagina>/` | Relatório final da página, antes e depois, diário do integrante e validação W3C |
 | `docs/hospedagem/` | Orçamento de hospedagem e domínio |
 

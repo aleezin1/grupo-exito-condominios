@@ -1,6 +1,6 @@
 # Antes e depois — Home
 
-**Antes:** a `index.html` do último commit do projeto (`c1fd8dd`), uma home simples, com o CSS escrito num `<style>` dentro da página. Hoje ela está guardada como `index-v3.html`, só como referência. No mesmo commit, a home completa ficava em `index-v2.html`, feita com Tailwind; foi dela que veio o conteúdo da versão final.
+**Antes:** a `index.html` do último commit do projeto (`c1fd8dd`), uma home simples, com o CSS escrito num `<style>` dentro da página. No mesmo commit, a home completa ficava em `index-v2.html`, feita com Tailwind; foi dela que veio o conteúdo da versão final.
 **Depois:** a versão final, fechada em 06/11/2026 (`index.html` + bloco `PÁGINA: index.html` do `css/style.css` + `js/home.js` + imagens em `img/noticias/`, `img/projetos/` e `img/clientes/`).
 
 O relatório com os requisitos do professor está em [index.md](index.md).
