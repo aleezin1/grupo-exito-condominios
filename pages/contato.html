@@ -2,439 +2,293 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato | Grupo Êxito Condomínios</title>
-    <meta name="description" content="Fale com o Grupo Êxito Condomínios por telefone, WhatsApp, e-mail ou formulário.">
-    <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#06152d">
-    <link rel="icon" href="../favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
-    <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/acessibilidade.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Grupo Êxito Condomínios</title>
+  <meta name="description" content="Fale com o Grupo Êxito Condomínios por telefone, WhatsApp, e-mail ou formulário.">
+  <!-- Projeto acadêmico: não deixa o Google indexar. Ao publicar de verdade, troque por "index, follow". -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#06152d">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/acessibilidade.js"></script>
 </head>
 
 <body class="pagina-contato">
-    <!-- HEADER COMPARTILHADO (igual ao da home) -->
-    <header class="ex-header">
-        <div class="ex-topo">
-            <div class="ex-conteudo">
-                <div class="ex-topo__grupo">
-                    <a class="ex-topo__link" href="tel:1125649963">
-                        <span class="material-symbols-outlined">call</span>
-                        <span>(11) 2564-9963</span>
-                    </a>
-                    <span class="ex-topo__separador">•</span>
-                    <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
-                        <span class="material-symbols-outlined">mail</span>
-                        <span>contato@grupoexitocondominios.com.br</span>
-                    </a>
-                </div>
-                <div class="ex-topo__grupo ex-topo__grupo--direita">
-                    <div class="ex-topo__status">
-                        <span class="ex-topo__ponto"></span>
-                        <span>Operação Digital Conectada</span>
-                    </div>
-                    <div class="ex-topo__redes">
-                        <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/" target="_blank" rel="noopener">
-                            <span class="material-symbols-outlined">photo_camera</span>
-                        </a>
-                        <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios" target="_blank" rel="noopener">
-                            <span class="material-symbols-outlined">public</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+  <header class="ex-header">
+    <div class="ex-topo">
+      <div class="ex-conteudo">
+        <div class="ex-topo__grupo">
+          <a class="ex-topo__link" href="tel:1125649963">
+            <span class="material-symbols-outlined">call</span>
+            <span>(11) 2564-9963</span>
+          </a>
+          <span class="ex-topo__separador">•</span>
+          <a class="ex-topo__link ex-topo__email" href="mailto:contato@grupoexitocondominios.com.br">
+            <span class="material-symbols-outlined">mail</span>
+            <span>contato@grupoexitocondominios.com.br</span>
+          </a>
         </div>
-        <div class="ex-barra">
-            <div class="ex-conteudo">
-                <a class="ex-logo" href="../index.html">
-                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
-                </a>
-                <nav class="ex-menu" aria-label="Navegação principal">
-                    <a class="ex-menu__link" href="../index.html">Início</a>
-                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
-                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
-                    <a class="ex-menu__link" href="clientes.html">Clientes</a>
-                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
-                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
-                    <a class="ex-menu__link" href="faq.html">FAQ</a>
-                    <a class="ex-menu__link" href="contato.html" aria-current="page">Contato</a>
-                </nav>
-                <div class="ex-acoes">
-                    <a class="ex-cta" href="contato.html#proposta-form">
-                        <span>Falar com Consultor</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                    <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false" aria-label="Abrir menu" data-menu-toggle>
-                        <span class="material-symbols-outlined ex-icone-abrir">menu</span>
-                        <span class="material-symbols-outlined ex-icone-fechar">close</span>
-                    </button>
-                </div>
-            </div>
-            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
-            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
-                <div class="ex-conteudo">
-                    <a class="ex-menu__link" href="../index.html">Início</a>
-                    <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
-                    <a class="ex-menu__link" href="servicos.html">Serviços</a>
-                    <a class="ex-menu__link" href="clientes.html">Clientes</a>
-                    <a class="ex-menu__link" href="projetos.html">Projetos</a>
-                    <a class="ex-menu__link" href="noticias.html">Notícias</a>
-                    <a class="ex-menu__link" href="faq.html">FAQ</a>
-                    <a class="ex-menu__link" href="contato.html" aria-current="page">Contato</a>
-                    <a class="ex-cta" href="contato.html#proposta-form">
-                        <span>Falar com Consultor</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                </div>
-            </nav>
+        <div class="ex-topo__grupo ex-topo__grupo--direita">
+          <div class="ex-topo__status">
+            <span class="ex-topo__ponto"></span>
+            <span>Operação Digital Conectada</span>
+          </div>
+          <div class="ex-topo__redes">
+            <a class="ex-topo__rede" aria-label="Instagram" href="https://www.instagram.com/grupoexito.condominios/"
+              target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">photo_camera</span>
+            </a>
+            <a class="ex-topo__rede" aria-label="Facebook" href="https://web.facebook.com/grupoexitocondominios"
+              target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">public</span>
+            </a>
+          </div>
         </div>
-    </header>
-    <main>
-        <!-- TOPO com foto (componente .ex-hero) -->
-        <section class="ex-hero">
-            <div class="ex-hero__pelicula"></div>
-            <div class="ex-hero__conteudo">
-                <span class="ex-hero__rotulo">Contato</span>
-                <h1 class="ex-hero__titulo">Fale com o Grupo Êxito
-                    <strong>Condomínios</strong>
-                </h1>
-                <p class="ex-hero__texto">Atendimento por telefone, WhatsApp, e-mail ou formulário.</p>
-            </div>
-        </section>
-
-        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
-        <div class="ex-container">
-
-            <!-- CANAIS DE ATENDIMENTO: os mesmos dados do header e do footer -->
-            <section class="canais" aria-labelledby="titulo-contato">
-                <div class="ex-cabecalho">
-                    <h2 id="titulo-contato">Escolha o canal mais prático para você</h2>
-                    <p class="ex-subtitulo">Síndicos, conselheiros e moradores falam com a nossa equipe pelo
-                        telefone, pelo WhatsApp, por e-mail ou pelo formulário desta página.</p>
-                </div>
-
-                <!-- Um card por canal (3 colunas no computador) -->
-                <div class="canais__grade">
-                    <!-- Telefone e WhatsApp -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">call</span>
-                        </span>
-                        <h3>Telefone e WhatsApp</h3>
-                        <!-- tel: abre o discador no celular -->
-                        <p><a href="tel:1125649963">(11) 2564-9963</a></p>
-                        <!-- wa.me: número só com dígitos (55 + DDD + número) -->
-                        <a class="ex-botao ex-botao--whatsapp" href="https://wa.me/551125649963" target="_blank"
-                            rel="noopener" aria-label="Conversar pelo WhatsApp (abre em outra aba)">
-                            <span class="material-symbols-outlined ex-icone--pequeno" aria-hidden="true">chat</span>
-                            <span>Conversar pelo WhatsApp</span>
-                        </a>
-                    </article>
-
-                    <!-- E-mail -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">mail</span>
-                        </span>
-                        <h3>E-mail</h3>
-                        <!-- mailto: abre o programa de e-mail -->
-                        <p><a href="mailto:contato@grupoexitocondominios.com.br">contato@grupoexitocondominios.com.br</a></p>
-                    </article>
-
-                    <!-- Horário de atendimento (vale para todos os canais) -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">schedule</span>
-                        </span>
-                        <h3>Horário de atendimento</h3>
-                        <p>Segunda a Sexta, das 9h às 17h.</p>
-                    </article>
-
-                    <!-- Matriz -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">domain</span>
-                        </span>
-                        <h3>Matriz Mogi das Cruzes</h3>
-                        <p>R. Gonçalo Ferreira, 164, Sala 3<br>Mogi das Cruzes / SP</p>
-                    </article>
-
-                    <!-- Filial -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">location_city</span>
-                        </span>
-                        <h3>Filial São Paulo</h3>
-                        <p>Av. Rio das Pedras, 3.409<br>São Paulo / SP</p>
-                    </article>
-
-                    <!-- Redes sociais (os mesmos links do header) -->
-                    <article class="ex-card canal">
-                        <span class="canal__icone">
-                            <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">group</span>
-                        </span>
-                        <h3>Redes sociais</h3>
-                        <ul class="canal__redes">
-                            <li>
-                                <a href="https://www.instagram.com/grupoexito.condominios/" target="_blank"
-                                    rel="noopener">Instagram</a>
-                            </li>
-                            <li>
-                                <a href="https://web.facebook.com/grupoexitocondominios" target="_blank"
-                                    rel="noopener">Facebook</a>
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-            </section>
-
-            <!-- PROPOSTA: vantagens à esquerda e formulário à direita -->
-            <section class="proposta" aria-labelledby="titulo-proposta">
-                <!-- Brilhos decorativos no fundo -->
-                <div class="proposta__brilho proposta__brilho--ciano"></div>
-                <div class="proposta__brilho proposta__brilho--navy"></div>
-                <div class="proposta__grade">
-                    <!-- Esquerda: proposta de valor -->
-                    <div class="proposta__texto">
-                        <div>
-                            <span class="ex-etiqueta">
-                                <span class="ponto ponto--verde"></span>
-                                CONSULTORIA &amp; DIAGNÓSTICO
-                            </span>
-                            <h2 class="ex-titulo" id="titulo-proposta">Pronto para transformar a gestão do seu
-                                condomínio?</h2>
-                            <p>
-                                Receba uma análise financeira detalhada e uma proposta sob medida para a realidade
-                                do seu condomínio em Mogi das Cruzes ou São Paulo.
-                            </p>
-                        </div>
-                        <ul class="vantagens">
-                            <li class="vantagem">
-                                <span class="icone-caixa icone-caixa--media icone-caixa--ciano-suave">
-                                    <span class="material-symbols-outlined ex-icone--teal" aria-hidden="true">bolt</span>
-                                </span>
-                                <span>
-                                    <span class="ex-card__titulo">Atendimento em até 2 horas úteis</span>
-                                    <span class="ex-nota">Retorno garantido por consultor especializado com
-                                        agendamento presencial ou digital.</span>
-                                </span>
-                            </li>
-                            <li class="vantagem">
-                                <span class="icone-caixa icone-caixa--media icone-caixa--ciano-suave">
-                                    <span class="material-symbols-outlined ex-icone--teal"
-                                        aria-hidden="true">query_stats</span>
-                                </span>
-                                <span>
-                                    <span class="ex-card__titulo">Diagnóstico financeiro inicial sem compromisso</span>
-                                    <span class="ex-nota">Mapeamento de custos, contratos terceirizados e redução de
-                                        inadimplência.</span>
-                                </span>
-                            </li>
-                            <li class="vantagem">
-                                <span class="icone-caixa icone-caixa--media icone-caixa--clara">
-                                    <span class="material-symbols-outlined ex-icone--navy"
-                                        aria-hidden="true">lock_person</span>
-                                </span>
-                                <span>
-                                    <span class="ex-card__titulo">Total conformidade com LGPD</span>
-                                    <span class="ex-nota">Segurança de dados e sigilo documental absoluto garantidos
-                                        para a gestão.</span>
-                                </span>
-                            </li>
-                        </ul>
-                        <a class="link-seta proposta__whatsapp" href="https://wa.me/551125649963" target="_blank"
-                            rel="noopener">
-                            <span class="material-symbols-outlined" aria-hidden="true">chat</span>
-                            <strong>Prefere falar agora? Chame no WhatsApp Direto →</strong>
-                            <span class="visualmente-oculto"> (abre em nova aba)</span>
-                        </a>
-                    </div>
-
-                    <!-- Direita: formulário em card branco com borda ciano -->
-                    <div class="ex-card proposta__cartao">
-                        <div class="proposta__topo">
-                            <div>
-                                <h3>Solicitar Proposta Sob Medida</h3>
-                                <p class="ex-nota">Preencha os dados e receba o estudo comparativo personalizado.</p>
-                            </div>
-                            <span class="ex-etiqueta">RESPOSTA RÁPIDA</span>
-                        </div>
-                        <!-- Sem back-end: os dados ficam no navegador e a página de confirmação mostra o resumo.
-                             O id "proposta-form" é o destino dos botões "Falar com Consultor" do site. -->
-                        <form class="proposta__form" id="proposta-form" action="confirmacao.html" method="get"
-                            data-confirmacao="Proposta personalizada">
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-nome">Nome Completo *</label>
-                                <input class="ex-campo" id="proposta-nome" name="nome"
-                                    placeholder="Ex: Carlos Eduardo Mendes" required type="text" autocomplete="name">
-                            </div>
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-email">E-mail Corporativo ou Pessoal *</label>
-                                <input class="ex-campo" id="proposta-email" name="email"
-                                    placeholder="sindico@seudominio.com.br" required type="email" autocomplete="email">
-                            </div>
-                            <div class="proposta__campo">
-                                <!-- A máscara coloca os parênteses, o espaço e o traço enquanto a pessoa digita -->
-                                <label class="ex-rotulo" for="proposta-telefone">WhatsApp / Telefone *</label>
-                                <input class="ex-campo" id="proposta-telefone" name="telefone"
-                                    placeholder="(11) 98765-4321" required type="tel" autocomplete="tel"
-                                    inputmode="numeric" maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}"
-                                    title="Digite o DDD e o número: (11) 2564-9963 ou (11) 98765-4321">
-                            </div>
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-condominio">Condomínio &amp; Cidade *</label>
-                                <input class="ex-campo" id="proposta-condominio" name="condominio"
-                                    placeholder="Ex: Edifício Bella Vista - Mogi" required type="text">
-                            </div>
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-unidades">Nº de Unidades / Apartamentos *</label>
-                                <input class="ex-campo" id="proposta-unidades" name="unidades" placeholder="Ex: 80"
-                                    required type="number" min="1" max="2000">
-                            </div>
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-papel">Seu Papel no Condomínio *</label>
-                                <select class="ex-campo" id="proposta-papel" name="papel" required>
-                                    <option value="">Selecione o seu papel</option>
-                                    <option value="sindico">Síndico(a) Eleito(a)</option>
-                                    <option value="sindico-profissional">Síndico(a) Profissional</option>
-                                    <option value="conselho">Membro do Conselho Fiscal</option>
-                                    <option value="morador">Morador(a) / Condômino</option>
-                                    <option value="outro">Outro representante</option>
-                                </select>
-                            </div>
-                            <div class="proposta__campo">
-                                <label class="ex-rotulo" for="proposta-assunto">Assunto *</label>
-                                <select class="ex-campo" id="proposta-assunto" name="assunto" required>
-                                    <option value="">Selecione o assunto</option>
-                                    <option value="proposta">Solicitar proposta de administração</option>
-                                    <option value="boleto">Dúvida sobre boleto ou taxa condominial</option>
-                                    <option value="assembleias">Assembleias</option>
-                                    <option value="manutencao">Manutenção ou ocorrência</option>
-                                    <option value="outros">Outros assuntos</option>
-                                </select>
-                            </div>
-                            <div class="proposta__campo">
-                                <!-- A data mínima (hoje) é preenchida quando a página abre -->
-                                <label class="ex-rotulo" for="proposta-data">Melhor data para retorno *</label>
-                                <input class="ex-campo" id="proposta-data" name="data-retorno" required type="date">
-                            </div>
-                            <div class="proposta__campo proposta__campo--largo">
-                                <label class="ex-rotulo" for="proposta-mensagem">Mensagem *</label>
-                                <textarea class="ex-campo" id="proposta-mensagem" name="mensagem" rows="4"
-                                    placeholder="Conte um pouco sobre o seu condomínio ou a sua dúvida" required></textarea>
-                            </div>
-                            <div class="proposta__envio">
-                                <button class="ex-botao ex-botao--primario botao-seta" type="submit">
-                                    <span>SOLICITAR PROPOSTA PERSONALIZADA</span>
-                                    <span class="material-symbols-outlined ex-icone--pequeno ex-icone--ciano"
-                                        aria-hidden="true">arrow_forward</span>
-                                </button>
-                                <p class="ex-sobretitulo">
-                                    Garantia de privacidade • Atendimento direto por consultor executivo
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- EQUIPE DO PROJETO: integrantes do grupo e a página de cada um -->
-            <section class="equipe" aria-labelledby="titulo-equipe">
-                <h2 id="titulo-equipe">Equipe do projeto</h2>
-                <p>Este site é um projeto acadêmico de Engenharia de Software. Cada integrante do grupo cuidou de
-                    uma página:</p>
-                <ul class="equipe__lista">
-                    <li><span><strong class="ex-autor">Alexander Serafim</strong><span class="ex-nota">RGM 049269569</span></span> <a href="../index.html">Home</a></li>
-                    <li><span><strong class="ex-autor">Anthony Gabriel Pereira dos Santos</strong><span class="ex-nota">RGM 49353411</span></span> <a href="quem-somos.html">Quem Somos</a></li>
-                    <li><span><strong class="ex-autor">Gabriel da Silva</strong><span class="ex-nota">RGM 47771526</span></span> <a href="clientes.html">Clientes</a></li>
-                    <li><span><strong class="ex-autor">João Vitor Rocha Silva</strong><span class="ex-nota">RGM 47170867</span></span> <a href="servicos.html">Serviços</a></li>
-                    <li><span><strong class="ex-autor">Arthur Kassab Dias</strong><span class="ex-nota">RGM 47137621</span></span> <a href="servicos-1.html">Serviços 1</a></li>
-                    <li><span><strong class="ex-autor">Felipe Dias Gomes</strong><span class="ex-nota">RGM 48814342</span></span> <a href="servicos-2.html">Serviços 2</a></li>
-                    <li><span><strong class="ex-autor">David Oliveira dos Santos</strong><span class="ex-nota">RGM 47235179</span></span> <a href="servicos-3.html">Serviços 3</a></li>
-                    <li><span><strong class="ex-autor">Evandro Araujo Costa</strong><span class="ex-nota">RGM 47300761</span></span> <a href="faq.html">FAQ</a></li>
-                    <li><span><strong class="ex-autor">Pablo Soares Gomes</strong><span class="ex-nota">RGM 49150308</span></span> <a href="contato.html">Contato</a></li>
-                    <li><span><strong class="ex-autor">Felipe Gabriel Evangelista Alexandrias</strong><span class="ex-nota">RGM 47251735</span></span> <a href="projetos.html">Projetos</a></li>
-                    <li><span><strong class="ex-autor">Enzo Veríssimo</strong><span class="ex-nota">RGM 47242493</span></span> <a href="noticias.html">Notícias</a></li>
-                    <li><span><strong class="ex-autor">Guilherme Santos Peixoto Muniz</strong><span class="ex-nota">RGM 46924507</span></span> <a href="politica-privacidade.html">Política de Privacidade</a></li>
-                </ul>
-            </section>
-
-            <!-- Nota sobre a imagem do topo -->
-            <p class="ex-nota nota-fonte">
-                Foto do topo: Pixabay / gerado por IA.
-            </p>
+      </div>
+    </div>
+    <div class="ex-barra">
+      <div class="ex-conteudo">
+        <a class="ex-logo" href="../index.html">
+          <img src="../img/logo-grupo-exito-header.png"
+            srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144"
+            height="52" alt="Grupo Êxito Condomínios">
+        </a>
+        <nav class="ex-menu" aria-label="Navegação principal">
+          <a class="ex-menu__link" href="../index.html">Início</a>
+          <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+          <a class="ex-menu__link" href="servicos.html">Serviços</a>
+          <a class="ex-menu__link" href="clientes.html">Clientes</a>
+          <a class="ex-menu__link" href="projetos.html">Projetos</a>
+          <a class="ex-menu__link" href="noticias.html">Notícias</a>
+          <a class="ex-menu__link" href="faq.html">FAQ</a>
+          <a class="ex-menu__link" href="contato.html" aria-current="page">Contato</a>
+        </nav>
+        <div class="ex-acoes">
+          <a class="ex-cta" href="contato.html#proposta-form">
+            <span>Falar com Consultor</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <button class="ex-menu-botao" type="button" aria-controls="ex-menu-mobile" aria-expanded="false"
+            aria-label="Abrir menu" data-menu-toggle>
+            <span class="material-symbols-outlined ex-icone-abrir">menu</span>
+            <span class="material-symbols-outlined ex-icone-fechar">close</span>
+          </button>
         </div>
-    </main>
-
-    <!-- FOOTER COMPARTILHADO (igual ao da home) -->
-    <footer class="ex-rodape">
+      </div>
+      <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
+      <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
         <div class="ex-conteudo">
-            <div class="ex-rodape__grade">
-                <div class="ex-rodape__marca">
-                    <img src="../img/logo-grupo-exito-header.png" srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144" height="52" alt="Grupo Êxito Condomínios">
-                    <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções sob medida para síndicos e condôminos.</p>
-                    <div class="ex-rodape__selos">
-                        <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
-                        <span class="ex-rodape__selo">ROZENDO ADM</span>
-                    </div>
-                </div>
-                <div class="ex-rodape__unidades">
-                    <div class="ex-rodape__unidade">
-                        <div class="ex-rodape__unidade-titulo">
-                            <span class="material-symbols-outlined">domain</span>
-                            <span>MATRIZ MOGI</span>
-                        </div>
-                        <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
-                        <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
-                        <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
-                    </div>
-                    <div class="ex-rodape__unidade">
-                        <div class="ex-rodape__unidade-titulo">
-                            <span class="material-symbols-outlined">location_city</span>
-                            <span>FILIAL SÃO PAULO</span>
-                        </div>
-                        <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
-                        <p class="ex-rodape__detalhe">São Paulo / SP</p>
-                        <p class="ex-rodape__fone">Atendimento Regional</p>
-                    </div>
-                </div>
-                <!-- Coluna 3: páginas internas e documentação -->
-                <div class="ex-rodape__coluna">
-                    <nav class="ex-rodape__nav" aria-label="Páginas do site">
-                        <span class="ex-rodape__rotulo">Páginas Internas</span>
-                        <div class="ex-rodape__links">
-                            <a href="quem-somos.html">Quem Somos</a>
-                            <a href="servicos.html">Serviços Vitrine</a>
-                            <a href="clientes.html">Clientes</a>
-                            <a href="projetos.html">Projetos &amp; Cases</a>
-                            <a href="noticias.html">Notícias &amp; Blog</a>
-                            <a href="faq.html">FAQ &amp; Dúvidas</a>
-                            <a href="contato.html">Fale Conosco</a>
-                            <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
-                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
-                        </div>
-                    </nav>
-                    <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
-                        <span class="ex-rodape__rotulo">Docs</span>
-                        <div class="ex-rodape__links">
-                            <a href="../docs/paginas.html">Painel do projeto</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
-                <p class="ex-rodape__assinatura">Projeto acadêmico.</p>
-            </div>
+          <a class="ex-menu__link" href="../index.html">Início</a>
+          <a class="ex-menu__link" href="quem-somos.html">Quem Somos</a>
+          <a class="ex-menu__link" href="servicos.html">Serviços</a>
+          <a class="ex-menu__link" href="clientes.html">Clientes</a>
+          <a class="ex-menu__link" href="projetos.html">Projetos</a>
+          <a class="ex-menu__link" href="noticias.html">Notícias</a>
+          <a class="ex-menu__link" href="faq.html">FAQ</a>
+          <a class="ex-menu__link" href="contato.html" aria-current="page">Contato</a>
+          <a class="ex-cta" href="contato.html#proposta-form">
+            <span>Falar com Consultor</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
         </div>
-    </footer>
-    <script src="../js/menu.js"></script>
-    <script src="../js/formulario.js"></script>
-    <script src="../js/cookies.js"></script>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="ex-container">
+
+    <h1>Fale conosco</h1>
+    <p>
+      Entre em contato conosco pelo canal de comunicação de sua preferência.
+      Preencha o formulário abaixo ou nos contate pelo telefone ou WhatsApp.
+    </p>
+    <section class="canais">
+      <article class="canal">
+        <h2>Telefone e WhatsApp</h2>
+        <p><a href="tel:+551127247755">Ligue: (11) 2724-7755</a></p>
+        <p>
+          <a href="https://wa.me/551127247755" target="_blank" rel="noopener">
+            Clique aqui para falar pelo WhatsApp
+          </a>
+        </p>
+      </article>
+
+      <article class="canal">
+        <h2>E-mail</h2>
+        <p><a href="mailto:contato@grupoexitoimoveis.com.br">contato@grupoexitoimoveis.com.br</a></p>
+      </article>
+
+      <article class="canal">
+        <h2>Endereço</h2>
+        <p>R. Serra de Botucatu, 878 - Conj 1503<br> Vila Gomes Cardim, São Paulo - SP, 03317-000, Brasil</p>
+      </article>
+    </section>
+
+    <p class="horario">Horário de atendimento: Segunda a Sexta, das 9h às 17h.</p>
+
+    <section class="formulario">
+      <h2>Preencha o formulário</h2>
+
+
+      <form class="proposta__form" id="proposta-form" action="confirmacao.html" method="get"
+        data-confirmacao="Proposta personalizada">
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-nome">Nome Completo *</label>
+          <input class="ex-campo" id="proposta-nome" name="nome" placeholder="Ex: Carlos Eduardo Mendes" required
+            type="text" autocomplete="name">
+        </div>
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-email">E-mail Corporativo ou Pessoal *</label>
+          <input class="ex-campo" id="proposta-email" name="email" placeholder="sindico@seudominio.com.br" required
+            type="email" autocomplete="email">
+        </div>
+        <div class="proposta__campo">
+          <!-- A máscara coloca os parênteses, o espaço e o traço enquanto a pessoa digita -->
+          <label class="ex-rotulo" for="proposta-telefone">WhatsApp / Telefone *</label>
+          <input class="ex-campo" id="proposta-telefone" name="telefone" placeholder="(11) 98765-4321" required
+            type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}"
+            title="Digite o DDD e o número: (11) 2564-9963 ou (11) 98765-4321">
+        </div>
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-condominio">Condomínio &amp; Cidade *</label>
+          <input class="ex-campo" id="proposta-condominio" name="condominio"
+            placeholder="Ex: Edifício Bella Vista - Mogi" required type="text">
+        </div>
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-unidades">Nº de Unidades / Apartamentos *</label>
+          <input class="ex-campo" id="proposta-unidades" name="unidades" placeholder="Ex: 80" required type="number"
+            min="1" max="2000">
+        </div>
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-papel">Seu Papel no Condomínio *</label>
+          <select class="ex-campo" id="proposta-papel" name="papel" required>
+            <option value="">Selecione o seu papel</option>
+            <option value="sindico">Síndico(a) Eleito(a)</option>
+            <option value="sindico-profissional">Síndico(a) Profissional</option>
+            <option value="conselho">Membro do Conselho Fiscal</option>
+            <option value="morador">Morador(a) / Condômino</option>
+            <option value="outro">Outro representante</option>
+          </select>
+        </div>
+        <div class="proposta__campo">
+          <label class="ex-rotulo" for="proposta-assunto">Assunto *</label>
+          <select class="ex-campo" id="proposta-assunto" name="assunto" required>
+            <option value="">Selecione o assunto</option>
+            <option value="proposta">Solicitar proposta de administração</option>
+            <option value="boleto">Dúvida sobre boleto ou taxa condominial</option>
+            <option value="assembleias">Assembleias</option>
+            <option value="manutencao">Manutenção ou ocorrência</option>
+            <option value="outros">Outros assuntos</option>
+          </select>
+        </div>
+        <div class="proposta__campo">
+          <!-- A data mínima (hoje) é preenchida quando a página abre -->
+          <label class="ex-rotulo" for="proposta-data">Melhor data para retorno *</label>
+          <input class="ex-campo" id="proposta-data" name="data-retorno" required type="date">
+        </div>
+        <div class="proposta__campo proposta__campo--largo">
+          <label class="ex-rotulo" for="proposta-mensagem">Mensagem *</label>
+          <textarea class="ex-campo" id="proposta-mensagem" name="mensagem" rows="4"
+            placeholder="Conte um pouco sobre o seu condomínio ou a sua dúvida" required></textarea>
+        </div>
+        <div class="proposta__envio">
+          <button class="ex-botao ex-botao--primario botao-seta" type="submit">
+            <span>SOLICITAR PROPOSTA PERSONALIZADA</span>
+            <span class="material-symbols-outlined ex-icone--pequeno ex-icone--ciano"
+              aria-hidden="true">arrow_forward</span>
+          </button>
+          <p class="ex-sobretitulo">
+            Garantia de privacidade • Atendimento direto por consultor executivo
+          </p>
+        </div>
+      </form>
+    </section>
+
+    <section class="redes">
+      <h2>Redes sociais</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/grupoexito.imoveis/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/people/Grupo-%C3%8Axito-Im%C3%B3veis/61592351807729/" target="_blank"
+            rel="noopener">Facebook</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER COMPARTILHADO (igual ao da home) -->
+  <footer class="ex-rodape">
+    <div class="ex-conteudo">
+      <div class="ex-rodape__grade">
+        <div class="ex-rodape__marca">
+          <img src="../img/logo-grupo-exito-header.png"
+            srcset="../img/logo-grupo-exito-header.png 1x, ../img/logo-grupo-exito-header@2x.png 2x" width="144"
+            height="52" alt="Grupo Êxito Condomínios">
+          <p>Administração condominial com transparência integral, tecnologia de ponta, proximidade física e soluções
+            sob medida para síndicos e condôminos.</p>
+          <div class="ex-rodape__selos">
+            <span class="ex-rodape__selo ex-rodape__selo--destaque">SUPERLÓGICA HUB</span>
+            <span class="ex-rodape__selo">ROZENDO ADM</span>
+          </div>
+        </div>
+        <div class="ex-rodape__unidades">
+          <div class="ex-rodape__unidade">
+            <div class="ex-rodape__unidade-titulo">
+              <span class="material-symbols-outlined">domain</span>
+              <span>MATRIZ MOGI</span>
+            </div>
+            <p class="ex-rodape__endereco">R. Gonçalo Ferreira, 164</p>
+            <p class="ex-rodape__detalhe">Sala 3 - Mogi das Cruzes / SP</p>
+            <p class="ex-rodape__fone">Tel: (11) 2564-9963</p>
+          </div>
+          <div class="ex-rodape__unidade">
+            <div class="ex-rodape__unidade-titulo">
+              <span class="material-symbols-outlined">location_city</span>
+              <span>FILIAL SÃO PAULO</span>
+            </div>
+            <p class="ex-rodape__endereco">Av. Rio das Pedras, 3.409</p>
+            <p class="ex-rodape__detalhe">São Paulo / SP</p>
+            <p class="ex-rodape__fone">Atendimento Regional</p>
+          </div>
+        </div>
+        <!-- Coluna 3: páginas internas e documentação -->
+        <div class="ex-rodape__coluna">
+          <nav class="ex-rodape__nav" aria-label="Páginas do site">
+            <span class="ex-rodape__rotulo">Páginas Internas</span>
+            <div class="ex-rodape__links">
+              <a href="quem-somos.html">Quem Somos</a>
+              <a href="servicos.html">Serviços Vitrine</a>
+              <a href="clientes.html">Clientes</a>
+              <a href="projetos.html">Projetos &amp; Cases</a>
+              <a href="noticias.html">Notícias &amp; Blog</a>
+              <a href="faq.html">FAQ &amp; Dúvidas</a>
+              <a href="contato.html">Fale Conosco</a>
+              <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
+              <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+            </div>
+          </nav>
+          <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
+            <span class="ex-rodape__rotulo">Docs</span>
+            <div class="ex-rodape__links">
+              <a href="../docs/paginas.html">Painel do projeto</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="ex-rodape__base">
+        <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de
+            Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+        <p class="ex-rodape__assinatura">Projeto acadêmico.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/menu.js"></script>
+  <script src="../js/formulario.js"></script>
+  <script src="../js/cookies.js"></script>
+
 </body>
 
 </html>

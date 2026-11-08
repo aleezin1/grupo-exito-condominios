@@ -4799,395 +4799,139 @@ body.ck-aberto {
    Tamanhos de tela usados:
      640px   celular deitado / tablet pequeno
      1024px  computador (as colunas lado a lado começam aqui) */
-
-/* ---- Topo (hero) --------------------------------------------------------
-   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
-   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
-   fundo fica azul-marinho. */
-.pagina-contato .ex-hero {
-    background-image: url("../img/contato/hero-contato.jpg");
+/* ---------- Variáveis: paleta oficial do Grupo Êxito ---------- */
+:root {
+    --navy-profundo: rgb(6, 21, 45);
+    /* header, rodapé, botões */
+    --navy-claro: rgb(14, 56, 103);
+    /* hover */
+    --ciano-eletrico: rgb(0, 188, 212);
+    /* detalhes e links no fundo escuro */
+    --teal: rgb(0, 104, 118);
+    /* títulos e links no fundo claro */
+    --fundo: rgb(248, 250, 253);
+    /* fundo da página */
+    --superficie: rgb(255, 255, 255);
+    /* cards e formulário */
+    --superficie-variante: rgb(241, 245, 249);
+    /* inputs */
+    --borda: rgb(226, 232, 240);
+    --texto: rgb(6, 21, 45);
+    /* títulos e texto forte */
+    --texto-corpo: rgb(71, 85, 105);
+    /* parágrafos */
+    --texto-invertido: rgb(255, 255, 255);
+    /* texto sobre navy */
 }
 
-/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
-   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
-   fica só o espaço de baixo. */
-.pagina-contato main .ex-container {
-    padding-bottom: 1.5rem;
-}
+/* ---------- Base ---------- */
 
-/* Contorno do foco do teclado nos links e botões (teal da paleta) */
-.pagina-contato main a:focus-visible,
-.pagina-contato main button:focus-visible {
-    outline: 3px solid rgb(0, 104, 118);
-    outline-offset: 2px;
-}
 
-/* Texto só para leitor de tela (fica invisível na tela) */
-.pagina-contato .visualmente-oculto {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
 
-/* ==========================================================================
-   1. CANAIS DE ATENDIMENTO (cards)
-   ========================================================================== */
-
-/* Cards em 1 coluna no celular, 2 a partir de 640px e 3 no computador */
-.pagina-contato .canais__grade {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-/* Card mais baixo que o padrão do .ex-card, com os itens um embaixo do outro */
-.pagina-contato .canal {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 24px;
-}
-
-/* Caixinha ciano-clara com o ícone do canal */
-.pagina-contato .canal__icone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 0.75rem;
-    background: rgb(214, 247, 255);
-}
-
-.pagina-contato .canal h3,
-.pagina-contato .canal p {
-    margin: 0;
-}
-
-/* E-mail comprido: quebra a linha em vez de sair do card */
-.pagina-contato .canal a {
-    overflow-wrap: anywhere;
-}
-
-/* Links das redes sociais lado a lado, sem bolinha */
-.pagina-contato .canal__redes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* ==========================================================================
-   2. PROPOSTA (vantagens + formulário)
-   Regras copiadas da antiga seção da home, com o prefixo desta página.
-   ========================================================================== */
-
-/* Bolinha verde da etiqueta */
-.pagina-contato .ponto {
-    display: inline-block;
-    flex-shrink: 0;
-    width: 8px;
-    height: 8px;
-    border-radius: 9999px;
-}
-
-.pagina-contato .ponto--verde {
-    background: rgb(16, 185, 129);
-}
-
-/* Caixa quadrada com um ícone no meio */
-.pagina-contato .icone-caixa {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 1rem;
-}
-
-.pagina-contato .icone-caixa--media {
-    width: 40px;
-    height: 40px;
-    border-radius: 0.75rem;
-}
-
-.pagina-contato .icone-caixa--clara {
-    background: rgb(241, 245, 249);
-    box-shadow: 0 1px 2px rgba(6, 21, 45, 0.05);
-}
-
-.pagina-contato .icone-caixa--ciano-suave {
-    background: rgba(214, 247, 255, 0.4);
-}
-
-/* Link de texto com seta (WhatsApp) */
-.pagina-contato .link-seta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
+.pagina-contato a {
+    color: var(--teal);
     text-decoration: none;
 }
 
-/* Seta do botão e do link anda um pouquinho no hover */
-.pagina-contato .botao-seta .material-symbols-outlined:last-child,
-.pagina-contato .link-seta .material-symbols-outlined {
-    transition: transform 0.2s;
+
+.pagina-contato section {
+    margin-bottom: 2.5rem;
 }
 
-.pagina-contato .botao-seta:hover .material-symbols-outlined:last-child,
-.pagina-contato .link-seta:hover .material-symbols-outlined {
-    transform: translateX(4px);
-}
-
-/* Seção com os brilhos presos dentro dela */
-.pagina-contato .proposta {
-    position: relative;
-    overflow: hidden;
-    margin-top: 50px;
-    padding: 50px 0;
-    border-top: 1px solid rgb(226, 232, 240);
-    border-bottom: 1px solid rgb(226, 232, 240);
-}
-
-/* Brilhos redondos e desfocados no fundo */
-.pagina-contato .proposta__brilho {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(64px);
-    pointer-events: none;
-}
-
-.pagina-contato .proposta__brilho--ciano {
-    top: -6rem;
-    left: -6rem;
-    width: 420px;
-    height: 420px;
-    background: rgba(0, 188, 212, 0.1);
-}
-
-.pagina-contato .proposta__brilho--navy {
-    right: 0;
-    bottom: -8rem;
-    width: 520px;
-    height: 520px;
-    background: rgba(6, 21, 45, 0.06);
-}
-
-/* Texto e formulário: um embaixo do outro; lado a lado a partir de 1024px */
-.pagina-contato .proposta__grade {
-    position: relative;
-    z-index: 10;
-    display: grid;
-    grid-template-columns: 1fr;
+/* ---------- Canais de contato ---------- */
+.pagina-contato .canais {
+    display: flex;
+    /* coloca os blocos lado a lado */
+    flex-wrap: wrap;
+    /* no celular, os blocos descem para a linha de baixo */
     gap: 2rem;
-    align-items: center;
+    /* espaço entre eles */
+    margin-bottom: 1rem;
 }
 
-.pagina-contato .proposta__texto {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.pagina-contato .canal {
+    flex: 1 1 220px;
+    /* pode crescer, pode encolher, tamanho ideal 220px */
+    border-top: 3px solid var(--ciano-eletrico);
+    padding-top: 0.75rem;
 }
 
-.pagina-contato .proposta__texto .ex-etiqueta {
-    gap: 0.5rem;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
+.pagina-contato .canal h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
 }
 
-.pagina-contato .proposta__texto h2 {
-    margin: 0.5rem 0;
+.pagina-contato .canal p {
+    margin: 0 0 0.5rem;
 }
 
-.pagina-contato .proposta__texto p {
-    margin: 0;
+.pagina-contato .horario {
+    margin: 0 0 2.5rem;
+    font-style: italic;
 }
 
-/* Lista de vantagens: ícone alinhado ao topo + título + texto curto */
-.pagina-contato .vantagens {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.pagina-contato .vantagem {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-}
-
-.pagina-contato .vantagem .icone-caixa {
-    margin-top: 0.125rem;
-}
-
-.pagina-contato .vantagem .ex-card__titulo {
-    display: block;
-    margin: 0;
-}
-
-.pagina-contato .vantagem .ex-nota {
-    display: block;
-}
-
-.pagina-contato .proposta__whatsapp:hover {
-    text-decoration: underline;
-}
-
-/* Card do formulário com borda ciano */
-.pagina-contato .proposta__cartao {
+/* ---------- Formulário ---------- */
+.pagina-contato .formulario {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
     padding: 1.5rem;
-    border: 2px solid rgba(0, 188, 212, 0.3);
-    box-shadow: 0 20px 60px rgba(6, 21, 45, 0.08);
 }
 
-.pagina-contato .proposta__topo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(241, 245, 249);
+.pagina-contato .formulario h2 {
+    margin-top: 0;
 }
 
-.pagina-contato .proposta__topo h3,
-.pagina-contato .proposta__topo p {
-    margin: 0;
+.pagina-contato .campo {
+    margin-bottom: 1rem;
 }
 
-.pagina-contato .proposta__topo .ex-etiqueta {
-    flex-shrink: 0;
+.pagina-contato label {
+    display: block;
+    /* label em cima do campo */
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+    color: var(--texto);
 }
 
-/* Campos em 1 coluna no celular e 2 colunas a partir de 640px.
-   Quem chega pelo botão "Falar com Consultor" (#proposta-form) para um
-   pouco acima do formulário, para ver também o título do card. */
-.pagina-contato .proposta__form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    scroll-margin-top: 240px;
-}
-
-.pagina-contato .proposta__campo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-}
-
-.pagina-contato .proposta__campo .ex-rotulo {
-    margin: 0;
-}
-
-/* Caixa da mensagem: a pessoa só aumenta a altura */
-.pagina-contato .proposta__campo textarea {
-    min-height: 110px;
-    resize: vertical;
-}
-
-.pagina-contato .proposta__envio {
-    padding-top: 0.25rem;
-}
-
-.pagina-contato .proposta__envio .ex-botao {
-    box-sizing: border-box;
+.pagina-contato input,
+.pagina-contato select,
+.pagina-contato textarea {
     width: 100%;
+    padding: 0.6rem;
+    font: inherit;
+    /* usa a mesma fonte do resto da página */
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    background: var(--superficie-variante);
 }
 
-.pagina-contato .proposta__envio .ex-sobretitulo {
-    margin: 0.5rem 0 0;
+.pagina-contato input:focus,
+.pagina-contato select:focus,
+.pagina-contato textarea:focus,
+.pagina-contato button:focus-visible {
+    outline: 3px solid var(--ciano-eletrico);
+    /* mostra onde o teclado está */
+    outline-offset: 1px;
+}
+
+
+.pagina-contato button:hover {
+    background: var(--navy-claro);
+}
+
+
+/* ---------- Rodapé ---------- */
+footer {
+    background: var(--navy-profundo);
+    color: var(--texto-invertido);
     text-align: center;
+    padding: 1.5rem 1rem;
 }
 
-/* ==========================================================================
-   3. EQUIPE DO PROJETO
-   ========================================================================== */
-.pagina-contato .equipe {
-    padding-top: 50px;
-}
-
-.pagina-contato .equipe h2 {
-    margin: 0 0 10px;
-}
-
-.pagina-contato .equipe p {
-    margin: 0 0 20px;
-}
-
-/* Integrantes em caixinhas brancas: 1 coluna no celular, até 4 no computador */
-.pagina-contato .equipe__lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
+footer p {
     margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.pagina-contato .equipe__lista li {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 14px 18px;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-radius: 1rem;
-}
-
-/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
-   alinhamento, iguais aos da FAQ e da Notícias) */
-.pagina-contato .nota-fonte {
-    padding: 20px 5%;
-    text-align: center;
-}
-
-/* ==========================================================================
-   TAMANHOS DE TELA
-   ========================================================================== */
-
-/* ---- A partir de 640px -------------------------------------------------- */
-@media (min-width: 640px) {
-    .pagina-contato .canais__grade {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pagina-contato .proposta__cartao {
-        padding: 2.5rem;
-    }
-
-    .pagina-contato .proposta__form {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Mensagem e botão ocupam as duas colunas */
-    .pagina-contato .proposta__campo--largo,
-    .pagina-contato .proposta__envio {
-        grid-column: span 2;
-    }
-}
-
-/* ---- A partir de 1024px: colunas lado a lado ---------------------------- */
-@media (min-width: 1024px) {
-    .pagina-contato .canais__grade {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pagina-contato .proposta__grade {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    }
 }
 
 
