@@ -777,7 +777,7 @@ main>section.ex-hero+.ex-container>h2:first-child {
 
 
 .pagina-clientes .container {
-    width: 90%;
+    /* width: 90%; */
     max-width: 1200px;
     margin: auto;
 }
