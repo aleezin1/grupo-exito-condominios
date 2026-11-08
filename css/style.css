@@ -275,6 +275,10 @@ th {
     font-weight: 700;
 }
 
+.nota-fonte{
+    text-align: center;
+}
+
 /* ---- Celular (até 640px): títulos menores para caber na tela ------------ */
 @media (max-width: 640px) {
     h1 {
@@ -5427,58 +5431,97 @@ body.ck-aberto {
     padding-bottom: 40px;
 }
 
-/* ---- Cards dos serviços ------------------------------------------------ */
-.pagina-servicos-2 .cards {
+.pagina-servicos-2 .container {
     display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin: 30px auto;
+    align-items: 20px;
+    gap: 2px;
     flex-wrap: wrap;
+    background-color: white;
 }
 
-/* Três cards por linha dentro dos 1200px (no celular, um embaixo do outro) */
-.pagina-servicos-2 .card {
-    flex: 0 1 360px;
-    border: 1px solid rgb(226, 232, 240);
+.pagina-servicos-2 .container_header {
+    display: flex;
+    align-items: 200px;
+    gap: 200px;
+    flex-wrap: wrap;
+    background-color: rgb(10, 30, 59);
+}
+
+.pagina-servicos-2 .titulo_baner {
+    margin-left: 250px;
+    color: black;
+}
+
+.pagina-servicos-2 .texto-centralizado {
+    text-align: center;
+    background-color: #00245d;
+}
+
+.pagina-servicos-2 .texto-centralizado h2 {
+    color: white;
+}
+
+.pagina-servicos-2 .cards {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    border: 1px solid #0c0b0b;
     border-radius: 8px;
     padding: 30px;
     min-height: 250px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+.pagina-servicos-2 .formulario {
+    width: 500px;
+    margin: 50px auto;
+    padding: 35px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
 }
 
-.pagina-servicos-2 .card h3 {
-    margin-top: 0;
-    margin-bottom: 25px;
+.pagina-servicos-2 .botao {
+    display: block;
+    margin: 10px auto 0;
+    background-color: rgb(6, 21, 45);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Marcador quadrado nas listas (antes era o atributo type="square") */
-.pagina-servicos-2 .lista-quadrado {
-    list-style-type: square;
+.pagina-servicos-2 .botao:hover {
+    background-color: #0d00fd;
+    transform: scale(1.05);
+
 }
 
-/* ---- Botões do fim (componente .ex-botao), lado a lado no centro -------
-   Iguais aos da Serviços 3. */
-.pagina-servicos-2 .conteiner-link-flex {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+
+.pagina-servicos-2 .texto-preto {
+    color: black;
 }
 
-/* Fonte da foto: nota discreta no fim da página (texto e cor: componente
-   .ex-nota), igual à da Serviços 3 */
-.pagina-servicos-2 .nota-fonte {
-    padding: 20px 5% 0;
-    text-align: center;
+
+.pagina-servicos-2 .image {
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
 }
 
-/* Celular: botões mais próximos */
-@media (max-width: 640px) {
-    .pagina-servicos-2 .conteiner-link-flex {
-        gap: 16px;
-    }
+
+.pagina-servicos-2 .link {
+    margin-top: auto;
+    color: rgb(0, 188, 212);
 }
 
 
