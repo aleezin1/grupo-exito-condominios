@@ -4709,180 +4709,75 @@ body.ck-aberto {
    abaixo do título usa o .ex-subtitulo, o link do WhatsApp usa o botão
    .ex-botao--whatsapp e a nota do fim usa o .ex-nota. Aqui ficam só o
    alinhamento, os espaços e as caixas. */
-
-/* ---- Topo (hero) --------------------------------------------------------
-   O topo usa o componente .ex-hero do bloco GLOBAL. Aqui fica só a foto de
-   fundo desta página (o caminho sai de css/ até img/). Sem a foto, o
-   fundo fica azul-marinho. */
-.pagina-faq .ex-hero {
-    background-image: url("../img/faq/hero-faq.jpg");
+.pagina-faq img {
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* O conteúdo usa o container-base do site (.ex-container, no bloco GLOBAL).
-   O espaço de cima (50px abaixo do topo) vem do componente .ex-hero; aqui
-   fica só o espaço de baixo. */
-.pagina-faq main .ex-container {
-    padding-bottom: 1.5rem;
-}
-
-/* Contorno do foco do teclado nos links e perguntas (teal da paleta) */
-.pagina-faq main a:focus-visible,
-.pagina-faq main summary:focus-visible {
-    outline: 3px solid rgb(0, 104, 118);
-    outline-offset: 2px;
-}
-
-/* ---- Perguntas (cada uma é um <details>) -------------------------------- */
-
-/* Uma pergunta embaixo da outra, com um espaço entre elas */
-.pagina-faq .lista-perguntas {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Caixa branca com borda e cantos arredondados */
-.pagina-faq .pergunta {
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-radius: 1.5rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-/* Borda ciano ao passar o mouse e quando a pergunta está aberta */
-.pagina-faq .pergunta:hover,
-.pagina-faq .pergunta[open] {
-    border-color: rgba(0, 188, 212, 0.6);
-}
-
-.pagina-faq .pergunta[open] {
-    box-shadow: 0 16px 36px rgba(6, 21, 45, 0.08);
-}
-
-/* Linha clicável: número, pergunta e o sinal de abrir/fechar */
-.pagina-faq .pergunta summary {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 24px;
-    border-radius: 1.5rem;
-    cursor: pointer;
+.pagina-faq .faq {
+    width: 100%;
     list-style: none;
 }
 
-/* Tira o triângulo padrão do navegador (o nosso sinal é o ícone "+") */
-.pagina-faq .pergunta summary::-webkit-details-marker {
+.pagina-faq .faq li {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.pagina-faq .faq li label {
+    padding: 15px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pagina-faq .faq li label span {
+    display: inline-block;
+    padding: 8px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.pagina-faq .faq li label::before {
+    content: '+';
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.pagina-faq .faq input[type=radio] {
     display: none;
 }
 
-/* O número não encolhe quando a pergunta é comprida */
-.pagina-faq .pergunta summary .ex-etiqueta {
-    flex-shrink: 0;
+.pagina-faq .faq .resposta {
+    color: #535353;
+    padding: 0px 14px;
+    background-color: #fff;
+    line-height: 32px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s, padding .5s;
 }
 
-/* A pergunta ocupa o espaço do meio */
-.pagina-faq .pergunta summary h3 {
-    flex: 1;
-    margin: 0;
+.pagina-faq .faq input[type=radio]:checked+label+.resposta {
+    max-height: 400px;
+    padding: 10px 10 px 20px;
 }
 
-/* Sinal "+" num círculo ciano-claro; aberto, ele gira e vira um "x" */
-.pagina-faq .pergunta .sinal {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgb(214, 247, 255);
-    transition: transform 0.3s;
+.pagina-faq .faq input[type=radio]:checked+label span {
+    background-color: #304B80;
 }
 
-.pagina-faq .pergunta[open] .sinal {
-    transform: rotate(45deg);
+.pagina-faq .faq input[type=radio]:checked+label::before {
+    content: '-';
 }
-
-/* Resposta: separada da pergunta por uma linha fina */
-.pagina-faq .resposta {
-    margin: 0 24px;
-    padding: 16px 0 20px;
-    border-top: 1px solid rgb(241, 245, 249);
-}
-
-.pagina-faq .resposta p {
-    margin: 0 0 10px;
-}
-
-.pagina-faq .resposta p:last-child {
-    margin-bottom: 0;
-}
-
-.pagina-faq .resposta ul {
-    margin: 0 0 10px;
-}
-
-.pagina-faq .resposta li {
-    margin-bottom: 6px;
-}
-
-/* ---- Caixa "Qualquer dúvida?" ------------------------------------------- */
-
-/* Faixa azul-marinho com o texto à esquerda e o botão à direita */
-.pagina-faq .duvida {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 40px;
-    padding: 32px 36px;
-    background: rgb(6, 21, 45);
-    border: 1px solid rgba(0, 188, 212, 0.4);
-    border-radius: 1.5rem;
-}
-
-/* Sobre o fundo escuro, o título fica branco e o texto, cinza bem claro */
-.pagina-faq .duvida h2 {
-    margin: 0 0 6px;
-    color: rgb(255, 255, 255);
-}
-
-.pagina-faq .duvida p {
-    margin: 0;
-    color: rgb(241, 245, 249);
-}
-
-/* Nota no fim da página (texto: componente .ex-nota; aqui só o espaço e o
-   alinhamento, iguais aos da Notícias) */
-.pagina-faq .nota-fonte {
-    padding: 20px 5%;
-    text-align: center;
-}
-
-/* ---- Celular ------------------------------------------------------------ */
-@media (max-width: 640px) {
-
-    /* Menos espaço dentro das caixas */
-    .pagina-faq .pergunta summary {
-        gap: 12px;
-        padding: 16px;
-    }
-
-    .pagina-faq .resposta {
-        margin: 0 16px;
-    }
-
-    .pagina-faq .duvida {
-        padding: 24px;
-    }
-
-    /* Botão do WhatsApp na largura toda */
-    .pagina-faq .duvida .ex-botao {
-        width: 100%;
-    }
-}
-
 
 /* ##########################################################################
    PÁGINA: contato.html

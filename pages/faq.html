@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,13 @@
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/acessibilidade.js"></script>
+    <style>
+
+    </style>
 </head>
 
 <body class="pagina-faq">
-    <!-- HEADER COMPARTILHADO (igual ao da home) -->
+
     <header class="ex-header">
         <div class="ex-topo">
             <div class="ex-conteudo">
@@ -98,217 +101,154 @@
             </nav>
         </div>
     </header>
-    <main>
-        <!-- TOPO com foto (componente .ex-hero) -->
-        <section class="ex-hero">
-            <div class="ex-hero__pelicula"></div>
-            <div class="ex-hero__conteudo">
-                <span class="ex-hero__rotulo">FAQ</span>
-                <h1 class="ex-hero__titulo">Perguntas frequentes
-                    <strong>sobre a administração</strong>
-                </h1>
-                <p class="ex-hero__texto">Respostas diretas.</p>
-            </div>
-        </section>
 
-        <!-- CONTEÚDO da página na largura padrão do site (1200px) -->
-        <div class="ex-container">
+    <main class="ex-container">
 
-            <!-- PERGUNTAS: cada uma abre e fecha com <details> e <summary>,
-                 sem JavaScript. A primeira já começa aberta (open). -->
-            <section class="perguntas" aria-labelledby="titulo-perguntas">
-                <div class="ex-cabecalho">
-                    <h2 id="titulo-perguntas">Dúvidas sobre a administração</h2>
-                    <p class="ex-subtitulo">Encontre respostas imediatas sobre migração de administradora, controle
-                        financeiro, tecnologia e aspectos jurídicos da sua gestão.</p>
-                </div>
+        <div class="perguntas-frequentes">
 
-                <div class="lista-perguntas">
-                    <!-- Pergunta 01: transição -->
-                    <details class="pergunta" open>
-                        <summary>
-                            <span class="ex-etiqueta">01</span>
-                            <h3>Como funciona a transição de administradora para o condomínio?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Nossa equipe jurídica e contábil assume integralmente o processo de migração, sem dor de
-                                cabeça para o síndico:</p>
-                            <ul>
-                                <li>Recolhimento e auditoria da pasta contábil e contratos em vigor;</li>
-                                <li>Parametrização completa do condomínio no Superlógica Hub em até 48 horas;</li>
-                                <li>Emissão do primeiro mês de boletos sem atrasos nem duplicidades;</li>
-                                <li>Comunicação oficial e treinamento rápido para moradores e conselho.</li>
-                            </ul>
-                            <p><strong>A rotina do seu condomínio continua funcionando perfeitamente durante todo o
-                                    processo.</strong></p>
-                        </div>
-                    </details>
+            <h1>Perguntas Frequentes FAQ</h1>
 
-                    <!-- Pergunta 02: financeiro -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">02</span>
-                            <h3>O síndico ou o conselho perdem o controle da conta bancária?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>De forma alguma. Trabalhamos tanto com conta individual vinculada ao CNPJ do condomínio
-                                quanto com modelo de subcontas auditadas. <strong>Nenhum pagamento é liquidado sem a
-                                    autorização digital expressa do síndico</strong>. Todas as conciliações são diárias
-                                e disponíveis em tempo real na tela do conselho fiscal.</p>
-                        </div>
-                    </details>
+            <img src="../img/faq/hero-faq.jpg" alt="imobiliária" width="500">
 
-                    <!-- Pergunta 03: tecnologia -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">03</span>
-                            <h3>Como os moradores acessam o aplicativo, boletos e reservas?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Através do nosso aplicativo mobile disponível para iOS e Android ou pelo portal web. Cada
-                                condômino tem login criptografado individual para:</p>
-                            <ul>
-                                <li>Segunda via instantânea de boleto e código Pix Copia e Cola;</li>
-                                <li>Reserva de salão de festas, churrasqueiras e áreas comuns;</li>
-                                <li>Autorização prévia de visitantes e encomendas na portaria;</li>
-                                <li>Visualização de atas, convenção e prestação de contas mensal detalhada.</li>
-                            </ul>
-                        </div>
-                    </details>
 
-                    <!-- Pergunta 04: jurídico -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">04</span>
-                            <h3>As assembleias virtuais e híbridas possuem plena validade jurídica?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Sim. Conforme a Lei Federal nº 14.309/2022 e o Código Civil Brasileiro, nossas
-                                plataformas garantem credenciamento seguro, registro auditável de quórum por fração
-                                ideal, votação sigilosa ou nominal com gravação integral e lavratura ágil da ata com
-                                assinatura digital qualificada.</p>
-                        </div>
-                    </details>
 
-                    <!-- Pergunta 05: tempo de resposta (SLA) -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">05</span>
-                            <h3>Qual é o tempo médio de resposta para dúvidas e solicitações (SLA)?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Nosso contrato de nível de serviço (SLA) garante <strong>retorno formal em até 2 horas
-                                    úteis</strong> pelo canal dedicado de WhatsApp e e-mail com o gerente da sua conta.
-                                Além disso, disponibilizamos canal de plantão emergencial 24h para manutenções críticas.
-                            </p>
-                        </div>
-                    </details>
+            <ul class="faq">
 
-                    <!-- Pergunta 06: papel do síndico -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">06</span>
-                            <h3>A administradora substitui o síndico?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Não. O síndico continua sendo eleito em assembleia e é o representante legal do
-                                condomínio. A administradora trabalha ao lado dele: cuida das rotinas administrativas,
-                                financeiras e operacionais, organiza os documentos e dá o suporte técnico para que as
-                                decisões do síndico e do conselho sejam tomadas com segurança.</p>
-                        </div>
-                    </details>
+                <li>
+                    <input type="radio" name="acordeon" id="primeiro">
+                    <label for="primeiro"><span>01</span> Como faço para agendar uma visita?</label>
+                    <div class="resposta">
+                        <p>Escolha o imóvel desejado e entre em contato conosco para verificar os horários disponíveis
+                            para visita.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="segundo">
+                    <label for="segundo"><span>02</span> Quais são os custos além do valor do imóvel?</label>
+                    <div class="resposta">
+                        <p>Podem existir custos como ITBI, escritura, registro, taxas bancárias e despesas relacionadas
+                            à documentação.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="terceiro">
+                    <label for="terceiro"><span>03</span> Como funciona o processo de aluguel?</label>
+                    <div class="resposta">
+                        <p>Após escolher o imóvel, são realizadas a análise de documentos, aprovação do cadastro e
+                            assinatura do contrato de locação.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="quarto">
+                    <label for="quarto"><span>04</span> Como faço para anunciar meu imóvel?</label>
+                    <div class="resposta">
+                        <p>Entre em contato com nossa equipe e forneça as informações e documentos necessários para
+                            iniciarmos o processo de anúncio.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="quinto">
+                    <label for="quinto"><span>05</span> A imobiliária realiza avaliação de imóveis?</label>
+                    <div class="resposta">
+                        <p>Sim. Nossa equipe pode realizar uma avaliação considerando localização, características e
+                            valores praticados na região.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="acordeon" id="sexto">
+                    <label for="sexto"><span>06</span> Os imóveis anunciados estão disponíveis para visita?</label>
+                    <div class="resposta">
+                        <p>A disponibilidade pode mudar rapidamente. Recomendamos entrar em contato para confirmar a
+                            situação e agendar uma visita.</p>
+                    </div>
+                </li>
 
-                    <!-- Pergunta 07: prestação de contas -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">07</span>
-                            <h3>Como funciona a prestação de contas do condomínio?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Todo mês preparamos o balancete com as receitas, as despesas e os comprovantes de
-                                pagamento, organizados por categoria. O síndico e o conselho conferem os documentos,
-                                e a prestação de contas do período é apresentada e votada em assembleia.</p>
-                            <ul>
-                                <li>Balancete mensal com os comprovantes de cada despesa;</li>
-                                <li>Relatório de inadimplência e de saldo das contas;</li>
-                                <li>Documentos disponíveis para consulta dos condôminos.</li>
-                            </ul>
-                        </div>
-                    </details>
 
-                    <!-- Pergunta 08: inadimplência -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">08</span>
-                            <h3>Como é feita a cobrança de quem está com a taxa condominial atrasada?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Começamos pela cobrança administrativa: lembrete logo após o vencimento, contato
-                                direto com o condômino e proposta de acordo quando for possível. Se a dívida
-                                continuar, o caso pode seguir para a cobrança judicial, conforme o que estiver
-                                previsto no contrato e na convenção do condomínio.</p>
-                        </div>
-                    </details>
+                <li>
+                    <input type="radio" name="acordeon" id="setimo">
+                    <label for="setimo"><span>07</span> Como funciona a transição de administradora para o
+                        condomínio?</label>
+                    <div class="resposta">
+                        <p>Nossa equipe jurídica e contábil assume integralmente o processo de migração, sem dor de
+                            cabeça para o síndico:
 
-                    <!-- Pergunta 09: manutenção e ocorrências -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">09</span>
-                            <h3>Como pedir uma manutenção ou registrar uma ocorrência?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>O síndico, o zelador ou o morador registra o pedido pelos nossos canais de
-                                atendimento. A equipe operacional encaminha o serviço para o fornecedor certo e
-                                acompanha até a conclusão. Em situações de emergência, como vazamentos ou falta de
-                                energia, o plantão 24h é acionado.</p>
-                        </div>
-                    </details>
+                            Recolhimento e auditoria da pasta contábil e contratos em vigor;
+                            Parametrização completa do condomínio no Superlógica Hub em até 48 horas;
+                            Emissão do primeiro mês de boletos sem atrasos nem duplicidades;
+                            Comunicação oficial e treinamento rápido para moradores e conselho.
+                            A rotina do seu condomínio continua funcionando perfeitamente durante todo o processo.</p>
+                    </div>
+                </li>
 
-                    <!-- Pergunta 10: o que está incluído -->
-                    <details class="pergunta">
-                        <summary>
-                            <span class="ex-etiqueta">10</span>
-                            <h3>Quais serviços estão incluídos na administração?</h3>
-                            <span class="material-symbols-outlined ex-icone--teal sinal" aria-hidden="true">add</span>
-                        </summary>
-                        <div class="resposta">
-                            <p>Depende do plano contratado por cada condomínio. A proposta pode reunir gestão
-                                administrativa, gestão financeira, gestão operacional, recursos humanos, apoio
-                                jurídico e suporte para assembleias. Na página <a href="servicos.html">Serviços</a>
-                                você vê o que cada um entrega.</p>
-                        </div>
-                    </details>
-                </div>
+                <li>
+                    <input type="radio" name="acordeon" id="oitavo">
+                    <label for="oitavo"><span>08</span> O síndico ou o conselho perdem o controle da conta
+                        bancária?</label>
+                    <div class="resposta">
+                        <p>De forma alguma. Trabalhamos tanto com conta individual vinculada ao CNPJ do condomínio
+                            quanto com modelo de subcontas auditadas. Nenhum pagamento é liquidado sem a autorização
+                            digital expressa do síndico. Todas as conciliações são diárias e disponíveis em tempo real
+                            na tela do conselho fiscal.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input type="radio" name="acordeon" id="nono">
+                    <label for="nono"><span>09</span> Como os moradores acessam o aplicativo, boletos e
+                        reservas?</label>
+                    <div class="resposta">
+                        <p>Através do nosso aplicativo mobile disponível para iOS e Android ou pelo portal web. Cada
+                            condômino tem login criptografado individual para:
+
+                            Segunda via instantânea de boleto e código Pix Copia e Cola;
+                            Reserva de salão de festas, churrasqueiras e áreas comuns;
+                            Autorização prévia de visitantes e encomendas na portaria;
+                            Visualização de atas, convenção e prestação de contas mensal detalhada.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input type="radio" name="acordeon" id="decimo">
+                    <label for="decimo"><span>10</span>
+                        As assembleias virtuais e híbridas possuem plena validade jurídica?</label>
+                    <div class="resposta">
+                        <p>Sim. Conforme a Lei Federal nº 14.309/2022 e o Código Civil Brasileiro, nossas plataformas
+                            garantem credenciamento seguro, registro auditável de quórum por fração ideal, votação
+                            sigilosa ou nominal com gravação integral e lavratura ágil da ata com assinatura digital
+                            qualificada.</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input type="radio" name="acordeon" id="decimoprimeiro">
+                    <label for="decimoprimeiro"><span>11</span>
+
+                        Qual é o tempo médio de resposta para dúvidas e solicitações (SLA)?</label>
+                    <div class="resposta">
+                        <p>Nosso contrato de nível de serviço (SLA) garante retorno formal em até 2 horas úteis pelo
+                            canal dedicado de WhatsApp e e-mail com o gerente da sua conta. Além disso, disponibilizamos
+                            canal de plantão emergencial 24h para manutenções críticas.</p>
+                    </div>
+                </li>
+
+
+
+            </ul>
+
+
+            <section class="contato">
+                <h2>Qualquer dúvida?</h2>
+                <p>
+                    <a href="https://wa.me/551125649963">Fale conosco</a>
+                </p>
             </section>
-
-            <!-- QUALQUER DÚVIDA: caixa com o link do WhatsApp (botão do site) -->
-            <section class="duvida">
-                <div>
-                    <h2>Qualquer dúvida?</h2>
-                    <p>Não achou a sua pergunta? Fale com a nossa equipe pelo WhatsApp.</p>
-                </div>
-                <a class="ex-botao ex-botao--whatsapp" href="https://wa.me/551125649963" target="_blank" rel="noopener"
-                    aria-label="Fale conosco pelo WhatsApp (abre em outra aba)">
-                    <span class="material-symbols-outlined ex-icone--pequeno" aria-hidden="true">chat</span>
-                    <span>Fale conosco</span>
-                </a>
-            </section>
-
             <!-- Nota sobre a imagem do topo -->
             <p class="ex-nota nota-fonte">
                 Foto do topo: Pixabay.
             </p>
         </div>
     </main>
+
 
     <!-- FOOTER COMPARTILHADO (igual ao da home) -->
     <footer class="ex-rodape">
@@ -358,7 +298,8 @@
                             <a href="faq.html">FAQ &amp; Dúvidas</a>
                             <a href="contato.html">Fale Conosco</a>
                             <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a>
-                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial →</a>
+                            <a class="ex-rodape__cta" href="contato.html#proposta-form">Solicitar Estudo Condominial
+                                →</a>
                         </div>
                     </nav>
                     <nav class="ex-rodape__nav" aria-label="Documentação do projeto">
@@ -370,7 +311,9 @@
                 </div>
             </div>
             <div class="ex-rodape__base">
-                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a href="politica-privacidade.html">Política de Privacidade</a> <a href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
+                <p>© 2026 Grupo Êxito Condomínios. Todos os direitos reservados. <a
+                        href="politica-privacidade.html">Política de Privacidade</a> <a
+                        href="orcamento-hospedagem.html">Orçamento de Hospedagem</a></p>
                 <p class="ex-rodape__assinatura">Projeto acadêmico.</p>
             </div>
         </div>
