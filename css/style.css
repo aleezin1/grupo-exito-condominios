@@ -5969,60 +5969,72 @@ body.ck-aberto {
    das tags no bloco GLOBAL. Esta página não muda a tipografia: aqui ficam
    só a largura da coluna de leitura, os espaços e as linhas divisórias. */
 
-/* ---- Topo (hero) --------------------------------------------------------
-   Componente .ex-hero do bloco GLOBAL; aqui só a foto de fundo. Sem a foto,
-   o fundo fica azul-marinho. */
-.pagina-politica-privacidade .ex-hero {
-    background-image: url("../img/politica-privacidade/hero-politica-privacidade.jpg");
+
+:root {
+    /* Paleta de Cores Oficial do Site */
+    --fundo: rgb(248, 250, 253);
+    --cabecalho-rodape: rgb(6, 21, 45);
+    --marinha-claro: rgb(14, 56, 103);
+    --ciano-eletrico: rgb(0, 188, 212);
+    --cerceta: rgb(0, 104, 118);
+    --borda: rgb(226, 232, 240);
+    --texto-titulos: rgb(6, 21, 45);
+    --texto-corpo: rgb(71, 85, 105);
+    --texto-suave: rgb(148, 163, 184);
+    --texto-fundo-navy: rgb(255, 255, 255);
+    --alerta: rgb(245, 158, 11);
+
+    --fonte: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 
-/* ---- Documento: texto na largura do conteúdo (1200px) ------------------ */
-.pagina-politica-privacidade .documento {
-    /* max-width: 760px; */
+
+.pagina-politica-privacidade .conteudo {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Espaço entre as seções do documento */
-.pagina-politica-privacidade .documento section+section {
-    margin-top: 40px;
+
+.pagina-politica-privacidade h2 {
+    color: var(--texto-titulos);
+    font-size: 1.5rem;
+    margin: 2.25rem 0 .5rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid var(--borda);
 }
 
-/* Títulos das seções 2 e 3 com uma linha embaixo (como o cabeçalho da 1) */
-.pagina-politica-privacidade .documento section>h2 {
-    margin: 0 0 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgb(226, 232, 240);
-}
-
-/* Subtítulos 1.1 e 1.2: um pouco de espaço acima */
-.pagina-politica-privacidade .documento h3 {
-    margin: 28px 0 8px;
-}
-
-.pagina-politica-privacidade .documento h3+p {
+.pagina-politica-privacidade h2:first-child {
     margin-top: 0;
 }
 
-/* ---- Lista de contato: caixa clara com borda, um item por linha --------- */
-.pagina-politica-privacidade .contatos {
-    margin: 20px 0 0;
-    padding: 20px 24px;
-    list-style: none;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-left: 4px solid rgb(0, 104, 118);
-    border-radius: 0.75rem;
+.pagina-politica-privacidade h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 .25rem;
+    color: var(--cerceta);
 }
 
-.pagina-politica-privacidade .contatos li+li {
-    margin-top: 10px;
+.pagina-politica-privacidade ul {
+    padding-left: 1.25rem;
 }
 
-/* ---- Nota do fim (fonte da foto) --------------------------------------- */
-.pagina-politica-privacidade .nota-fonte {
-    /* max-width: 760px; */
-    margin: 50px auto 60px;
+.pagina-politica-privacidade li {
+    margin-bottom: .6rem;
 }
+
+.pagina-politica-privacidade a {
+    color: var(--cerceta);
+    text-underline-offset: 3px;
+}
+
+.pagina-politica-privacidade a:hover {
+    color: var(--marinha-claro);
+}
+
+.pagina-politica-privacidade a:focus-visible {
+    outline: 3px solid var(--alerta);
+    outline-offset: 2px;
+}
+
+
 
 
 /* ##########################################################################
