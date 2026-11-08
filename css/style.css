@@ -4428,10 +4428,7 @@ body.ck-aberto {
 
 
 .pagina-noticias .noticias-pagina {
-    background-color: rgb(248, 250, 253);
-    color: rgb(71, 85, 105);
-    font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
-    padding: 56px 20px 80px;
+
 }
 
 .pagina-noticias .noticias-pagina * {
@@ -4445,10 +4442,7 @@ body.ck-aberto {
 }
 
 .pagina-noticias .noticias-topo h1 {
-    font-family: "Space Grotesk", Arial, sans-serif;
-    font-size: 48px;
-    color: rgb(6, 21, 45);
-    margin: 0 0 12px;
+
 }
 
 .pagina-noticias .noticias-intro {
