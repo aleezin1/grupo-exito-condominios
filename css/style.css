@@ -255,6 +255,13 @@ ol {
     padding-left: 1.5rem;
 }
 
+/* ---- Campos de formulário: mesma fonte do resto da página --------------- */
+input,
+select,
+textarea {
+    font: inherit;
+}
+
 /* ---- Tabelas: bordas finas da paleta e cabeçalho destacado -------------- */
 table {
     width: 100%;
@@ -278,6 +285,28 @@ th {
 .nota-fonte {
     text-align: center;
 }
+
+
+/* ---------- ROOT ENVIADO PELA EQUIPE, UNIFICANDO CADA ROOT DENTRO DE 1 SÓ --------- */
+
+
+
+:root {
+    --borda: rgb(226, 232, 240);
+    --destaque: rgb(6, 21, 45);
+    --destaque-suave: rgb(241, 245, 249);
+    --navy-claro: rgb(14, 56, 103);
+    --ciano-eletrico: rgb(0, 188, 212);
+    --teal: rgb(0, 104, 118);
+    --superficie: rgb(255, 255, 255);
+    --superficie-variante: rgb(241, 245, 249);
+    --marinha-claro: rgb(14, 56, 103);
+    --cerceta: rgb(0, 104, 118);
+    --texto-titulos: rgb(6, 21, 45);
+    --alerta: rgb(245, 158, 11);
+}
+
+
 
 /* ---- Celular (até 640px): títulos menores para caber na tela ------------ */
 @media (max-width: 640px) {
@@ -779,373 +808,6 @@ main>section.ex-hero+.ex-container>h2:first-child {
     margin-bottom: 15px;
 }
 
-
-.pagina-clientes .container {
-    /* width: 90%; */
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-:root {
-    --azul-escuro: rgb(6, 21, 45);
-    --azul: #123e68;
-    --turquesa: #19c4d3;
-    --turquesa-escuro: #0da8b8;
-    --cinza: #607080;
-}
-
-
-.pagina-clientes .header {
-    height: 80px;
-    background: var(--azul-escuro);
-    color: white;
-}
-
-.pagina-clientes .header-content {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-
-.pagina-clientes .brand {
-    margin-left: -10px;
-}
-
-
-.pagina-clientes .logo {
-    height: 50px;
-    width: auto;
-    display: block;
-}
-
-.pagina-clientes .pagina-clientes .btn-header {
-    background: var(--turquesa);
-
-    color: white;
-
-    padding: 13px 25px;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    border-radius: 20px;
-
-    transition: 0.3s;
-}
-
-.pagina-clientes .btn-header:hover {
-    background: var(--turquesa-escuro);
-}
-
-
-
-.pagina-clientes .hero {
-    position: relative;
-    min-height: 330px;
-    display: flex;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-}
-
-.pagina-clientes .hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(90deg,
-            rgba(4, 40, 73, 0.98),
-            rgba(7, 50, 86, 0.85),
-            rgba(8, 55, 90, 0.45));
-}
-
-.pagina-clientes .hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    color: white;
-
-    padding: 60px 0;
-
-    max-width: 850px;
-}
-
-.pagina-clientes .section-label {
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.pagina-clientes .section-label span {
-    display: block;
-    background: none;
-    color: var(--turquesa);
-    padding: 0;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: .5px;
-}
-
-.pagina-clientes .faixa-depoimentos {
-    width: 100%;
-    height: 45px;
-    background: var(--azul);
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.pagina-clientes .faixa-depoimentos span {
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: .8px;
-}
-
-
-.pagina-clientes .hero h1 {
-    font-size: 38px;
-
-    line-height: 1.15;
-
-    font-weight: 700;
-
-    max-width: 800px;
-}
-
-.pagina-clientes .hero h1 strong {
-    display: block;
-
-    color: var(--turquesa);
-}
-
-
-
-
-.pagina-clientes .hero p {
-    margin-top: 20px;
-
-    max-width: 620px;
-
-    font-size: 16px;
-
-    line-height: 1.8;
-
-    color: #f0f5f8;
-}
-
-
-
-.pagina-clientes .clientes {
-    padding: 70px 0;
-
-    background: white;
-}
-
-.pagina-clientes .titulo {
-    font-size: 30px;
-
-    line-height: 1.25;
-
-    font-weight: 700;
-
-    color: var(--azul-escuro);
-}
-
-.pagina-clientes .subtitulo {
-    margin-top: 15px;
-
-    color: var(--cinza);
-
-    font-size: 15px;
-
-    max-width: 650px;
-
-    line-height: 1.7;
-}
-
-
-.pagina-clientes .clientes-grid {
-    margin-top: 40px;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-
-.pagina-clientes .cliente-img {
-    width: 100%;
-    height: 180px;
-
-    overflow: hidden;
-}
-
-.pagina-clientes .cliente-img img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition: 0.3s;
-}
-
-.pagina-clientes .cliente-card {
-    background: #f5f9fc;
-
-    border-radius: 6px;
-
-    overflow: hidden;
-
-    text-align: center;
-
-    transition: 0.3s;
-
-    border: 1px solid #edf2f6;
-
-    padding-bottom: 20px;
-}
-
-.pagina-clientes .cliente-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 30px rgba(0, 30, 60, 0.10);
-}
-
-.pagina-clientes .cliente-card span {
-    display: block;
-
-    margin-top: 15px;
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    color: var(--azul);
-}
-
-.pagina-clientes .cliente-card h3 {
-    margin-top: 4px;
-
-    font-size: 17px;
-
-    letter-spacing: 2px;
-
-    color: var(--azul-escuro);
-}
-
-.pagina-clientes .depoimentos {
-    background: #edf5fa;
-
-    padding: 70px 0;
-}
-
-.pagina-clientes .depoimentos-grid {
-    margin-top: 40px;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.pagina-clientes .depoimento-card {
-    background: white;
-
-    border-radius: 7px;
-
-    padding: 30px;
-
-    min-height: 280px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    box-shadow:
-        0 5px 20px rgba(0, 40, 80, 0.04);
-}
-
-.pagina-clientes .aspas {
-    color: var(--turquesa);
-
-    font-size: 50px;
-
-    font-weight: 700;
-
-    height: 45px;
-}
-
-.pagina-clientes .depoimento-card p {
-    color: #40566d;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-    margin-top: 15px;
-
-    flex: 1;
-}
-
-.pagina-clientes .cliente-info {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 20px;
-}
-
-.pagina-clientes .avatar {
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    flex-shrink: 0;
-}
-
-.pagina-clientes .avatar img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.cliente-info strong {
-    display: block;
-
-    color: var(--azul-escuro);
-
-    font-size: 13px;
-}
-
-.cliente-info span {
-    display: block;
-
-    color: #718294;
-
-    font-size: 10px;
-
-    margin-top: 3px;
-}
 
 
 /* Celular: título menor e topo um pouco mais alto */
@@ -2870,6 +2532,336 @@ body.ck-aberto {
 }
 
 
+.pagina-clientes .container {
+    /* width: 90%; */
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.pagina-clientes .header {
+    height: 80px;
+    background: rgb(6, 21, 45);
+    color: white;
+}
+
+.pagina-clientes .header-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.pagina-clientes .brand {
+    margin-left: -10px;
+}
+
+
+.pagina-clientes .logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.pagina-clientes .pagina-clientes .btn-header {
+    background: rgb(0, 188, 212);
+
+    color: white;
+
+    padding: 13px 25px;
+
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.pagina-clientes .btn-header:hover {
+    background: rgb(24, 168, 182);
+}
+
+
+
+.pagina-clientes .hero {
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.pagina-clientes .hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(6, 21, 45, 0.98),
+            rgba(14, 56, 103, 0.85),
+            rgba(14, 56, 103, 0.45));
+}
+
+.pagina-clientes .hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    padding: 60px 0;
+
+    max-width: 850px;
+}
+
+.pagina-clientes .section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.pagina-clientes .section-label span {
+    display: block;
+    background: none;
+    color: rgb(0, 188, 212);
+    padding: 0;
+}
+
+.pagina-clientes .faixa-depoimentos {
+    width: 100%;
+    height: 45px;
+    background: rgb(14, 56, 103);
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.pagina-clientes .faixa-depoimentos span {
+    color: white;
+}
+
+
+.pagina-clientes .hero h1 {
+
+
+
+    max-width: 800px;
+}
+
+.pagina-clientes .hero h1 strong {
+    display: block;
+
+    color: rgb(0, 188, 212);
+}
+
+
+
+
+.pagina-clientes .hero p {
+    margin-top: 20px;
+
+    max-width: 620px;
+
+
+
+    color: rgb(255, 255, 255);
+}
+
+
+
+.pagina-clientes .clientes {
+    padding: 70px 0;
+
+    background: white;
+}
+
+.pagina-clientes .titulo {
+
+
+
+    color: rgb(6, 21, 45);
+}
+
+.pagina-clientes .subtitulo {
+    margin-top: 15px;
+
+
+
+    max-width: 650px;
+
+}
+
+
+.pagina-clientes .clientes-grid {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.pagina-clientes .cliente-img {
+    width: 100%;
+    height: 180px;
+
+    overflow: hidden;
+}
+
+.pagina-clientes .cliente-img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.3s;
+}
+
+.pagina-clientes .cliente-card {
+    background: rgb(248, 250, 253);
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    border: 1px solid rgb(226, 232, 240);
+
+    padding-bottom: 20px;
+}
+
+.pagina-clientes .cliente-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(6, 21, 45, 0.10);
+}
+
+.pagina-clientes .cliente-card span {
+    display: block;
+
+    margin-top: 15px;
+
+
+
+    color: rgb(14, 56, 103);
+}
+
+.pagina-clientes .cliente-card h3 {
+    margin-top: 4px;
+
+
+
+    color: rgb(6, 21, 45);
+}
+
+.pagina-clientes .depoimentos {
+    background: rgb(241, 245, 249);
+
+    padding: 70px 0;
+}
+
+.pagina-clientes .depoimentos-grid {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.pagina-clientes .depoimento-card {
+    background: white;
+
+    border-radius: 7px;
+
+    padding: 30px;
+
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow:
+        0 5px 20px rgba(6, 21, 45, 0.04);
+}
+
+.pagina-clientes .aspas {
+    color: rgb(0, 188, 212);
+
+
+
+    height: 45px;
+}
+
+.pagina-clientes .depoimento-card p {
+    color: rgb(71, 85, 105);
+
+
+
+    margin-top: 15px;
+
+    flex: 1;
+}
+
+.pagina-clientes .cliente-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.pagina-clientes .avatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.pagina-clientes .avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.pagina-clientes .cliente-info strong {
+    display: block;
+
+    color: rgb(6, 21, 45);
+
+}
+
+.pagina-clientes .cliente-info span {
+    display: block;
+
+    color: rgb(82, 96, 113);
+
+
+    margin-top: 3px;
+}
+
+
 /* ##########################################################################
    PÁGINA: servicos.html
    ########################################################################## */
@@ -3021,8 +3013,6 @@ body.ck-aberto {
 
 .pagina-servicos caption {
     text-align: left;
-    font-weight: bold;
-    font-size: 1.2rem;
     padding-bottom: .75rem;
 }
 
@@ -3035,7 +3025,7 @@ body.ck-aberto {
 }
 
 .pagina-servicos thead th {
-    background: #eef3ef;
+    background: rgb(241, 245, 249);
 }
 
 .pagina-servicos .chamada {
@@ -3063,7 +3053,7 @@ body.ck-aberto {
     color: white;
     padding: 0;
     margin: 0;
-    background-color: #172b44;
+    background-color: rgb(10, 30, 59);
     width: 100%;
     height: 100px;
     display: flex;
@@ -3084,9 +3074,7 @@ body.ck-aberto {
 .pagina-projetos .headerconteudo h1 {
     margin: 0;
     margin-left: 600px;
-    font-size: 24px;
     color: white;
-    line-height: 1;
 }
 
 .pagina-projetos .card {
@@ -3100,10 +3088,10 @@ body.ck-aberto {
 .pagina-projetos .projeto {
     width: 550px;
     height: 550px;
-    background: #f3f5f8;
-    border: 1px solid #dfe7f0;
+    background: rgb(241, 245, 249);
+    border: 1px solid rgb(226, 232, 240);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px rgba(6, 21, 45, 0.08);
     overflow: hidden;
     text-align: center;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -3112,7 +3100,7 @@ body.ck-aberto {
 
 .pagina-projetos .projeto:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 22px rgba(23, 43, 68, 0.18);
+    box-shadow: 0 10px 22px rgba(6, 21, 45, 0.18);
 }
 
 .pagina-projetos .projeto img {
@@ -3129,12 +3117,11 @@ body.ck-aberto {
 }
 
 .pagina-projetos .projeto h3 {
-    color: #172b44;
-    font-size: 20px;
+    color: rgb(6, 21, 45);
 }
 
 .pagina-projetos .projeto p {
-    color: #4a5563;
+    color: rgb(71, 85, 105);
     padding-top: 0;
     padding-bottom: 18px;
 }
@@ -4412,7 +4399,6 @@ body.ck-aberto {
    os espaços e as caixas. */
 
 
-.pagina-noticias .noticias-pagina {}
 
 .pagina-noticias .noticias-pagina * {
     box-sizing: border-box;
@@ -4424,10 +4410,8 @@ body.ck-aberto {
     margin: 0 auto;
 }
 
-.pagina-noticias .noticias-topo h1 {}
 
 .pagina-noticias .noticias-intro {
-    font-size: 20px;
     color: rgb(82, 96, 113);
     margin: 0 0 40px;
 }
@@ -4455,14 +4439,11 @@ body.ck-aberto {
     display: inline-block;
     background-color: rgb(214, 247, 255);
     color: rgb(0, 104, 118);
-    font-size: 14px;
-    font-weight: 600;
     padding: 6px 12px;
     border-radius: 8px;
 }
 
 .pagina-noticias .noticias-data {
-    font-size: 14px;
     color: rgb(82, 96, 113);
     margin-left: 10px;
 }
@@ -4472,7 +4453,6 @@ body.ck-aberto {
     margin-top: auto;
     padding-top: 14px;
     cursor: pointer;
-    font-weight: 700;
     color: rgb(0, 104, 118);
 }
 
@@ -4507,15 +4487,11 @@ body.ck-aberto {
 }
 
 .pagina-noticias .noticias-destaque h2 {
-    font-family: "Space Grotesk", Arial, sans-serif;
-    font-size: 34px;
     margin: 18px 0 14px;
     color: rgb(6, 21, 45);
 }
 
 .pagina-noticias .noticias-destaque p {
-    font-size: 18px;
-    line-height: 1.6;
     margin: 0;
 }
 
@@ -4548,15 +4524,11 @@ body.ck-aberto {
 }
 
 .pagina-noticias .noticias-card h3 {
-    font-family: "Space Grotesk", Arial, sans-serif;
-    font-size: 20px;
     margin: 16px 0 10px;
     color: rgb(6, 21, 45);
 }
 
 .pagina-noticias .noticias-card p {
-    font-size: 16px;
-    line-height: 1.5;
     margin: 0;
 }
 
@@ -4566,7 +4538,6 @@ body.ck-aberto {
 }
 
 .pagina-noticias .noticias-antigas span {
-    font-size: 17px;
     color: rgb(82, 96, 113);
     border-bottom: 2px solid rgb(82, 96, 113);
     padding-bottom: 2px;
@@ -4583,7 +4554,6 @@ body.ck-aberto {
     display: inline-block;
     margin-bottom: 24px;
     cursor: pointer;
-    font-size: 17px;
     color: rgb(0, 104, 118);
     border-bottom: 2px solid rgb(0, 104, 118);
     padding-bottom: 2px;
@@ -4610,16 +4580,11 @@ body.ck-aberto {
 }
 
 .pagina-noticias .noticias-materia h2 {
-    font-family: "Space Grotesk", Arial, sans-serif;
-    font-size: 38px;
-    line-height: 1.2;
     color: rgb(6, 21, 45);
     margin: 18px 0 22px;
 }
 
 .pagina-noticias .noticias-materia p {
-    font-size: 18px;
-    line-height: 1.7;
     margin: 0 0 18px;
 }
 
@@ -4638,9 +4603,6 @@ body.ck-aberto {
 }
 
 @media (max-width: 800px) {
-    .pagina-noticias .noticias-topo h1 {
-        font-size: 36px;
-    }
 
     .pagina-noticias .noticias-destaque {
         grid-template-columns: 1fr;
@@ -4650,13 +4612,7 @@ body.ck-aberto {
         min-height: 220px;
     }
 
-    .pagina-noticias .noticias-destaque h2 {
-        font-size: 26px;
-    }
 
-    .pagina-noticias .noticias-materia h2 {
-        font-size: 28px;
-    }
 
     .pagina-noticias .noticias-materia .noticias-capa {
         height: 220px;
@@ -4703,8 +4659,6 @@ body.ck-aberto {
 
 .pagina-faq .faq li label {
     padding: 15px 10px;
-    font-size: 18px;
-    font-weight: 500;
     background-color: #fff;
 
     display: flex;
@@ -4715,7 +4669,7 @@ body.ck-aberto {
 .pagina-faq .faq li label span {
     display: inline-block;
     padding: 8px;
-    background-color: #000;
+    background-color: #06152d;
     color: #fff;
     border-radius: 8px;
     margin-right: 10px;
@@ -4724,7 +4678,6 @@ body.ck-aberto {
 .pagina-faq .faq li label::before {
     content: '+';
     margin-right: 10px;
-    font-size: 24px;
 }
 
 .pagina-faq .faq input[type=radio] {
@@ -4732,10 +4685,9 @@ body.ck-aberto {
 }
 
 .pagina-faq .faq .resposta {
-    color: #535353;
+    color: rgb(71, 85, 105);
     padding: 0px 14px;
     background-color: #fff;
-    line-height: 32px;
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s, padding .5s;
@@ -4743,11 +4695,11 @@ body.ck-aberto {
 
 .pagina-faq .faq input[type=radio]:checked+label+.resposta {
     max-height: 400px;
-    padding: 10px 10 px 20px;
+    padding: 10px 10px 20px;
 }
 
 .pagina-faq .faq input[type=radio]:checked+label span {
-    background-color: #304B80;
+    background-color: rgb(14, 56, 103);
 }
 
 .pagina-faq .faq input[type=radio]:checked+label::before {
@@ -4775,29 +4727,6 @@ body.ck-aberto {
      640px   celular deitado / tablet pequeno
      1024px  computador (as colunas lado a lado começam aqui) */
 /* ---------- Variáveis: paleta oficial do Grupo Êxito ---------- */
-:root {
-    --navy-profundo: rgb(6, 21, 45);
-    /* header, rodapé, botões */
-    --navy-claro: rgb(14, 56, 103);
-    /* hover */
-    --ciano-eletrico: rgb(0, 188, 212);
-    /* detalhes e links no fundo escuro */
-    --teal: rgb(0, 104, 118);
-    /* títulos e links no fundo claro */
-    --fundo: rgb(248, 250, 253);
-    /* fundo da página */
-    --superficie: rgb(255, 255, 255);
-    /* cards e formulário */
-    --superficie-variante: rgb(241, 245, 249);
-    /* inputs */
-    --borda: rgb(226, 232, 240);
-    --texto: rgb(6, 21, 45);
-    /* títulos e texto forte */
-    --texto-corpo: rgb(71, 85, 105);
-    /* parágrafos */
-    --texto-invertido: rgb(255, 255, 255);
-    /* texto sobre navy */
-}
 
 /* ---------- Base ---------- */
 
@@ -4832,7 +4761,6 @@ body.ck-aberto {
 }
 
 .pagina-contato .canal h2 {
-    font-size: 1.15rem;
     margin: 0 0 0.5rem;
 }
 
@@ -4842,7 +4770,6 @@ body.ck-aberto {
 
 .pagina-contato .horario {
     margin: 0 0 2.5rem;
-    font-style: italic;
 }
 
 /* ---------- Formulário ---------- */
@@ -4865,8 +4792,7 @@ body.ck-aberto {
     display: block;
     /* label em cima do campo */
     margin-bottom: 0.25rem;
-    font-weight: bold;
-    color: var(--texto);
+    color: rgb(6, 21, 45);
 }
 
 .pagina-contato input,
@@ -4874,9 +4800,7 @@ body.ck-aberto {
 .pagina-contato textarea {
     width: 100%;
     padding: 0.6rem;
-    font: inherit;
-    /* usa a mesma fonte do resto da página */
-    color: var(--texto);
+    color: rgb(6, 21, 45);
     border: 1px solid var(--borda);
     border-radius: 4px;
     background: var(--superficie-variante);
@@ -4896,17 +4820,25 @@ body.ck-aberto {
     background: var(--navy-claro);
 }
 
-
-/* ---------- Rodapé ---------- */
-footer {
-    background: var(--navy-profundo);
-    color: var(--texto-invertido);
-    text-align: center;
-    padding: 1.5rem 1rem;
+.pagina-contato .proposta__campo {
+    margin-bottom: 20px;
 }
 
-footer p {
+.pagina-contato .equipe ul {
     margin: 0;
+    padding: 0;
+}
+
+.pagina-contato .equipe li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+
+
+.pagina-contato .equipe a {
+    width: max-content;
+    display: flex;
 }
 
 
@@ -4938,14 +4870,6 @@ footer p {
    Os 50px de cima vêm do componente .ex-hero; aqui fica só o espaço de baixo. */
 .pagina-servicos-1 main .ex-container {
     padding-bottom: 1.5rem;
-}
-
-:root {
-    --texto: #1c2b26;
-    --fundo: #fbfaf7;
-    --borda: #d9d6cc;
-    --destaque: #06152d;
-    --destaque-suave: #e8edf5;
 }
 
 .pagina-servicos-1 .foto {
@@ -5038,7 +4962,6 @@ footer p {
 
 .pagina-servicos-2 .container {
     display: flex;
-    align-items: 20px;
     gap: 2px;
     flex-wrap: wrap;
     background-color: white;
@@ -5046,7 +4969,6 @@ footer p {
 
 .pagina-servicos-2 .container_header {
     display: flex;
-    align-items: 200px;
     gap: 200px;
     flex-wrap: wrap;
     background-color: rgb(10, 30, 59);
@@ -5054,12 +4976,12 @@ footer p {
 
 .pagina-servicos-2 .titulo_baner {
     margin-left: 250px;
-    color: black;
+    color: rgb(6, 21, 45);
 }
 
 .pagina-servicos-2 .texto-centralizado {
     text-align: center;
-    background-color: #00245d;
+    background-color: rgb(14, 56, 103);
 }
 
 .pagina-servicos-2 .texto-centralizado h2 {
@@ -5070,14 +4992,12 @@ footer p {
     display: flex;
     gap: 35px;
     flex-wrap: wrap;
-    border: 1px solid #0c0b0b;
+    border: 1px solid rgb(6, 21, 45);
     border-radius: 8px;
     padding: 30px;
     min-height: 250px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
     box-sizing: border-box;
-    font-size: 18px;
-    line-height: 1.6;
     margin-bottom: 20px;
 }
 
@@ -5087,15 +5007,17 @@ footer p {
     margin: 50px auto;
     padding: 35px;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(226, 232, 240);
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(6, 21, 45, 0.08);
     box-sizing: border-box;
 }
 
 .pagina-servicos-2 .botao {
     display: block;
+    width: fit-content;
     margin: 10px auto 0;
+    text-decoration: none;
     background-color: rgb(6, 21, 45);
     color: white;
     padding: 12px 30px;
@@ -5106,14 +5028,18 @@ footer p {
 }
 
 .pagina-servicos-2 .botao:hover {
-    background-color: #0d00fd;
+    background-color: rgb(14, 56, 103);
     transform: scale(1.05);
 
 }
 
 
+.pagina-servicos-2 .cards ul {
+    list-style: square;
+}
+
 .pagina-servicos-2 .texto-preto {
-    color: black;
+    color: rgb(71, 85, 105);
 }
 
 
@@ -5146,32 +5072,47 @@ footer p {
    muda a tipografia. O topo é o componente .ex-hero, os títulos das seções
    usam o .ex-cabecalho, os botões do fim são o .ex-botao e a nota do fim é
    o .ex-nota. Aqui ficam só a foto do topo, os espaços e as caixas. */
-
-/* ---- Topo (hero) --------------------------------------------------------
-   Foto de fundo do topo (o caminho sai de css/ até img/). Sem a foto,
-   o fundo fica azul-marinho. */
-.pagina-servicos-3 .ex-hero {
-    background-image: url("../img/servicos-3/gestor-orientando-equipe.jpg");
+.pagina-servicos-3 {
+    background-color: rgb(248, 250, 253);
 }
 
-/* O conteúdo usa o container-base do site (.ex-container, 1200px);
-   o texto ocupa a largura toda do conteúdo.
-   Em cima não há espaço: os 50px abaixo do topo vêm do componente. */
-.pagina-servicos-3 .conteudo {
+.pagina-servicos-3 main h1 {
+    color: rgb(6, 21, 45);
+}
+
+.pagina-servicos-3 main h2 {
+    color: rgb(6, 21, 45);
+}
+
+.pagina-servicos-3 main strong {
+    margin-top: 20px;
+    display: block;
+    color: rgb(82, 96, 113);
+}
+
+.pagina-servicos-3 main article {
     margin: auto;
-    padding: 0 20px 20px;
+    max-width: 1200px;
+    padding: 20px;
+
 }
 
-/* Espaço entre as seções */
 .pagina-servicos-3 main section {
     margin-bottom: 30px;
 }
 
-/* ---- Tabela "O que está incluso" ---------------------------------------
-   Caixa branca com cantos arredondados */
+.pagina-servicos-3 main article img {
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
 .pagina-servicos-3 main table {
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
+    border: 0.1px solid rgb(226, 232, 240);
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 16px;
@@ -5179,70 +5120,68 @@ footer p {
     width: 100%;
 }
 
-.pagina-servicos-3 main caption {
-    text-align: left;
-    padding-bottom: 0.75rem;
-}
-
 .pagina-servicos-3 main th,
 .pagina-servicos-3 main td {
     border: 1px solid rgb(226, 232, 240);
     padding: 10px;
     text-align: left;
+    color: rgb(6, 21, 45);
 }
 
-/* ---- Os 4 cards de "O que fazemos" --------------------------------------
-   Caixa branca com borda fina e texto centralizado. Dois cards por linha. */
+.pagina-servicos-3 main tbody td {
+    color: rgb(71, 85, 105);
+}
+
+.pagina-servicos-3 .link1, 
+.pagina-servicos-3 .link2 {
+    display: inline-block;
+    background-color: rgb(6, 21, 45);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in;
+}
+
+.pagina-servicos-3 .link1:hover {
+    background-color: rgb(14, 56, 103);
+}
+
+.pagina-servicos-3 .link2:hover {
+    background-color: rgb(14, 56, 103);
+}
+
 .pagina-servicos-3 .conteiner-flex {
     display: flex;
     gap: 10px;
 }
 
-.pagina-servicos-3 .card {
-    width: 100%;
-    margin-bottom: 30px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(226, 232, 240);
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.pagina-servicos-3 .card h3 {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-.pagina-servicos-3 .card p {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-/* ---- Botões do fim (componente .ex-botao), lado a lado no centro ------- */
 .pagina-servicos-3 .conteiner-link-flex {
     justify-content: center;
     display: flex;
-    flex-wrap: wrap;
     gap: 50px;
 }
 
-/* Fonte da foto: nota discreta no fim da página (texto: componente .ex-nota) */
-.pagina-servicos-3 .nota-fonte {
-    padding: 20px 5% 0;
+.pagina-servicos-3 .srv3-card {
+    background-color: rgb(255, 255, 255);
+    border: 0.1px solid rgb(226, 232, 240);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.pagina-servicos-3 .srv3-card h3 {
+    margin: 0;
+    color: rgb(6, 21, 45);
+    padding: 10px;
     text-align: center;
 }
 
-/* Celular: um card embaixo do outro e botões mais próximos */
-@media (max-width: 640px) {
-    .pagina-servicos-3 .conteiner-flex {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .pagina-servicos-3 .conteiner-link-flex {
-        gap: 16px;
-    }
+.pagina-servicos-3 .srv3-card p {
+    margin: 0;
+    color: rgb(71, 85, 105);
+    padding: 10px;
+    text-align: center;
 }
 
 
@@ -5584,23 +5523,6 @@ footer p {
    só a largura da coluna de leitura, os espaços e as linhas divisórias. */
 
 
-:root {
-    /* Paleta de Cores Oficial do Site */
-    --fundo: rgb(248, 250, 253);
-    --cabecalho-rodape: rgb(6, 21, 45);
-    --marinha-claro: rgb(14, 56, 103);
-    --ciano-eletrico: rgb(0, 188, 212);
-    --cerceta: rgb(0, 104, 118);
-    --borda: rgb(226, 232, 240);
-    --texto-titulos: rgb(6, 21, 45);
-    --texto-corpo: rgb(71, 85, 105);
-    --texto-suave: rgb(148, 163, 184);
-    --texto-fundo-navy: rgb(255, 255, 255);
-    --alerta: rgb(245, 158, 11);
-
-    --fonte: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-}
-
 
 .pagina-politica-privacidade .conteudo {
     max-width: 1200px;
@@ -5610,7 +5532,6 @@ footer p {
 
 .pagina-politica-privacidade h2 {
     color: var(--texto-titulos);
-    font-size: 1.5rem;
     margin: 2.25rem 0 .5rem;
     padding-bottom: .4rem;
     border-bottom: 2px solid var(--borda);
@@ -5621,7 +5542,6 @@ footer p {
 }
 
 .pagina-politica-privacidade h3 {
-    font-size: 1.2rem;
     margin: 2rem 0 .25rem;
     color: var(--cerceta);
 }
