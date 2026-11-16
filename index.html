@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Script que precisa rodar antes da página aparecer (sem "piscar"):
          acessibilidade (preferências salvas) -->
-    <script src="js/acessibilidade.js"></script>
 </head>
 
 <body class="pagina-index">
@@ -86,31 +85,13 @@
                     </button>
                 </div>
             </div>
-            <!-- Menu mobile: aberto/fechado por js/menu.js (classe "is-open") -->
-            <nav class="ex-menu-mobile" id="ex-menu-mobile" aria-label="Navegação principal (mobile)">
-                <div class="ex-conteudo">
-                    <a class="ex-menu__link" href="index.html" aria-current="page">Início</a>
-                    <a class="ex-menu__link" href="pages/quem-somos.html">Quem Somos</a>
-                    <a class="ex-menu__link" href="pages/servicos.html">Serviços</a>
-                    <a class="ex-menu__link" href="pages/clientes.html">Clientes</a>
-                    <a class="ex-menu__link" href="pages/projetos.html">Projetos</a>
-                    <a class="ex-menu__link" href="pages/noticias.html">Notícias</a>
-                    <a class="ex-menu__link" href="pages/faq.html">FAQ</a>
-                    <a class="ex-menu__link" href="pages/contato.html">Contato</a>
-                    <a class="ex-cta" href="pages/contato.html#proposta-form">
-                        <span>Falar com Consultor</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                </div>
-            </nav>
         </div>
     </header>
     <main>
         <!-- TOPO DA HOME: título, chamadas, indicadores e foto -->
         <section class="inicio">
             <!-- Fundo decorativo: pontinhos e brilho ciano -->
-            <div class="inicio__pontos"></div>
-            <div class="inicio__brilho"></div>
+
             <div class="ex-container inicio__conteudo">
                 <!-- Faixa de selos acima do título -->
                 <div class="inicio__faixa">
@@ -694,20 +675,7 @@
                     </p>
                 </div>
 
-                <!-- Filtro por assunto (js/home.js marca o botão ativo com aria-pressed="true") -->
-                <div class="faq__filtros" id="faqTabs" role="group" aria-label="Filtrar perguntas por assunto">
-                    <button class="ex-botao ex-botao--secundario faq__filtro" type="button" aria-pressed="true"
-                        onclick="filterFaq('todas', this)">Todas as dúvidas</button>
-                    <button class="ex-botao ex-botao--secundario faq__filtro" type="button" aria-pressed="false"
-                        onclick="filterFaq('transicao', this)">Transição &amp; Contratação</button>
-                    <button class="ex-botao ex-botao--secundario faq__filtro" type="button" aria-pressed="false"
-                        onclick="filterFaq('financeiro', this)">Financeiro &amp; Boletos</button>
-                    <button class="ex-botao ex-botao--secundario faq__filtro" type="button" aria-pressed="false"
-                        onclick="filterFaq('tecnologia', this)">Tecnologia &amp; App</button>
-                    <button class="ex-botao ex-botao--secundario faq__filtro" type="button" aria-pressed="false"
-                        onclick="filterFaq('juridico', this)">Jurídico &amp; Assembleias</button>
-                </div>
-                <!-- Aviso para leitor de tela: quantas perguntas ficaram visíveis -->
+
                 <p class="visualmente-oculto" id="faqAviso" role="status"></p>
 
                 <div class="faq__grade">
@@ -1071,9 +1039,6 @@
         </div>
     </footer>
 
-    <script src="js/home.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/cookies.js"></script>
 </body>
 
 </html>
